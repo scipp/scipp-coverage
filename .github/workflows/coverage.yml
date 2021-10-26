@@ -19,6 +19,10 @@ jobs:
           export SCIPP_COMMIT_HASH="echo $(command git ls-remote https://github.com/scipp/scipp HEAD | head -n1 | sed -e 's/\s.*$//')"
           grep -Fxv "$SCIPP_COMMIT_HASH" scipp_commit_hash
 
+      - name: Install gcovr
+        shell: bash -l {0}
+        run: sudo apt install --yes gcovr
+
       - name: Clone Scipp
         shell: bash -l {0}
         run: git clone https://github.com/scipp/scipp repo
@@ -32,23 +36,17 @@ jobs:
           activate-environment: scipp-developer
           auto-activate-base: false
 
-      - name: Install gcovr
-        shell: bash -l {0}
-        run: sudo apt install --yes gcovr
-
       - name: Setup env
         shell: bash -l {0}
         run: |
           cd repo
           mkdir build
           mkdir install
-          conda env create -f ./scipp-developer.yml
 
       - name: Build coverage
         shell: bash -l {0}
         run: |
           cd repo/build
-          conda activate scipp-developer
           cmake \
             -GNinja \
             -DCOVARAGE=On \
