@@ -33,14 +33,14 @@ jobs:
           mkdir build
           mkdir install
 
-      - name: Setup Mambaforge and Scipp dev env
-        uses: conda-incubator/setup-miniconda@v2.1.1
-        with:
-          miniforge-version: latest
-          miniforge-variant: Mambaforge
-          environment-file: repo/scipp-developer.yml
-          activate-environment: scipp-developer
-          auto-activate-base: false
+          #- name: Setup Mambaforge and Scipp dev env
+          #  uses: conda-incubator/setup-miniconda@v2.1.1
+          #  with:
+          #    miniforge-version: latest
+          #    miniforge-variant: Mambaforge
+          #    environment-file: repo/scipp-developer.yml
+          #    activate-environment: scipp-developer
+          #    auto-activate-base: false
 
       - name: Build coverage
         shell: bash -l {0}
@@ -49,6 +49,7 @@ jobs:
           cd repo/build
           mkdir coverage
           echo "success" > coverage/index.html
+          pwd
           #cmake \
           #  -GNinja \
           #  -DCOVERAGE=On \
