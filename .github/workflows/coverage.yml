@@ -1,0 +1,89 @@
+name: scipp code coverage
+
+on: 
+  schedule:
+    - cron: '0 * * * *'
+  push:
+  
+
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Check if commit already benched
+        shell: bash -l {0}
+        run: |
+          export SCIPP_COMMIT_HASH="echo $(command git ls-remote https://github.com/scipp/scipp HEAD | head -n1 | sed -e 's/\s.*$//')"
+          grep -Fx "$SCIPP_COMMIT_HASH" scipp_commit_hash
+
+      - name: Clone Scipp
+        shell: bash -l {0}
+        run: git clone https://github.com/scipp/scipp repo
+
+      - name: Setup Mambaforge and Scipp dev env
+        uses: conda-incubator/setup-miniconda@v2.1.1
+        with:
+          miniforge-version: latest
+          miniforge-variant: Mambaforge
+          environment-file: repo/scipp-developer.yml
+          activate-environment: scipp-developer
+          auto-activate-base: false
+
+      - name: Install gcovr
+        shell: bash -l {0}
+        run: sudo apt install --yes gcovr
+
+      - name: Setup env
+        shell: bash -l {0}
+        run: |
+          cd repo
+          mkdir build
+          mkdir install
+          conda env create -f ./scipp-developer.yml
+
+      - name: Build coverage
+        shell: bash -l {0}
+        run: |
+          cd repo/build
+          conda activate scipp-developer
+          cmake \
+            -GNinja \
+            -DCOVARAGE=On \
+            -DCMAKE_BUILD_TYPE=Debug \
+            -DPython_EXECUTABLE=$(command -v python3) \
+            -DCMAKE_INSTALL_PREFIX=../install \
+            -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=OFF \
+            -DDYNAMIC_LIB=ON \
+            ..
+          cmake --build . --target coverage
+
+      - name: Create the Scipp repo commit hash file
+        shell: bash -l {0}
+        run: |
+          $SCIPP_COMMIT_HASH >> scipp_commit_hash
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: main
+
+      - name: Prep website for gh_pages branch
+        shell: bash -l {0}
+        run: |
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git checkout gh-pages
+          git rm -rf .
+          cp -r repo/build/coverage/* .
+          git add .
+          git commit --amend --date="$(date)" --message='[Bot] Publish coverage results to Github Pages'
+
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
