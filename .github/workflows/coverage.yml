@@ -83,7 +83,7 @@ jobs:
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git rm -rf .
-          cp -r $GITHUB_WORKSPACE/scipp-coverage/repo/build/coverage/* .
+          cp -r ../repo/build/coverage/* .
           git add .
           git commit --amend --date="$(date)" --message='[Bot] Publish coverage results to Github Pages'
 
