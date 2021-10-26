@@ -47,16 +47,18 @@ jobs:
         run: |
           export PYTHONPATH=$(pwd)/repo/install
           cd repo/build
-          cmake \
-            -GNinja \
-            -DCOVERAGE=On \
-            -DCMAKE_BUILD_TYPE=Debug \
-            -DPython_EXECUTABLE=$(command -v python3) \
-            -DCMAKE_INSTALL_PREFIX=../install \
-            -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=OFF \
-            -DDYNAMIC_LIB=ON \
-            ..
-          cmake --build . --target coverage
+          mkdir coverage
+          echo "success" > index.html
+          #cmake \
+          #  -GNinja \
+          #  -DCOVERAGE=On \
+          #  -DCMAKE_BUILD_TYPE=Debug \
+          #  -DPython_EXECUTABLE=$(command -v python3) \
+          #  -DCMAKE_INSTALL_PREFIX=../install \
+          #  -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=OFF \
+          #  -DDYNAMIC_LIB=ON \
+          #  ..
+          #cmake --build . --target coverage
 
       - name: Create the Scipp repo commit hash file
         shell: bash -l {0}
@@ -70,13 +72,16 @@ jobs:
           branch: main
 
       - name: Prep website for gh_pages branch
+        uses: actions/checkout@v2
+        with:
+          ref: gh-pages
+          path: gh-pages
         shell: bash -l {0}
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
-          git checkout gh-pages
           git rm -rf .
-          cp -r repo/build/coverage/* .
+          cp -r $GITHUB_WORKSPACE/scipp-coverage/repo/build/coverage/* .
           git add .
           git commit --amend --date="$(date)" --message='[Bot] Publish coverage results to Github Pages'
 
