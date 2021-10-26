@@ -25,7 +25,13 @@ jobs:
 
       - name: Clone Scipp
         shell: bash -l {0}
-        run: git clone https://github.com/scipp/scipp repo
+        run: |
+          git clone https://github.com/scipp/scipp repo
+          cd repo
+          git submodule init
+          git submodule update
+          mkdir build
+          mkdir install
 
       - name: Setup Mambaforge and Scipp dev env
         uses: conda-incubator/setup-miniconda@v2.1.1
@@ -35,13 +41,6 @@ jobs:
           environment-file: repo/scipp-developer.yml
           activate-environment: scipp-developer
           auto-activate-base: false
-
-      - name: Setup env
-        shell: bash -l {0}
-        run: |
-          cd repo
-          mkdir build
-          mkdir install
 
       - name: Build coverage
         shell: bash -l {0}
