@@ -47,7 +47,6 @@ jobs:
         run: |
           export PYTHONPATH=$(pwd)/repo/install
           cd repo/build
-          mkdir coverage
           cmake \
             -GNinja \
             -DCOVERAGE=On \
@@ -57,7 +56,7 @@ jobs:
             -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=OFF \
             -DDYNAMIC_LIB=ON \
             ..
-          cmake --build . --target coverage
+          cmake --build . -j --target coverage VERBOSE=1
 
       - name: Create the Scipp repo commit hash file
         shell: bash -l {0}
