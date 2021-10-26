@@ -33,14 +33,14 @@ jobs:
           mkdir build
           mkdir install
 
-          #- name: Setup Mambaforge and Scipp dev env
-          #  uses: conda-incubator/setup-miniconda@v2.1.1
-          #  with:
-          #    miniforge-version: latest
-          #    miniforge-variant: Mambaforge
-          #    environment-file: repo/scipp-developer.yml
-          #    activate-environment: scipp-developer
-          #    auto-activate-base: false
+      - name: Setup Mambaforge and Scipp dev env
+        uses: conda-incubator/setup-miniconda@v2.1.1
+        with:
+          miniforge-version: latest
+          miniforge-variant: Mambaforge
+          environment-file: repo/scipp-developer.yml
+          activate-environment: scipp-developer
+          auto-activate-base: false
 
       - name: Build coverage
         shell: bash -l {0}
@@ -48,17 +48,16 @@ jobs:
           export PYTHONPATH=$(pwd)/repo/install
           cd repo/build
           mkdir coverage
-          echo "test2" > coverage/index.html
-          #cmake \
-          #  -GNinja \
-          #  -DCOVERAGE=On \
-          #  -DCMAKE_BUILD_TYPE=Debug \
-          #  -DPython_EXECUTABLE=$(command -v python3) \
-          #  -DCMAKE_INSTALL_PREFIX=../install \
-          #  -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=OFF \
-          #  -DDYNAMIC_LIB=ON \
-          #  ..
-          #cmake --build . --target coverage
+          cmake \
+            -GNinja \
+            -DCOVERAGE=On \
+            -DCMAKE_BUILD_TYPE=Debug \
+            -DPython_EXECUTABLE=$(command -v python3) \
+            -DCMAKE_INSTALL_PREFIX=../install \
+            -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=OFF \
+            -DDYNAMIC_LIB=ON \
+            ..
+          cmake --build . --target coverage
 
       - name: Create the Scipp repo commit hash file
         shell: bash -l {0}
