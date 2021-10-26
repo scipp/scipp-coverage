@@ -28,6 +28,7 @@ jobs:
         with:
           repository: 'scipp/scipp'
           path: repo
+          submodules: true
 
       - name: Setup Mambaforge and Scipp dev env
         uses: conda-incubator/setup-miniconda@v2.1.1
