@@ -71,11 +71,13 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: main
 
-      - name: Prep website for gh_pages branch
+      - name: Checkout gh-pages
         uses: actions/checkout@v2
         with:
           ref: gh-pages
           path: gh-pages
+
+      - name: Setup gh-pages
         shell: bash -l {0}
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
