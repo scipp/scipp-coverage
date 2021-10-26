@@ -48,7 +48,7 @@ jobs:
           export PYTHONPATH=$(pwd)/repo/install
           cd repo/build
           mkdir coverage
-          echo "success" > index.html
+          echo "success" > coverage/index.html
           #cmake \
           #  -GNinja \
           #  -DCOVERAGE=On \
