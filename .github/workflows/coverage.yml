@@ -45,6 +45,7 @@ jobs:
       - name: Build coverage
         shell: bash -l {0}
         run: |
+          export PYTHONPATH=$(pwd)/repo/install
           cd repo/build
           cmake \
             -GNinja \
