@@ -48,7 +48,7 @@ jobs:
           cd repo/build
           cmake \
             -GNinja \
-            -DCOVARAGE=On \
+            -DCOVERAGE=On \
             -DCMAKE_BUILD_TYPE=Debug \
             -DPython_EXECUTABLE=$(command -v python3) \
             -DCMAKE_INSTALL_PREFIX=../install \
