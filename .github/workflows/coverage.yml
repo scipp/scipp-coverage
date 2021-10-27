@@ -52,15 +52,16 @@ jobs:
           mkdir install
           cd build
           cmake \
-            -GNinja \
             -DCOVERAGE=On \
             -DCMAKE_BUILD_TYPE=Debug \
+            -DWITH_CTEST=Off \
+            -DDISABLE_MULTI_THREAFING=On \
             -DPython_EXECUTABLE=$(command -v python3) \
             -DCMAKE_INSTALL_PREFIX=../install \
             -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=OFF \
             -DDYNAMIC_LIB=ON \
             ..
-          cmake --build . -j --target coverage
+          cmake --build . -j --target coverage VERBOSE=1
 
       - name: Create the Scipp repo commit hash file
         shell: bash -l {0}
