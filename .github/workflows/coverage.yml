@@ -62,6 +62,7 @@ jobs:
       - name: Python coverage
         shell: bash -l {0}
         run: |
+          export PYTHONPATH=$(pwd)/repo/install
           cd repo/python/tests
           pytest --cov=scipp --cov-report html:../../coverage_html/python .
 
