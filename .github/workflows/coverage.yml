@@ -13,12 +13,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Check if commit already benched
-        shell: bash -l {0}
-        run: |
-          export SCIPP_COMMIT_HASH="echo $(command git ls-remote https://github.com/scipp/scipp HEAD | head -n1 | sed -e 's/\s.*$//')"
-          grep -Fxv "$SCIPP_COMMIT_HASH" scipp_commit_hash
-
       - name: Install gcovr
         shell: bash -l {0}
         run: sudo apt install --yes gcovr
@@ -62,17 +56,6 @@ jobs:
             -DDYNAMIC_LIB=ON \
             ..
           cmake --build . --target coverage VERBOSE=1
-
-      - name: Create the Scipp repo commit hash file
-        shell: bash -l {0}
-        run: |
-          $SCIPP_COMMIT_HASH >> scipp_commit_hash
-
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: main
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.5
