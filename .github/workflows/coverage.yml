@@ -15,7 +15,7 @@ jobs:
 
       - name: Install gcovr
         shell: bash -l {0}
-        run: sudo apt install --yes gcovr
+        run: sudo apt install --yes lcov
 
       - name: Checkout scipp
         uses: actions/checkout@v2
@@ -56,8 +56,6 @@ jobs:
             -DDYNAMIC_LIB=ON \
             ../repo
           cmake --build . --target coverage VERBOSE=1
-          rm -rf coverage
-          /usr/bin/gcovr --verbose --html --html-details -r /home/runner/work/scipp-coverage/scipp-coverage/repo -e "/home/runner/work/scipp-coverage/scipp-coverage/build/variable/*.cpp" -e "/home/runner/work/scipp-coverage/scipp-coverage/build/dataset/*.cpp" -e "/home/runner/work/scipp-coverage/scipp-coverage/build/python/*.cpp" --object-directory=/home/runner/work/scipp-coverage/scipp-coverage/build -o coverage/index.html
           mv coverage ../coverage_html/cpp
 
       - name: Python coverage
