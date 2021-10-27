@@ -40,8 +40,7 @@ jobs:
       - name: C++ coverage
         shell: bash -l {0}
         run: |
-          export PYTHONPATH=$(pwd)/repo/install
-          cd repo
+          export PYTHONPATH=$(pwd)/install
           mkdir build
           mkdir install
           mkdir coverage_html
@@ -55,24 +54,24 @@ jobs:
             -DCMAKE_INSTALL_PREFIX=../install \
             -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=OFF \
             -DDYNAMIC_LIB=ON \
-            ..
+            ../repo
           cmake --build . --target coverage VERBOSE=1
           mv coverage ../coverage_html/cpp
 
       - name: Python coverage
         shell: bash -l {0}
         run: |
-          export PYTHONPATH=$(pwd)/repo/install
+          export PYTHONPATH=$(pwd)/install
           cd repo/python/tests
-          pytest --cov=scipp --cov-report html:../../coverage_html/python .
+          pytest --cov=scipp --cov-report html:../../../coverage_html/python .
 
       - name: Setup HTML
         shell: bash -l {0}
         run: |
-          mv html/index.html repo/coverage_html/
+          mv html/index.html coverage_html/
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@4.1.5
         with:
           branch: gh-pages
-          folder: repo/coverage_html
+          folder: coverage_html
