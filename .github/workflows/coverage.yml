@@ -61,7 +61,7 @@ jobs:
             -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=OFF \
             -DDYNAMIC_LIB=ON \
             ..
-          cmake --build . -j --target coverage VERBOSE=1
+          cmake --build . --target coverage VERBOSE=1
 
       - name: Create the Scipp repo commit hash file
         shell: bash -l {0}
