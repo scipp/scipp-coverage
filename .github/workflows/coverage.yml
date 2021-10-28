@@ -59,6 +59,8 @@ jobs:
           cmake --build . --target scipp-core-test VERBOSE=1
           lcov --zerocounters --directory .
           lcov --no-external --capture --initial --directory . -b ../repo --output-file scipp_base.info
+          ./bin/scipp-units-test
+          ./bin/scipp-core-test
           lcov --no-external --capture --directory .  -b ../repo --output-file scipp-core-test.info
           lcov --add-tracefile scipp_base.info --add-tracefile scipp-core-test.info --output-file scipp_total.info
           genhtml --prefix ../repo --ignore-errors source scipp_total.info --legend --title "$(date)" --output-directory=coverage
