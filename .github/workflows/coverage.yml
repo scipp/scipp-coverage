@@ -27,15 +27,15 @@ jobs:
 
       - name: Extend conda env file
         run: |
-          echo "  - pytest-cov" >> repo/scipp-developer.yml
-          cat repo/scipp-developer.yml  | grep -v gxx > repo/scipp-developer.yml
+          cat repo/scipp-developer.yml  | grep -v gxx > env.yml
+          echo "  - pytest-cov" >> env.yml
 
       - name: Setup Mambaforge and Scipp dev env
         uses: conda-incubator/setup-miniconda@v2.1.1
         with:
           miniforge-version: latest
           miniforge-variant: Mambaforge
-          environment-file: repo/scipp-developer.yml
+          environment-file: env.yml
           activate-environment: scipp-developer
           auto-activate-base: false
 
