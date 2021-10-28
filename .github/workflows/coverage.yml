@@ -56,7 +56,7 @@ jobs:
             -DCOVERAGE=On \
             -DCMAKE_BUILD_TYPE=Debug \
             -DWITH_CTEST=Off \
-            -DDISABLE_MULTI_THREAFING=On \
+            -DDISABLE_MULTI_THREADING=On \
             -DPython_EXECUTABLE=$(command -v python3) \
             -DCMAKE_INSTALL_PREFIX=../install \
             -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=OFF \
