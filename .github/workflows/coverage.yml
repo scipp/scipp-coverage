@@ -15,7 +15,7 @@ jobs:
 
       - name: Install gcovr
         shell: bash -l {0}
-        run: sudo apt install --yes lcov gcc-11
+        run: sudo apt install --yes lcov g++-11
 
       - name: Checkout scipp
         uses: actions/checkout@v2
