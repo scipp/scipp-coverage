@@ -63,7 +63,7 @@ jobs:
           lcov --no-external --capture --directory .  -b ../repo --output-file scipp-units-test.info
           ./bin/scipp-core-test
           lcov --no-external --capture --directory .  -b ../repo --output-file scipp-core-test.info
-          lcov --add-tracefile scipp_base.info --add-tracefile scipp-units-test.info scipp-core-test.info --output-file scipp_total.info
+          lcov -a scipp_base.info -a scipp-units-test.info -a scipp-core-test.info --output-file scipp_total.info
           #lcov --remove scipp_total.info "./core/*.cpp" "./variable/*.cpp" "./dataset/*.cpp" "./python/*.cpp" "/usr/*" "/*conan/data*" "/*miniconda*" --output-file scipp_filtered.info
           genhtml --prefix $(realpath ../repo) --ignore-errors source scipp_total.info --legend --title "$(date)" --output-directory=coverage
           #cmake --build . --target coverage VERBOSE=1
