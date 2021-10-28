@@ -15,7 +15,10 @@ jobs:
 
       - name: Install gcovr
         shell: bash -l {0}
-        run: sudo apt install --yes lcov g++-11
+        run: |
+          sudo apt install --yes lcov g++-11
+          sudo update-alternatives --set g++ "/usr/bin/g++-11"
+          sudo update-alternatives --set gcov "/usr/bin/gcov-11"
 
       - name: Checkout scipp
         uses: actions/checkout@v2
@@ -40,8 +43,6 @@ jobs:
           auto-activate-base: false
 
       - name: C++ coverage
-        env:
-          CXX: g++-11
         shell: bash -l {0}
         run: |
           export PYTHONPATH=$(pwd)/install
