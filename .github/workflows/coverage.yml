@@ -59,18 +59,18 @@ jobs:
             -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=OFF \
             -DDYNAMIC_LIB=ON \
             ../repo
-          cmake --build . --target scipp-units-test VERBOSE=1
-          cmake --build . --target scipp-core-test VERBOSE=1
-          lcov --gcov-tool gcov-11 --zerocounters --directory .
-          lcov --gcov-tool gcov-11 --no-external --capture --initial --directory . -b ../repo --output-file scipp_base.info
-          ./bin/scipp-units-test
-          lcov --gcov-tool gcov-11 --no-external --capture --directory .  -b ../repo --output-file scipp-units-test.info
-          ./bin/scipp-core-test
-          lcov --gcov-tool gcov-11 --no-external --capture --directory .  -b ../repo --output-file scipp-core-test.info
-          lcov --gcov-tool gcov-11 -a scipp_base.info -a scipp-units-test.info -a scipp-core-test.info --output-file scipp_total.info
+            #cmake --build . --target scipp-units-test VERBOSE=1
+            #cmake --build . --target scipp-core-test VERBOSE=1
+            #lcov --gcov-tool gcov-11 --zerocounters --directory .
+            #lcov --gcov-tool gcov-11 --no-external --capture --initial --directory . -b ../repo --output-file scipp_base.info
+            #./bin/scipp-units-test
+            #lcov --gcov-tool gcov-11 --no-external --capture --directory .  -b ../repo --output-file scipp-units-test.info
+            #./bin/scipp-core-test
+            #lcov --gcov-tool gcov-11 --no-external --capture --directory .  -b ../repo --output-file scipp-core-test.info
+            #lcov --gcov-tool gcov-11 -a scipp_base.info -a scipp-units-test.info -a scipp-core-test.info --output-file scipp_total.info
           #lcov --remove scipp_total.info "./core/*.cpp" "./variable/*.cpp" "./dataset/*.cpp" "./python/*.cpp" "/usr/*" "/*conan/data*" "/*miniconda*" --output-file scipp_filtered.info
-          genhtml --prefix $(realpath ../repo) --ignore-errors source scipp_total.info --legend --title "$(date)" --output-directory=coverage
-          #cmake --build . --target coverage VERBOSE=1
+          #genhtml --prefix $(realpath ../repo) --ignore-errors source scipp_total.info --legend --title "$(date)" --output-directory=coverage
+          cmake --build . --target coverage VERBOSE=1
           mv coverage ../coverage_html/cpp
 
           #- name: Python coverage
