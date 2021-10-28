@@ -40,6 +40,8 @@ jobs:
           auto-activate-base: false
 
       - name: C++ coverage
+        env:
+          CXX: g++-11
         shell: bash -l {0}
         run: |
           export PYTHONPATH=$(pwd)/install
