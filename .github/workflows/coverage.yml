@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Install gcovr
+      - name: Install dependencies
         shell: bash -l {0}
         run: |
           sudo apt install --yes lcov g++-11
@@ -22,7 +22,7 @@ jobs:
           sudo update-alternatives --set g++ "/usr/bin/g++-11"
           sudo update-alternatives --set gcov "/usr/bin/gcov-11"
 
-      - name: Checkout scipp
+      - name: Checkout repo
         uses: actions/checkout@v2
         with:
           repository: 'scipp/scipp'
@@ -30,12 +30,12 @@ jobs:
           submodules: true
           fetch-depth: 0  # history required so cmake can determine version
 
-      - name: Extend conda env file
+      - name: Setup conda env file
         run: |
-          cat repo/scipp-developer.yml  | grep -v gxx > env.yml
+          cat repo/scipp-developer.yml | grep -v 'gxx\|tbb' > env.yml
           echo "  - pytest-cov" >> env.yml
 
-      - name: Setup Mambaforge and Scipp dev env
+      - name: Setup Mambaforge and dev env
         uses: conda-incubator/setup-miniconda@v2.1.1
         with:
           miniforge-version: latest
@@ -62,26 +62,15 @@ jobs:
             -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=OFF \
             -DDYNAMIC_LIB=ON \
             ../repo
-            #cmake --build . --target scipp-units-test VERBOSE=1
-            #cmake --build . --target scipp-core-test VERBOSE=1
-            #lcov --gcov-tool gcov-11 --zerocounters --directory .
-            #lcov --gcov-tool gcov-11 --no-external --capture --initial --directory . -b ../repo --output-file scipp_base.info
-            #./bin/scipp-units-test
-            #lcov --gcov-tool gcov-11 --no-external --capture --directory .  -b ../repo --output-file scipp-units-test.info
-            #./bin/scipp-core-test
-            #lcov --gcov-tool gcov-11 --no-external --capture --directory .  -b ../repo --output-file scipp-core-test.info
-            #lcov --gcov-tool gcov-11 -a scipp_base.info -a scipp-units-test.info -a scipp-core-test.info --output-file scipp_total.info
-          #lcov --remove scipp_total.info "./core/*.cpp" "./variable/*.cpp" "./dataset/*.cpp" "./python/*.cpp" "/usr/*" "/*conan/data*" "/*miniconda*" --output-file scipp_filtered.info
-          #genhtml --prefix $(realpath ../repo) --ignore-errors source scipp_total.info --legend --title "$(date)" --output-directory=coverage
           cmake --build . --target coverage VERBOSE=1
           mv coverage ../coverage_html/cpp
 
-          #- name: Python coverage
-          #  shell: bash -l {0}
-          #  run: |
-          #    export PYTHONPATH=$(pwd)/install
-          #    cd repo/python/tests
-          #    pytest --cov=scipp --cov-report html:../../../coverage_html/python .
+      - name: Python coverage
+        shell: bash -l {0}
+        run: |
+          export PYTHONPATH=$(pwd)/install
+          cd repo/python/tests
+          pytest --cov=scipp --cov-report html:../../../coverage_html/python .
 
       - name: Setup HTML
         shell: bash -l {0}
