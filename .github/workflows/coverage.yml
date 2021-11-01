@@ -51,22 +51,11 @@ jobs:
         shell: bash -l {0}
         run: |
           export PYTHONPATH=$(pwd)/install
-          mkdir build
-          mkdir install
           mkdir coverage_html
-          cd build
-          cmake \
-            -DCOVERAGE=On \
-            -DCMAKE_BUILD_TYPE=Debug \
-            -DWITH_CTEST=Off \
-            -DDISABLE_MULTI_THREADING=On \
-            -DPython_EXECUTABLE=$(command -v python3) \
-            -DCMAKE_INSTALL_PREFIX=../install \
-            -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=OFF \
-            -DDYNAMIC_LIB=ON \
-            ../repo
-          cmake --build . --target coverage
-          mv coverage ../coverage_html/cpp
+          cd repo
+          cmake --preset coverage
+          cmake --build --preset coverage
+          mv build/coverage ../coverage_html/cpp
 
       - name: Python coverage
         shell: bash -l {0}
