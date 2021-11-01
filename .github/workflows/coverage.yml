@@ -50,7 +50,7 @@ jobs:
       - name: C++ coverage
         shell: bash -l {0}
         run: |
-          export PYTHONPATH=$(pwd)/install
+          export PYTHONPATH=$(pwd)/repo/install
           mkdir coverage_html
           cd repo
           cmake --preset coverage
@@ -60,9 +60,9 @@ jobs:
       - name: Python coverage
         shell: bash -l {0}
         run: |
-          export PYTHONPATH=$(pwd)/install
-          cd repo/python/tests
-          pytest --cov=scipp --cov-report html:../../../coverage_html/python .
+          export PYTHONPATH=$(pwd)/repo/install
+          cd repo/tests
+          pytest --cov=scipp --cov-report html:../../coverage_html/python .
 
       - name: Setup HTML
         shell: bash -l {0}
