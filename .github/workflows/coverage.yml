@@ -33,7 +33,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2
         with:
-          repository: 'scipp/$REPO'
+          repository: 'scipp/${{ env.REPO }}'
           path: repo
           submodules: true
           fetch-depth: 0  # history required so cmake can determine version
