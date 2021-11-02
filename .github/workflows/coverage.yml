@@ -50,7 +50,7 @@ jobs:
           miniforge-version: latest
           miniforge-variant: Mambaforge
           environment-file: env.yml
-          activate-environment: $REPO-developer
+          activate-environment: ${{ env.REPO }}-developer
           auto-activate-base: false
 
       - name: C++ coverage
