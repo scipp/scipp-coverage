@@ -1,4 +1,4 @@
-name: scipp code coverage
+name: code coverage
 
 on: 
   schedule:
@@ -24,10 +24,16 @@ jobs:
           sudo update-alternatives --set g++ "/usr/bin/g++-11"
           sudo update-alternatives --set gcov "/usr/bin/gcov-11"
 
+      - name: Setup env variables
+        run: |
+          REPO=${GITHUB_REPOSITORY#*/}
+          echo "REPO=${REPO%-coverage}" >> $GITHUB_ENV
+          echo "PYTHONPATH=$(pwd)/repo/install" >> $GITHUB_ENV
+
       - name: Checkout repo
         uses: actions/checkout@v2
         with:
-          repository: 'scipp/scipp'
+          repository: 'scipp/$REPO'
           path: repo
           submodules: true
           fetch-depth: 0  # history required so cmake can determine version
@@ -35,7 +41,7 @@ jobs:
       - name: Setup conda env file
         run: |
           # Disable TBB for much faster compilation.
-          cat repo/scipp-developer.yml | grep -v 'gxx\|tbb' > env.yml
+          cat repo/$REPO-developer.yml | grep -v 'gxx\|tbb' > env.yml
           echo "  - pytest-cov" >> env.yml
 
       - name: Setup Mambaforge and dev env
@@ -44,13 +50,12 @@ jobs:
           miniforge-version: latest
           miniforge-variant: Mambaforge
           environment-file: env.yml
-          activate-environment: scipp-developer
+          activate-environment: $REPO-developer
           auto-activate-base: false
 
       - name: C++ coverage
         shell: bash -l {0}
         run: |
-          export PYTHONPATH=$(pwd)/repo/install
           mkdir coverage_html
           cd repo
           cmake --preset coverage
@@ -60,9 +65,8 @@ jobs:
       - name: Python coverage
         shell: bash -l {0}
         run: |
-          export PYTHONPATH=$(pwd)/repo/install
           cd repo/tests
-          pytest --cov=scipp --cov-report html:../../coverage_html/python .
+          pytest --cov=$REPO --cov-report html:../../coverage_html/python .
 
       - name: Setup HTML
         shell: bash -l {0}
