@@ -67,6 +67,7 @@ jobs:
         run: |
           cd repo/tests
           pytest --cov=$REPO --cov-report html:../../coverage_html/python .
+          rm -f ../../coverage_html/python/.gitignore
 
       - name: Setup HTML
         shell: bash -l {0}
@@ -78,3 +79,4 @@ jobs:
         with:
           branch: gh-pages
           folder: coverage_html
+          single-commit: true
