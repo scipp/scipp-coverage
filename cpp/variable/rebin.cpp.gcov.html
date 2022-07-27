@@ -1,0 +1,261 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - coverage.info - variable/rebin.cpp</title>
+  <link rel="stylesheet" type="text/css" href="../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../index.html">top level</a> - <a href="index.html">variable</a> - rebin.cpp<span style="font-size: 80%;"> (source / <a href="rebin.cpp.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">coverage.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">82</td>
+            <td class="headerCovTableEntry">96</td>
+            <td class="headerCovTableEntryMed">85.4 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2022-07-27 08:23:51</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">12</td>
+            <td class="headerCovTableEntry">24</td>
+            <td class="headerCovTableEntryLo">50.0 %</td>
+          </tr>
+          <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : // SPDX-License-Identifier: BSD-3-Clause</a>
+<a name="2"><span class="lineNum">       2 </span>            : // Copyright (c) 2022 Scipp contributors (https://github.com/scipp)</a>
+<a name="3"><span class="lineNum">       3 </span>            : /// @file</a>
+<a name="4"><span class="lineNum">       4 </span>            : /// @author Simon Heybrock, Igor Gudich</a>
+<a name="5"><span class="lineNum">       5 </span>            : #include &quot;scipp/core/element/rebin.h&quot;</a>
+<a name="6"><span class="lineNum">       6 </span>            : #include &quot;scipp/core/parallel.h&quot;</a>
+<a name="7"><span class="lineNum">       7 </span>            : #include &quot;scipp/units/except.h&quot;</a>
+<a name="8"><span class="lineNum">       8 </span>            : #include &quot;scipp/variable/arithmetic.h&quot;</a>
+<a name="9"><span class="lineNum">       9 </span>            : #include &quot;scipp/variable/astype.h&quot;</a>
+<a name="10"><span class="lineNum">      10 </span>            : #include &quot;scipp/variable/rebin.h&quot;</a>
+<a name="11"><span class="lineNum">      11 </span>            : #include &quot;scipp/variable/reduction.h&quot;</a>
+<a name="12"><span class="lineNum">      12 </span>            : #include &quot;scipp/variable/shape.h&quot;</a>
+<a name="13"><span class="lineNum">      13 </span>            : #include &quot;scipp/variable/transform_subspan.h&quot;</a>
+<a name="14"><span class="lineNum">      14 </span>            : #include &quot;scipp/variable/util.h&quot;</a>
+<a name="15"><span class="lineNum">      15 </span>            : </a>
+<a name="16"><span class="lineNum">      16 </span>            : using namespace scipp::core::element;</a>
+<a name="17"><span class="lineNum">      17 </span>            : </a>
+<a name="18"><span class="lineNum">      18 </span>            : namespace scipp::variable {</a>
+<a name="19"><span class="lineNum">      19 </span>            : </a>
+<a name="20"><span class="lineNum">      20 </span>            : template &lt;typename T, class Less&gt;</a>
+<a name="21"><span class="lineNum">      21 </span><span class="lineCov">        144 : void rebin_non_inner(const Dim dim, const Variable &amp;oldT,</span></a>
+<a name="22"><span class="lineNum">      22 </span>            :                      // cppcheck-suppress constParameter # bug in cppcheck</a>
+<a name="23"><span class="lineNum">      23 </span>            :                      Variable &amp;newT, const Variable &amp;oldCoord,</a>
+<a name="24"><span class="lineNum">      24 </span>            :                      const Variable &amp;newCoord) {</a>
+<a name="25"><span class="lineNum">      25 </span><span class="lineCov">        144 :   if (oldCoord.ndim() != 1 || newCoord.ndim() != 1)</span></a>
+<a name="26"><span class="lineNum">      26 </span><span class="lineNoCov">          0 :     throw std::invalid_argument(</span></a>
+<a name="27"><span class="lineNum">      27 </span>            :         &quot;Internal error in rebin, this should be unreachable.&quot;);</a>
+<a name="28"><span class="lineNum">      28 </span><span class="lineCov">        144 :   const auto oldSize = oldT.dims()[dim];</span></a>
+<a name="29"><span class="lineNum">      29 </span><span class="lineCov">        144 :   const auto newSize = newT.dims()[dim];</span></a>
+<a name="30"><span class="lineNum">      30 </span>            : </a>
+<a name="31"><span class="lineNum">      31 </span><span class="lineCov">        144 :   const auto *xold = oldCoord.values&lt;T&gt;().data();</span></a>
+<a name="32"><span class="lineNum">      32 </span><span class="lineCov">        144 :   const auto *xnew = newCoord.values&lt;T&gt;().data();</span></a>
+<a name="33"><span class="lineNum">      33 </span>            : </a>
+<a name="34"><span class="lineNum">      34 </span><span class="lineCov">     183440 :   auto add_from_bin = [&amp;](auto &amp;&amp;slice, const auto xn_low, const auto xn_high,</span></a>
+<a name="35"><span class="lineNum">      35 </span>            :                           const scipp::index iold) {</a>
+<a name="36"><span class="lineNum">      36 </span><span class="lineCov">      45824 :     auto xo_low = xold[iold];</span></a>
+<a name="37"><span class="lineNum">      37 </span><span class="lineCov">      45824 :     auto xo_high = xold[iold + 1];</span></a>
+<a name="38"><span class="lineNum">      38 </span>            :     // delta is the overlap of the bins on the x axis</a>
+<a name="39"><span class="lineNum">      39 </span><span class="lineCov">      91648 :     const auto delta = std::abs(std::min&lt;double&gt;(xn_high, xo_high, Less{}) -</span></a>
+<a name="40"><span class="lineNum">      40 </span><span class="lineCov">      45824 :                                 std::max&lt;double&gt;(xn_low, xo_low, Less{}));</span></a>
+<a name="41"><span class="lineNum">      41 </span><span class="lineCov">      45824 :     const auto owidth = std::abs(xo_high - xo_low);</span></a>
+<a name="42"><span class="lineNum">      42 </span><span class="lineCov">      45824 :     slice += oldT.slice({dim, iold}) *</span></a>
+<a name="43"><span class="lineNum">      43 </span><span class="lineCov">      91648 :              ((delta / owidth) * (slice.unit() / oldT.unit()));</span></a>
+<a name="44"><span class="lineNum">      44 </span>            :   };</a>
+<a name="45"><span class="lineNum">      45 </span><span class="lineCov">     176303 :   auto accumulate_bin = [&amp;](auto &amp;&amp;slice, const auto xn_low,</span></a>
+<a name="46"><span class="lineNum">      46 </span>            :                             const auto xn_high) {</a>
+<a name="47"><span class="lineNum">      47 </span><span class="lineCov">      42182 :     scipp::index begin =</span></a>
+<a name="48"><span class="lineNum">      48 </span><span class="lineCov">      42182 :         std::upper_bound(xold, xold + oldSize + 1, xn_low, Less{}) - xold;</span></a>
+<a name="49"><span class="lineNum">      49 </span><span class="lineCov">      42182 :     scipp::index end =</span></a>
+<a name="50"><span class="lineNum">      50 </span><span class="lineCov">      42182 :         std::upper_bound(xold, xold + oldSize + 1, xn_high, Less{}) - xold;</span></a>
+<a name="51"><span class="lineNum">      51 </span><span class="lineCov">      42182 :     if (begin == oldSize + 1 || end == 0)</span></a>
+<a name="52"><span class="lineNum">      52 </span><span class="lineNoCov">          0 :       return;</span></a>
+<a name="53"><span class="lineNum">      53 </span><span class="lineCov">      42182 :     begin = std::max(scipp::index(0), begin - 1);</span></a>
+<a name="54"><span class="lineNum">      54 </span><span class="lineCov">      42182 :     add_from_bin(slice, xn_low, xn_high, begin);</span></a>
+<a name="55"><span class="lineNum">      55 </span><span class="lineCov">      42182 :     if (begin + 1 &lt; end - 1)</span></a>
+<a name="56"><span class="lineNum">      56 </span><span class="lineCov">         27 :       sum_into(slice, oldT.slice({dim, begin + 1, end - 1}));</span></a>
+<a name="57"><span class="lineNum">      57 </span><span class="lineCov">      42182 :     if (begin != end - 1 &amp;&amp; end &lt; oldSize + 1)</span></a>
+<a name="58"><span class="lineNum">      58 </span><span class="lineCov">       3642 :       add_from_bin(slice, xn_low, xn_high, end - 1);</span></a>
+<a name="59"><span class="lineNum">      59 </span>            :   };</a>
+<a name="60"><span class="lineNum">      60 </span><span class="lineCov">        288 :   auto accumulate_bins = [&amp;](const auto &amp;range) {</span></a>
+<a name="61"><span class="lineNum">      61 </span><span class="lineCov">      42326 :     for (scipp::index inew = range.begin(); inew &lt; range.end(); ++inew) {</span></a>
+<a name="62"><span class="lineNum">      62 </span><span class="lineCov">      42182 :       auto xn_low = xnew[inew];</span></a>
+<a name="63"><span class="lineNum">      63 </span><span class="lineCov">      42182 :       auto xn_high = xnew[inew + 1];</span></a>
+<a name="64"><span class="lineNum">      64 </span><span class="lineCov">      42182 :       accumulate_bin(newT.slice({dim, inew}), xn_low, xn_high);</span></a>
+<a name="65"><span class="lineNum">      65 </span>            :     }</a>
+<a name="66"><span class="lineNum">      66 </span>            :   };</a>
+<a name="67"><span class="lineNum">      67 </span><span class="lineCov">        144 :   core::parallel::parallel_for(core::parallel::blocked_range(0, newSize),</span></a>
+<a name="68"><span class="lineNum">      68 </span>            :                                accumulate_bins);</a>
+<a name="69"><span class="lineNum">      69 </span><span class="lineCov">        144 : }</span></a>
+<a name="70"><span class="lineNum">      70 </span>            : </a>
+<a name="71"><span class="lineNum">      71 </span>            : namespace {</a>
+<a name="72"><span class="lineNum">      72 </span>            : template &lt;class Out, class OutEdge, class In, class InEdge&gt;</a>
+<a name="73"><span class="lineNum">      73 </span>            : using args = std::tuple&lt;scipp::span&lt;Out&gt;, scipp::span&lt;const OutEdge&gt;,</a>
+<a name="74"><span class="lineNum">      74 </span>            :                         scipp::span&lt;const In&gt;, scipp::span&lt;const InEdge&gt;&gt;;</a>
+<a name="75"><span class="lineNum">      75 </span>            : </a>
+<a name="76"><span class="lineNum">      76 </span>            : struct Greater {</a>
+<a name="77"><span class="lineNum">      77 </span>            :   template &lt;class A, class B&gt;</a>
+<a name="78"><span class="lineNum">      78 </span><span class="lineCov">    1202802 :   constexpr bool operator()(const A a, const B b) const noexcept {</span></a>
+<a name="79"><span class="lineNum">      79 </span><span class="lineCov">    1202802 :     return a &gt; b;</span></a>
+<a name="80"><span class="lineNum">      80 </span>            :   }</a>
+<a name="81"><span class="lineNum">      81 </span>            : };</a>
+<a name="82"><span class="lineNum">      82 </span>            : </a>
+<a name="83"><span class="lineNum">      83 </span>            : struct Less {</a>
+<a name="84"><span class="lineNum">      84 </span>            :   template &lt;class A, class B&gt;</a>
+<a name="85"><span class="lineNum">      85 </span><span class="lineCov">  114565093 :   constexpr bool operator()(const A a, const B b) const noexcept {</span></a>
+<a name="86"><span class="lineNum">      86 </span><span class="lineCov">  114565093 :     return a &lt; b;</span></a>
+<a name="87"><span class="lineNum">      87 </span>            :   }</a>
+<a name="88"><span class="lineNum">      88 </span>            : };</a>
+<a name="89"><span class="lineNum">      89 </span>            : </a>
+<a name="90"><span class="lineNum">      90 </span><span class="lineCov">        639 : auto as_contiguous(const Variable &amp;var, const Dim dim) {</span></a>
+<a name="91"><span class="lineNum">      91 </span><span class="lineCov">        639 :   if (var.stride(dim) == 1)</span></a>
+<a name="92"><span class="lineNum">      92 </span><span class="lineCov">        630 :     return var;</span></a>
+<a name="93"><span class="lineNum">      93 </span><span class="lineCov">          9 :   auto dims = var.dims();</span></a>
+<a name="94"><span class="lineNum">      94 </span><span class="lineCov">          9 :   dims.erase(dim);</span></a>
+<a name="95"><span class="lineNum">      95 </span><span class="lineCov">          9 :   dims.addInner(dim, var.dims()[dim]);</span></a>
+<a name="96"><span class="lineNum">      96 </span><span class="lineCov">         18 :   return copy(transpose(var, dims.labels()));</span></a>
+<a name="97"><span class="lineNum">      97 </span><span class="lineCov">          9 : }</span></a>
+<a name="98"><span class="lineNum">      98 </span>            : } // namespace</a>
+<a name="99"><span class="lineNum">      99 </span>            : </a>
+<a name="100"><span class="lineNum">     100 </span><span class="lineCov">        323 : Variable rebin(const Variable &amp;var, const Dim dim, const Variable &amp;oldCoord,</span></a>
+<a name="101"><span class="lineNum">     101 </span>            :                const Variable &amp;newCoord) {</a>
+<a name="102"><span class="lineNum">     102 </span>            :   // The code branch dealing with non-stride-1 data cannot handle non-1D edges.</a>
+<a name="103"><span class="lineNum">     103 </span>            :   // This is likely a rare case in practice so a slow transpose of input and</a>
+<a name="104"><span class="lineNum">     104 </span>            :   // output should be sufficient for now.</a>
+<a name="105"><span class="lineNum">     105 </span><span class="lineCov">        323 :   if (var.stride(dim) != 1 &amp;&amp; (oldCoord.ndim() != 1 || newCoord.ndim() != 1))</span></a>
+<a name="106"><span class="lineNum">     106 </span>            :     // We *copy* the transpose to ensure that memory order of dims matches input</a>
+<a name="107"><span class="lineNum">     107 </span>            :     return copy(</a>
+<a name="108"><span class="lineNum">     108 </span><span class="lineCov">         10 :         transpose(rebin(as_contiguous(var, dim), dim, oldCoord, newCoord),</span></a>
+<a name="109"><span class="lineNum">     109 </span><span class="lineCov">         10 :                   var.dims().labels()));</span></a>
+<a name="110"><span class="lineNum">     110 </span>            :   // Rebin could also implemented for count-densities. However, it may be better</a>
+<a name="111"><span class="lineNum">     111 </span>            :   // to avoid this since it increases complexity. Instead, densities could</a>
+<a name="112"><span class="lineNum">     112 </span>            :   // always be computed on-the-fly for visualization, if required.</a>
+<a name="113"><span class="lineNum">     113 </span><span class="lineCov">        318 :   if (!is_edges(var.dims(), oldCoord.dims(), dim))</span></a>
+<a name="114"><span class="lineNum">     114 </span><span class="lineNoCov">          0 :     throw except::BinEdgeError(</span></a>
+<a name="115"><span class="lineNum">     115 </span><span class="lineNoCov">          0 :         &quot;The input does not have coordinates with bin-edges.&quot;);</span></a>
+<a name="116"><span class="lineNum">     116 </span>            : </a>
+<a name="117"><span class="lineNum">     117 </span><span class="lineCov">        318 :   if (is_bins(var))</span></a>
+<a name="118"><span class="lineNum">     118 </span><span class="lineCov">          1 :     throw except::TypeError(&quot;The input variable cannot be binned data. Use &quot;</span></a>
+<a name="119"><span class="lineNum">     119 </span><span class="lineCov">          2 :                             &quot;`bin` or `histogram` instead of `rebin`.&quot;);</span></a>
+<a name="120"><span class="lineNum">     120 </span>            : </a>
+<a name="121"><span class="lineNum">     121 </span>            :   using transform_args = std::tuple&lt;</a>
+<a name="122"><span class="lineNum">     122 </span>            :       args&lt;double, double, int64_t, double&gt;,</a>
+<a name="123"><span class="lineNum">     123 </span>            :       args&lt;double, double, int32_t, double&gt;,</a>
+<a name="124"><span class="lineNum">     124 </span>            :       args&lt;double, core::time_point, double, core::time_point&gt;,</a>
+<a name="125"><span class="lineNum">     125 </span>            :       args&lt;float, core::time_point, float, core::time_point&gt;,</a>
+<a name="126"><span class="lineNum">     126 </span>            :       args&lt;double, core::time_point, int64_t, core::time_point&gt;,</a>
+<a name="127"><span class="lineNum">     127 </span>            :       args&lt;double, core::time_point, int32_t, core::time_point&gt;,</a>
+<a name="128"><span class="lineNum">     128 </span>            :       args&lt;double, core::time_point, bool, core::time_point&gt;,</a>
+<a name="129"><span class="lineNum">     129 </span>            :       args&lt;double, double, double, double&gt;, args&lt;float, float, float, float&gt;,</a>
+<a name="130"><span class="lineNum">     130 </span>            :       args&lt;float, double, float, double&gt;, args&lt;float, float, float, double&gt;,</a>
+<a name="131"><span class="lineNum">     131 </span>            :       args&lt;double, double, bool, double&gt;&gt;;</a>
+<a name="132"><span class="lineNum">     132 </span>            : </a>
+<a name="133"><span class="lineNum">     133 </span><span class="lineCov">        604 :   const bool ascending = allsorted(oldCoord, dim, SortOrder::Ascending) &amp;&amp;</span></a>
+<a name="134"><span class="lineNum">     134 </span><span class="lineCov">        287 :                          allsorted(newCoord, dim, SortOrder::Ascending);</span></a>
+<a name="135"><span class="lineNum">     135 </span><span class="lineCov">        347 :   if (!ascending &amp;&amp; !(allsorted(oldCoord, dim, SortOrder::Descending) &amp;&amp;</span></a>
+<a name="136"><span class="lineNum">     136 </span><span class="lineCov">         30 :                       allsorted(newCoord, dim, SortOrder::Descending)))</span></a>
+<a name="137"><span class="lineNum">     137 </span><span class="lineNoCov">          0 :     throw except::BinEdgeError(</span></a>
+<a name="138"><span class="lineNum">     138 </span><span class="lineNoCov">          0 :         &quot;Rebin: The old or new bin edges are not sorted.&quot;);</span></a>
+<a name="139"><span class="lineNum">     139 </span><span class="lineCov">        623 :   const auto out_type = (is_int(var.dtype()) || var.dtype() == dtype&lt;bool&gt;)</span></a>
+<a name="140"><span class="lineNum">     140 </span><span class="lineCov">        317 :                             ? dtype&lt;double&gt;</span></a>
+<a name="141"><span class="lineNum">     141 </span><span class="lineCov">        317 :                             : var.dtype();</span></a>
+<a name="142"><span class="lineNum">     142 </span>            :   // Both code branches below require stride 1 for input and output edges.</a>
+<a name="143"><span class="lineNum">     143 </span><span class="lineCov">        317 :   const auto oldEdges = as_contiguous(oldCoord, dim);</span></a>
+<a name="144"><span class="lineNum">     144 </span><span class="lineCov">        317 :   const auto newEdges = as_contiguous(newCoord, dim);</span></a>
+<a name="145"><span class="lineNum">     145 </span><span class="lineCov">        317 :   Variable rebinned;</span></a>
+<a name="146"><span class="lineNum">     146 </span><span class="lineCov">        317 :   if (var.stride(dim) == 1) {</span></a>
+<a name="147"><span class="lineNum">     147 </span><span class="lineCov">        173 :     if (ascending) {</span></a>
+<a name="148"><span class="lineNum">     148 </span><span class="lineCov">        314 :       rebinned = transform_subspan&lt;transform_args&gt;(</span></a>
+<a name="149"><span class="lineNum">     149 </span><span class="lineCov">        157 :           out_type, dim, newEdges.dims()[dim] - 1, newEdges, var, oldEdges,</span></a>
+<a name="150"><span class="lineNum">     150 </span><span class="lineCov">        157 :           core::element::rebin&lt;Less&gt;, &quot;rebin&quot;);</span></a>
+<a name="151"><span class="lineNum">     151 </span>            :     } else {</a>
+<a name="152"><span class="lineNum">     152 </span><span class="lineCov">         32 :       rebinned = transform_subspan&lt;transform_args&gt;(</span></a>
+<a name="153"><span class="lineNum">     153 </span><span class="lineCov">         16 :           out_type, dim, newEdges.dims()[dim] - 1, newEdges, var, oldEdges,</span></a>
+<a name="154"><span class="lineNum">     154 </span><span class="lineCov">         16 :           core::element::rebin&lt;Greater&gt;, &quot;rebin&quot;);</span></a>
+<a name="155"><span class="lineNum">     155 </span>            :     }</a>
+<a name="156"><span class="lineNum">     156 </span>            :   } else {</a>
+<a name="157"><span class="lineNum">     157 </span><span class="lineCov">        144 :     auto dims = var.dims();</span></a>
+<a name="158"><span class="lineNum">     158 </span><span class="lineCov">        144 :     dims.resize(dim, newEdges.dims()[dim] - 1);</span></a>
+<a name="159"><span class="lineNum">     159 </span><span class="lineCov">        144 :     rebinned = Variable(astype(Variable(var, Dimensions{}), out_type), dims);</span></a>
+<a name="160"><span class="lineNum">     160 </span><span class="lineCov">        144 :     if (newEdges.dims().ndim() &gt; 1)</span></a>
+<a name="161"><span class="lineNum">     161 </span><span class="lineNoCov">          0 :       throw std::runtime_error(</span></a>
+<a name="162"><span class="lineNum">     162 </span><span class="lineNoCov">          0 :           &quot;Not inner rebin works only for 1d coordinates for now.&quot;);</span></a>
+<a name="163"><span class="lineNum">     163 </span><span class="lineCov">        144 :     if (oldEdges.dtype() == dtype&lt;double&gt;) {</span></a>
+<a name="164"><span class="lineNum">     164 </span><span class="lineCov">        144 :       if (ascending)</span></a>
+<a name="165"><span class="lineNum">     165 </span><span class="lineCov">        130 :         rebin_non_inner&lt;double, Less&gt;(dim, var, rebinned, oldEdges, newEdges);</span></a>
+<a name="166"><span class="lineNum">     166 </span>            :       else</a>
+<a name="167"><span class="lineNum">     167 </span><span class="lineCov">         14 :         rebin_non_inner&lt;double, Greater&gt;(dim, var, rebinned, oldEdges,</span></a>
+<a name="168"><span class="lineNum">     168 </span>            :                                          newEdges);</a>
+<a name="169"><span class="lineNum">     169 </span><span class="lineNoCov">          0 :     } else if (oldEdges.dtype() == dtype&lt;float&gt;) {</span></a>
+<a name="170"><span class="lineNum">     170 </span><span class="lineNoCov">          0 :       if (ascending)</span></a>
+<a name="171"><span class="lineNum">     171 </span><span class="lineNoCov">          0 :         rebin_non_inner&lt;float, Less&gt;(dim, var, rebinned, oldEdges, newEdges);</span></a>
+<a name="172"><span class="lineNum">     172 </span>            :       else</a>
+<a name="173"><span class="lineNum">     173 </span><span class="lineNoCov">          0 :         rebin_non_inner&lt;float, Greater&gt;(dim, var, rebinned, oldEdges, newEdges);</span></a>
+<a name="174"><span class="lineNum">     174 </span>            :     } else {</a>
+<a name="175"><span class="lineNum">     175 </span><span class="lineNoCov">          0 :       throw except::TypeError(&quot;Rebinning is possible only for coords of types &quot;</span></a>
+<a name="176"><span class="lineNum">     176 </span><span class="lineNoCov">          0 :                               &quot;`float64` or `float32`.&quot;);</span></a>
+<a name="177"><span class="lineNum">     177 </span>            :     }</a>
+<a name="178"><span class="lineNum">     178 </span><span class="lineCov">        144 :   }</span></a>
+<a name="179"><span class="lineNum">     179 </span>            :   // If rebinned dimension has stride 1 but is not an inner dimension then we</a>
+<a name="180"><span class="lineNum">     180 </span>            :   // need to transpose the output of transform_subspan to retain the input</a>
+<a name="181"><span class="lineNum">     181 </span>            :   // dimension order.</a>
+<a name="182"><span class="lineNum">     182 </span><span class="lineCov">        317 :   return transpose(rebinned, var.dims().labels());</span></a>
+<a name="183"><span class="lineNum">     183 </span><span class="lineCov">        317 : }</span></a>
+<a name="184"><span class="lineNum">     184 </span>            : </a>
+<a name="185"><span class="lineNum">     185 </span>            : } // namespace scipp::variable</a>
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.14</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - coverage.info - core/include/scipp/core/element/histogram.h</title>
+  <link rel="stylesheet" type="text/css" href="../../../../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../../../../index.html">top level</a> - <a href="index.html">core/include/scipp/core/element</a> - histogram.h<span style="font-size: 80%;"> (source / <a href="histogram.h.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">coverage.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">30</td>
+            <td class="headerCovTableEntry">32</td>
+            <td class="headerCovTableEntryHi">93.8 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2022-07-27 08:23:51</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">7</td>
+            <td class="headerCovTableEntry">41</td>
+            <td class="headerCovTableEntryLo">17.1 %</td>
+          </tr>
+          <tr><td><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : // SPDX-License-Identifier: BSD-3-Clause</a>
+<a name="2"><span class="lineNum">       2 </span>            : // Copyright (c) 2022 Scipp contributors (https://github.com/scipp)</a>
+<a name="3"><span class="lineNum">       3 </span>            : /// @file</a>
+<a name="4"><span class="lineNum">       4 </span>            : /// @author Simon Heybrock</a>
+<a name="5"><span class="lineNum">       5 </span>            : #pragma once</a>
+<a name="6"><span class="lineNum">       6 </span>            : </a>
+<a name="7"><span class="lineNum">       7 </span>            : #include &lt;algorithm&gt;</a>
+<a name="8"><span class="lineNum">       8 </span>            : #include &lt;numeric&gt;</a>
+<a name="9"><span class="lineNum">       9 </span>            : </a>
+<a name="10"><span class="lineNum">      10 </span>            : #include &quot;scipp/common/numeric.h&quot;</a>
+<a name="11"><span class="lineNum">      11 </span>            : #include &quot;scipp/common/overloaded.h&quot;</a>
+<a name="12"><span class="lineNum">      12 </span>            : #include &quot;scipp/core/element/arg_list.h&quot;</a>
+<a name="13"><span class="lineNum">      13 </span>            : #include &quot;scipp/core/element/util.h&quot;</a>
+<a name="14"><span class="lineNum">      14 </span>            : #include &quot;scipp/core/histogram.h&quot;</a>
+<a name="15"><span class="lineNum">      15 </span>            : #include &quot;scipp/core/transform_common.h&quot;</a>
+<a name="16"><span class="lineNum">      16 </span>            : </a>
+<a name="17"><span class="lineNum">      17 </span>            : namespace scipp::core::element {</a>
+<a name="18"><span class="lineNum">      18 </span>            : </a>
+<a name="19"><span class="lineNum">      19 </span>            : namespace {</a>
+<a name="20"><span class="lineNum">      20 </span><span class="lineCov">    1353696 : constexpr auto iadd = [](const auto &amp;x1, const scipp::index i1, const auto &amp;x2,</span></a>
+<a name="21"><span class="lineNum">      21 </span>            :                          const scipp::index i2) {</a>
+<a name="22"><span class="lineNum">      22 </span>            :   using V = std::decay_t&lt;decltype(x1)&gt;;</a>
+<a name="23"><span class="lineNum">      23 </span>            :   if constexpr (is_ValueAndVariance_v&lt;V&gt;) {</a>
+<a name="24"><span class="lineNum">      24 </span><span class="lineCov">       8148 :     x1.value[i1] += x2.value[i2];</span></a>
+<a name="25"><span class="lineNum">      25 </span><span class="lineCov">       8148 :     x1.variance[i1] += x2.variance[i2];</span></a>
+<a name="26"><span class="lineNum">      26 </span>            :   } else {</a>
+<a name="27"><span class="lineNum">      27 </span><span class="lineCov">    1345548 :     x1[i1] += x2[i2];</span></a>
+<a name="28"><span class="lineNum">      28 </span>            :   }</a>
+<a name="29"><span class="lineNum">      29 </span><span class="lineCov">    1353696 : };</span></a>
+<a name="30"><span class="lineNum">      30 </span>            : } // namespace</a>
+<a name="31"><span class="lineNum">      31 </span>            : </a>
+<a name="32"><span class="lineNum">      32 </span>            : namespace histogram_detail {</a>
+<a name="33"><span class="lineNum">      33 </span>            : template &lt;class Out, class Coord, class Weight, class Edge&gt;</a>
+<a name="34"><span class="lineNum">      34 </span>            : using args = std::tuple&lt;scipp::span&lt;Out&gt;, scipp::span&lt;const Coord&gt;,</a>
+<a name="35"><span class="lineNum">      35 </span>            :                         scipp::span&lt;const Weight&gt;, scipp::span&lt;const Edge&gt;&gt;;</a>
+<a name="36"><span class="lineNum">      36 </span>            : }</a>
+<a name="37"><span class="lineNum">      37 </span>            : </a>
+<a name="38"><span class="lineNum">      38 </span>            : static constexpr auto histogram = overloaded{</a>
+<a name="39"><span class="lineNum">      39 </span>            :     element::arg_list&lt;</a>
+<a name="40"><span class="lineNum">      40 </span>            :         histogram_detail::args&lt;float, double, float, double&gt;,</a>
+<a name="41"><span class="lineNum">      41 </span>            :         histogram_detail::args&lt;float, float, float, double&gt;,</a>
+<a name="42"><span class="lineNum">      42 </span>            :         histogram_detail::args&lt;float, int64_t, float, double&gt;,</a>
+<a name="43"><span class="lineNum">      43 </span>            :         histogram_detail::args&lt;float, int32_t, float, double&gt;,</a>
+<a name="44"><span class="lineNum">      44 </span>            :         histogram_detail::args&lt;double, double, double, double&gt;,</a>
+<a name="45"><span class="lineNum">      45 </span>            :         histogram_detail::args&lt;double, float, double, double&gt;,</a>
+<a name="46"><span class="lineNum">      46 </span>            :         histogram_detail::args&lt;double, float, double, float&gt;,</a>
+<a name="47"><span class="lineNum">      47 </span>            :         histogram_detail::args&lt;double, double, float, double&gt;,</a>
+<a name="48"><span class="lineNum">      48 </span>            :         histogram_detail::args&lt;double, int64_t, double, int64_t&gt;,</a>
+<a name="49"><span class="lineNum">      49 </span>            :         histogram_detail::args&lt;double, int32_t, double, int64_t&gt;,</a>
+<a name="50"><span class="lineNum">      50 </span>            :         histogram_detail::args&lt;double, int64_t, double, int32_t&gt;,</a>
+<a name="51"><span class="lineNum">      51 </span>            :         histogram_detail::args&lt;double, int32_t, double, int32_t&gt;,</a>
+<a name="52"><span class="lineNum">      52 </span>            :         histogram_detail::args&lt;double, time_point, double, time_point&gt;,</a>
+<a name="53"><span class="lineNum">      53 </span>            :         histogram_detail::args&lt;double, time_point, float, time_point&gt;,</a>
+<a name="54"><span class="lineNum">      54 </span>            :         histogram_detail::args&lt;float, time_point, double, time_point&gt;,</a>
+<a name="55"><span class="lineNum">      55 </span>            :         histogram_detail::args&lt;float, time_point, float, time_point&gt;&gt;,</a>
+<a name="56"><span class="lineNum">      56 </span><span class="lineCov">      60530 :     [](const auto &amp;data, const auto &amp;events, const auto &amp;weights,</span></a>
+<a name="57"><span class="lineNum">      57 </span>            :        const auto &amp;edges) {</a>
+<a name="58"><span class="lineNum">      58 </span><span class="lineCov">      60530 :       zero(data);</span></a>
+<a name="59"><span class="lineNum">      59 </span>            :       // Special implementation for linear bins. Gives a 1x to 20x speedup</a>
+<a name="60"><span class="lineNum">      60 </span>            :       // for few and many events per histogram, respectively.</a>
+<a name="61"><span class="lineNum">      61 </span><span class="lineCov">      60530 :       if (scipp::numeric::islinspace(edges)) {</span></a>
+<a name="62"><span class="lineNum">      62 </span><span class="lineCov">      54551 :         const auto [offset, nbin, scale] = core::linear_edge_params(edges);</span></a>
+<a name="63"><span class="lineNum">      63 </span><span class="lineCov">     109031 :         for (scipp::index i = 0; i &lt; scipp::size(events); ++i) {</span></a>
+<a name="64"><span class="lineNum">      64 </span><span class="lineCov">      54480 :           const auto x = events[i];</span></a>
+<a name="65"><span class="lineNum">      65 </span><span class="lineCov">      54480 :           scipp::index bin = (x - offset) * scale;</span></a>
+<a name="66"><span class="lineNum">      66 </span><span class="lineCov">      54480 :           bin = std::clamp(bin, scipp::index(0), scipp::index(nbin - 1));</span></a>
+<a name="67"><span class="lineNum">      67 </span><span class="lineCov">      54480 :           if (x &lt; edges[bin]) {</span></a>
+<a name="68"><span class="lineNum">      68 </span><span class="lineCov">       5407 :             if (bin != 0 &amp;&amp; x &gt;= edges[bin - 1])</span></a>
+<a name="69"><span class="lineNum">      69 </span><span class="lineCov">         86 :               iadd(data, bin - 1, weights, i);</span></a>
+<a name="70"><span class="lineNum">      70 </span><span class="lineCov">      49073 :           } else if (x &gt;= edges[bin + 1]) {</span></a>
+<a name="71"><span class="lineNum">      71 </span><span class="lineCov">      12493 :             if (bin != nbin - 1)</span></a>
+<a name="72"><span class="lineNum">      72 </span><span class="lineCov">       1876 :               iadd(data, bin + 1, weights, i);</span></a>
+<a name="73"><span class="lineNum">      73 </span>            :           } else {</a>
+<a name="74"><span class="lineNum">      74 </span><span class="lineCov">      36580 :             iadd(data, bin, weights, i);</span></a>
+<a name="75"><span class="lineNum">      75 </span>            :           }</a>
+<a name="76"><span class="lineNum">      76 </span>            :         }</a>
+<a name="77"><span class="lineNum">      77 </span>            :       } else {</a>
+<a name="78"><span class="lineNum">      78 </span><span class="lineCov">       5979 :         core::expect::histogram::sorted_edges(edges);</span></a>
+<a name="79"><span class="lineNum">      79 </span><span class="lineCov">    2291852 :         for (scipp::index i = 0; i &lt; scipp::size(events); ++i) {</span></a>
+<a name="80"><span class="lineNum">      80 </span><span class="lineCov">    2285874 :           const auto x = events[i];</span></a>
+<a name="81"><span class="lineNum">      81 </span><span class="lineCov">    2285874 :           auto it = std::upper_bound(edges.begin(), edges.end(), x);</span></a>
+<a name="82"><span class="lineNum">      82 </span><span class="lineCov">    2285874 :           if (it != edges.end() &amp;&amp; it != edges.begin())</span></a>
+<a name="83"><span class="lineNum">      83 </span><span class="lineCov">    1315154 :             iadd(data, --it - edges.begin(), weights, i);</span></a>
+<a name="84"><span class="lineNum">      84 </span>            :         }</a>
+<a name="85"><span class="lineNum">      85 </span>            :       }</a>
+<a name="86"><span class="lineNum">      86 </span><span class="lineCov">      60529 :     },</span></a>
+<a name="87"><span class="lineNum">      87 </span><span class="lineCov">      47502 :     [](const units::Unit &amp;events_unit, const units::Unit &amp;weights_unit,</span></a>
+<a name="88"><span class="lineNum">      88 </span>            :        const units::Unit &amp;edge_unit) {</a>
+<a name="89"><span class="lineNum">      89 </span><span class="lineCov">      47502 :       if (events_unit != edge_unit)</span></a>
+<a name="90"><span class="lineNum">      90 </span><span class="lineNoCov">          0 :         throw except::UnitError(</span></a>
+<a name="91"><span class="lineNum">      91 </span><span class="lineNoCov">          0 :             &quot;Bin edges must have same unit as the input coordinate.&quot;);</span></a>
+<a name="92"><span class="lineNum">      92 </span><span class="lineCov">      47502 :       return weights_unit;</span></a>
+<a name="93"><span class="lineNum">      93 </span>            :     },</a>
+<a name="94"><span class="lineNum">      94 </span>            :     transform_flags::expect_in_variance_if_out_variance,</a>
+<a name="95"><span class="lineNum">      95 </span>            :     transform_flags::expect_no_variance_arg&lt;1&gt;,</a>
+<a name="96"><span class="lineNum">      96 </span>            :     transform_flags::expect_no_variance_arg&lt;3&gt;};</a>
+<a name="97"><span class="lineNum">      97 </span>            : </a>
+<a name="98"><span class="lineNum">      98 </span>            : } // namespace scipp::core::element</a>
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../../../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.14</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

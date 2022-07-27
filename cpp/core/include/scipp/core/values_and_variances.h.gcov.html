@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - coverage.info - core/include/scipp/core/values_and_variances.h</title>
+  <link rel="stylesheet" type="text/css" href="../../../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../../../index.html">top level</a> - <a href="index.html">core/include/scipp/core</a> - values_and_variances.h<span style="font-size: 80%;"> (source / <a href="values_and_variances.h.func-sort-c.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">coverage.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">4</td>
+            <td class="headerCovTableEntry">4</td>
+            <td class="headerCovTableEntryHi">100.0 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2022-07-27 08:23:51</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">10</td>
+            <td class="headerCovTableEntry">18</td>
+            <td class="headerCovTableEntryLo">55.6 %</td>
+          </tr>
+          <tr><td><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">          Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>            : // SPDX-License-Identifier: BSD-3-Clause</a>
+<a name="2"><span class="lineNum">       2 </span>            : // Copyright (c) 2022 Scipp contributors (https://github.com/scipp)</a>
+<a name="3"><span class="lineNum">       3 </span>            : /// @file</a>
+<a name="4"><span class="lineNum">       4 </span>            : /// @author Simon Heybrock</a>
+<a name="5"><span class="lineNum">       5 </span>            : #pragma once</a>
+<a name="6"><span class="lineNum">       6 </span>            : </a>
+<a name="7"><span class="lineNum">       7 </span>            : #include &quot;scipp/core/except.h&quot;</a>
+<a name="8"><span class="lineNum">       8 </span>            : </a>
+<a name="9"><span class="lineNum">       9 </span>            : namespace scipp::core {</a>
+<a name="10"><span class="lineNum">      10 </span>            : </a>
+<a name="11"><span class="lineNum">      11 </span>            : /// A values/variances pair based on references to event lists.</a>
+<a name="12"><span class="lineNum">      12 </span>            : ///</a>
+<a name="13"><span class="lineNum">      13 </span>            : /// This is a helper for implementing operations for event_list such as</a>
+<a name="14"><span class="lineNum">      14 </span>            : /// `clear`, and for descending into the event list itself, using a nested</a>
+<a name="15"><span class="lineNum">      15 </span>            : /// call to an iteration function.</a>
+<a name="16"><span class="lineNum">      16 </span>            : template &lt;class T&gt; struct ValuesAndVariances {</a>
+<a name="17"><span class="lineNum">      17 </span>            :   using value_type = typename T::value_type;</a>
+<a name="18"><span class="lineNum">      18 </span>            : </a>
+<a name="19"><span class="lineNum">      19 </span><span class="lineCov">      40404 :   ValuesAndVariances(T &amp;val, T &amp;var) : values(val), variances(var) {</span></a>
+<a name="20"><span class="lineNum">      20 </span><span class="lineCov">      40404 :     expect::sizeMatches(values, variances);</span></a>
+<a name="21"><span class="lineNum">      21 </span><span class="lineCov">      40404 :   }</span></a>
+<a name="22"><span class="lineNum">      22 </span>            :   ValuesAndVariances &amp;operator=(const ValuesAndVariances&lt;const T&gt; &amp;other) {</a>
+<a name="23"><span class="lineNum">      23 </span>            :     values = other.values;</a>
+<a name="24"><span class="lineNum">      24 </span>            :     variances = other.variances;</a>
+<a name="25"><span class="lineNum">      25 </span>            :     return *this;</a>
+<a name="26"><span class="lineNum">      26 </span>            :   }</a>
+<a name="27"><span class="lineNum">      27 </span>            :   ValuesAndVariances &amp;operator=(std::pair&lt;T, T&gt; &amp;&amp;data) {</a>
+<a name="28"><span class="lineNum">      28 </span>            :     values = std::move(data.first);</a>
+<a name="29"><span class="lineNum">      29 </span>            :     variances = std::move(data.second);</a>
+<a name="30"><span class="lineNum">      30 </span>            :     return *this;</a>
+<a name="31"><span class="lineNum">      31 </span>            :   }</a>
+<a name="32"><span class="lineNum">      32 </span>            :   T &amp;values;</a>
+<a name="33"><span class="lineNum">      33 </span>            :   T &amp;variances;</a>
+<a name="34"><span class="lineNum">      34 </span>            : </a>
+<a name="35"><span class="lineNum">      35 </span>            :   void clear() noexcept {</a>
+<a name="36"><span class="lineNum">      36 </span>            :     values.clear();</a>
+<a name="37"><span class="lineNum">      37 </span>            :     variances.clear();</a>
+<a name="38"><span class="lineNum">      38 </span>            :   }</a>
+<a name="39"><span class="lineNum">      39 </span>            : </a>
+<a name="40"><span class="lineNum">      40 </span>            :   void reserve(const scipp::index capacity) const {</a>
+<a name="41"><span class="lineNum">      41 </span>            :     values.reserve(capacity);</a>
+<a name="42"><span class="lineNum">      42 </span>            :     variances.reserve(capacity);</a>
+<a name="43"><span class="lineNum">      43 </span>            :   }</a>
+<a name="44"><span class="lineNum">      44 </span>            : </a>
+<a name="45"><span class="lineNum">      45 </span>            :   // Note that methods like insert, begin, and end are required as long as we</a>
+<a name="46"><span class="lineNum">      46 </span>            :   // support event data via a plain container such as std::vector, e.g., for</a>
+<a name="47"><span class="lineNum">      47 </span>            :   // concatenation using a.insert(a.end(), b.begin(), b.end()). We are</a>
+<a name="48"><span class="lineNum">      48 </span>            :   // supporting this here by simply working with pairs of iterators. This</a>
+<a name="49"><span class="lineNum">      49 </span>            :   // approach is not an actual view iterator and will not compile if client</a>
+<a name="50"><span class="lineNum">      50 </span>            :   // code attempts to increment the iterators. We could support `next` and</a>
+<a name="51"><span class="lineNum">      51 </span>            :   // `advance` easily, so client code can simply use something like:</a>
+<a name="52"><span class="lineNum">      52 </span>            :   //   using std::next;</a>
+<a name="53"><span class="lineNum">      53 </span>            :   //   next(it);</a>
+<a name="54"><span class="lineNum">      54 </span>            :   // instead of `++it`. Algorithms like `std::sort` would probably still not</a>
+<a name="55"><span class="lineNum">      55 </span>            :   // work though.</a>
+<a name="56"><span class="lineNum">      56 </span>            :   // The function arguments are iterator pairs as created by `begin` and `end`.</a>
+<a name="57"><span class="lineNum">      57 </span>            :   template &lt;class OutputIt, class InputIt&gt;</a>
+<a name="58"><span class="lineNum">      58 </span>            :   auto insert(std::pair&lt;OutputIt, OutputIt&gt; pos,</a>
+<a name="59"><span class="lineNum">      59 </span>            :               std::pair&lt;InputIt, InputIt&gt; first,</a>
+<a name="60"><span class="lineNum">      60 </span>            :               std::pair&lt;InputIt, InputIt&gt; last) {</a>
+<a name="61"><span class="lineNum">      61 </span>            :     values.insert(pos.first, first.first, last.first);</a>
+<a name="62"><span class="lineNum">      62 </span>            :     variances.insert(pos.second, first.second, last.second);</a>
+<a name="63"><span class="lineNum">      63 </span>            :   }</a>
+<a name="64"><span class="lineNum">      64 </span>            :   template &lt;class... Ts&gt; void insert(const Ts &amp;...) {</a>
+<a name="65"><span class="lineNum">      65 </span>            :     throw except::VariancesError(&quot;Cannot insert data with variances into data &quot;</a>
+<a name="66"><span class="lineNum">      66 </span>            :                                  &quot;without variances, or vice versa.&quot;);</a>
+<a name="67"><span class="lineNum">      67 </span>            :   }</a>
+<a name="68"><span class="lineNum">      68 </span>            : </a>
+<a name="69"><span class="lineNum">      69 </span>            :   auto begin() noexcept { return std::pair(values.begin(), variances.begin()); }</a>
+<a name="70"><span class="lineNum">      70 </span>            :   auto begin() const noexcept {</a>
+<a name="71"><span class="lineNum">      71 </span>            :     return std::pair(values.begin(), variances.begin());</a>
+<a name="72"><span class="lineNum">      72 </span>            :   }</a>
+<a name="73"><span class="lineNum">      73 </span>            :   auto end() noexcept { return std::pair(values.end(), variances.end()); }</a>
+<a name="74"><span class="lineNum">      74 </span>            :   auto end() const noexcept { return std::pair(values.end(), variances.end()); }</a>
+<a name="75"><span class="lineNum">      75 </span>            : </a>
+<a name="76"><span class="lineNum">      76 </span><span class="lineCov">      19811 :   constexpr auto size() const noexcept { return values.size(); }</span></a>
+<a name="77"><span class="lineNum">      77 </span>            : };</a>
+<a name="78"><span class="lineNum">      78 </span>            : </a>
+<a name="79"><span class="lineNum">      79 </span>            : template &lt;class T&gt; struct is_ValuesAndVariances : std::false_type {};</a>
+<a name="80"><span class="lineNum">      80 </span>            : template &lt;class T&gt;</a>
+<a name="81"><span class="lineNum">      81 </span>            : struct is_ValuesAndVariances&lt;ValuesAndVariances&lt;T&gt;&gt; : std::true_type {};</a>
+<a name="82"><span class="lineNum">      82 </span>            : template &lt;class T&gt;</a>
+<a name="83"><span class="lineNum">      83 </span>            : inline constexpr bool is_ValuesAndVariances_v = is_ValuesAndVariances&lt;T&gt;::value;</a>
+<a name="84"><span class="lineNum">      84 </span>            : </a>
+<a name="85"><span class="lineNum">      85 </span>            : } // namespace scipp::core</a>
+<a name="86"><span class="lineNum">      86 </span>            : </a>
+<a name="87"><span class="lineNum">      87 </span>            : namespace scipp {</a>
+<a name="88"><span class="lineNum">      88 </span>            : using core::is_ValuesAndVariances;</a>
+<a name="89"><span class="lineNum">      89 </span>            : using core::is_ValuesAndVariances_v;</a>
+<a name="90"><span class="lineNum">      90 </span>            : using core::ValuesAndVariances;</a>
+<a name="91"><span class="lineNum">      91 </span>            : } // namespace scipp</a>
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.14</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>
