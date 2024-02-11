@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-02-05 14:51:37</td>
+            <td class="headerValue">2024-02-11 01:31:15</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">101</td>
@@ -428,12 +428,12 @@
               <td class="coverFnHi">189</td>
             </tr>
     <tr>
-              <td class="coverFn"><a href="bind_slice_methods.h.gcov.html#277">bind_slice_methods&lt;scipp::variable::Variable&gt;(pybind11::class_&lt;scipp::variable::Variable&gt;&amp;)::{lambda(scipp::variable::Variable&amp;, scipp::variable::Variable const&amp;)#3}::operator()(scipp::variable::Variable&amp;, scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">199</td>
-            </tr>
-    <tr>
               <td class="coverFn"><a href="bind_slice_methods.h.gcov.html#54">SetData&lt;scipp::variable::Variable&gt;::Impl&lt;long&gt;::apply(scipp::variable::Variable&amp;, pybind11::object const&amp;)</a></td>
               <td class="coverFnHi">218</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="bind_slice_methods.h.gcov.html#277">bind_slice_methods&lt;scipp::variable::Variable&gt;(pybind11::class_&lt;scipp::variable::Variable&gt;&amp;)::{lambda(scipp::variable::Variable&amp;, scipp::variable::Variable const&amp;)#3}::operator()(scipp::variable::Variable&amp;, scipp::variable::Variable const&amp;) const</a></td>
+              <td class="coverFnHi">265</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_slice_methods.h.gcov.html#300">bind_slice_methods&lt;scipp::dataset::DataArray&gt;(pybind11::class_&lt;scipp::dataset::DataArray&gt;&amp;)::{lambda(scipp::dataset::DataArray const&amp;)#4}::operator()(scipp::dataset::DataArray const&amp;) const</a></td>
@@ -461,7 +461,11 @@
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_slice_methods.h.gcov.html#263">bind_slice_methods&lt;scipp::variable::Variable&gt;(pybind11::class_&lt;scipp::variable::Variable&gt;&amp;)::{lambda(scipp::variable::Variable&amp;, long const&amp;)#1}::operator()(scipp::variable::Variable&amp;, long const&amp;) const</a></td>
-              <td class="coverFnHi">532</td>
+              <td class="coverFnHi">550</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="bind_slice_methods.h.gcov.html#314">bind_slice_methods&lt;scipp::variable::Variable&gt;(pybind11::class_&lt;scipp::variable::Variable&gt;&amp;)::{lambda(scipp::variable::Variable&amp;, std::tuple&lt;std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;, long&gt;)#6}::operator()(scipp::variable::Variable&amp;, std::tuple&lt;std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;, long&gt;) const</a></td>
+              <td class="coverFnHi">555</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_slice_methods.h.gcov.html#120">auto getitem&lt;scipp::variable::Variable&gt;(scipp::variable::Variable&amp;, std::tuple&lt;scipp::units::Dim, pybind11::slice&gt; const&amp;)</a></td>
@@ -470,10 +474,6 @@
     <tr>
               <td class="coverFn"><a href="bind_slice_methods.h.gcov.html#23">auto to_dim_type&lt;pybind11::slice&gt;(std::tuple&lt;std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;, pybind11::slice&gt;&amp;&amp;)</a></td>
               <td class="coverFnHi">755</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="bind_slice_methods.h.gcov.html#314">bind_slice_methods&lt;scipp::variable::Variable&gt;(pybind11::class_&lt;scipp::variable::Variable&gt;&amp;)::{lambda(scipp::variable::Variable&amp;, std::tuple&lt;std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;, long&gt;)#6}::operator()(scipp::variable::Variable&amp;, std::tuple&lt;std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;, long&gt;) const</a></td>
-              <td class="coverFnHi">757</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_slice_methods.h.gcov.html#39">auto from_py_slice&lt;scipp::variable::Variable&gt;(scipp::variable::Variable const&amp;, std::tuple&lt;scipp::units::Dim, pybind11::slice const&gt; const&amp;)</a></td>
@@ -497,19 +497,23 @@
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_slice_methods.h.gcov.html#115">auto getitem&lt;scipp::variable::Variable&gt;(scipp::variable::Variable&amp;, std::tuple&lt;scipp::units::Dim, long&gt; const&amp;)</a></td>
-              <td class="coverFnHi">1600</td>
+              <td class="coverFnHi">1416</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_slice_methods.h.gcov.html#75">auto get_slice&lt;scipp::variable::Variable&gt;(scipp::variable::Variable&amp;, std::tuple&lt;scipp::units::Dim, long&gt; const&amp;)</a></td>
-              <td class="coverFnHi">1680</td>
+              <td class="coverFnHi">1496</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="bind_slice_methods.h.gcov.html#23">auto to_dim_type&lt;long&gt;(std::tuple&lt;std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;, long&gt;&amp;&amp;)</a></td>
+              <td class="coverFnHi">2006</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_slice_methods.h.gcov.html#267">bind_slice_methods&lt;scipp::dataset::DataArray&gt;(pybind11::class_&lt;scipp::dataset::DataArray&gt;&amp;)::{lambda(scipp::dataset::DataArray&amp;, pybind11::slice const&amp;)#2}::operator()(scipp::dataset::DataArray&amp;, pybind11::slice const&amp;) const</a></td>
               <td class="coverFnHi">2126</td>
             </tr>
     <tr>
-              <td class="coverFn"><a href="bind_slice_methods.h.gcov.html#23">auto to_dim_type&lt;long&gt;(std::tuple&lt;std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt;, long&gt;&amp;&amp;)</a></td>
-              <td class="coverFnHi">2208</td>
+              <td class="coverFn"><a href="bind_slice_methods.h.gcov.html#27">auto dim_extent&lt;scipp::variable::Variable&gt;(scipp::variable::Variable const&amp;, scipp::units::Dim)</a></td>
+              <td class="coverFnHi">2262</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_slice_methods.h.gcov.html#39">auto from_py_slice&lt;scipp::dataset::DataArray&gt;(scipp::dataset::DataArray const&amp;, std::tuple&lt;scipp::units::Dim, pybind11::slice const&gt; const&amp;)</a></td>
@@ -528,12 +532,8 @@
               <td class="coverFnHi">2428</td>
             </tr>
     <tr>
-              <td class="coverFn"><a href="bind_slice_methods.h.gcov.html#27">auto dim_extent&lt;scipp::variable::Variable&gt;(scipp::variable::Variable const&amp;, scipp::units::Dim)</a></td>
-              <td class="coverFnHi">2446</td>
-            </tr>
-    <tr>
               <td class="coverFn"><a href="bind_slice_methods.h.gcov.html#198">(anonymous namespace)::expect_implicit_dimension(scipp::core::Sizes const&amp;)</a></td>
-              <td class="coverFnHi">3044</td>
+              <td class="coverFnHi">3062</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_slice_methods.h.gcov.html#27">auto dim_extent&lt;scipp::dataset::DataArray&gt;(scipp::dataset::DataArray const&amp;, scipp::units::Dim)</a></td>

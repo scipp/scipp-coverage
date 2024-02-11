@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-02-05 14:51:37</td>
+            <td class="headerValue">2024-02-11 01:31:15</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">331</td>
@@ -1960,14 +1960,6 @@
               <td class="coverFnHi">5</td>
             </tr>
     <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#127">scipp::variable::ElementArrayModel&lt;scipp::span&lt;float const, 18446744073709551615ul&gt; &gt;::setVariances(scipp::variable::Variable const&amp;)</a></td>
-              <td class="coverFnHi">6</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#127">scipp::variable::ElementArrayModel&lt;scipp::span&lt;float, 18446744073709551615ul&gt; &gt;::setVariances(scipp::variable::Variable const&amp;)</a></td>
-              <td class="coverFnHi">6</td>
-            </tr>
-    <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#45">scipp::variable::VariableMaker&lt;Eigen::Matrix&lt;double, 3, 1, 0, 3, 1&gt; &gt;::expect_can_set_elem_unit(scipp::variable::Variable const&amp;, scipp::units::Unit const&amp;) const</a></td>
               <td class="coverFnHi">6</td>
             </tr>
@@ -2014,6 +2006,14 @@
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#114">scipp::variable::ElementArrayModel&lt;float&gt;::equals_nan(scipp::variable::Variable const&amp;, scipp::variable::Variable const&amp;) const</a></td>
               <td class="coverFnHi">7</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#127">scipp::variable::ElementArrayModel&lt;scipp::span&lt;float const, 18446744073709551615ul&gt; &gt;::setVariances(scipp::variable::Variable const&amp;)</a></td>
+              <td class="coverFnHi">8</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#127">scipp::variable::ElementArrayModel&lt;scipp::span&lt;float, 18446744073709551615ul&gt; &gt;::setVariances(scipp::variable::Variable const&amp;)</a></td>
+              <td class="coverFnHi">8</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#67">scipp::variable::ElementArrayModel&lt;std::unordered_map&lt;double, int, std::hash&lt;double&gt;, std::equal_to&lt;double&gt;, std::allocator&lt;std::pair&lt;double const, int&gt; &gt; &gt; &gt;::ElementArrayModel(long, scipp::units::Unit const&amp;, scipp::core::element_array&lt;std::unordered_map&lt;double, int, std::hash&lt;double&gt;, std::equal_to&lt;double&gt;, std::allocator&lt;std::pair&lt;double const, int&gt; &gt; &gt; &gt;, std::optional&lt;scipp::core::element_array&lt;std::unordered_map&lt;double, int, std::hash&lt;double&gt;, std::equal_to&lt;double&gt;, std::allocator&lt;std::pair&lt;double const, int&gt; &gt; &gt; &gt; &gt;)</a></td>
@@ -2296,6 +2296,34 @@
               <td class="coverFnHi">37</td>
             </tr>
     <tr>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#67">scipp::variable::ElementArrayModel&lt;scipp::span&lt;bool, 18446744073709551615ul&gt; &gt;::ElementArrayModel(long, scipp::units::Unit const&amp;, scipp::core::element_array&lt;scipp::span&lt;bool, 18446744073709551615ul&gt; &gt;, std::optional&lt;scipp::core::element_array&lt;scipp::span&lt;bool, 18446744073709551615ul&gt; &gt; &gt;)</a></td>
+              <td class="coverFnHi">39</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#9">scipp::variable::Variable scipp::variable::make_default_init&lt;scipp::span&lt;bool, 18446744073709551615ul&gt; &gt;(scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool)</a></td>
+              <td class="coverFnHi">39</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#52">scipp::variable::VariableMaker&lt;scipp::span&lt;bool, 18446744073709551615ul&gt; &gt;::has_variances(scipp::variable::Variable const&amp;) const</a></td>
+              <td class="coverFnHi">39</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#49">scipp::variable::VariableMaker&lt;scipp::span&lt;bool, 18446744073709551615ul&gt; &gt;::set_elem_unit(scipp::variable::Variable&amp;, scipp::units::Unit const&amp;) const</a></td>
+              <td class="coverFnHi">39</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#45">scipp::variable::VariableMaker&lt;scipp::span&lt;bool, 18446744073709551615ul&gt; &gt;::expect_can_set_elem_unit(scipp::variable::Variable const&amp;, scipp::units::Unit const&amp;) const</a></td>
+              <td class="coverFnHi">39</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#36">scipp::variable::VariableMaker&lt;scipp::span&lt;bool, 18446744073709551615ul&gt; &gt;::create(scipp::core::DType, scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool, std::vector&lt;std::reference_wrapper&lt;scipp::variable::Variable const&gt;, std::allocator&lt;std::reference_wrapper&lt;scipp::variable::Variable const&gt; &gt; &gt; const&amp;) const</a></td>
+              <td class="coverFnHi">39</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#42">scipp::variable::VariableMaker&lt;scipp::span&lt;bool, 18446744073709551615ul&gt; &gt;::elem_unit(scipp::variable::Variable const&amp;) const</a></td>
+              <td class="coverFnHi">39</td>
+            </tr>
+    <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#35">scipp::variable::VariableMaker&lt;scipp::dataset::Dataset&gt;::is_bins() const</a></td>
               <td class="coverFnHi">39</td>
             </tr>
@@ -2324,34 +2352,6 @@
               <td class="coverFnHi">46</td>
             </tr>
     <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#67">scipp::variable::ElementArrayModel&lt;scipp::span&lt;bool, 18446744073709551615ul&gt; &gt;::ElementArrayModel(long, scipp::units::Unit const&amp;, scipp::core::element_array&lt;scipp::span&lt;bool, 18446744073709551615ul&gt; &gt;, std::optional&lt;scipp::core::element_array&lt;scipp::span&lt;bool, 18446744073709551615ul&gt; &gt; &gt;)</a></td>
-              <td class="coverFnHi">47</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#9">scipp::variable::Variable scipp::variable::make_default_init&lt;scipp::span&lt;bool, 18446744073709551615ul&gt; &gt;(scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool)</a></td>
-              <td class="coverFnHi">47</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#52">scipp::variable::VariableMaker&lt;scipp::span&lt;bool, 18446744073709551615ul&gt; &gt;::has_variances(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">47</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#49">scipp::variable::VariableMaker&lt;scipp::span&lt;bool, 18446744073709551615ul&gt; &gt;::set_elem_unit(scipp::variable::Variable&amp;, scipp::units::Unit const&amp;) const</a></td>
-              <td class="coverFnHi">47</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#45">scipp::variable::VariableMaker&lt;scipp::span&lt;bool, 18446744073709551615ul&gt; &gt;::expect_can_set_elem_unit(scipp::variable::Variable const&amp;, scipp::units::Unit const&amp;) const</a></td>
-              <td class="coverFnHi">47</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#36">scipp::variable::VariableMaker&lt;scipp::span&lt;bool, 18446744073709551615ul&gt; &gt;::create(scipp::core::DType, scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool, std::vector&lt;std::reference_wrapper&lt;scipp::variable::Variable const&gt;, std::allocator&lt;std::reference_wrapper&lt;scipp::variable::Variable const&gt; &gt; &gt; const&amp;) const</a></td>
-              <td class="coverFnHi">47</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#42">scipp::variable::VariableMaker&lt;scipp::span&lt;bool, 18446744073709551615ul&gt; &gt;::elem_unit(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">47</td>
-            </tr>
-    <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#35">scipp::variable::VariableMaker&lt;scipp::variable::Variable&gt;::is_bins() const</a></td>
               <td class="coverFnHi">49</td>
             </tr>
@@ -2364,12 +2364,24 @@
               <td class="coverFnHi">50</td>
             </tr>
     <tr>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#42">scipp::variable::VariableMaker&lt;scipp::span&lt;bool const, 18446744073709551615ul&gt; &gt;::elem_unit(scipp::variable::Variable const&amp;) const</a></td>
+              <td class="coverFnHi">51</td>
+            </tr>
+    <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#52">scipp::variable::VariableMaker&lt;scipp::core::Quaternion&gt;::has_variances(scipp::variable::Variable const&amp;) const</a></td>
               <td class="coverFnHi">52</td>
             </tr>
     <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#42">scipp::variable::VariableMaker&lt;scipp::span&lt;bool const, 18446744073709551615ul&gt; &gt;::elem_unit(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">59</td>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#67">scipp::variable::ElementArrayModel&lt;scipp::span&lt;bool const, 18446744073709551615ul&gt; &gt;::ElementArrayModel(long, scipp::units::Unit const&amp;, scipp::core::element_array&lt;scipp::span&lt;bool const, 18446744073709551615ul&gt; &gt;, std::optional&lt;scipp::core::element_array&lt;scipp::span&lt;bool const, 18446744073709551615ul&gt; &gt; &gt;)</a></td>
+              <td class="coverFnHi">54</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#9">scipp::variable::Variable scipp::variable::make_default_init&lt;scipp::span&lt;bool const, 18446744073709551615ul&gt; &gt;(scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool)</a></td>
+              <td class="coverFnHi">54</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#36">scipp::variable::VariableMaker&lt;scipp::span&lt;bool const, 18446744073709551615ul&gt; &gt;::create(scipp::core::DType, scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool, std::vector&lt;std::reference_wrapper&lt;scipp::variable::Variable const&gt;, std::allocator&lt;std::reference_wrapper&lt;scipp::variable::Variable const&gt; &gt; &gt; const&amp;) const</a></td>
+              <td class="coverFnHi">54</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#67">scipp::variable::ElementArrayModel&lt;scipp::python::PyObject&gt;::ElementArrayModel(long, scipp::units::Unit const&amp;, scipp::core::element_array&lt;scipp::python::PyObject&gt;, std::optional&lt;scipp::core::element_array&lt;scipp::python::PyObject&gt; &gt;)</a></td>
@@ -2378,18 +2390,6 @@
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#42">scipp::variable::VariableMaker&lt;Eigen::Matrix&lt;double, 3, 3, 0, 3, 3&gt; &gt;::elem_unit(scipp::variable::Variable const&amp;) const</a></td>
               <td class="coverFnHi">61</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#67">scipp::variable::ElementArrayModel&lt;scipp::span&lt;bool const, 18446744073709551615ul&gt; &gt;::ElementArrayModel(long, scipp::units::Unit const&amp;, scipp::core::element_array&lt;scipp::span&lt;bool const, 18446744073709551615ul&gt; &gt;, std::optional&lt;scipp::core::element_array&lt;scipp::span&lt;bool const, 18446744073709551615ul&gt; &gt; &gt;)</a></td>
-              <td class="coverFnHi">62</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#9">scipp::variable::Variable scipp::variable::make_default_init&lt;scipp::span&lt;bool const, 18446744073709551615ul&gt; &gt;(scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool)</a></td>
-              <td class="coverFnHi">62</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#36">scipp::variable::VariableMaker&lt;scipp::span&lt;bool const, 18446744073709551615ul&gt; &gt;::create(scipp::core::DType, scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool, std::vector&lt;std::reference_wrapper&lt;scipp::variable::Variable const&gt;, std::allocator&lt;std::reference_wrapper&lt;scipp::variable::Variable const&gt; &gt; &gt; const&amp;) const</a></td>
-              <td class="coverFnHi">62</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#49">scipp::variable::VariableMaker&lt;scipp::core::time_point&gt;::set_elem_unit(scipp::variable::Variable&amp;, scipp::units::Unit const&amp;) const</a></td>
@@ -2404,11 +2404,11 @@
               <td class="coverFnHi">66</td>
             </tr>
     <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#35">scipp::variable::VariableMaker&lt;Eigen::Transform&lt;double, 3, 2, 0&gt; &gt;::is_bins() const</a></td>
-              <td class="coverFnHi">74</td>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#52">scipp::variable::VariableMaker&lt;scipp::span&lt;bool const, 18446744073709551615ul&gt; &gt;::has_variances(scipp::variable::Variable const&amp;) const</a></td>
+              <td class="coverFnHi">66</td>
             </tr>
     <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#52">scipp::variable::VariableMaker&lt;scipp::span&lt;bool const, 18446744073709551615ul&gt; &gt;::has_variances(scipp::variable::Variable const&amp;) const</a></td>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#35">scipp::variable::VariableMaker&lt;Eigen::Transform&lt;double, 3, 2, 0&gt; &gt;::is_bins() const</a></td>
               <td class="coverFnHi">74</td>
             </tr>
     <tr>
@@ -2421,50 +2421,42 @@
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#52">scipp::variable::VariableMaker&lt;scipp::span&lt;float, 18446744073709551615ul&gt; &gt;::has_variances(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">80</td>
+              <td class="coverFnHi">81</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#49">scipp::variable::VariableMaker&lt;scipp::span&lt;float, 18446744073709551615ul&gt; &gt;::set_elem_unit(scipp::variable::Variable&amp;, scipp::units::Unit const&amp;) const</a></td>
-              <td class="coverFnHi">80</td>
+              <td class="coverFnHi">81</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#45">scipp::variable::VariableMaker&lt;scipp::span&lt;float, 18446744073709551615ul&gt; &gt;::expect_can_set_elem_unit(scipp::variable::Variable const&amp;, scipp::units::Unit const&amp;) const</a></td>
-              <td class="coverFnHi">80</td>
+              <td class="coverFnHi">81</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#42">scipp::variable::VariableMaker&lt;scipp::span&lt;float, 18446744073709551615ul&gt; &gt;::elem_unit(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">80</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#67">scipp::variable::ElementArrayModel&lt;scipp::span&lt;float, 18446744073709551615ul&gt; &gt;::ElementArrayModel(long, scipp::units::Unit const&amp;, scipp::core::element_array&lt;scipp::span&lt;float, 18446744073709551615ul&gt; &gt;, std::optional&lt;scipp::core::element_array&lt;scipp::span&lt;float, 18446744073709551615ul&gt; &gt; &gt;)</a></td>
-              <td class="coverFnHi">86</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#9">scipp::variable::Variable scipp::variable::make_default_init&lt;scipp::span&lt;float, 18446744073709551615ul&gt; &gt;(scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool)</a></td>
-              <td class="coverFnHi">86</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#36">scipp::variable::VariableMaker&lt;scipp::span&lt;float, 18446744073709551615ul&gt; &gt;::create(scipp::core::DType, scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool, std::vector&lt;std::reference_wrapper&lt;scipp::variable::Variable const&gt;, std::allocator&lt;std::reference_wrapper&lt;scipp::variable::Variable const&gt; &gt; &gt; const&amp;) const</a></td>
-              <td class="coverFnHi">86</td>
+              <td class="coverFnHi">81</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#35">scipp::variable::VariableMaker&lt;scipp::core::Quaternion&gt;::is_bins() const</a></td>
               <td class="coverFnHi">88</td>
             </tr>
     <tr>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#67">scipp::variable::ElementArrayModel&lt;scipp::span&lt;float, 18446744073709551615ul&gt; &gt;::ElementArrayModel(long, scipp::units::Unit const&amp;, scipp::core::element_array&lt;scipp::span&lt;float, 18446744073709551615ul&gt; &gt;, std::optional&lt;scipp::core::element_array&lt;scipp::span&lt;float, 18446744073709551615ul&gt; &gt; &gt;)</a></td>
+              <td class="coverFnHi">89</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#9">scipp::variable::Variable scipp::variable::make_default_init&lt;scipp::span&lt;float, 18446744073709551615ul&gt; &gt;(scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool)</a></td>
+              <td class="coverFnHi">89</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#36">scipp::variable::VariableMaker&lt;scipp::span&lt;float, 18446744073709551615ul&gt; &gt;::create(scipp::core::DType, scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool, std::vector&lt;std::reference_wrapper&lt;scipp::variable::Variable const&gt;, std::allocator&lt;std::reference_wrapper&lt;scipp::variable::Variable const&gt; &gt; &gt; const&amp;) const</a></td>
+              <td class="coverFnHi">89</td>
+            </tr>
+    <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#42">scipp::variable::VariableMaker&lt;scipp::python::PyObject&gt;::elem_unit(scipp::variable::Variable const&amp;) const</a></td>
               <td class="coverFnHi">91</td>
             </tr>
     <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#67">scipp::variable::ElementArrayModel&lt;scipp::span&lt;int, 18446744073709551615ul&gt; &gt;::ElementArrayModel(long, scipp::units::Unit const&amp;, scipp::core::element_array&lt;scipp::span&lt;int, 18446744073709551615ul&gt; &gt;, std::optional&lt;scipp::core::element_array&lt;scipp::span&lt;int, 18446744073709551615ul&gt; &gt; &gt;)</a></td>
-              <td class="coverFnHi">93</td>
-            </tr>
-    <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#9">scipp::variable::Variable scipp::variable::make_default_init&lt;Eigen::Matrix&lt;double, 3, 1, 0, 3, 1&gt; &gt;(scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool)</a></td>
-              <td class="coverFnHi">93</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#9">scipp::variable::Variable scipp::variable::make_default_init&lt;scipp::span&lt;int, 18446744073709551615ul&gt; &gt;(scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool)</a></td>
               <td class="coverFnHi">93</td>
             </tr>
     <tr>
@@ -2472,28 +2464,36 @@
               <td class="coverFnHi">93</td>
             </tr>
     <tr>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#41">scipp::variable::VariableMaker&lt;scipp::core::Translation&gt;::elem_dtype(scipp::variable::Variable const&amp;) const</a></td>
+              <td class="coverFnHi">97</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#67">scipp::variable::ElementArrayModel&lt;scipp::span&lt;int, 18446744073709551615ul&gt; &gt;::ElementArrayModel(long, scipp::units::Unit const&amp;, scipp::core::element_array&lt;scipp::span&lt;int, 18446744073709551615ul&gt; &gt;, std::optional&lt;scipp::core::element_array&lt;scipp::span&lt;int, 18446744073709551615ul&gt; &gt; &gt;)</a></td>
+              <td class="coverFnHi">98</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#9">scipp::variable::Variable scipp::variable::make_default_init&lt;scipp::span&lt;int, 18446744073709551615ul&gt; &gt;(scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool)</a></td>
+              <td class="coverFnHi">98</td>
+            </tr>
+    <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#52">scipp::variable::VariableMaker&lt;scipp::span&lt;int, 18446744073709551615ul&gt; &gt;::has_variances(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">93</td>
+              <td class="coverFnHi">98</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#49">scipp::variable::VariableMaker&lt;scipp::span&lt;int, 18446744073709551615ul&gt; &gt;::set_elem_unit(scipp::variable::Variable&amp;, scipp::units::Unit const&amp;) const</a></td>
-              <td class="coverFnHi">93</td>
+              <td class="coverFnHi">98</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#45">scipp::variable::VariableMaker&lt;scipp::span&lt;int, 18446744073709551615ul&gt; &gt;::expect_can_set_elem_unit(scipp::variable::Variable const&amp;, scipp::units::Unit const&amp;) const</a></td>
-              <td class="coverFnHi">93</td>
+              <td class="coverFnHi">98</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#36">scipp::variable::VariableMaker&lt;scipp::span&lt;int, 18446744073709551615ul&gt; &gt;::create(scipp::core::DType, scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool, std::vector&lt;std::reference_wrapper&lt;scipp::variable::Variable const&gt;, std::allocator&lt;std::reference_wrapper&lt;scipp::variable::Variable const&gt; &gt; &gt; const&amp;) const</a></td>
-              <td class="coverFnHi">93</td>
+              <td class="coverFnHi">98</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#42">scipp::variable::VariableMaker&lt;scipp::span&lt;int, 18446744073709551615ul&gt; &gt;::elem_unit(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">93</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#41">scipp::variable::VariableMaker&lt;scipp::core::Translation&gt;::elem_dtype(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">97</td>
+              <td class="coverFnHi">98</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#114">scipp::variable::ElementArrayModel&lt;long&gt;::equals_nan(scipp::variable::Variable const&amp;, scipp::variable::Variable const&amp;) const</a></td>
@@ -2508,6 +2508,10 @@
               <td class="coverFnHi">112</td>
             </tr>
     <tr>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#35">scipp::variable::VariableMaker&lt;scipp::span&lt;bool, 18446744073709551615ul&gt; &gt;::is_bins() const</a></td>
+              <td class="coverFnHi">117</td>
+            </tr>
+    <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#42">scipp::variable::VariableMaker&lt;Eigen::Matrix&lt;double, 3, 1, 0, 3, 1&gt; &gt;::elem_unit(scipp::variable::Variable const&amp;) const</a></td>
               <td class="coverFnHi">120</td>
             </tr>
@@ -2516,12 +2520,12 @@
               <td class="coverFnHi">129</td>
             </tr>
     <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#35">scipp::variable::VariableMaker&lt;scipp::span&lt;bool, 18446744073709551615ul&gt; &gt;::is_bins() const</a></td>
-              <td class="coverFnHi">141</td>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#42">scipp::variable::VariableMaker&lt;scipp::span&lt;float const, 18446744073709551615ul&gt; &gt;::elem_unit(scipp::variable::Variable const&amp;) const</a></td>
+              <td class="coverFnHi">149</td>
             </tr>
     <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#42">scipp::variable::VariableMaker&lt;scipp::span&lt;float const, 18446744073709551615ul&gt; &gt;::elem_unit(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">148</td>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#41">scipp::variable::VariableMaker&lt;scipp::span&lt;bool const, 18446744073709551615ul&gt; &gt;::elem_dtype(scipp::variable::Variable const&amp;) const</a></td>
+              <td class="coverFnHi">150</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#103">scipp::variable::ElementArrayModel&lt;int&gt;::equals(scipp::variable::Variable const&amp;, scipp::variable::Variable const&amp;) const</a></td>
@@ -2530,10 +2534,6 @@
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#55">scipp::variable::VariableMaker&lt;float&gt;::empty_like(scipp::variable::Variable const&amp;, std::optional&lt;scipp::core::Dimensions&gt; const&amp;, scipp::variable::Variable const&amp;) const</a></td>
               <td class="coverFnHi">165</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#41">scipp::variable::VariableMaker&lt;scipp::span&lt;bool const, 18446744073709551615ul&gt; &gt;::elem_dtype(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">166</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#9">scipp::variable::Variable scipp::variable::make_default_init&lt;scipp::core::time_point&gt;(scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool)</a></td>
@@ -2553,23 +2553,23 @@
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#67">scipp::variable::ElementArrayModel&lt;scipp::span&lt;float const, 18446744073709551615ul&gt; &gt;::ElementArrayModel(long, scipp::units::Unit const&amp;, scipp::core::element_array&lt;scipp::span&lt;float const, 18446744073709551615ul&gt; &gt;, std::optional&lt;scipp::core::element_array&lt;scipp::span&lt;float const, 18446744073709551615ul&gt; &gt; &gt;)</a></td>
-              <td class="coverFnHi">178</td>
+              <td class="coverFnHi">181</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#9">scipp::variable::Variable scipp::variable::make_default_init&lt;scipp::span&lt;float const, 18446744073709551615ul&gt; &gt;(scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool)</a></td>
-              <td class="coverFnHi">178</td>
+              <td class="coverFnHi">181</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#36">scipp::variable::VariableMaker&lt;scipp::span&lt;float const, 18446744073709551615ul&gt; &gt;::create(scipp::core::DType, scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool, std::vector&lt;std::reference_wrapper&lt;scipp::variable::Variable const&gt;, std::allocator&lt;std::reference_wrapper&lt;scipp::variable::Variable const&gt; &gt; &gt; const&amp;) const</a></td>
-              <td class="coverFnHi">178</td>
+              <td class="coverFnHi">181</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#35">scipp::variable::VariableMaker&lt;scipp::span&lt;bool const, 18446744073709551615ul&gt; &gt;::is_bins() const</a></td>
-              <td class="coverFnHi">207</td>
+              <td class="coverFnHi">183</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#52">scipp::variable::VariableMaker&lt;scipp::span&lt;float const, 18446744073709551615ul&gt; &gt;::has_variances(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">223</td>
+              <td class="coverFnHi">224</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#52">scipp::variable::VariableMaker&lt;Eigen::Matrix&lt;double, 3, 1, 0, 3, 1&gt; &gt;::has_variances(scipp::variable::Variable const&amp;) const</a></td>
@@ -2581,15 +2581,15 @@
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#35">scipp::variable::VariableMaker&lt;scipp::span&lt;float, 18446744073709551615ul&gt; &gt;::is_bins() const</a></td>
-              <td class="coverFnHi">252</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#35">scipp::variable::VariableMaker&lt;scipp::span&lt;int, 18446744073709551615ul&gt; &gt;::is_bins() const</a></td>
-              <td class="coverFnHi">279</td>
+              <td class="coverFnHi">259</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#35">scipp::variable::VariableMaker&lt;Eigen::Matrix&lt;double, 3, 3, 0, 3, 3&gt; &gt;::is_bins() const</a></td>
               <td class="coverFnHi">285</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#35">scipp::variable::VariableMaker&lt;scipp::span&lt;int, 18446744073709551615ul&gt; &gt;::is_bins() const</a></td>
+              <td class="coverFnHi">294</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#103">scipp::variable::ElementArrayModel&lt;scipp::core::time_point&gt;::equals(scipp::variable::Variable const&amp;, scipp::variable::Variable const&amp;) const</a></td>
@@ -2597,7 +2597,7 @@
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#41">scipp::variable::VariableMaker&lt;scipp::span&lt;float const, 18446744073709551615ul&gt; &gt;::elem_dtype(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">315</td>
+              <td class="coverFnHi">317</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#67">scipp::variable::ElementArrayModel&lt;std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; &gt;::ElementArrayModel(long, scipp::units::Unit const&amp;, scipp::core::element_array&lt;std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; &gt;, std::optional&lt;scipp::core::element_array&lt;std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; &gt; &gt;)</a></td>
@@ -2609,7 +2609,7 @@
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#41">scipp::variable::VariableMaker&lt;scipp::span&lt;float, 18446744073709551615ul&gt; &gt;::elem_dtype(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">320</td>
+              <td class="coverFnHi">324</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#67">scipp::variable::ElementArrayModel&lt;std::unordered_map&lt;long, int, std::hash&lt;long&gt;, std::equal_to&lt;long&gt;, std::allocator&lt;std::pair&lt;long const, int&gt; &gt; &gt; &gt;::ElementArrayModel(long, scipp::units::Unit const&amp;, scipp::core::element_array&lt;std::unordered_map&lt;long, int, std::hash&lt;long&gt;, std::equal_to&lt;long&gt;, std::allocator&lt;std::pair&lt;long const, int&gt; &gt; &gt; &gt;, std::optional&lt;scipp::core::element_array&lt;std::unordered_map&lt;long, int, std::hash&lt;long&gt;, std::equal_to&lt;long&gt;, std::allocator&lt;std::pair&lt;long const, int&gt; &gt; &gt; &gt; &gt;)</a></td>
@@ -2645,7 +2645,7 @@
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#41">scipp::variable::VariableMaker&lt;scipp::span&lt;bool, 18446744073709551615ul&gt; &gt;::elem_dtype(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">470</td>
+              <td class="coverFnHi">390</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#89">scipp::variable::ElementArrayModel&lt;double&gt;::makeDefaultFromParent(long) const</a></td>
@@ -2660,12 +2660,12 @@
               <td class="coverFnHi">554</td>
             </tr>
     <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#35">scipp::variable::VariableMaker&lt;scipp::span&lt;float const, 18446744073709551615ul&gt; &gt;::is_bins() const</a></td>
-              <td class="coverFnHi">569</td>
-            </tr>
-    <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#52">scipp::variable::VariableMaker&lt;scipp::core::time_point&gt;::has_variances(scipp::variable::Variable const&amp;) const</a></td>
               <td class="coverFnHi">573</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#35">scipp::variable::VariableMaker&lt;scipp::span&lt;float const, 18446744073709551615ul&gt; &gt;::is_bins() const</a></td>
+              <td class="coverFnHi">576</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#41">scipp::variable::VariableMaker&lt;scipp::core::Quaternion&gt;::elem_dtype(scipp::variable::Variable const&amp;) const</a></td>
@@ -2673,27 +2673,27 @@
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#9">scipp::variable::Variable scipp::variable::make_default_init&lt;int&gt;(scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool)</a></td>
-              <td class="coverFnHi">704</td>
+              <td class="coverFnHi">709</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#36">scipp::variable::VariableMaker&lt;int&gt;::create(scipp::core::DType, scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool, std::vector&lt;std::reference_wrapper&lt;scipp::variable::Variable const&gt;, std::allocator&lt;std::reference_wrapper&lt;scipp::variable::Variable const&gt; &gt; &gt; const&amp;) const</a></td>
-              <td class="coverFnHi">704</td>
+              <td class="coverFnHi">709</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#41">scipp::variable::VariableMaker&lt;scipp::span&lt;int, 18446744073709551615ul&gt; &gt;::elem_dtype(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">744</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#9">scipp::variable::Variable scipp::variable::make_default_init&lt;float&gt;(scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool)</a></td>
-              <td class="coverFnHi">857</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#36">scipp::variable::VariableMaker&lt;float&gt;::create(scipp::core::DType, scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool, std::vector&lt;std::reference_wrapper&lt;scipp::variable::Variable const&gt;, std::allocator&lt;std::reference_wrapper&lt;scipp::variable::Variable const&gt; &gt; &gt; const&amp;) const</a></td>
-              <td class="coverFnHi">857</td>
+              <td class="coverFnHi">784</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#67">scipp::variable::ElementArrayModel&lt;scipp::core::time_point&gt;::ElementArrayModel(long, scipp::units::Unit const&amp;, scipp::core::element_array&lt;scipp::core::time_point&gt;, std::optional&lt;scipp::core::element_array&lt;scipp::core::time_point&gt; &gt;)</a></td>
               <td class="coverFnHi">858</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#9">scipp::variable::Variable scipp::variable::make_default_init&lt;float&gt;(scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool)</a></td>
+              <td class="coverFnHi">869</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#36">scipp::variable::VariableMaker&lt;float&gt;::create(scipp::core::DType, scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool, std::vector&lt;std::reference_wrapper&lt;scipp::variable::Variable const&gt;, std::allocator&lt;std::reference_wrapper&lt;scipp::variable::Variable const&gt; &gt; &gt; const&amp;) const</a></td>
+              <td class="coverFnHi">869</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#41">scipp::variable::VariableMaker&lt;Eigen::Matrix&lt;double, 3, 1, 0, 3, 1&gt; &gt;::elem_dtype(scipp::variable::Variable const&amp;) const</a></td>
@@ -2721,7 +2721,7 @@
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#67">scipp::variable::ElementArrayModel&lt;float&gt;::ElementArrayModel(long, scipp::units::Unit const&amp;, scipp::core::element_array&lt;float&gt;, std::optional&lt;scipp::core::element_array&lt;float&gt; &gt;)</a></td>
-              <td class="coverFnHi">1484</td>
+              <td class="coverFnHi">1491</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#41">scipp::variable::VariableMaker&lt;scipp::core::time_point&gt;::elem_dtype(scipp::variable::Variable const&amp;) const</a></td>
@@ -2733,15 +2733,15 @@
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#127">scipp::variable::ElementArrayModel&lt;scipp::span&lt;double, 18446744073709551615ul&gt; &gt;::setVariances(scipp::variable::Variable const&amp;)</a></td>
-              <td class="coverFnHi">1730</td>
+              <td class="coverFnHi">1728</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#127">scipp::variable::ElementArrayModel&lt;scipp::span&lt;double const, 18446744073709551615ul&gt; &gt;::setVariances(scipp::variable::Variable const&amp;)</a></td>
-              <td class="coverFnHi">1731</td>
+              <td class="coverFnHi">1729</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#42">scipp::variable::VariableMaker&lt;float&gt;::elem_unit(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">1835</td>
+              <td class="coverFnHi">1841</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#41">scipp::variable::VariableMaker&lt;std::__cxx11::basic_string&lt;char, std::char_traits&lt;char&gt;, std::allocator&lt;char&gt; &gt; &gt;::elem_dtype(scipp::variable::Variable const&amp;) const</a></td>
@@ -2749,83 +2749,83 @@
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#103">scipp::variable::ElementArrayModel&lt;bool&gt;::equals(scipp::variable::Variable const&amp;, scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">2538</td>
+              <td class="coverFnHi">2272</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#41">scipp::variable::VariableMaker&lt;float&gt;::elem_dtype(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">2786</td>
+              <td class="coverFnHi">2808</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#52">scipp::variable::VariableMaker&lt;float&gt;::has_variances(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">2848</td>
+              <td class="coverFnHi">2859</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#35">scipp::variable::VariableMaker&lt;float&gt;::is_bins() const</a></td>
-              <td class="coverFnHi">6205</td>
+              <td class="coverFnHi">6403</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#49">scipp::variable::VariableMaker&lt;int&gt;::set_elem_unit(scipp::variable::Variable&amp;, scipp::units::Unit const&amp;) const</a></td>
-              <td class="coverFnHi">8864</td>
+              <td class="coverFnHi">8835</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#45">scipp::variable::VariableMaker&lt;int&gt;::expect_can_set_elem_unit(scipp::variable::Variable const&amp;, scipp::units::Unit const&amp;) const</a></td>
-              <td class="coverFnHi">8865</td>
+              <td class="coverFnHi">8836</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#67">scipp::variable::ElementArrayModel&lt;int&gt;::ElementArrayModel(long, scipp::units::Unit const&amp;, scipp::core::element_array&lt;int&gt;, std::optional&lt;scipp::core::element_array&lt;int&gt; &gt;)</a></td>
-              <td class="coverFnHi">10856</td>
+              <td class="coverFnHi">10878</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#42">scipp::variable::VariableMaker&lt;int&gt;::elem_unit(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">11356</td>
+              <td class="coverFnHi">11344</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#52">scipp::variable::VariableMaker&lt;int&gt;::has_variances(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">12706</td>
+              <td class="coverFnHi">12677</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#49">scipp::variable::VariableMaker&lt;scipp::span&lt;long, 18446744073709551615ul&gt; &gt;::set_elem_unit(scipp::variable::Variable&amp;, scipp::units::Unit const&amp;) const</a></td>
-              <td class="coverFnHi">13068</td>
+              <td class="coverFnHi">13070</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#45">scipp::variable::VariableMaker&lt;scipp::span&lt;long, 18446744073709551615ul&gt; &gt;::expect_can_set_elem_unit(scipp::variable::Variable const&amp;, scipp::units::Unit const&amp;) const</a></td>
-              <td class="coverFnHi">13068</td>
+              <td class="coverFnHi">13070</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#42">scipp::variable::VariableMaker&lt;scipp::span&lt;long, 18446744073709551615ul&gt; &gt;::elem_unit(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">13068</td>
+              <td class="coverFnHi">13070</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#67">scipp::variable::ElementArrayModel&lt;scipp::span&lt;long, 18446744073709551615ul&gt; &gt;::ElementArrayModel(long, scipp::units::Unit const&amp;, scipp::core::element_array&lt;scipp::span&lt;long, 18446744073709551615ul&gt; &gt;, std::optional&lt;scipp::core::element_array&lt;scipp::span&lt;long, 18446744073709551615ul&gt; &gt; &gt;)</a></td>
-              <td class="coverFnHi">13071</td>
+              <td class="coverFnHi">13073</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#9">scipp::variable::Variable scipp::variable::make_default_init&lt;scipp::span&lt;long, 18446744073709551615ul&gt; &gt;(scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool)</a></td>
-              <td class="coverFnHi">13071</td>
+              <td class="coverFnHi">13073</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#52">scipp::variable::VariableMaker&lt;scipp::span&lt;long, 18446744073709551615ul&gt; &gt;::has_variances(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">13071</td>
+              <td class="coverFnHi">13073</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#36">scipp::variable::VariableMaker&lt;scipp::span&lt;long, 18446744073709551615ul&gt; &gt;::create(scipp::core::DType, scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool, std::vector&lt;std::reference_wrapper&lt;scipp::variable::Variable const&gt;, std::allocator&lt;std::reference_wrapper&lt;scipp::variable::Variable const&gt; &gt; &gt; const&amp;) const</a></td>
-              <td class="coverFnHi">13071</td>
+              <td class="coverFnHi">13073</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#103">scipp::variable::ElementArrayModel&lt;long&gt;::equals(scipp::variable::Variable const&amp;, scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">14643</td>
+              <td class="coverFnHi">14191</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#49">scipp::variable::VariableMaker&lt;scipp::span&lt;double, 18446744073709551615ul&gt; &gt;::set_elem_unit(scipp::variable::Variable&amp;, scipp::units::Unit const&amp;) const</a></td>
-              <td class="coverFnHi">16897</td>
+              <td class="coverFnHi">16866</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#45">scipp::variable::VariableMaker&lt;scipp::span&lt;double, 18446744073709551615ul&gt; &gt;::expect_can_set_elem_unit(scipp::variable::Variable const&amp;, scipp::units::Unit const&amp;) const</a></td>
-              <td class="coverFnHi">16897</td>
+              <td class="coverFnHi">16866</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#42">scipp::variable::VariableMaker&lt;scipp::span&lt;double, 18446744073709551615ul&gt; &gt;::elem_unit(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">16897</td>
+              <td class="coverFnHi">16866</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#55">scipp::variable::VariableMaker&lt;scipp::core::SubbinSizes&gt;::empty_like(scipp::variable::Variable const&amp;, std::optional&lt;scipp::core::Dimensions&gt; const&amp;, scipp::variable::Variable const&amp;) const</a></td>
@@ -2833,75 +2833,83 @@
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#42">scipp::variable::VariableMaker&lt;scipp::span&lt;long const, 18446744073709551615ul&gt; &gt;::elem_unit(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">25931</td>
+              <td class="coverFnHi">25943</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#67">scipp::variable::ElementArrayModel&lt;scipp::span&lt;long const, 18446744073709551615ul&gt; &gt;::ElementArrayModel(long, scipp::units::Unit const&amp;, scipp::core::element_array&lt;scipp::span&lt;long const, 18446744073709551615ul&gt; &gt;, std::optional&lt;scipp::core::element_array&lt;scipp::span&lt;long const, 18446744073709551615ul&gt; &gt; &gt;)</a></td>
-              <td class="coverFnHi">25988</td>
+              <td class="coverFnHi">26000</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#9">scipp::variable::Variable scipp::variable::make_default_init&lt;scipp::span&lt;long const, 18446744073709551615ul&gt; &gt;(scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool)</a></td>
-              <td class="coverFnHi">25988</td>
+              <td class="coverFnHi">26000</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#36">scipp::variable::VariableMaker&lt;scipp::span&lt;long const, 18446744073709551615ul&gt; &gt;::create(scipp::core::DType, scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool, std::vector&lt;std::reference_wrapper&lt;scipp::variable::Variable const&gt;, std::allocator&lt;std::reference_wrapper&lt;scipp::variable::Variable const&gt; &gt; &gt; const&amp;) const</a></td>
-              <td class="coverFnHi">25988</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#35">scipp::variable::VariableMaker&lt;int&gt;::is_bins() const</a></td>
-              <td class="coverFnHi">27172</td>
+              <td class="coverFnHi">26000</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#89">scipp::variable::ElementArrayModel&lt;long&gt;::makeDefaultFromParent(long) const</a></td>
-              <td class="coverFnHi">28566</td>
+              <td class="coverFnHi">26822</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#35">scipp::variable::VariableMaker&lt;int&gt;::is_bins() const</a></td>
+              <td class="coverFnHi">27186</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#42">scipp::variable::VariableMaker&lt;scipp::span&lt;double const, 18446744073709551615ul&gt; &gt;::elem_unit(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">28741</td>
+              <td class="coverFnHi">28652</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#41">scipp::variable::VariableMaker&lt;int&gt;::elem_dtype(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">31569</td>
+              <td class="coverFnHi">31511</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#52">scipp::variable::VariableMaker&lt;scipp::span&lt;long const, 18446744073709551615ul&gt; &gt;::has_variances(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">35011</td>
+              <td class="coverFnHi">35033</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#42">scipp::variable::VariableMaker&lt;scipp::span&lt;int const, 18446744073709551615ul&gt; &gt;::elem_unit(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">38710</td>
+              <td class="coverFnHi">38684</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#67">scipp::variable::ElementArrayModel&lt;scipp::span&lt;int const, 18446744073709551615ul&gt; &gt;::ElementArrayModel(long, scipp::units::Unit const&amp;, scipp::core::element_array&lt;scipp::span&lt;int const, 18446744073709551615ul&gt; &gt;, std::optional&lt;scipp::core::element_array&lt;scipp::span&lt;int const, 18446744073709551615ul&gt; &gt; &gt;)</a></td>
-              <td class="coverFnHi">38733</td>
+              <td class="coverFnHi">38707</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#9">scipp::variable::Variable scipp::variable::make_default_init&lt;scipp::span&lt;int const, 18446744073709551615ul&gt; &gt;(scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool)</a></td>
-              <td class="coverFnHi">38733</td>
+              <td class="coverFnHi">38707</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#36">scipp::variable::VariableMaker&lt;scipp::span&lt;int const, 18446744073709551615ul&gt; &gt;::create(scipp::core::DType, scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool, std::vector&lt;std::reference_wrapper&lt;scipp::variable::Variable const&gt;, std::allocator&lt;std::reference_wrapper&lt;scipp::variable::Variable const&gt; &gt; &gt; const&amp;) const</a></td>
-              <td class="coverFnHi">38733</td>
+              <td class="coverFnHi">38707</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#35">scipp::variable::VariableMaker&lt;scipp::span&lt;long, 18446744073709551615ul&gt; &gt;::is_bins() const</a></td>
-              <td class="coverFnHi">39210</td>
+              <td class="coverFnHi">39216</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#55">scipp::variable::VariableMaker&lt;std::pair&lt;long, long&gt; &gt;::empty_like(scipp::variable::Variable const&amp;, std::optional&lt;scipp::core::Dimensions&gt; const&amp;, scipp::variable::Variable const&amp;) const</a></td>
               <td class="coverFnHi">41240</td>
             </tr>
     <tr>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#55">scipp::variable::VariableMaker&lt;bool&gt;::empty_like(scipp::variable::Variable const&amp;, std::optional&lt;scipp::core::Dimensions&gt; const&amp;, scipp::variable::Variable const&amp;) const</a></td>
+              <td class="coverFnHi">46642</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#49">scipp::variable::VariableMaker&lt;bool&gt;::set_elem_unit(scipp::variable::Variable&amp;, scipp::units::Unit const&amp;) const</a></td>
+              <td class="coverFnHi">47049</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#45">scipp::variable::VariableMaker&lt;bool&gt;::expect_can_set_elem_unit(scipp::variable::Variable const&amp;, scipp::units::Unit const&amp;) const</a></td>
+              <td class="coverFnHi">47049</td>
+            </tr>
+    <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#52">scipp::variable::VariableMaker&lt;scipp::span&lt;int const, 18446744073709551615ul&gt; &gt;::has_variances(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">47144</td>
+              <td class="coverFnHi">47118</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#41">scipp::variable::VariableMaker&lt;scipp::span&lt;long const, 18446744073709551615ul&gt; &gt;::elem_dtype(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">47531</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#55">scipp::variable::VariableMaker&lt;bool&gt;::empty_like(scipp::variable::Variable const&amp;, std::optional&lt;scipp::core::Dimensions&gt; const&amp;, scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">52605</td>
+              <td class="coverFnHi">47545</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#49">scipp::variable::VariableMaker&lt;scipp::core::SubbinSizes&gt;::set_elem_unit(scipp::variable::Variable&amp;, scipp::units::Unit const&amp;) const</a></td>
@@ -2924,14 +2932,6 @@
               <td class="coverFnHi">52903</td>
             </tr>
     <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#49">scipp::variable::VariableMaker&lt;bool&gt;::set_elem_unit(scipp::variable::Variable&amp;, scipp::units::Unit const&amp;) const</a></td>
-              <td class="coverFnHi">53012</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#45">scipp::variable::VariableMaker&lt;bool&gt;::expect_can_set_elem_unit(scipp::variable::Variable const&amp;, scipp::units::Unit const&amp;) const</a></td>
-              <td class="coverFnHi">53012</td>
-            </tr>
-    <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#49">scipp::variable::VariableMaker&lt;std::pair&lt;long, long&gt; &gt;::set_elem_unit(scipp::variable::Variable&amp;, scipp::units::Unit const&amp;) const</a></td>
               <td class="coverFnHi">56662</td>
             </tr>
@@ -2941,219 +2941,219 @@
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#52">scipp::variable::VariableMaker&lt;scipp::span&lt;double, 18446744073709551615ul&gt; &gt;::has_variances(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">64503</td>
+              <td class="coverFnHi">64472</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#67">scipp::variable::ElementArrayModel&lt;scipp::span&lt;double, 18446744073709551615ul&gt; &gt;::ElementArrayModel(long, scipp::units::Unit const&amp;, scipp::core::element_array&lt;scipp::span&lt;double, 18446744073709551615ul&gt; &gt;, std::optional&lt;scipp::core::element_array&lt;scipp::span&lt;double, 18446744073709551615ul&gt; &gt; &gt;)</a></td>
-              <td class="coverFnHi">66241</td>
+              <td class="coverFnHi">66208</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#9">scipp::variable::Variable scipp::variable::make_default_init&lt;scipp::span&lt;double, 18446744073709551615ul&gt; &gt;(scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool)</a></td>
-              <td class="coverFnHi">66241</td>
+              <td class="coverFnHi">66208</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#36">scipp::variable::VariableMaker&lt;scipp::span&lt;double, 18446744073709551615ul&gt; &gt;::create(scipp::core::DType, scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool, std::vector&lt;std::reference_wrapper&lt;scipp::variable::Variable const&gt;, std::allocator&lt;std::reference_wrapper&lt;scipp::variable::Variable const&gt; &gt; &gt; const&amp;) const</a></td>
-              <td class="coverFnHi">66241</td>
+              <td class="coverFnHi">66208</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#55">scipp::variable::VariableMaker&lt;long&gt;::empty_like(scipp::variable::Variable const&amp;, std::optional&lt;scipp::core::Dimensions&gt; const&amp;, scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">70402</td>
+              <td class="coverFnHi">69097</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#41">scipp::variable::VariableMaker&lt;scipp::span&lt;int const, 18446744073709551615ul&gt; &gt;::elem_dtype(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">77523</td>
+              <td class="coverFnHi">77471</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#41">scipp::variable::VariableMaker&lt;scipp::span&lt;long, 18446744073709551615ul&gt; &gt;::elem_dtype(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">78407</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#41">scipp::variable::VariableMaker&lt;scipp::span&lt;double, 18446744073709551615ul&gt; &gt;::elem_dtype(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">82158</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#45">scipp::variable::VariableMaker&lt;long&gt;::expect_can_set_elem_unit(scipp::variable::Variable const&amp;, scipp::units::Unit const&amp;) const</a></td>
-              <td class="coverFnHi">87761</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#49">scipp::variable::VariableMaker&lt;long&gt;::set_elem_unit(scipp::variable::Variable&amp;, scipp::units::Unit const&amp;) const</a></td>
-              <td class="coverFnHi">87806</td>
+              <td class="coverFnHi">78419</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#9">scipp::variable::Variable scipp::variable::make_default_init&lt;bool&gt;(scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool)</a></td>
-              <td class="coverFnHi">92732</td>
+              <td class="coverFnHi">81854</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#36">scipp::variable::VariableMaker&lt;bool&gt;::create(scipp::core::DType, scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool, std::vector&lt;std::reference_wrapper&lt;scipp::variable::Variable const&gt;, std::allocator&lt;std::reference_wrapper&lt;scipp::variable::Variable const&gt; &gt; &gt; const&amp;) const</a></td>
-              <td class="coverFnHi">92732</td>
+              <td class="coverFnHi">81854</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#41">scipp::variable::VariableMaker&lt;scipp::span&lt;double, 18446744073709551615ul&gt; &gt;::elem_dtype(scipp::variable::Variable const&amp;) const</a></td>
+              <td class="coverFnHi">82096</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#45">scipp::variable::VariableMaker&lt;long&gt;::expect_can_set_elem_unit(scipp::variable::Variable const&amp;, scipp::units::Unit const&amp;) const</a></td>
+              <td class="coverFnHi">86009</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#49">scipp::variable::VariableMaker&lt;long&gt;::set_elem_unit(scipp::variable::Variable&amp;, scipp::units::Unit const&amp;) const</a></td>
+              <td class="coverFnHi">86054</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#35">scipp::variable::VariableMaker&lt;scipp::span&lt;long const, 18446744073709551615ul&gt; &gt;::is_bins() const</a></td>
-              <td class="coverFnHi">93485</td>
+              <td class="coverFnHi">93541</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#67">scipp::variable::ElementArrayModel&lt;bool&gt;::ElementArrayModel(long, scipp::units::Unit const&amp;, scipp::core::element_array&lt;bool&gt;, std::optional&lt;scipp::core::element_array&lt;bool&gt; &gt;)</a></td>
-              <td class="coverFnHi">105505</td>
+              <td class="coverFnHi">94535</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#55">scipp::variable::VariableMaker&lt;double&gt;::empty_like(scipp::variable::Variable const&amp;, std::optional&lt;scipp::core::Dimensions&gt; const&amp;, scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">107152</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#35">scipp::variable::VariableMaker&lt;scipp::span&lt;int const, 18446744073709551615ul&gt; &gt;::is_bins() const</a></td>
-              <td class="coverFnHi">132992</td>
+              <td class="coverFnHi">107154</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#42">scipp::variable::VariableMaker&lt;bool&gt;::elem_unit(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">148502</td>
+              <td class="coverFnHi">125362</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#35">scipp::variable::VariableMaker&lt;scipp::span&lt;int const, 18446744073709551615ul&gt; &gt;::is_bins() const</a></td>
+              <td class="coverFnHi">132914</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#35">scipp::variable::VariableMaker&lt;scipp::span&lt;double, 18446744073709551615ul&gt; &gt;::is_bins() const</a></td>
-              <td class="coverFnHi">149370</td>
+              <td class="coverFnHi">149273</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#42">scipp::variable::VariableMaker&lt;scipp::core::SubbinSizes&gt;::elem_unit(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">151297</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#67">scipp::variable::ElementArrayModel&lt;scipp::span&lt;double const, 18446744073709551615ul&gt; &gt;::ElementArrayModel(long, scipp::units::Unit const&amp;, scipp::core::element_array&lt;scipp::span&lt;double const, 18446744073709551615ul&gt; &gt;, std::optional&lt;scipp::core::element_array&lt;scipp::span&lt;double const, 18446744073709551615ul&gt; &gt; &gt;)</a></td>
-              <td class="coverFnHi">174371</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#9">scipp::variable::Variable scipp::variable::make_default_init&lt;scipp::span&lt;double const, 18446744073709551615ul&gt; &gt;(scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool)</a></td>
-              <td class="coverFnHi">174371</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#36">scipp::variable::VariableMaker&lt;scipp::span&lt;double const, 18446744073709551615ul&gt; &gt;::create(scipp::core::DType, scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool, std::vector&lt;std::reference_wrapper&lt;scipp::variable::Variable const&gt;, std::allocator&lt;std::reference_wrapper&lt;scipp::variable::Variable const&gt; &gt; &gt; const&amp;) const</a></td>
-              <td class="coverFnHi">174371</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#52">scipp::variable::VariableMaker&lt;scipp::span&lt;double const, 18446744073709551615ul&gt; &gt;::has_variances(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">179003</td>
+              <td class="coverFnHi">151266</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#41">scipp::variable::VariableMaker&lt;bool&gt;::elem_dtype(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">182844</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#45">scipp::variable::VariableMaker&lt;double&gt;::expect_can_set_elem_unit(scipp::variable::Variable const&amp;, scipp::units::Unit const&amp;) const</a></td>
-              <td class="coverFnHi">187342</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#49">scipp::variable::VariableMaker&lt;double&gt;::set_elem_unit(scipp::variable::Variable&amp;, scipp::units::Unit const&amp;) const</a></td>
-              <td class="coverFnHi">187349</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#41">scipp::variable::VariableMaker&lt;scipp::span&lt;double const, 18446744073709551615ul&gt; &gt;::elem_dtype(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">190098</td>
+              <td class="coverFnHi">157032</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#52">scipp::variable::VariableMaker&lt;bool&gt;::has_variances(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">194740</td>
+              <td class="coverFnHi">161867</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#67">scipp::variable::ElementArrayModel&lt;scipp::span&lt;double const, 18446744073709551615ul&gt; &gt;::ElementArrayModel(long, scipp::units::Unit const&amp;, scipp::core::element_array&lt;scipp::span&lt;double const, 18446744073709551615ul&gt; &gt;, std::optional&lt;scipp::core::element_array&lt;scipp::span&lt;double const, 18446744073709551615ul&gt; &gt; &gt;)</a></td>
+              <td class="coverFnHi">174280</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#9">scipp::variable::Variable scipp::variable::make_default_init&lt;scipp::span&lt;double const, 18446744073709551615ul&gt; &gt;(scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool)</a></td>
+              <td class="coverFnHi">174280</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#36">scipp::variable::VariableMaker&lt;scipp::span&lt;double const, 18446744073709551615ul&gt; &gt;::create(scipp::core::DType, scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool, std::vector&lt;std::reference_wrapper&lt;scipp::variable::Variable const&gt;, std::allocator&lt;std::reference_wrapper&lt;scipp::variable::Variable const&gt; &gt; &gt; const&amp;) const</a></td>
+              <td class="coverFnHi">174280</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#52">scipp::variable::VariableMaker&lt;scipp::span&lt;double const, 18446744073709551615ul&gt; &gt;::has_variances(scipp::variable::Variable const&amp;) const</a></td>
+              <td class="coverFnHi">178885</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#45">scipp::variable::VariableMaker&lt;double&gt;::expect_can_set_elem_unit(scipp::variable::Variable const&amp;, scipp::units::Unit const&amp;) const</a></td>
+              <td class="coverFnHi">187344</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#49">scipp::variable::VariableMaker&lt;double&gt;::set_elem_unit(scipp::variable::Variable&amp;, scipp::units::Unit const&amp;) const</a></td>
+              <td class="coverFnHi">187351</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#41">scipp::variable::VariableMaker&lt;scipp::span&lt;double const, 18446744073709551615ul&gt; &gt;::elem_dtype(scipp::variable::Variable const&amp;) const</a></td>
+              <td class="coverFnHi">189978</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#52">scipp::variable::VariableMaker&lt;scipp::core::SubbinSizes&gt;::has_variances(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">195807</td>
+              <td class="coverFnHi">195776</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#9">scipp::variable::Variable scipp::variable::make_default_init&lt;std::pair&lt;long, long&gt; &gt;(scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool)</a></td>
-              <td class="coverFnHi">292213</td>
+              <td class="coverFnHi">290845</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#36">scipp::variable::VariableMaker&lt;std::pair&lt;long, long&gt; &gt;::create(scipp::core::DType, scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool, std::vector&lt;std::reference_wrapper&lt;scipp::variable::Variable const&gt;, std::allocator&lt;std::reference_wrapper&lt;scipp::variable::Variable const&gt; &gt; &gt; const&amp;) const</a></td>
-              <td class="coverFnHi">292213</td>
+              <td class="coverFnHi">290845</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#103">scipp::variable::ElementArrayModel&lt;double&gt;::equals(scipp::variable::Variable const&amp;, scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">366133</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#35">scipp::variable::VariableMaker&lt;scipp::span&lt;double const, 18446744073709551615ul&gt; &gt;::is_bins() const</a></td>
-              <td class="coverFnHi">388603</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#41">scipp::variable::VariableMaker&lt;scipp::core::SubbinSizes&gt;::elem_dtype(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">423386</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#9">scipp::variable::Variable scipp::variable::make_default_init&lt;long&gt;(scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool)</a></td>
-              <td class="coverFnHi">430780</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#36">scipp::variable::VariableMaker&lt;long&gt;::create(scipp::core::DType, scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool, std::vector&lt;std::reference_wrapper&lt;scipp::variable::Variable const&gt;, std::allocator&lt;std::reference_wrapper&lt;scipp::variable::Variable const&gt; &gt; &gt; const&amp;) const</a></td>
-              <td class="coverFnHi">430780</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#42">scipp::variable::VariableMaker&lt;std::pair&lt;long, long&gt; &gt;::elem_unit(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">432275</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#41">scipp::variable::VariableMaker&lt;std::pair&lt;long, long&gt; &gt;::elem_dtype(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">432431</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#35">scipp::variable::VariableMaker&lt;scipp::core::SubbinSizes&gt;::is_bins() const</a></td>
-              <td class="coverFnHi">445959</td>
+              <td class="coverFnHi">365729</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#35">scipp::variable::VariableMaker&lt;bool&gt;::is_bins() const</a></td>
-              <td class="coverFnHi">465562</td>
+              <td class="coverFnHi">388221</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#35">scipp::variable::VariableMaker&lt;scipp::span&lt;double const, 18446744073709551615ul&gt; &gt;::is_bins() const</a></td>
+              <td class="coverFnHi">388274</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#9">scipp::variable::Variable scipp::variable::make_default_init&lt;long&gt;(scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool)</a></td>
+              <td class="coverFnHi">418799</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#36">scipp::variable::VariableMaker&lt;long&gt;::create(scipp::core::DType, scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool, std::vector&lt;std::reference_wrapper&lt;scipp::variable::Variable const&gt;, std::allocator&lt;std::reference_wrapper&lt;scipp::variable::Variable const&gt; &gt; &gt; const&amp;) const</a></td>
+              <td class="coverFnHi">418799</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#41">scipp::variable::VariableMaker&lt;scipp::core::SubbinSizes&gt;::elem_dtype(scipp::variable::Variable const&amp;) const</a></td>
+              <td class="coverFnHi">423324</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#42">scipp::variable::VariableMaker&lt;std::pair&lt;long, long&gt; &gt;::elem_unit(scipp::variable::Variable const&amp;) const</a></td>
+              <td class="coverFnHi">432134</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#41">scipp::variable::VariableMaker&lt;std::pair&lt;long, long&gt; &gt;::elem_dtype(scipp::variable::Variable const&amp;) const</a></td>
+              <td class="coverFnHi">432290</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#35">scipp::variable::VariableMaker&lt;scipp::core::SubbinSizes&gt;::is_bins() const</a></td>
+              <td class="coverFnHi">445897</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#9">scipp::variable::Variable scipp::variable::make_default_init&lt;double&gt;(scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool)</a></td>
-              <td class="coverFnHi">495572</td>
+              <td class="coverFnHi">493839</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#36">scipp::variable::VariableMaker&lt;double&gt;::create(scipp::core::DType, scipp::core::Dimensions const&amp;, scipp::units::Unit const&amp;, bool, std::vector&lt;std::reference_wrapper&lt;scipp::variable::Variable const&gt;, std::allocator&lt;std::reference_wrapper&lt;scipp::variable::Variable const&gt; &gt; &gt; const&amp;) const</a></td>
-              <td class="coverFnHi">495572</td>
+              <td class="coverFnHi">493839</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#67">scipp::variable::ElementArrayModel&lt;double&gt;::ElementArrayModel(long, scipp::units::Unit const&amp;, scipp::core::element_array&lt;double&gt;, std::optional&lt;scipp::core::element_array&lt;double&gt; &gt;)</a></td>
-              <td class="coverFnHi">759792</td>
+              <td class="coverFnHi">757913</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#42">scipp::variable::VariableMaker&lt;double&gt;::elem_unit(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">948916</td>
+              <td class="coverFnHi">948419</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#52">scipp::variable::VariableMaker&lt;std::pair&lt;long, long&gt; &gt;::has_variances(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">992050</td>
+              <td class="coverFnHi">991650</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#67">scipp::variable::ElementArrayModel&lt;long&gt;::ElementArrayModel(long, scipp::units::Unit const&amp;, scipp::core::element_array&lt;long&gt;, std::optional&lt;scipp::core::element_array&lt;long&gt; &gt;)</a></td>
-              <td class="coverFnHi">1282731</td>
+              <td class="coverFnHi">1267583</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#42">scipp::variable::VariableMaker&lt;long&gt;::elem_unit(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">1328159</td>
+              <td class="coverFnHi">1309391</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#35">scipp::variable::VariableMaker&lt;std::pair&lt;long, long&gt; &gt;::is_bins() const</a></td>
-              <td class="coverFnHi">1866685</td>
+              <td class="coverFnHi">1864753</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#52">scipp::variable::VariableMaker&lt;double&gt;::has_variances(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">2189456</td>
+              <td class="coverFnHi">2188478</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#41">scipp::variable::VariableMaker&lt;double&gt;::elem_dtype(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">2610846</td>
+              <td class="coverFnHi">2609604</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#52">scipp::variable::VariableMaker&lt;long&gt;::has_variances(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">2768326</td>
+              <td class="coverFnHi">2734511</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#35">scipp::variable::VariableMaker&lt;double&gt;::is_bins() const</a></td>
-              <td class="coverFnHi">3580378</td>
+              <td class="coverFnHi">3565999</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#35">scipp::variable::VariableMaker&lt;long&gt;::is_bins() const</a></td>
-              <td class="coverFnHi">5457187</td>
+              <td class="coverFnHi">5384981</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="element_array_variable.tcc.gcov.html#41">scipp::variable::VariableMaker&lt;long&gt;::elem_dtype(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">7040507</td>
+              <td class="coverFnHi">6963255</td>
             </tr>
   </table>
   <br>
