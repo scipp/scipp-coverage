@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-02-11 01:31:15</td>
+            <td class="headerValue">2024-02-18 01:30:21</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">27</td>
@@ -147,20 +147,20 @@
 <a name="85"><span class="lineNum">      85 </span>            :     }};</a>
 <a name="86"><span class="lineNum">      86 </span>            : </a>
 <a name="87"><span class="lineNum">      87 </span>            : constexpr auto map_linspace =</a>
-<a name="88"><span class="lineNum">      88 </span><span class="lineCov">        240 :     overloaded{map, [](const auto &amp;coord, const auto &amp;edges,</span></a>
+<a name="88"><span class="lineNum">      88 </span><span class="lineCov">        236 :     overloaded{map, [](const auto &amp;coord, const auto &amp;edges,</span></a>
 <a name="89"><span class="lineNum">      89 </span>            :                        const auto &amp;weights, const auto &amp;fill) {</a>
-<a name="90"><span class="lineNum">      90 </span><span class="lineCov">        240 :                  const auto params = linear_edge_params(edges);</span></a>
-<a name="91"><span class="lineNum">      91 </span><span class="lineCov">        240 :                  const auto bin = get_bin&lt;scipp::index&gt;(coord, edges, params);</span></a>
-<a name="92"><span class="lineNum">      92 </span><span class="lineCov">        240 :                  return bin &lt; 0 ? fill : get(weights, bin);</span></a>
+<a name="90"><span class="lineNum">      90 </span><span class="lineCov">        236 :                  const auto params = linear_edge_params(edges);</span></a>
+<a name="91"><span class="lineNum">      91 </span><span class="lineCov">        236 :                  const auto bin = get_bin&lt;scipp::index&gt;(coord, edges, params);</span></a>
+<a name="92"><span class="lineNum">      92 </span><span class="lineCov">        236 :                  return bin &lt; 0 ? fill : get(weights, bin);</span></a>
 <a name="93"><span class="lineNum">      93 </span>            :                }};</a>
 <a name="94"><span class="lineNum">      94 </span>            : </a>
 <a name="95"><span class="lineNum">      95 </span>            : constexpr auto map_sorted_edges =</a>
-<a name="96"><span class="lineNum">      96 </span><span class="lineCov">         92 :     overloaded{map, [](const auto &amp;coord, const auto &amp;edges,</span></a>
+<a name="96"><span class="lineNum">      96 </span><span class="lineCov">         96 :     overloaded{map, [](const auto &amp;coord, const auto &amp;edges,</span></a>
 <a name="97"><span class="lineNum">      97 </span>            :                        const auto &amp;weights, const auto &amp;fill) {</a>
-<a name="98"><span class="lineNum">      98 </span><span class="lineCov">         92 :                  auto it = std::upper_bound(edges.begin(), edges.end(), coord);</span></a>
-<a name="99"><span class="lineNum">      99 </span><span class="lineCov">        181 :                  return (it == edges.end() || it == edges.begin())</span></a>
-<a name="100"><span class="lineNum">     100 </span><span class="lineCov">         92 :                             ? fill</span></a>
-<a name="101"><span class="lineNum">     101 </span><span class="lineCov">         92 :                             : get(weights, --it - edges.begin());</span></a>
+<a name="98"><span class="lineNum">      98 </span><span class="lineCov">         96 :                  auto it = std::upper_bound(edges.begin(), edges.end(), coord);</span></a>
+<a name="99"><span class="lineNum">      99 </span><span class="lineCov">        189 :                  return (it == edges.end() || it == edges.begin())</span></a>
+<a name="100"><span class="lineNum">     100 </span><span class="lineCov">         96 :                             ? fill</span></a>
+<a name="101"><span class="lineNum">     101 </span><span class="lineCov">         96 :                             : get(weights, --it - edges.begin());</span></a>
 <a name="102"><span class="lineNum">     102 </span>            :                }};</a>
 <a name="103"><span class="lineNum">     103 </span>            : </a>
 <a name="104"><span class="lineNum">     104 </span>            : constexpr auto lookup_previous =</a>
@@ -200,23 +200,23 @@
 <a name="138"><span class="lineNum">     138 </span>            : </a>
 <a name="139"><span class="lineNum">     139 </span>            : constexpr auto map_and_mul_linspace = overloaded{</a>
 <a name="140"><span class="lineNum">     140 </span>            :     map_and_mul,</a>
-<a name="141"><span class="lineNum">     141 </span><span class="lineCov">        321 :     [](auto &amp;data, const auto x, const auto &amp;edges, const auto &amp;weights) {</span></a>
-<a name="142"><span class="lineNum">     142 </span><span class="lineCov">        321 :       const auto params = linear_edge_params(edges);</span></a>
-<a name="143"><span class="lineNum">     143 </span><span class="lineCov">        321 :       if (const auto bin = get_bin&lt;scipp::index&gt;(x, edges, params); bin &lt; 0)</span></a>
+<a name="141"><span class="lineNum">     141 </span><span class="lineCov">        325 :     [](auto &amp;data, const auto x, const auto &amp;edges, const auto &amp;weights) {</span></a>
+<a name="142"><span class="lineNum">     142 </span><span class="lineCov">        325 :       const auto params = linear_edge_params(edges);</span></a>
+<a name="143"><span class="lineNum">     143 </span><span class="lineCov">        325 :       if (const auto bin = get_bin&lt;scipp::index&gt;(x, edges, params); bin &lt; 0)</span></a>
 <a name="144"><span class="lineNum">     144 </span><span class="lineCov">          7 :         data *= 0.0;</span></a>
 <a name="145"><span class="lineNum">     145 </span>            :       else</a>
-<a name="146"><span class="lineNum">     146 </span><span class="lineCov">        314 :         data *= get(weights, bin);</span></a>
-<a name="147"><span class="lineNum">     147 </span><span class="lineCov">        321 :     }};</span></a>
+<a name="146"><span class="lineNum">     146 </span><span class="lineCov">        318 :         data *= get(weights, bin);</span></a>
+<a name="147"><span class="lineNum">     147 </span><span class="lineCov">        325 :     }};</span></a>
 <a name="148"><span class="lineNum">     148 </span>            : </a>
 <a name="149"><span class="lineNum">     149 </span>            : constexpr auto map_and_mul_sorted_edges =</a>
-<a name="150"><span class="lineNum">     150 </span><span class="lineCov">         16 :     overloaded{map_and_mul, [](auto &amp;data, const auto x, const auto &amp;edges,</span></a>
+<a name="150"><span class="lineNum">     150 </span><span class="lineCov">         12 :     overloaded{map_and_mul, [](auto &amp;data, const auto x, const auto &amp;edges,</span></a>
 <a name="151"><span class="lineNum">     151 </span>            :                                const auto &amp;weights) {</a>
-<a name="152"><span class="lineNum">     152 </span><span class="lineCov">         16 :                  auto it = std::upper_bound(edges.begin(), edges.end(), x);</span></a>
-<a name="153"><span class="lineNum">     153 </span><span class="lineCov">         16 :                  if (it == edges.end() || it == edges.begin())</span></a>
+<a name="152"><span class="lineNum">     152 </span><span class="lineCov">         12 :                  auto it = std::upper_bound(edges.begin(), edges.end(), x);</span></a>
+<a name="153"><span class="lineNum">     153 </span><span class="lineCov">         12 :                  if (it == edges.end() || it == edges.begin())</span></a>
 <a name="154"><span class="lineNum">     154 </span><span class="lineNoCov">          0 :                    data *= 0.0;</span></a>
 <a name="155"><span class="lineNum">     155 </span>            :                  else</a>
-<a name="156"><span class="lineNum">     156 </span><span class="lineCov">         16 :                    data *= get(weights, --it - edges.begin());</span></a>
-<a name="157"><span class="lineNum">     157 </span><span class="lineCov">         16 :                }};</span></a>
+<a name="156"><span class="lineNum">     156 </span><span class="lineCov">         12 :                    data *= get(weights, --it - edges.begin());</span></a>
+<a name="157"><span class="lineNum">     157 </span><span class="lineCov">         12 :                }};</span></a>
 <a name="158"><span class="lineNum">     158 </span>            : </a>
 <a name="159"><span class="lineNum">     159 </span>            : } // namespace scipp::core::element::event</a>
 </pre>

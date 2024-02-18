@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-02-11 01:31:15</td>
+            <td class="headerValue">2024-02-18 01:30:21</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">3</td>
@@ -95,7 +95,7 @@
 <a name="33"><span class="lineNum">      33 </span>            : class SCIPP_VARIABLE_EXPORT VariableConcept {</a>
 <a name="34"><span class="lineNum">      34 </span>            : public:</a>
 <a name="35"><span class="lineNum">      35 </span>            :   VariableConcept(const units::Unit &amp;unit);</a>
-<a name="36"><span class="lineNum">      36 </span><span class="lineCov">    2994463 :   virtual ~VariableConcept() = default;</span></a>
+<a name="36"><span class="lineNum">      36 </span><span class="lineCov">    3007407 :   virtual ~VariableConcept() = default;</span></a>
 <a name="37"><span class="lineNum">      37 </span>            : </a>
 <a name="38"><span class="lineNum">      38 </span>            :   virtual VariableConceptHandle clone() const = 0;</a>
 <a name="39"><span class="lineNum">      39 </span>            :   virtual VariableConceptHandle</a>
@@ -104,10 +104,10 @@
 <a name="42"><span class="lineNum">      42 </span>            :   makeDefaultFromParent(const Variable &amp;shape) const = 0;</a>
 <a name="43"><span class="lineNum">      43 </span>            : </a>
 <a name="44"><span class="lineNum">      44 </span>            :   virtual DType dtype() const noexcept = 0;</a>
-<a name="45"><span class="lineNum">      45 </span><span class="lineCov">    6370044 :   virtual const units::Unit &amp;unit() const { return m_unit; }</span></a>
+<a name="45"><span class="lineNum">      45 </span><span class="lineCov">    6403078 :   virtual const units::Unit &amp;unit() const { return m_unit; }</span></a>
 <a name="46"><span class="lineNum">      46 </span>            :   virtual scipp::index size() const = 0;</a>
 <a name="47"><span class="lineNum">      47 </span>            : </a>
-<a name="48"><span class="lineNum">      48 </span><span class="lineCov">     862268 :   virtual void setUnit(const units::Unit &amp;unit) { m_unit = unit; }</span></a>
+<a name="48"><span class="lineNum">      48 </span><span class="lineCov">     866395 :   virtual void setUnit(const units::Unit &amp;unit) { m_unit = unit; }</span></a>
 <a name="49"><span class="lineNum">      49 </span>            : </a>
 <a name="50"><span class="lineNum">      50 </span>            :   virtual bool has_variances() const noexcept = 0;</a>
 <a name="51"><span class="lineNum">      51 </span>            :   virtual void setVariances(const Variable &amp;variances) = 0;</a>

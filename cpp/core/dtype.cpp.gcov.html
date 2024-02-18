@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-02-11 01:31:15</td>
+            <td class="headerValue">2024-02-18 01:30:21</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">8</td>
@@ -72,16 +72,16 @@
 <a name="10"><span class="lineNum">      10 </span>            : </a>
 <a name="11"><span class="lineNum">      11 </span>            : namespace scipp::core {</a>
 <a name="12"><span class="lineNum">      12 </span>            : </a>
-<a name="13"><span class="lineNum">      13 </span><span class="lineCov">       3212 : bool is_int(DType tp) { return tp == dtype&lt;int32_t&gt; || tp == dtype&lt;int64_t&gt;; }</span></a>
+<a name="13"><span class="lineNum">      13 </span><span class="lineCov">       3415 : bool is_int(DType tp) { return tp == dtype&lt;int32_t&gt; || tp == dtype&lt;int64_t&gt;; }</span></a>
 <a name="14"><span class="lineNum">      14 </span>            : </a>
-<a name="15"><span class="lineNum">      15 </span><span class="lineCov">       1414 : bool is_float(DType tp) { return tp == dtype&lt;float&gt; || tp == dtype&lt;double&gt;; }</span></a>
+<a name="15"><span class="lineNum">      15 </span><span class="lineCov">       1516 : bool is_float(DType tp) { return tp == dtype&lt;float&gt; || tp == dtype&lt;double&gt;; }</span></a>
 <a name="16"><span class="lineNum">      16 </span>            : </a>
-<a name="17"><span class="lineNum">      17 </span><span class="lineCov">       2620 : bool is_fundamental(DType tp) {</span></a>
-<a name="18"><span class="lineNum">      18 </span><span class="lineCov">       2620 :   return is_int(tp) || is_float(tp) || tp == dtype&lt;bool&gt;;</span></a>
+<a name="17"><span class="lineNum">      17 </span><span class="lineCov">       2823 : bool is_fundamental(DType tp) {</span></a>
+<a name="18"><span class="lineNum">      18 </span><span class="lineCov">       2823 :   return is_int(tp) || is_float(tp) || tp == dtype&lt;bool&gt;;</span></a>
 <a name="19"><span class="lineNum">      19 </span>            : }</a>
 <a name="20"><span class="lineNum">      20 </span>            : </a>
-<a name="21"><span class="lineNum">      21 </span><span class="lineCov">        237 : bool is_total_orderable(DType tp) {</span></a>
-<a name="22"><span class="lineNum">      22 </span><span class="lineCov">        237 :   return is_fundamental(tp) || tp == dtype&lt;time_point&gt;;</span></a>
+<a name="21"><span class="lineNum">      21 </span><span class="lineCov">        444 : bool is_total_orderable(DType tp) {</span></a>
+<a name="22"><span class="lineNum">      22 </span><span class="lineCov">        444 :   return is_fundamental(tp) || tp == dtype&lt;time_point&gt;;</span></a>
 <a name="23"><span class="lineNum">      23 </span>            : }</a>
 <a name="24"><span class="lineNum">      24 </span>            : </a>
 <a name="25"><span class="lineNum">      25 </span>            : namespace {</a>
