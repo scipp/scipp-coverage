@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-02-18 01:30:21</td>
+            <td class="headerValue">2024-02-25 01:23:12</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">11</td>
@@ -76,11 +76,11 @@
 <a name="14"><span class="lineNum">      14 </span>            : namespace {</a>
 <a name="15"><span class="lineNum">      15 </span>            : </a>
 <a name="16"><span class="lineNum">      16 </span>            : template &lt;class Key, class Value&gt;</a>
-<a name="17"><span class="lineNum">      17 </span><span class="lineCov">        151 : std::string compact_dict_entry(const Key &amp;key, const Value &amp;var) {</span></a>
-<a name="18"><span class="lineNum">      18 </span><span class="lineCov">        151 :   std::stringstream s;</span></a>
-<a name="19"><span class="lineNum">      19 </span><span class="lineCov">        151 :   s &lt;&lt; &quot;'&quot; &lt;&lt; key &lt;&lt; &quot;':&quot; &lt;&lt; format_variable_compact(var);</span></a>
-<a name="20"><span class="lineNum">      20 </span><span class="lineCov">        302 :   return s.str();</span></a>
-<a name="21"><span class="lineNum">      21 </span><span class="lineCov">        151 : }</span></a>
+<a name="17"><span class="lineNum">      17 </span><span class="lineCov">        139 : std::string compact_dict_entry(const Key &amp;key, const Value &amp;var) {</span></a>
+<a name="18"><span class="lineNum">      18 </span><span class="lineCov">        139 :   std::stringstream s;</span></a>
+<a name="19"><span class="lineNum">      19 </span><span class="lineCov">        139 :   s &lt;&lt; &quot;'&quot; &lt;&lt; key &lt;&lt; &quot;':&quot; &lt;&lt; format_variable_compact(var);</span></a>
+<a name="20"><span class="lineNum">      20 </span><span class="lineCov">        278 :   return s.str();</span></a>
+<a name="21"><span class="lineNum">      21 </span><span class="lineCov">        139 : }</span></a>
 <a name="22"><span class="lineNum">      22 </span>            : </a>
 <a name="23"><span class="lineNum">      23 </span>            : template &lt;class Key, class Value&gt;</a>
 <a name="24"><span class="lineNum">      24 </span>            : std::string</a>
@@ -93,22 +93,22 @@
 <a name="31"><span class="lineNum">      31 </span><span class="lineCov">         73 :   s &lt;&lt; margin &lt;&lt; description &lt;&lt; &quot;={&quot;;</span></a>
 <a name="32"><span class="lineNum">      32 </span><span class="lineCov">         73 :   bool first_iter = true;</span></a>
 <a name="33"><span class="lineNum">      33 </span><span class="lineCov">         73 :   auto current_line_length = indent;</span></a>
-<a name="34"><span class="lineNum">      34 </span><span class="lineCov">        224 :   for (const auto &amp;[key, var] : dict) {</span></a>
-<a name="35"><span class="lineNum">      35 </span><span class="lineCov">        151 :     if (current_line_length &gt; max_length) {</span></a>
+<a name="34"><span class="lineNum">      34 </span><span class="lineCov">        212 :   for (const auto &amp;[key, var] : dict) {</span></a>
+<a name="35"><span class="lineNum">      35 </span><span class="lineCov">        139 :     if (current_line_length &gt; max_length) {</span></a>
 <a name="36"><span class="lineNum">      36 </span><span class="lineCov">         15 :       s &lt;&lt; &quot;,\n&quot; &lt;&lt; std::string(indent, ' ');</span></a>
 <a name="37"><span class="lineNum">      37 </span><span class="lineCov">         15 :       current_line_length = indent;</span></a>
 <a name="38"><span class="lineNum">      38 </span><span class="lineCov">         15 :       first_iter = true;</span></a>
 <a name="39"><span class="lineNum">      39 </span>            :     }</a>
-<a name="40"><span class="lineNum">      40 </span><span class="lineCov">        151 :     const auto append = compact_dict_entry(key, var);</span></a>
-<a name="41"><span class="lineNum">      41 </span><span class="lineCov">        151 :     auto length = append.size();</span></a>
-<a name="42"><span class="lineNum">      42 </span><span class="lineCov">        151 :     if (first_iter)</span></a>
+<a name="40"><span class="lineNum">      40 </span><span class="lineCov">        139 :     const auto append = compact_dict_entry(key, var);</span></a>
+<a name="41"><span class="lineNum">      41 </span><span class="lineCov">        139 :     auto length = append.size();</span></a>
+<a name="42"><span class="lineNum">      42 </span><span class="lineCov">        139 :     if (first_iter)</span></a>
 <a name="43"><span class="lineNum">      43 </span><span class="lineCov">         88 :       first_iter = false;</span></a>
 <a name="44"><span class="lineNum">      44 </span>            :     else {</a>
-<a name="45"><span class="lineNum">      45 </span><span class="lineCov">         63 :       s &lt;&lt; &quot;, &quot;;</span></a>
-<a name="46"><span class="lineNum">      46 </span><span class="lineCov">         63 :       length += 2;</span></a>
+<a name="45"><span class="lineNum">      45 </span><span class="lineCov">         51 :       s &lt;&lt; &quot;, &quot;;</span></a>
+<a name="46"><span class="lineNum">      46 </span><span class="lineCov">         51 :       length += 2;</span></a>
 <a name="47"><span class="lineNum">      47 </span>            :     }</a>
-<a name="48"><span class="lineNum">      48 </span><span class="lineCov">        151 :     s &lt;&lt; append;</span></a>
-<a name="49"><span class="lineNum">      49 </span><span class="lineCov">        151 :     current_line_length += length;</span></a>
+<a name="48"><span class="lineNum">      48 </span><span class="lineCov">        139 :     s &lt;&lt; append;</span></a>
+<a name="49"><span class="lineNum">      49 </span><span class="lineCov">        139 :     current_line_length += length;</span></a>
 <a name="50"><span class="lineNum">      50 </span>            :   }</a>
 <a name="51"><span class="lineNum">      51 </span><span class="lineCov">         73 :   s &lt;&lt; &quot;}&quot;;</span></a>
 <a name="52"><span class="lineNum">      52 </span><span class="lineCov">        146 :   return s.str();</span></a>
@@ -185,26 +185,26 @@
 <a name="123"><span class="lineNum">     123 </span><span class="lineCov">          3 :       return out;</span></a>
 <a name="124"><span class="lineNum">     124 </span><span class="lineCov">          3 :     }</span></a>
 <a name="125"><span class="lineNum">     125 </span><span class="lineCov">         43 :   }</span></a>
-<a name="126"><span class="lineNum">     126 </span><span class="lineCov">      17819 :   const Variable &amp;data(const Variable &amp;var) const override {</span></a>
-<a name="127"><span class="lineNum">     127 </span><span class="lineCov">      17819 :     return buffer(var).data();</span></a>
+<a name="126"><span class="lineNum">     126 </span><span class="lineCov">      18299 :   const Variable &amp;data(const Variable &amp;var) const override {</span></a>
+<a name="127"><span class="lineNum">     127 </span><span class="lineCov">      18299 :     return buffer(var).data();</span></a>
 <a name="128"><span class="lineNum">     128 </span>            :   }</a>
 <a name="129"><span class="lineNum">     129 </span><span class="lineCov">        138 :   Variable data(Variable &amp;var) const override { return buffer(var).data(); }</span></a>
 <a name="130"><span class="lineNum">     130 </span>            : </a>
 <a name="131"><span class="lineNum">     131 </span>            :   [[nodiscard]] Variable</a>
-<a name="132"><span class="lineNum">     132 </span><span class="lineCov">       8732 :   apply_event_masks(const Variable &amp;var, const FillValue fill) const override {</span></a>
-<a name="133"><span class="lineNum">     133 </span><span class="lineCov">      17464 :     if (const auto mask_union = irreducible_event_mask(var);</span></a>
-<a name="134"><span class="lineNum">     134 </span><span class="lineCov">       8732 :         mask_union.is_valid()) {</span></a>
+<a name="132"><span class="lineNum">     132 </span><span class="lineCov">       8972 :   apply_event_masks(const Variable &amp;var, const FillValue fill) const override {</span></a>
+<a name="133"><span class="lineNum">     133 </span><span class="lineCov">      17944 :     if (const auto mask_union = irreducible_event_mask(var);</span></a>
+<a name="134"><span class="lineNum">     134 </span><span class="lineCov">       8972 :         mask_union.is_valid()) {</span></a>
 <a name="135"><span class="lineNum">     135 </span><span class="lineCov">         30 :       const auto &amp;&amp;[indices, dim, buffer] = var.constituents&lt;DataArray&gt;();</span></a>
 <a name="136"><span class="lineNum">     136 </span><span class="lineCov">         30 :       return apply_mask(buffer, indices, dim, mask_union, fill);</span></a>
-<a name="137"><span class="lineNum">     137 </span><span class="lineCov">       8762 :     }</span></a>
-<a name="138"><span class="lineNum">     138 </span><span class="lineCov">       8702 :     return var;</span></a>
+<a name="137"><span class="lineNum">     137 </span><span class="lineCov">       9002 :     }</span></a>
+<a name="138"><span class="lineNum">     138 </span><span class="lineCov">       8942 :     return var;</span></a>
 <a name="139"><span class="lineNum">     139 </span>            :   }</a>
 <a name="140"><span class="lineNum">     140 </span>            : </a>
 <a name="141"><span class="lineNum">     141 </span>            :   [[nodiscard]] Variable</a>
-<a name="142"><span class="lineNum">     142 </span><span class="lineCov">       8755 :   irreducible_event_mask(const Variable &amp;var) const override {</span></a>
-<a name="143"><span class="lineNum">     143 </span><span class="lineCov">       8755 :     const auto &amp;&amp;[indices, dim, buffer] = var.constituents&lt;DataArray&gt;();</span></a>
-<a name="144"><span class="lineNum">     144 </span><span class="lineCov">      17510 :     return irreducible_mask(buffer.masks(), dim);</span></a>
-<a name="145"><span class="lineNum">     145 </span><span class="lineCov">       8755 :   }</span></a>
+<a name="142"><span class="lineNum">     142 </span><span class="lineCov">       8995 :   irreducible_event_mask(const Variable &amp;var) const override {</span></a>
+<a name="143"><span class="lineNum">     143 </span><span class="lineCov">       8995 :     const auto &amp;&amp;[indices, dim, buffer] = var.constituents&lt;DataArray&gt;();</span></a>
+<a name="144"><span class="lineNum">     144 </span><span class="lineCov">      17990 :     return irreducible_mask(buffer.masks(), dim);</span></a>
+<a name="145"><span class="lineNum">     145 </span><span class="lineCov">       8995 :   }</span></a>
 <a name="146"><span class="lineNum">     146 </span>            : };</a>
 <a name="147"><span class="lineNum">     147 </span>            : </a>
 <a name="148"><span class="lineNum">     148 </span>            : /// This is currently a dummy implemented just to make `is_bins` work.</a>
