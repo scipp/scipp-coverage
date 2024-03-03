@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-02-25 01:23:12</td>
+            <td class="headerValue">2024-03-03 01:19:12</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">31</td>
@@ -105,7 +105,7 @@
 <a name="43"><span class="lineNum">      43 </span>            :   // For some reason the return value policy and/or keep-alive policy do not</a>
 <a name="44"><span class="lineNum">      44 </span>            :   // work unless we wrap things in py::cpp_function.</a>
 <a name="45"><span class="lineNum">      45 </span><span class="lineCov">          3 :   c.def_property_readonly(</span></a>
-<a name="46"><span class="lineNum">      46 </span><span class="lineCov">        716 :       &quot;coords&quot;, [](T &amp;self) -&gt; decltype(auto) { return self.coords(); },</span></a>
+<a name="46"><span class="lineNum">      46 </span><span class="lineCov">        702 :       &quot;coords&quot;, [](T &amp;self) -&gt; decltype(auto) { return self.coords(); },</span></a>
 <a name="47"><span class="lineNum">      47 </span>            :       R&quot;(</a>
 <a name="48"><span class="lineNum">      48 </span>            :       Dict of coordinates.)&quot;);</a>
 <a name="49"><span class="lineNum">      49 </span>            :   // Metadata for dataset is same as `coords` since dataset cannot have attrs</a>
@@ -185,13 +185,13 @@
 <a name="123"><span class="lineNum">     123 </span><span class="lineCov">          6 :       py::call_guard&lt;py::gil_scoped_release&gt;());</span></a>
 <a name="124"><span class="lineNum">     124 </span><span class="lineCov">          6 : }</span></a>
 <a name="125"><span class="lineNum">     125 </span>            : </a>
-<a name="126"><span class="lineNum">     126 </span><span class="lineCov">      30237 : template &lt;class Key, class Value&gt; auto to_cpp_dict(const py::dict &amp;dict) {</span></a>
-<a name="127"><span class="lineNum">     127 </span><span class="lineCov">      30237 :   core::Dict&lt;Key, Value&gt; out;</span></a>
-<a name="128"><span class="lineNum">     128 </span><span class="lineCov">      40024 :   for (const auto &amp;[key, val] : dict) {</span></a>
-<a name="129"><span class="lineNum">     129 </span><span class="lineCov">       9787 :     out.insert_or_assign(Key{key.template cast&lt;std::string&gt;()},</span></a>
+<a name="126"><span class="lineNum">     126 </span><span class="lineCov">      29970 : template &lt;class Key, class Value&gt; auto to_cpp_dict(const py::dict &amp;dict) {</span></a>
+<a name="127"><span class="lineNum">     127 </span><span class="lineCov">      29970 :   core::Dict&lt;Key, Value&gt; out;</span></a>
+<a name="128"><span class="lineNum">     128 </span><span class="lineCov">      39455 :   for (const auto &amp;[key, val] : dict) {</span></a>
+<a name="129"><span class="lineNum">     129 </span><span class="lineCov">       9485 :     out.insert_or_assign(Key{key.template cast&lt;std::string&gt;()},</span></a>
 <a name="130"><span class="lineNum">     130 </span>            :                          val.template cast&lt;Value &amp;&gt;());</a>
 <a name="131"><span class="lineNum">     131 </span>            :   }</a>
-<a name="132"><span class="lineNum">     132 </span><span class="lineCov">      30237 :   return out;</span></a>
+<a name="132"><span class="lineNum">     132 </span><span class="lineCov">      29970 :   return out;</span></a>
 <a name="133"><span class="lineNum">     133 </span><span class="lineNoCov">          0 : }</span></a>
 <a name="134"><span class="lineNum">     134 </span>            : </a>
 <a name="135"><span class="lineNum">     135 </span><span class="lineCov">        798 : auto dataset_from_data_and_coords(const py::dict &amp;data,</span></a>
@@ -252,9 +252,9 @@
 <a name="190"><span class="lineNum">     190 </span><span class="lineCov">          3 :       py::init([](const Variable &amp;data, const py::object &amp;coords,</span></a>
 <a name="191"><span class="lineNum">     191 </span>            :                   const py::object &amp;masks, const py::object &amp;attrs,</a>
 <a name="192"><span class="lineNum">     192 </span>            :                   const std::string &amp;name) {</a>
-<a name="193"><span class="lineNum">     193 </span><span class="lineCov">      20164 :         return DataArray{data, to_cpp_dict&lt;Dim, Variable&gt;(coords),</span></a>
-<a name="194"><span class="lineNum">     194 </span><span class="lineCov">      20164 :                          to_cpp_dict&lt;std::string, Variable&gt;(masks),</span></a>
-<a name="195"><span class="lineNum">     195 </span><span class="lineCov">      40319 :                          to_cpp_dict&lt;Dim, Variable&gt;(attrs), name};</span></a>
+<a name="193"><span class="lineNum">     193 </span><span class="lineCov">      19986 :         return DataArray{data, to_cpp_dict&lt;Dim, Variable&gt;(coords),</span></a>
+<a name="194"><span class="lineNum">     194 </span><span class="lineCov">      19986 :                          to_cpp_dict&lt;std::string, Variable&gt;(masks),</span></a>
+<a name="195"><span class="lineNum">     195 </span><span class="lineCov">      39963 :                          to_cpp_dict&lt;Dim, Variable&gt;(attrs), name};</span></a>
 <a name="196"><span class="lineNum">     196 </span>            :       }),</a>
 <a name="197"><span class="lineNum">     197 </span><span class="lineCov">          6 :       py::arg(&quot;data&quot;), py::kw_only(), py::arg(&quot;coords&quot;) = py::dict(),</span></a>
 <a name="198"><span class="lineNum">     198 </span><span class="lineCov">          6 :       py::arg(&quot;masks&quot;) = py::dict(), py::arg(&quot;attrs&quot;) = py::dict(),</span></a>

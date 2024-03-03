@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-02-25 01:23:12</td>
+            <td class="headerValue">2024-03-03 01:19:12</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">48</td>
@@ -76,14 +76,14 @@
 <a name="14"><span class="lineNum">      14 </span>            : template &lt;class T&gt; class BinsCommon {</a>
 <a name="15"><span class="lineNum">      15 </span>            : public:</a>
 <a name="16"><span class="lineNum">      16 </span><span class="lineCov">      25657 :   explicit BinsCommon(const Variable &amp;var) : m_var(var) {}</span></a>
-<a name="17"><span class="lineNum">      17 </span><span class="lineCov">      41529 :   auto indices() const { return std::get&lt;0&gt;(get()); }</span></a>
-<a name="18"><span class="lineNum">      18 </span><span class="lineCov">      63276 :   auto dim() const { return std::get&lt;1&gt;(get()); }</span></a>
+<a name="17"><span class="lineNum">      17 </span><span class="lineCov">      41534 :   auto indices() const { return std::get&lt;0&gt;(get()); }</span></a>
+<a name="18"><span class="lineNum">      18 </span><span class="lineCov">      63286 :   auto dim() const { return std::get&lt;1&gt;(get()); }</span></a>
 <a name="19"><span class="lineNum">      19 </span><span class="lineCov">      89518 :   auto &amp;buffer() const { return m_var.bin_buffer&lt;T&gt;(); }</span></a>
 <a name="20"><span class="lineNum">      20 </span><span class="lineCov">       4084 :   auto &amp;buffer() { return m_var.bin_buffer&lt;T&gt;(); }</span></a>
 <a name="21"><span class="lineNum">      21 </span>            : </a>
 <a name="22"><span class="lineNum">      22 </span>            : protected:</a>
-<a name="23"><span class="lineNum">      23 </span><span class="lineCov">      37634 :   auto make(const variable::Variable &amp;view) const {</span></a>
-<a name="24"><span class="lineNum">      24 </span><span class="lineCov">      37634 :     return make_bins_no_validate(this-&gt;indices(), this-&gt;dim(), view);</span></a>
+<a name="23"><span class="lineNum">      23 </span><span class="lineCov">      37639 :   auto make(const variable::Variable &amp;view) const {</span></a>
+<a name="24"><span class="lineNum">      24 </span><span class="lineCov">      37639 :     return make_bins_no_validate(this-&gt;indices(), this-&gt;dim(), view);</span></a>
 <a name="25"><span class="lineNum">      25 </span>            :   }</a>
 <a name="26"><span class="lineNum">      26 </span><span class="lineCov">       3896 :   auto check_and_get_buf(const Variable &amp;var) const {</span></a>
 <a name="27"><span class="lineNum">      27 </span><span class="lineCov">       3896 :     const auto &amp;[i, d, buf] = var.constituents&lt;Variable&gt;();</span></a>
@@ -93,16 +93,16 @@
 <a name="31"><span class="lineNum">      31 </span><span class="lineCov">       3895 :   }</span></a>
 <a name="32"><span class="lineNum">      32 </span>            : </a>
 <a name="33"><span class="lineNum">      33 </span>            : private:</a>
-<a name="34"><span class="lineNum">      34 </span><span class="lineCov">     104805 :   auto get() const { return m_var.constituents&lt;T&gt;(); }</span></a>
+<a name="34"><span class="lineNum">      34 </span><span class="lineCov">     104820 :   auto get() const { return m_var.constituents&lt;T&gt;(); }</span></a>
 <a name="35"><span class="lineNum">      35 </span>            :   Variable m_var;</a>
 <a name="36"><span class="lineNum">      36 </span>            : };</a>
 <a name="37"><span class="lineNum">      37 </span>            : </a>
 <a name="38"><span class="lineNum">      38 </span>            : template &lt;class T, class MapGetter&gt; class BinsMapView : public BinsCommon&lt;T&gt; {</a>
 <a name="39"><span class="lineNum">      39 </span>            :   struct make_item {</a>
 <a name="40"><span class="lineNum">      40 </span>            :     const BinsMapView *view;</a>
-<a name="41"><span class="lineNum">      41 </span><span class="lineCov">      21749 :     template &lt;class Item&gt; auto operator()(const Item &amp;item) const {</span></a>
-<a name="42"><span class="lineNum">      42 </span><span class="lineCov">      21749 :       if (item.second.dims().contains(view-&gt;dim()))</span></a>
-<a name="43"><span class="lineNum">      43 </span><span class="lineCov">      21731 :         return std::pair(item.first, view-&gt;make(item.second));</span></a>
+<a name="41"><span class="lineNum">      41 </span><span class="lineCov">      21754 :     template &lt;class Item&gt; auto operator()(const Item &amp;item) const {</span></a>
+<a name="42"><span class="lineNum">      42 </span><span class="lineCov">      21754 :       if (item.second.dims().contains(view-&gt;dim()))</span></a>
+<a name="43"><span class="lineNum">      43 </span><span class="lineCov">      21736 :         return std::pair(item.first, view-&gt;make(item.second));</span></a>
 <a name="44"><span class="lineNum">      44 </span>            :       else</a>
 <a name="45"><span class="lineNum">      45 </span><span class="lineCov">         18 :         return std::pair(item.first, copy(item.second));</span></a>
 <a name="46"><span class="lineNum">      46 </span>            :     }</a>

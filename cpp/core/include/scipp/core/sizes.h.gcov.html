@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-02-25 01:23:12</td>
+            <td class="headerValue">2024-03-03 01:19:12</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">10</td>
@@ -95,13 +95,13 @@
 <a name="33"><span class="lineNum">      33 </span>            : public:</a>
 <a name="34"><span class="lineNum">      34 </span>            :   static constexpr auto capacity = Capacity;</a>
 <a name="35"><span class="lineNum">      35 </span>            : </a>
-<a name="36"><span class="lineNum">      36 </span><span class="lineCov">   26487692 :   small_stable_map() = default;</span></a>
+<a name="36"><span class="lineNum">      36 </span><span class="lineCov">   26347382 :   small_stable_map() = default;</span></a>
 <a name="37"><span class="lineNum">      37 </span>            : </a>
 <a name="38"><span class="lineNum">      38 </span>            :   bool operator==(const small_stable_map &amp;other) const noexcept;</a>
 <a name="39"><span class="lineNum">      39 </span>            :   bool operator!=(const small_stable_map &amp;other) const noexcept;</a>
 <a name="40"><span class="lineNum">      40 </span>            : </a>
-<a name="41"><span class="lineNum">      41 </span><span class="lineCov">   39415327 :   [[nodiscard]] auto begin() const noexcept { return m_keys.begin(); }</span></a>
-<a name="42"><span class="lineNum">      42 </span><span class="lineCov">   99308204 :   [[nodiscard]] auto end() const noexcept { return m_keys.begin() + size(); }</span></a>
+<a name="41"><span class="lineNum">      41 </span><span class="lineCov">   38790581 :   [[nodiscard]] auto begin() const noexcept { return m_keys.begin(); }</span></a>
+<a name="42"><span class="lineNum">      42 </span><span class="lineCov">   97685568 :   [[nodiscard]] auto end() const noexcept { return m_keys.begin() + size(); }</span></a>
 <a name="43"><span class="lineNum">      43 </span><span class="lineNoCov">          0 :   [[nodiscard]] auto rbegin() const noexcept {</span></a>
 <a name="44"><span class="lineNum">      44 </span><span class="lineNoCov">          0 :     return std::reverse_iterator(end());</span></a>
 <a name="45"><span class="lineNum">      45 </span>            :   }</a>
@@ -111,8 +111,8 @@
 <a name="49"><span class="lineNum">      49 </span>            :   [[nodiscard]]</a>
 <a name="50"><span class="lineNum">      50 </span>            :   typename boost::container::small_vector&lt;Key, Capacity&gt;::const_iterator</a>
 <a name="51"><span class="lineNum">      51 </span>            :   find(const Key &amp;key) const;</a>
-<a name="52"><span class="lineNum">      52 </span><span class="lineCov">     433991 :   [[nodiscard]] bool empty() const noexcept { return size() == 0; }</span></a>
-<a name="53"><span class="lineNum">      53 </span><span class="lineCov">  279160548 :   [[nodiscard]] scipp::index size() const noexcept { return m_keys.size(); }</span></a>
+<a name="52"><span class="lineNum">      52 </span><span class="lineCov">     433749 :   [[nodiscard]] bool empty() const noexcept { return size() == 0; }</span></a>
+<a name="53"><span class="lineNum">      53 </span><span class="lineCov">  275927528 :   [[nodiscard]] scipp::index size() const noexcept { return m_keys.size(); }</span></a>
 <a name="54"><span class="lineNum">      54 </span>            :   [[nodiscard]] bool contains(const Key &amp;key) const;</a>
 <a name="55"><span class="lineNum">      55 </span>            :   [[nodiscard]] scipp::index index(const Key &amp;key) const;</a>
 <a name="56"><span class="lineNum">      56 </span>            :   [[nodiscard]] const Value &amp;operator[](const Key &amp;key) const;</a>
@@ -123,11 +123,11 @@
 <a name="61"><span class="lineNum">      61 </span>            :   void erase(const Key &amp;key);</a>
 <a name="62"><span class="lineNum">      62 </span>            :   void clear() noexcept;</a>
 <a name="63"><span class="lineNum">      63 </span>            :   void replace_key(const Key &amp;from, const Key &amp;to);</a>
-<a name="64"><span class="lineNum">      64 </span><span class="lineCov">   16053690 :   [[nodiscard]] scipp::span&lt;const Key&gt; keys() const &amp;noexcept {</span></a>
-<a name="65"><span class="lineNum">      65 </span><span class="lineCov">   32107380 :     return {m_keys.data(), static_cast&lt;size_t&gt;(size())};</span></a>
+<a name="64"><span class="lineNum">      64 </span><span class="lineCov">   15867155 :   [[nodiscard]] scipp::span&lt;const Key&gt; keys() const &amp;noexcept {</span></a>
+<a name="65"><span class="lineNum">      65 </span><span class="lineCov">   31734310 :     return {m_keys.data(), static_cast&lt;size_t&gt;(size())};</span></a>
 <a name="66"><span class="lineNum">      66 </span>            :   }</a>
-<a name="67"><span class="lineNum">      67 </span><span class="lineCov">   36426607 :   [[nodiscard]] scipp::span&lt;const Value&gt; values() const &amp;noexcept {</span></a>
-<a name="68"><span class="lineNum">      68 </span><span class="lineCov">   72853214 :     return {m_values.data(), static_cast&lt;size_t&gt;(size())};</span></a>
+<a name="67"><span class="lineNum">      67 </span><span class="lineCov">   36071661 :   [[nodiscard]] scipp::span&lt;const Value&gt; values() const &amp;noexcept {</span></a>
+<a name="68"><span class="lineNum">      68 </span><span class="lineCov">   72143322 :     return {m_values.data(), static_cast&lt;size_t&gt;(size())};</span></a>
 <a name="69"><span class="lineNum">      69 </span>            :   }</a>
 <a name="70"><span class="lineNum">      70 </span>            : </a>
 <a name="71"><span class="lineNum">      71 </span>            : private:</a>
@@ -147,7 +147,7 @@
 <a name="85"><span class="lineNum">      85 </span>            :   using base::insert_right;</a>
 <a name="86"><span class="lineNum">      86 </span>            : </a>
 <a name="87"><span class="lineNum">      87 </span>            : public:</a>
-<a name="88"><span class="lineNum">      88 </span><span class="lineCov">   13243846 :   Sizes() noexcept = default;</span></a>
+<a name="88"><span class="lineNum">      88 </span><span class="lineCov">   13173691 :   Sizes() noexcept = default;</span></a>
 <a name="89"><span class="lineNum">      89 </span>            : </a>
 <a name="90"><span class="lineNum">      90 </span>            :   void set(const Dim dim, const scipp::index size);</a>
 <a name="91"><span class="lineNum">      91 </span>            :   void resize(const Dim dim, const scipp::index size);</a>
@@ -155,9 +155,9 @@
 <a name="93"><span class="lineNum">      93 </span>            :   [[nodiscard]] Sizes slice(const Slice &amp;params) const;</a>
 <a name="94"><span class="lineNum">      94 </span>            : </a>
 <a name="95"><span class="lineNum">      95 </span>            :   /// Return the labels of the space defined by *this.</a>
-<a name="96"><span class="lineNum">      96 </span><span class="lineCov">   16053690 :   [[nodiscard]] auto labels() const &amp;noexcept { return keys(); }</span></a>
+<a name="96"><span class="lineNum">      96 </span><span class="lineCov">   15867155 :   [[nodiscard]] auto labels() const &amp;noexcept { return keys(); }</span></a>
 <a name="97"><span class="lineNum">      97 </span>            :   /// Return the shape of the space defined by *this.</a>
-<a name="98"><span class="lineNum">      98 </span><span class="lineCov">   36426607 :   [[nodiscard]] auto sizes() const &amp;noexcept { return values(); }</span></a>
+<a name="98"><span class="lineNum">      98 </span><span class="lineCov">   36071661 :   [[nodiscard]] auto sizes() const &amp;noexcept { return values(); }</span></a>
 <a name="99"><span class="lineNum">      99 </span>            : </a>
 <a name="100"><span class="lineNum">     100 </span>            :   [[nodiscard]] Sizes rename_dims(const std::vector&lt;std::pair&lt;Dim, Dim&gt;&gt; &amp;names,</a>
 <a name="101"><span class="lineNum">     101 </span>            :                                   const bool fail_on_unknown = true) const;</a>
