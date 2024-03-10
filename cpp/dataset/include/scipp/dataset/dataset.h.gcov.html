@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-03-03 01:19:12</td>
+            <td class="headerValue">2024-03-10 01:25:20</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">27</td>
@@ -80,9 +80,9 @@
 <a name="18"><span class="lineNum">      18 </span>            : /// Helper for creating iterators of Dataset.</a>
 <a name="19"><span class="lineNum">      19 </span>            : template &lt;class D&gt; struct with_coords {</a>
 <a name="20"><span class="lineNum">      20 </span>            :   const D *dataset;</a>
-<a name="21"><span class="lineNum">      21 </span><span class="lineCov">       7354 :   template &lt;class T&gt; auto operator()(T &amp;&amp;item) const {</span></a>
-<a name="22"><span class="lineNum">      22 </span><span class="lineCov">      14708 :     return item.second.view_with_coords(dataset-&gt;coords(), item.first,</span></a>
-<a name="23"><span class="lineNum">      23 </span><span class="lineCov">       7354 :                                         dataset-&gt;is_readonly());</span></a>
+<a name="21"><span class="lineNum">      21 </span><span class="lineCov">       7352 :   template &lt;class T&gt; auto operator()(T &amp;&amp;item) const {</span></a>
+<a name="22"><span class="lineNum">      22 </span><span class="lineCov">      14704 :     return item.second.view_with_coords(dataset-&gt;coords(), item.first,</span></a>
+<a name="23"><span class="lineNum">      23 </span><span class="lineCov">       7352 :                                         dataset-&gt;is_readonly());</span></a>
 <a name="24"><span class="lineNum">      24 </span>            :   }</a>
 <a name="25"><span class="lineNum">      25 </span>            : };</a>
 <a name="26"><span class="lineNum">      26 </span>            : template &lt;class D&gt; with_coords(const D *) -&gt; with_coords&lt;D&gt;;</a>
@@ -203,8 +203,8 @@
 <a name="141"><span class="lineNum">     141 </span><span class="lineCov">       2423 :     return m_data.begin().transform(detail::with_coords{this});</span></a>
 <a name="142"><span class="lineNum">     142 </span>            :   }</a>
 <a name="143"><span class="lineNum">     143 </span>            :   /// Return iterator to the beginning of all data items.</a>
-<a name="144"><span class="lineNum">     144 </span><span class="lineCov">        213 :   auto begin() &amp;noexcept {</span></a>
-<a name="145"><span class="lineNum">     145 </span><span class="lineCov">        213 :     return m_data.begin().transform(detail::with_coords{this});</span></a>
+<a name="144"><span class="lineNum">     144 </span><span class="lineCov">        211 :   auto begin() &amp;noexcept {</span></a>
+<a name="145"><span class="lineNum">     145 </span><span class="lineCov">        211 :     return m_data.begin().transform(detail::with_coords{this});</span></a>
 <a name="146"><span class="lineNum">     146 </span>            :   }</a>
 <a name="147"><span class="lineNum">     147 </span>            :   auto end() const &amp;&amp; = delete;</a>
 <a name="148"><span class="lineNum">     148 </span>            :   auto end() &amp;&amp; = delete;</a>
@@ -214,8 +214,8 @@
 <a name="152"><span class="lineNum">     152 </span>            :   }</a>
 <a name="153"><span class="lineNum">     153 </span>            : </a>
 <a name="154"><span class="lineNum">     154 </span>            :   /// Return iterator to the end of all data items.</a>
-<a name="155"><span class="lineNum">     155 </span><span class="lineCov">       3472 :   auto end() &amp;noexcept {</span></a>
-<a name="156"><span class="lineNum">     156 </span><span class="lineCov">       3472 :     return m_data.end().transform(detail::with_coords{this});</span></a>
+<a name="155"><span class="lineNum">     155 </span><span class="lineCov">       3470 :   auto end() &amp;noexcept {</span></a>
+<a name="156"><span class="lineNum">     156 </span><span class="lineCov">       3470 :     return m_data.end().transform(detail::with_coords{this});</span></a>
 <a name="157"><span class="lineNum">     157 </span>            :   }</a>
 <a name="158"><span class="lineNum">     158 </span>            : </a>
 <a name="159"><span class="lineNum">     159 </span>            :   auto items_begin() const &amp;&amp; = delete;</a>

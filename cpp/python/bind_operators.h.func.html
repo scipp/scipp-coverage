@@ -37,12 +37,12 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-03-03 01:19:12</td>
+            <td class="headerValue">2024-03-10 01:25:20</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">251</td>
-            <td class="headerCovTableEntry">324</td>
-            <td class="headerCovTableEntryMed">77.5 %</td>
+            <td class="headerCovTableEntry">253</td>
+            <td class="headerCovTableEntry">330</td>
+            <td class="headerCovTableEntryMed">76.7 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -185,6 +185,14 @@
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_operators.h.gcov.html#341">void bind_comparison_scalars&lt;scipp::variable::Variable&gt;(pybind11::class_&lt;scipp::variable::Variable&gt;&amp;)</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="bind_operators.h.gcov.html#125">void bind_inequality_to_operator&lt;scipp::dataset::bins_view_detail::BinsMapView&lt;scipp::dataset::DataArray, scipp::dataset::get_coords::{lambda(auto:1&amp;&amp;)#1}&gt;, scipp::dataset::get_coords::{lambda(auto:1&amp;&amp;)#1}&gt;(pybind11::class_&lt;scipp::dataset::get_coords::{lambda(auto:1&amp;&amp;)#1}&gt;&amp;)</a></td>
+              <td class="coverFnHi">3</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="bind_operators.h.gcov.html#125">void bind_inequality_to_operator&lt;scipp::dataset::bins_view_detail::BinsMapView&lt;scipp::dataset::DataArray, scipp::dataset::get_masks::{lambda(auto:1&amp;&amp;)#1}&gt;, scipp::dataset::get_masks::{lambda(auto:1&amp;&amp;)#1}&gt;(pybind11::class_&lt;scipp::dataset::get_masks::{lambda(auto:1&amp;&amp;)#1}&gt;&amp;)</a></td>
               <td class="coverFnHi">3</td>
             </tr>
     <tr>
@@ -349,11 +357,11 @@
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_operators.h.gcov.html#140">scipp::variable::Variable ScalarToVariable::operator()&lt;double&gt;(double const&amp;) const</a></td>
-              <td class="coverFnHi">56531</td>
+              <td class="coverFnHi">56299</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_operators.h.gcov.html#140">scipp::variable::Variable ScalarToVariable::operator()&lt;long&gt;(long const&amp;) const</a></td>
-              <td class="coverFnHi">6948</td>
+              <td class="coverFnHi">6826</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_operators.h.gcov.html#135">scipp::dataset::Dataset const&amp; Identity::operator()&lt;scipp::dataset::Dataset&gt;(scipp::dataset::Dataset const&amp;) const</a></td>
@@ -365,7 +373,7 @@
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_operators.h.gcov.html#135">scipp::variable::Variable const&amp; Identity::operator()&lt;scipp::variable::Variable&gt;(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">15146</td>
+              <td class="coverFnHi">15127</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_operators.h.gcov.html#349">bind_unary&lt;scipp::dataset::DataArray&gt;(pybind11::class_&lt;scipp::dataset::DataArray&gt;&amp;)::{lambda(scipp::dataset::DataArray const&amp;)#1}::operator()(scipp::dataset::DataArray const&amp;) const</a></td>
@@ -373,7 +381,7 @@
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_operators.h.gcov.html#349">bind_unary&lt;scipp::variable::Variable&gt;(pybind11::class_&lt;scipp::variable::Variable&gt;&amp;)::{lambda(scipp::variable::Variable const&amp;)#1}::operator()(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">1062</td>
+              <td class="coverFnHi">1044</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_operators.h.gcov.html#93">bind_astype&lt;scipp::dataset::DataArray&gt;(pybind11::class_&lt;scipp::dataset::DataArray&gt;&amp;)::{lambda(scipp::dataset::DataArray const&amp;, pybind11::object const&amp;, bool)#1}::operator()(scipp::dataset::DataArray const&amp;, pybind11::object const&amp;, bool) const</a></td>
@@ -381,7 +389,7 @@
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_operators.h.gcov.html#93">bind_astype&lt;scipp::variable::Variable&gt;(pybind11::class_&lt;scipp::variable::Variable&gt;&amp;)::{lambda(scipp::variable::Variable const&amp;, pybind11::object const&amp;, bool)#1}::operator()(scipp::variable::Variable const&amp;, pybind11::object const&amp;, bool) const</a></td>
-              <td class="coverFnHi">4854</td>
+              <td class="coverFnHi">4851</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_operators.h.gcov.html#375">bind_logical&lt;scipp::dataset::DataArray, scipp::dataset::DataArray&gt;(pybind11::class_&lt;scipp::dataset::DataArray&gt;&amp;)::{lambda(pybind11::object const&amp;, scipp::dataset::DataArray const&amp;)#4}::operator()(pybind11::object const&amp;, scipp::dataset::DataArray const&amp;) const</a></td>
@@ -461,7 +469,7 @@
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_operators.h.gcov.html#356">bind_boolean_unary&lt;scipp::variable::Variable&gt;(pybind11::class_&lt;scipp::variable::Variable&gt;&amp;)::{lambda(scipp::variable::Variable const&amp;)#1}::operator()(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">174</td>
+              <td class="coverFnHi">182</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_operators.h.gcov.html#29">bind_common_operators&lt;scipp::dataset::Dataset&gt;(pybind11::class_&lt;scipp::dataset::Dataset&gt;&amp;)::{lambda(scipp::dataset::Dataset const&amp;)#2}::operator()[abi:cxx11](scipp::dataset::Dataset const&amp;) const</a></td>
@@ -533,7 +541,7 @@
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_operators.h.gcov.html#30">bind_common_operators&lt;scipp::variable::Variable&gt;(pybind11::class_&lt;scipp::variable::Variable&gt;&amp;)::{lambda(scipp::variable::Variable const&amp;)#3}::operator()(scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">4833</td>
+              <td class="coverFnHi">4830</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_operators.h.gcov.html#51">bind_common_operators&lt;scipp::variable::Variable&gt;(pybind11::class_&lt;scipp::variable::Variable&gt;&amp;)::{lambda(scipp::variable::Variable const&amp;)#5}::operator()(scipp::variable::Variable const&amp;) const</a></td>
@@ -557,7 +565,23 @@
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_operators.h.gcov.html#42">bind_common_operators&lt;scipp::variable::Variable&gt;(pybind11::class_&lt;scipp::variable::Variable&gt;&amp;)::{lambda(scipp::variable::Variable const&amp;, bool)#4}::operator()(scipp::variable::Variable const&amp;, bool) const</a></td>
-              <td class="coverFnHi">6648</td>
+              <td class="coverFnHi">6604</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="bind_operators.h.gcov.html#130">bind_inequality_to_operator&lt;scipp::dataset::bins_view_detail::BinsMapView&lt;scipp::dataset::DataArray, scipp::dataset::get_coords::{lambda(auto:1&amp;&amp;)#1}&gt;, scipp::dataset::get_coords::{lambda(auto:1&amp;&amp;)#1}&gt;(pybind11::class_&lt;scipp::dataset::get_coords::{lambda(auto:1&amp;&amp;)#1}&gt;&amp;)::{lambda(scipp::dataset::get_coords::{lambda(auto:1&amp;&amp;)#1} const&amp;, scipp::dataset::get_coords::{lambda(auto:1&amp;&amp;)#1} const)#2}::operator()(scipp::dataset::get_coords::{lambda(auto:1&amp;&amp;)#1} const, scipp::dataset::get_coords::{lambda(auto:1&amp;&amp;)#1} const) const</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="bind_operators.h.gcov.html#127">bind_inequality_to_operator&lt;scipp::dataset::bins_view_detail::BinsMapView&lt;scipp::dataset::DataArray, scipp::dataset::get_coords::{lambda(auto:1&amp;&amp;)#1}&gt;, scipp::dataset::get_coords::{lambda(auto:1&amp;&amp;)#1}&gt;(pybind11::class_&lt;scipp::dataset::get_coords::{lambda(auto:1&amp;&amp;)#1}&gt;&amp;)::{lambda(scipp::dataset::get_coords::{lambda(auto:1&amp;&amp;)#1} const&amp;, scipp::dataset::get_coords::{lambda(auto:1&amp;&amp;)#1} const)#1}::operator()(scipp::dataset::get_coords::{lambda(auto:1&amp;&amp;)#1} const, scipp::dataset::get_coords::{lambda(auto:1&amp;&amp;)#1} const) const</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="bind_operators.h.gcov.html#130">bind_inequality_to_operator&lt;scipp::dataset::bins_view_detail::BinsMapView&lt;scipp::dataset::DataArray, scipp::dataset::get_masks::{lambda(auto:1&amp;&amp;)#1}&gt;, scipp::dataset::get_masks::{lambda(auto:1&amp;&amp;)#1}&gt;(pybind11::class_&lt;scipp::dataset::get_masks::{lambda(auto:1&amp;&amp;)#1}&gt;&amp;)::{lambda(scipp::dataset::get_masks::{lambda(auto:1&amp;&amp;)#1} const&amp;, scipp::dataset::get_masks::{lambda(auto:1&amp;&amp;)#1} const)#2}::operator()(scipp::dataset::get_masks::{lambda(auto:1&amp;&amp;)#1} const, scipp::dataset::get_masks::{lambda(auto:1&amp;&amp;)#1} const) const</a></td>
+              <td class="coverFnLo">0</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="bind_operators.h.gcov.html#127">bind_inequality_to_operator&lt;scipp::dataset::bins_view_detail::BinsMapView&lt;scipp::dataset::DataArray, scipp::dataset::get_masks::{lambda(auto:1&amp;&amp;)#1}&gt;, scipp::dataset::get_masks::{lambda(auto:1&amp;&amp;)#1}&gt;(pybind11::class_&lt;scipp::dataset::get_masks::{lambda(auto:1&amp;&amp;)#1}&gt;&amp;)::{lambda(scipp::dataset::get_masks::{lambda(auto:1&amp;&amp;)#1} const&amp;, scipp::dataset::get_masks::{lambda(auto:1&amp;&amp;)#1} const)#1}::operator()(scipp::dataset::get_masks::{lambda(auto:1&amp;&amp;)#1} const, scipp::dataset::get_masks::{lambda(auto:1&amp;&amp;)#1} const) const</a></td>
+              <td class="coverFnLo">0</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_operators.h.gcov.html#130">bind_inequality_to_operator&lt;scipp::dataset::SizedDict&lt;scipp::units::Dim, scipp::variable::Variable&gt;, scipp::dataset::SizedDict&lt;scipp::units::Dim, scipp::variable::Variable&gt;&gt;(pybind11::class_&lt;scipp::dataset::SizedDict&lt;scipp::units::Dim, scipp::variable::Variable&gt;&gt;&amp;)::{lambda(scipp::dataset::SizedDict&lt;scipp::units::Dim, scipp::variable::Variable&gt; const&amp;, scipp::dataset::SizedDict&lt;scipp::units::Dim, scipp::variable::Variable&gt; const&amp;)#2}::operator()(scipp::dataset::SizedDict&lt;scipp::units::Dim, scipp::variable::Variable&gt; const&amp;, scipp::dataset::SizedDict&lt;scipp::units::Dim, scipp::variable::Variable&gt; const&amp;) const</a></td>
@@ -669,11 +693,11 @@
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_operators.h.gcov.html#256">OpBinder&lt;ScalarToVariable&gt;::reverse_binary&lt;double, scipp::variable::Variable&gt;(pybind11::class_&lt;scipp::variable::Variable&gt;&amp;)::{lambda(scipp::variable::Variable const&amp;, double)#3}::operator()(scipp::variable::Variable const&amp;, double) const</a></td>
-              <td class="coverFnHi">52927</td>
+              <td class="coverFnHi">52788</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_operators.h.gcov.html#260">OpBinder&lt;ScalarToVariable&gt;::reverse_binary&lt;double, scipp::variable::Variable&gt;(pybind11::class_&lt;scipp::variable::Variable&gt;&amp;)::{lambda(scipp::variable::Variable const&amp;, double)#4}::operator()(scipp::variable::Variable const&amp;, double) const</a></td>
-              <td class="coverFnHi">3411</td>
+              <td class="coverFnHi">3286</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_operators.h.gcov.html#250">OpBinder&lt;ScalarToVariable&gt;::reverse_binary&lt;double, scipp::variable::Variable&gt;(pybind11::class_&lt;scipp::variable::Variable&gt;&amp;)::{lambda(scipp::variable::Variable const&amp;, double)#1}::operator()(scipp::variable::Variable const&amp;, double) const</a></td>
@@ -725,7 +749,7 @@
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_operators.h.gcov.html#256">OpBinder&lt;ScalarToVariable&gt;::reverse_binary&lt;long, scipp::variable::Variable&gt;(pybind11::class_&lt;scipp::variable::Variable&gt;&amp;)::{lambda(scipp::variable::Variable const&amp;, long)#3}::operator()(scipp::variable::Variable const&amp;, long) const</a></td>
-              <td class="coverFnHi">534</td>
+              <td class="coverFnHi">536</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_operators.h.gcov.html#260">OpBinder&lt;ScalarToVariable&gt;::reverse_binary&lt;long, scipp::variable::Variable&gt;(pybind11::class_&lt;scipp::variable::Variable&gt;&amp;)::{lambda(scipp::variable::Variable const&amp;, long)#4}::operator()(scipp::variable::Variable const&amp;, long) const</a></td>
@@ -733,7 +757,7 @@
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_operators.h.gcov.html#250">OpBinder&lt;ScalarToVariable&gt;::reverse_binary&lt;long, scipp::variable::Variable&gt;(pybind11::class_&lt;scipp::variable::Variable&gt;&amp;)::{lambda(scipp::variable::Variable const&amp;, long)#1}::operator()(scipp::variable::Variable const&amp;, long) const</a></td>
-              <td class="coverFnHi">6032</td>
+              <td class="coverFnHi">5909</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_operators.h.gcov.html#162">OpBinder&lt;ScalarToVariable&gt;::in_place_binary&lt;double, scipp::dataset::Dataset&gt;(pybind11::class_&lt;scipp::dataset::Dataset&gt;&amp;)::{lambda(pybind11::object&amp;, double&amp;)#2}::operator()(pybind11::object&amp;, double&amp;) const</a></td>
@@ -905,7 +929,7 @@
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_operators.h.gcov.html#219">OpBinder&lt;ScalarToVariable&gt;::binary&lt;double, scipp::variable::Variable&gt;(pybind11::class_&lt;scipp::variable::Variable&gt;&amp;)::{lambda(scipp::variable::Variable const&amp;, double const&amp;)#3}::operator()(scipp::variable::Variable const&amp;, double const&amp;) const</a></td>
-              <td class="coverFnHi">19</td>
+              <td class="coverFnHi">51</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_operators.h.gcov.html#223">OpBinder&lt;ScalarToVariable&gt;::binary&lt;double, scipp::variable::Variable&gt;(pybind11::class_&lt;scipp::variable::Variable&gt;&amp;)::{lambda(scipp::variable::Variable const&amp;, double const&amp;)#4}::operator()(scipp::variable::Variable const&amp;, double const&amp;) const</a></td>
@@ -973,7 +997,7 @@
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_operators.h.gcov.html#235">OpBinder&lt;ScalarToVariable&gt;::binary&lt;long, scipp::variable::Variable&gt;(pybind11::class_&lt;scipp::variable::Variable&gt;&amp;)::{lambda(scipp::variable::Variable const&amp;, long const&amp;)#6}::operator()(scipp::variable::Variable const&amp;, long const&amp;) const</a></td>
-              <td class="coverFnHi">44</td>
+              <td class="coverFnHi">43</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_operators.h.gcov.html#239">OpBinder&lt;ScalarToVariable&gt;::binary&lt;long, scipp::variable::Variable&gt;(pybind11::class_&lt;scipp::variable::Variable&gt;&amp;)::{lambda(scipp::variable::Variable const&amp;, long const&amp;)#7}::operator()(scipp::variable::Variable const&amp;, long const&amp;) const</a></td>
@@ -1041,7 +1065,7 @@
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_operators.h.gcov.html#295">OpBinder&lt;Identity&gt;::comparison&lt;scipp::variable::Variable, scipp::variable::Variable&gt;(pybind11::class_&lt;scipp::variable::Variable&gt;&amp;)::{lambda(scipp::variable::Variable&amp;, scipp::variable::Variable&amp;)#4}::operator()(scipp::variable::Variable&amp;, scipp::variable::Variable&amp;) const</a></td>
-              <td class="coverFnHi">4798</td>
+              <td class="coverFnHi">4795</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_operators.h.gcov.html#298">OpBinder&lt;Identity&gt;::comparison&lt;scipp::variable::Variable, scipp::variable::Variable&gt;(pybind11::class_&lt;scipp::variable::Variable&gt;&amp;)::{lambda(scipp::variable::Variable&amp;, scipp::variable::Variable&amp;)#5}::operator()(scipp::variable::Variable&amp;, scipp::variable::Variable&amp;) const</a></td>
@@ -1053,7 +1077,7 @@
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_operators.h.gcov.html#286">OpBinder&lt;Identity&gt;::comparison&lt;scipp::variable::Variable, scipp::variable::Variable&gt;(pybind11::class_&lt;scipp::variable::Variable&gt;&amp;)::{lambda(scipp::variable::Variable&amp;, scipp::variable::Variable&amp;)#1}::operator()(scipp::variable::Variable&amp;, scipp::variable::Variable&amp;) const</a></td>
-              <td class="coverFnHi">58</td>
+              <td class="coverFnHi">76</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_operators.h.gcov.html#162">OpBinder&lt;Identity&gt;::in_place_binary&lt;scipp::dataset::Dataset, scipp::dataset::Dataset&gt;(pybind11::class_&lt;scipp::dataset::Dataset&gt;&amp;)::{lambda(pybind11::object&amp;, scipp::dataset::Dataset&amp;)#2}::operator()(pybind11::object&amp;, scipp::dataset::Dataset&amp;) const</a></td>
@@ -1329,15 +1353,15 @@
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_operators.h.gcov.html#216">OpBinder&lt;Identity&gt;::binary&lt;scipp::variable::Variable, scipp::variable::Variable&gt;(pybind11::class_&lt;scipp::variable::Variable&gt;&amp;)::{lambda(scipp::variable::Variable const&amp;, scipp::variable::Variable const&amp;)#2}::operator()(scipp::variable::Variable const&amp;, scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">3607</td>
+              <td class="coverFnHi">3573</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_operators.h.gcov.html#219">OpBinder&lt;Identity&gt;::binary&lt;scipp::variable::Variable, scipp::variable::Variable&gt;(pybind11::class_&lt;scipp::variable::Variable&gt;&amp;)::{lambda(scipp::variable::Variable const&amp;, scipp::variable::Variable const&amp;)#3}::operator()(scipp::variable::Variable const&amp;, scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">2465</td>
+              <td class="coverFnHi">2456</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_operators.h.gcov.html#223">OpBinder&lt;Identity&gt;::binary&lt;scipp::variable::Variable, scipp::variable::Variable&gt;(pybind11::class_&lt;scipp::variable::Variable&gt;&amp;)::{lambda(scipp::variable::Variable const&amp;, scipp::variable::Variable const&amp;)#4}::operator()(scipp::variable::Variable const&amp;, scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">2832</td>
+              <td class="coverFnHi">2843</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_operators.h.gcov.html#229">OpBinder&lt;Identity&gt;::binary&lt;scipp::variable::Variable, scipp::variable::Variable&gt;(pybind11::class_&lt;scipp::variable::Variable&gt;&amp;)::{lambda(scipp::variable::Variable const&amp;, scipp::variable::Variable const&amp;)#5}::operator()(scipp::variable::Variable const&amp;, scipp::variable::Variable const&amp;) const</a></td>
@@ -1345,7 +1369,7 @@
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_operators.h.gcov.html#235">OpBinder&lt;Identity&gt;::binary&lt;scipp::variable::Variable, scipp::variable::Variable&gt;(pybind11::class_&lt;scipp::variable::Variable&gt;&amp;)::{lambda(scipp::variable::Variable const&amp;, scipp::variable::Variable const&amp;)#6}::operator()(scipp::variable::Variable const&amp;, scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">14</td>
+              <td class="coverFnHi">15</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_operators.h.gcov.html#239">OpBinder&lt;Identity&gt;::binary&lt;scipp::variable::Variable, scipp::variable::Variable&gt;(pybind11::class_&lt;scipp::variable::Variable&gt;&amp;)::{lambda(scipp::variable::Variable const&amp;, scipp::variable::Variable const&amp;)#7}::operator()(scipp::variable::Variable const&amp;, scipp::variable::Variable const&amp;) const</a></td>
@@ -1353,7 +1377,7 @@
             </tr>
     <tr>
               <td class="coverFn"><a href="bind_operators.h.gcov.html#213">OpBinder&lt;Identity&gt;::binary&lt;scipp::variable::Variable, scipp::variable::Variable&gt;(pybind11::class_&lt;scipp::variable::Variable&gt;&amp;)::{lambda(scipp::variable::Variable const&amp;, scipp::variable::Variable const&amp;)#1}::operator()(scipp::variable::Variable const&amp;, scipp::variable::Variable const&amp;) const</a></td>
-              <td class="coverFnHi">1149</td>
+              <td class="coverFnHi">1146</td>
             </tr>
   </table>
   <br>

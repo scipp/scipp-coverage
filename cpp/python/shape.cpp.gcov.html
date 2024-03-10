@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-03-03 01:19:12</td>
+            <td class="headerValue">2024-03-10 01:25:20</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">27</td>
@@ -82,9 +82,9 @@
 <a name="20"><span class="lineNum">      20 </span><span class="lineCov">          3 : template &lt;class T&gt; void bind_broadcast(py::module &amp;m) {</span></a>
 <a name="21"><span class="lineNum">      21 </span><span class="lineCov">          3 :   m.def(</span></a>
 <a name="22"><span class="lineNum">      22 </span>            :       &quot;broadcast&quot;,</a>
-<a name="23"><span class="lineNum">      23 </span><span class="lineCov">       1307 :       [](const T &amp;self, const std::vector&lt;std::string&gt; &amp;labels,</span></a>
+<a name="23"><span class="lineNum">      23 </span><span class="lineCov">       1313 :       [](const T &amp;self, const std::vector&lt;std::string&gt; &amp;labels,</span></a>
 <a name="24"><span class="lineNum">      24 </span>            :          const std::vector&lt;scipp::index&gt; &amp;shape) {</a>
-<a name="25"><span class="lineNum">      25 </span><span class="lineCov">       1307 :         return broadcast(self, make_dims(labels, shape));</span></a>
+<a name="25"><span class="lineNum">      25 </span><span class="lineCov">       1313 :         return broadcast(self, make_dims(labels, shape));</span></a>
 <a name="26"><span class="lineNum">      26 </span>            :       },</a>
 <a name="27"><span class="lineNum">      27 </span><span class="lineNoCov">          0 :       py::arg(&quot;x&quot;), py::arg(&quot;dims&quot;), py::arg(&quot;shape&quot;));</span></a>
 <a name="28"><span class="lineNum">      28 </span><span class="lineCov">          3 : }</span></a>
@@ -113,10 +113,10 @@
 <a name="51"><span class="lineNum">      51 </span><span class="lineCov">          6 : template &lt;class T&gt; void bind_flatten(pybind11::module &amp;mod) {</span></a>
 <a name="52"><span class="lineNum">      52 </span><span class="lineCov">          6 :   mod.def(</span></a>
 <a name="53"><span class="lineNum">      53 </span>            :       &quot;flatten&quot;,</a>
-<a name="54"><span class="lineNum">      54 </span><span class="lineCov">       2486 :       [](const T &amp;self, const std::optional&lt;std::vector&lt;std::string&gt;&gt; &amp;dims,</span></a>
+<a name="54"><span class="lineNum">      54 </span><span class="lineCov">       2430 :       [](const T &amp;self, const std::optional&lt;std::vector&lt;std::string&gt;&gt; &amp;dims,</span></a>
 <a name="55"><span class="lineNum">      55 </span>            :          const std::string &amp;to) {</a>
-<a name="56"><span class="lineNum">      56 </span><span class="lineCov">       2486 :         if (dims.has_value())</span></a>
-<a name="57"><span class="lineNum">      57 </span><span class="lineCov">        514 :           return flatten(self, to_dim_type(*dims), Dim{to});</span></a>
+<a name="56"><span class="lineNum">      56 </span><span class="lineCov">       2430 :         if (dims.has_value())</span></a>
+<a name="57"><span class="lineNum">      57 </span><span class="lineCov">        458 :           return flatten(self, to_dim_type(*dims), Dim{to});</span></a>
 <a name="58"><span class="lineNum">      58 </span>            :         // If no dims are given then we flatten all dims. For variables we just</a>
 <a name="59"><span class="lineNum">      59 </span>            :         // provide a list of all labels. DataArrays are different, as the</a>
 <a name="60"><span class="lineNum">      60 </span>            :         // behavior in the degenerate case of a 0-D 'self' must distinguish</a>
@@ -134,8 +134,8 @@
 <a name="72"><span class="lineNum">      72 </span><span class="lineCov">          9 : template &lt;class T&gt; void bind_transpose(pybind11::module &amp;mod) {</span></a>
 <a name="73"><span class="lineNum">      73 </span><span class="lineCov">          9 :   mod.def(</span></a>
 <a name="74"><span class="lineNum">      74 </span>            :       &quot;transpose&quot;,</a>
-<a name="75"><span class="lineNum">      75 </span><span class="lineCov">       4959 :       [](const T &amp;self, const std::vector&lt;std::string&gt; &amp;dims) {</span></a>
-<a name="76"><span class="lineNum">      76 </span><span class="lineCov">       4959 :         return transpose(self, to_dim_type(dims));</span></a>
+<a name="75"><span class="lineNum">      75 </span><span class="lineCov">       4857 :       [](const T &amp;self, const std::vector&lt;std::string&gt; &amp;dims) {</span></a>
+<a name="76"><span class="lineNum">      76 </span><span class="lineCov">       4857 :         return transpose(self, to_dim_type(dims));</span></a>
 <a name="77"><span class="lineNum">      77 </span>            :       },</a>
 <a name="78"><span class="lineNum">      78 </span><span class="lineCov">         18 :       py::arg(&quot;x&quot;), py::arg(&quot;dims&quot;) = std::vector&lt;std::string&gt;{});</span></a>
 <a name="79"><span class="lineNum">      79 </span><span class="lineCov">          9 : }</span></a>

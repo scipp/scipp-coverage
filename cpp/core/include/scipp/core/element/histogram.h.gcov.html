@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-03-03 01:19:12</td>
+            <td class="headerValue">2024-03-10 01:25:20</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">11</td>
@@ -124,20 +124,20 @@
 <a name="62"><span class="lineNum">      62 </span>            :       // Special implementation for linear bins. Gives a 1x to 20x speedup</a>
 <a name="63"><span class="lineNum">      63 </span>            :       // for few and many events per histogram, respectively.</a>
 <a name="64"><span class="lineNum">      64 </span><span class="lineCov">      54391 :       if (scipp::numeric::islinspace(edges)) {</span></a>
-<a name="65"><span class="lineNum">      65 </span><span class="lineCov">      53071 :         const auto params = core::linear_edge_params(edges);</span></a>
-<a name="66"><span class="lineNum">      66 </span><span class="lineCov">    8120787 :         for (scipp::index i = 0; i &lt; scipp::size(events); ++i) {</span></a>
-<a name="67"><span class="lineNum">      67 </span><span class="lineCov">    8067716 :           const auto x = events[i];</span></a>
-<a name="68"><span class="lineNum">      68 </span><span class="lineCov">    8067716 :           if (const auto bin = get_bin&lt;scipp::index&gt;(x, edges, params);</span></a>
+<a name="65"><span class="lineNum">      65 </span><span class="lineCov">      53072 :         const auto params = core::linear_edge_params(edges);</span></a>
+<a name="66"><span class="lineNum">      66 </span><span class="lineCov">    8120790 :         for (scipp::index i = 0; i &lt; scipp::size(events); ++i) {</span></a>
+<a name="67"><span class="lineNum">      67 </span><span class="lineCov">    8067718 :           const auto x = events[i];</span></a>
+<a name="68"><span class="lineNum">      68 </span><span class="lineCov">    8067718 :           if (const auto bin = get_bin&lt;scipp::index&gt;(x, edges, params);</span></a>
 <a name="69"><span class="lineNum">      69 </span>            :               bin &gt;= 0)</a>
-<a name="70"><span class="lineNum">      70 </span><span class="lineCov">    8051773 :             iadd(data, bin, weights, i);</span></a>
+<a name="70"><span class="lineNum">      70 </span><span class="lineCov">    8051775 :             iadd(data, bin, weights, i);</span></a>
 <a name="71"><span class="lineNum">      71 </span>            :         }</a>
 <a name="72"><span class="lineNum">      72 </span>            :       } else {</a>
-<a name="73"><span class="lineNum">      73 </span><span class="lineCov">       1320 :         core::expect::histogram::sorted_edges(edges);</span></a>
-<a name="74"><span class="lineNum">      74 </span><span class="lineCov">       9373 :         for (scipp::index i = 0; i &lt; scipp::size(events); ++i) {</span></a>
-<a name="75"><span class="lineNum">      75 </span><span class="lineCov">       8054 :           const auto x = events[i];</span></a>
-<a name="76"><span class="lineNum">      76 </span><span class="lineCov">       8054 :           auto it = std::upper_bound(edges.begin(), edges.end(), x);</span></a>
-<a name="77"><span class="lineNum">      77 </span><span class="lineCov">       8054 :           if (it != edges.end() &amp;&amp; it != edges.begin())</span></a>
-<a name="78"><span class="lineNum">      78 </span><span class="lineCov">       8044 :             iadd(data, --it - edges.begin(), weights, i);</span></a>
+<a name="73"><span class="lineNum">      73 </span><span class="lineCov">       1319 :         core::expect::histogram::sorted_edges(edges);</span></a>
+<a name="74"><span class="lineNum">      74 </span><span class="lineCov">       9370 :         for (scipp::index i = 0; i &lt; scipp::size(events); ++i) {</span></a>
+<a name="75"><span class="lineNum">      75 </span><span class="lineCov">       8052 :           const auto x = events[i];</span></a>
+<a name="76"><span class="lineNum">      76 </span><span class="lineCov">       8052 :           auto it = std::upper_bound(edges.begin(), edges.end(), x);</span></a>
+<a name="77"><span class="lineNum">      77 </span><span class="lineCov">       8052 :           if (it != edges.end() &amp;&amp; it != edges.begin())</span></a>
+<a name="78"><span class="lineNum">      78 </span><span class="lineCov">       8042 :             iadd(data, --it - edges.begin(), weights, i);</span></a>
 <a name="79"><span class="lineNum">      79 </span>            :         }</a>
 <a name="80"><span class="lineNum">      80 </span>            :       }</a>
 <a name="81"><span class="lineNum">      81 </span><span class="lineCov">      54390 :     },</span></a>
