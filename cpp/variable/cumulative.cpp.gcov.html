@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-03-10 01:25:20</td>
+            <td class="headerValue">2024-03-17 01:23:35</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">4</td>
@@ -75,8 +75,8 @@
 <a name="13"><span class="lineNum">      13 </span>            : namespace scipp::variable {</a>
 <a name="14"><span class="lineNum">      14 </span>            : </a>
 <a name="15"><span class="lineNum">      15 </span>            : namespace {</a>
-<a name="16"><span class="lineNum">      16 </span><span class="lineCov">      31460 : auto as_precise(const Variable &amp;var) {</span></a>
-<a name="17"><span class="lineNum">      17 </span><span class="lineCov">      62920 :   return (var.dtype() == dtype&lt;float&gt;) ? astype(var, dtype&lt;double&gt;) : var;</span></a>
+<a name="16"><span class="lineNum">      16 </span><span class="lineCov">      31748 : auto as_precise(const Variable &amp;var) {</span></a>
+<a name="17"><span class="lineNum">      17 </span><span class="lineCov">      63496 :   return (var.dtype() == dtype&lt;float&gt;) ? astype(var, dtype&lt;double&gt;) : var;</span></a>
 <a name="18"><span class="lineNum">      18 </span>            : }</a>
 <a name="19"><span class="lineNum">      19 </span>            : } // namespace</a>
 <a name="20"><span class="lineNum">      20 </span>            : </a>
@@ -95,17 +95,17 @@
 <a name="33"><span class="lineNum">      33 </span><span class="lineCov">       6410 :   return out;</span></a>
 <a name="34"><span class="lineNum">      34 </span><span class="lineCov">       6410 : }</span></a>
 <a name="35"><span class="lineNum">      35 </span>            : </a>
-<a name="36"><span class="lineNum">      36 </span><span class="lineCov">      25050 : Variable cumsum(const Variable &amp;var, const CumSumMode mode) {</span></a>
-<a name="37"><span class="lineNum">      37 </span><span class="lineCov">      50100 :   Variable cumulative(as_precise(Variable(var, Dimensions{})));</span></a>
-<a name="38"><span class="lineNum">      38 </span><span class="lineCov">      25050 :   Variable out = copy(var);</span></a>
-<a name="39"><span class="lineNum">      39 </span><span class="lineCov">      25050 :   if (mode == CumSumMode::Inclusive)</span></a>
-<a name="40"><span class="lineNum">      40 </span><span class="lineCov">      25048 :     accumulate_in_place(cumulative, out, core::element::inclusive_scan,</span></a>
+<a name="36"><span class="lineNum">      36 </span><span class="lineCov">      25338 : Variable cumsum(const Variable &amp;var, const CumSumMode mode) {</span></a>
+<a name="37"><span class="lineNum">      37 </span><span class="lineCov">      50676 :   Variable cumulative(as_precise(Variable(var, Dimensions{})));</span></a>
+<a name="38"><span class="lineNum">      38 </span><span class="lineCov">      25338 :   Variable out = copy(var);</span></a>
+<a name="39"><span class="lineNum">      39 </span><span class="lineCov">      25338 :   if (mode == CumSumMode::Inclusive)</span></a>
+<a name="40"><span class="lineNum">      40 </span><span class="lineCov">      25336 :     accumulate_in_place(cumulative, out, core::element::inclusive_scan,</span></a>
 <a name="41"><span class="lineNum">      41 </span>            :                         &quot;cumsum&quot;);</a>
 <a name="42"><span class="lineNum">      42 </span>            :   else</a>
 <a name="43"><span class="lineNum">      43 </span><span class="lineCov">          2 :     accumulate_in_place(cumulative, out, core::element::exclusive_scan,</span></a>
 <a name="44"><span class="lineNum">      44 </span>            :                         &quot;cumsum&quot;);</a>
-<a name="45"><span class="lineNum">      45 </span><span class="lineCov">      50100 :   return out;</span></a>
-<a name="46"><span class="lineNum">      46 </span><span class="lineCov">      25050 : }</span></a>
+<a name="45"><span class="lineNum">      45 </span><span class="lineCov">      50676 :   return out;</span></a>
+<a name="46"><span class="lineNum">      46 </span><span class="lineCov">      25338 : }</span></a>
 <a name="47"><span class="lineNum">      47 </span>            : </a>
 <a name="48"><span class="lineNum">      48 </span><span class="lineCov">          3 : Variable cumsum_bins(const Variable &amp;var, const CumSumMode mode) {</span></a>
 <a name="49"><span class="lineNum">      49 </span><span class="lineCov">          3 :   Variable out = copy(var);</span></a>

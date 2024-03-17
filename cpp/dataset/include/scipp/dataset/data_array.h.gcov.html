@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-03-10 01:25:20</td>
+            <td class="headerValue">2024-03-17 01:23:35</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">25</td>
@@ -81,10 +81,10 @@
 <a name="19"><span class="lineNum">      19 </span>            : /// Data array, a variable with coordinates, masks, and attributes.</a>
 <a name="20"><span class="lineNum">      20 </span>            : class SCIPP_DATASET_EXPORT DataArray {</a>
 <a name="21"><span class="lineNum">      21 </span>            : public:</a>
-<a name="22"><span class="lineNum">      22 </span><span class="lineCov">      93219 :   DataArray() = default;</span></a>
+<a name="22"><span class="lineNum">      22 </span><span class="lineCov">      93242 :   DataArray() = default;</span></a>
 <a name="23"><span class="lineNum">      23 </span>            :   DataArray(const DataArray &amp;other, AttrPolicy attrPolicy);</a>
 <a name="24"><span class="lineNum">      24 </span>            :   DataArray(const DataArray &amp;other);</a>
-<a name="25"><span class="lineNum">      25 </span><span class="lineCov">     147863 :   DataArray(DataArray &amp;&amp;other) = default;</span></a>
+<a name="25"><span class="lineNum">      25 </span><span class="lineCov">     150572 :   DataArray(DataArray &amp;&amp;other) = default;</span></a>
 <a name="26"><span class="lineNum">      26 </span>            : </a>
 <a name="27"><span class="lineNum">      27 </span>            :   DataArray(Variable data, Coords coords, Masks masks, Attrs attrs,</a>
 <a name="28"><span class="lineNum">      28 </span>            :             std::string_view name = &quot;&quot;);</a>
@@ -96,48 +96,48 @@
 <a name="34"><span class="lineNum">      34 </span>            :   DataArray &amp;operator=(const DataArray &amp;other);</a>
 <a name="35"><span class="lineNum">      35 </span>            :   DataArray &amp;operator=(DataArray &amp;&amp;other);</a>
 <a name="36"><span class="lineNum">      36 </span>            : </a>
-<a name="37"><span class="lineNum">      37 </span><span class="lineCov">      48633 :   bool is_valid() const noexcept { return m_data &amp;&amp; m_data-&gt;is_valid(); }</span></a>
+<a name="37"><span class="lineNum">      37 </span><span class="lineCov">      48643 :   bool is_valid() const noexcept { return m_data &amp;&amp; m_data-&gt;is_valid(); }</span></a>
 <a name="38"><span class="lineNum">      38 </span>            : </a>
 <a name="39"><span class="lineNum">      39 </span>            :   const std::string &amp;name() const;</a>
 <a name="40"><span class="lineNum">      40 </span>            :   void setName(std::string_view name);</a>
 <a name="41"><span class="lineNum">      41 </span>            : </a>
-<a name="42"><span class="lineNum">      42 </span><span class="lineCov">     369208 :   const Coords &amp;coords() const { return *m_coords; }</span></a>
+<a name="42"><span class="lineNum">      42 </span><span class="lineCov">     371672 :   const Coords &amp;coords() const { return *m_coords; }</span></a>
 <a name="43"><span class="lineNum">      43 </span>            :   // TODO either ensure Dict does not allow changing sizes, or return by value</a>
 <a name="44"><span class="lineNum">      44 </span>            :   // here</a>
-<a name="45"><span class="lineNum">      45 </span><span class="lineCov">     149355 :   Coords &amp;coords() { return *m_coords; }</span></a>
+<a name="45"><span class="lineNum">      45 </span><span class="lineCov">     150561 :   Coords &amp;coords() { return *m_coords; }</span></a>
 <a name="46"><span class="lineNum">      46 </span>            : </a>
 <a name="47"><span class="lineNum">      47 </span>            :   DataArray drop_coords(const scipp::span&lt;const Dim&gt; coord_names) const;</a>
 <a name="48"><span class="lineNum">      48 </span>            : </a>
-<a name="49"><span class="lineNum">      49 </span><span class="lineCov">     228837 :   const Masks &amp;masks() const { return *m_masks; }</span></a>
-<a name="50"><span class="lineNum">      50 </span><span class="lineCov">      25598 :   Masks &amp;masks() { return *m_masks; }</span></a>
+<a name="49"><span class="lineNum">      49 </span><span class="lineCov">     231155 :   const Masks &amp;masks() const { return *m_masks; }</span></a>
+<a name="50"><span class="lineNum">      50 </span><span class="lineCov">      26139 :   Masks &amp;masks() { return *m_masks; }</span></a>
 <a name="51"><span class="lineNum">      51 </span>            : </a>
 <a name="52"><span class="lineNum">      52 </span>            :   DataArray drop_masks(const scipp::span&lt;const std::string&gt; mask_names) const;</a>
 <a name="53"><span class="lineNum">      53 </span>            : </a>
-<a name="54"><span class="lineNum">      54 </span><span class="lineCov">     210171 :   const Attrs &amp;attrs() const { return *m_attrs; }</span></a>
-<a name="55"><span class="lineNum">      55 </span><span class="lineCov">      16392 :   Attrs &amp;attrs() { return *m_attrs; }</span></a>
+<a name="54"><span class="lineNum">      54 </span><span class="lineCov">     212479 :   const Attrs &amp;attrs() const { return *m_attrs; }</span></a>
+<a name="55"><span class="lineNum">      55 </span><span class="lineCov">      16550 :   Attrs &amp;attrs() { return *m_attrs; }</span></a>
 <a name="56"><span class="lineNum">      56 </span>            : </a>
 <a name="57"><span class="lineNum">      57 </span>            :   DataArray drop_attrs(const scipp::span&lt;const Dim&gt; attr_names) const;</a>
 <a name="58"><span class="lineNum">      58 </span>            : </a>
 <a name="59"><span class="lineNum">      59 </span>            :   Coords meta() const;</a>
 <a name="60"><span class="lineNum">      60 </span>            : </a>
-<a name="61"><span class="lineNum">      61 </span><span class="lineCov">     672741 :   [[nodiscard]] const Dimensions &amp;dims() const { return m_data-&gt;dims(); }</span></a>
+<a name="61"><span class="lineNum">      61 </span><span class="lineCov">     675898 :   [[nodiscard]] const Dimensions &amp;dims() const { return m_data-&gt;dims(); }</span></a>
 <a name="62"><span class="lineNum">      62 </span><span class="lineCov">       3585 :   [[nodiscard]] Dim dim() const { return m_data-&gt;dim(); }</span></a>
-<a name="63"><span class="lineNum">      63 </span><span class="lineCov">       5390 :   [[nodiscard]] scipp::index ndim() const { return m_data-&gt;ndim(); }</span></a>
-<a name="64"><span class="lineNum">      64 </span><span class="lineCov">      17872 :   [[nodiscard]] scipp::span&lt;const scipp::index&gt; strides() const {</span></a>
-<a name="65"><span class="lineNum">      65 </span><span class="lineCov">      17872 :     return m_data-&gt;strides();</span></a>
+<a name="63"><span class="lineNum">      63 </span><span class="lineCov">       5558 :   [[nodiscard]] scipp::index ndim() const { return m_data-&gt;ndim(); }</span></a>
+<a name="64"><span class="lineNum">      64 </span><span class="lineCov">      18496 :   [[nodiscard]] scipp::span&lt;const scipp::index&gt; strides() const {</span></a>
+<a name="65"><span class="lineNum">      65 </span><span class="lineCov">      18496 :     return m_data-&gt;strides();</span></a>
 <a name="66"><span class="lineNum">      66 </span>            :   }</a>
-<a name="67"><span class="lineNum">      67 </span><span class="lineCov">     115557 :   [[nodiscard]] DType dtype() const { return m_data-&gt;dtype(); }</span></a>
-<a name="68"><span class="lineNum">      68 </span><span class="lineCov">       9882 :   [[nodiscard]] units::Unit unit() const { return m_data-&gt;unit(); }</span></a>
+<a name="67"><span class="lineNum">      67 </span><span class="lineCov">     116181 :   [[nodiscard]] DType dtype() const { return m_data-&gt;dtype(); }</span></a>
+<a name="68"><span class="lineNum">      68 </span><span class="lineCov">      10190 :   [[nodiscard]] units::Unit unit() const { return m_data-&gt;unit(); }</span></a>
 <a name="69"><span class="lineNum">      69 </span>            : </a>
 <a name="70"><span class="lineNum">      70 </span><span class="lineCov">        153 :   void setUnit(const units::Unit unit) { m_data-&gt;setUnit(unit); }</span></a>
 <a name="71"><span class="lineNum">      71 </span>            : </a>
 <a name="72"><span class="lineNum">      72 </span>            :   /// Return true if the data array contains data variances.</a>
-<a name="73"><span class="lineNum">      73 </span><span class="lineCov">      31658 :   bool has_variances() const { return m_data-&gt;has_variances(); }</span></a>
+<a name="73"><span class="lineNum">      73 </span><span class="lineCov">      32594 :   bool has_variances() const { return m_data-&gt;has_variances(); }</span></a>
 <a name="74"><span class="lineNum">      74 </span>            : </a>
 <a name="75"><span class="lineNum">      75 </span>            :   /// Return untyped const view for data (values and optional variances).</a>
-<a name="76"><span class="lineNum">      76 </span><span class="lineCov">     260201 :   const Variable &amp;data() const { return *m_data; }</span></a>
+<a name="76"><span class="lineNum">      76 </span><span class="lineCov">     263559 :   const Variable &amp;data() const { return *m_data; }</span></a>
 <a name="77"><span class="lineNum">      77 </span>            :   /// Return untyped view for data (values and optional variances).</a>
-<a name="78"><span class="lineNum">      78 </span><span class="lineCov">      35235 :   Variable data() { return *m_data; }</span></a>
+<a name="78"><span class="lineNum">      78 </span><span class="lineCov">      35539 :   Variable data() { return *m_data; }</span></a>
 <a name="79"><span class="lineNum">      79 </span>            : </a>
 <a name="80"><span class="lineNum">      80 </span>            :   /// Return typed const view for data values.</a>
 <a name="81"><span class="lineNum">      81 </span><span class="lineNoCov">          0 :   template &lt;class T&gt; auto values() const {</span></a>
