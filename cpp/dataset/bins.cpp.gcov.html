@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-03-17 01:23:35</td>
+            <td class="headerValue">2024-03-24 01:24:54</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">36</td>
@@ -96,31 +96,31 @@
 <a name="34"><span class="lineNum">      34 </span>            : </a>
 <a name="35"><span class="lineNum">      35 </span>            : namespace scipp::dataset {</a>
 <a name="36"><span class="lineNum">      36 </span>            : namespace {</a>
-<a name="37"><span class="lineNum">      37 </span><span class="lineCov">      10742 : constexpr auto copy_or_match = [](const auto &amp;a, auto &amp;&amp;b, const Dim dim,</span></a>
+<a name="37"><span class="lineNum">      37 </span><span class="lineCov">       8837 : constexpr auto copy_or_match = [](const auto &amp;a, auto &amp;&amp;b, const Dim dim,</span></a>
 <a name="38"><span class="lineNum">      38 </span>            :                                   const Variable &amp;srcIndices,</a>
 <a name="39"><span class="lineNum">      39 </span>            :                                   const Variable &amp;dstIndices) {</a>
-<a name="40"><span class="lineNum">      40 </span><span class="lineCov">      10742 :   if (a.dims().contains(dim))</span></a>
-<a name="41"><span class="lineNum">      41 </span><span class="lineCov">      10674 :     copy_slices(a, b, dim, srcIndices, dstIndices);</span></a>
+<a name="40"><span class="lineNum">      40 </span><span class="lineCov">       8837 :   if (a.dims().contains(dim))</span></a>
+<a name="41"><span class="lineNum">      41 </span><span class="lineCov">       8769 :     copy_slices(a, b, dim, srcIndices, dstIndices);</span></a>
 <a name="42"><span class="lineNum">      42 </span>            :   else</a>
 <a name="43"><span class="lineNum">      43 </span><span class="lineCov">         68 :     core::expect::equals(a, b);</span></a>
-<a name="44"><span class="lineNum">      44 </span><span class="lineCov">      10742 : };</span></a>
+<a name="44"><span class="lineNum">      44 </span><span class="lineCov">       8837 : };</span></a>
 <a name="45"><span class="lineNum">      45 </span>            : </a>
-<a name="46"><span class="lineNum">      46 </span><span class="lineCov">       7948 : constexpr auto expect_matching_keys = [](const auto &amp;a, const auto &amp;b) {</span></a>
-<a name="47"><span class="lineNum">      47 </span><span class="lineCov">       7948 :   bool ok = true;</span></a>
-<a name="48"><span class="lineNum">      48 </span><span class="lineCov">      21533 :   constexpr auto key = [](const auto &amp;x_) {</span></a>
+<a name="46"><span class="lineNum">      46 </span><span class="lineCov">       6808 : constexpr auto expect_matching_keys = [](const auto &amp;a, const auto &amp;b) {</span></a>
+<a name="47"><span class="lineNum">      47 </span><span class="lineCov">       6808 :   bool ok = true;</span></a>
+<a name="48"><span class="lineNum">      48 </span><span class="lineCov">      17723 :   constexpr auto key = [](const auto &amp;x_) {</span></a>
 <a name="49"><span class="lineNum">      49 </span>            :     if constexpr (std::is_base_of_v&lt;DataArray, std::decay_t&lt;decltype(x_)&gt;&gt;)</a>
 <a name="50"><span class="lineNum">      50 </span><span class="lineCov">        160 :       return x_.name();</span></a>
 <a name="51"><span class="lineNum">      51 </span>            :     else</a>
-<a name="52"><span class="lineNum">      52 </span><span class="lineCov">      21373 :       return x_.first;</span></a>
+<a name="52"><span class="lineNum">      52 </span><span class="lineCov">      17563 :       return x_.first;</span></a>
 <a name="53"><span class="lineNum">      53 </span>            :   };</a>
-<a name="54"><span class="lineNum">      54 </span><span class="lineCov">      18712 :   for (const auto &amp;x : a)</span></a>
-<a name="55"><span class="lineNum">      55 </span><span class="lineCov">      10764 :     ok &amp;= b.contains(key(x));</span></a>
-<a name="56"><span class="lineNum">      56 </span><span class="lineCov">      18717 :   for (const auto &amp;x : b)</span></a>
-<a name="57"><span class="lineNum">      57 </span><span class="lineCov">      10769 :     ok &amp;= a.contains(key(x));</span></a>
-<a name="58"><span class="lineNum">      58 </span><span class="lineCov">       7948 :   if (!ok)</span></a>
+<a name="54"><span class="lineNum">      54 </span><span class="lineCov">      15667 :   for (const auto &amp;x : a)</span></a>
+<a name="55"><span class="lineNum">      55 </span><span class="lineCov">       8859 :     ok &amp;= b.contains(key(x));</span></a>
+<a name="56"><span class="lineNum">      56 </span><span class="lineCov">      15672 :   for (const auto &amp;x : b)</span></a>
+<a name="57"><span class="lineNum">      57 </span><span class="lineCov">       8864 :     ok &amp;= a.contains(key(x));</span></a>
+<a name="58"><span class="lineNum">      58 </span><span class="lineCov">       6808 :   if (!ok)</span></a>
 <a name="59"><span class="lineNum">      59 </span><span class="lineCov">         21 :     throw std::runtime_error(&quot;Mismatching keys in\n&quot; + to_string(a) + &quot; and\n&quot; +</span></a>
 <a name="60"><span class="lineNum">      60 </span>            :                              to_string(b));</a>
-<a name="61"><span class="lineNum">      61 </span><span class="lineCov">       7927 : };</span></a>
+<a name="61"><span class="lineNum">      61 </span><span class="lineCov">       6787 : };</span></a>
 <a name="62"><span class="lineNum">      62 </span>            : </a>
 <a name="63"><span class="lineNum">      63 </span><span class="lineCov">        166 : auto make_fill(const DataArray &amp;function,</span></a>
 <a name="64"><span class="lineNum">      64 </span>            :                const std::optional&lt;Variable&gt; &amp;fill_value) {</a>
@@ -141,16 +141,16 @@
 <a name="79"><span class="lineNum">      79 </span>            : </a>
 <a name="80"><span class="lineNum">      80 </span>            : } // namespace</a>
 <a name="81"><span class="lineNum">      81 </span>            : </a>
-<a name="82"><span class="lineNum">      82 </span><span class="lineCov">       3848 : void copy_slices(const DataArray &amp;src, DataArray dst, const Dim dim,</span></a>
+<a name="82"><span class="lineNum">      82 </span><span class="lineCov">       3278 : void copy_slices(const DataArray &amp;src, DataArray dst, const Dim dim,</span></a>
 <a name="83"><span class="lineNum">      83 </span>            :                  const Variable &amp;srcIndices, const Variable &amp;dstIndices) {</a>
-<a name="84"><span class="lineNum">      84 </span><span class="lineCov">       3852 :   copy_slices(src.data(), dst.data(), dim, srcIndices, dstIndices);</span></a>
-<a name="85"><span class="lineNum">      85 </span><span class="lineCov">       3868 :   expect_matching_keys(src.meta(), dst.meta());</span></a>
-<a name="86"><span class="lineNum">      86 </span><span class="lineCov">       3832 :   expect_matching_keys(src.masks(), dst.masks());</span></a>
-<a name="87"><span class="lineNum">      87 </span><span class="lineCov">      14324 :   for (const auto &amp;[name, coord] : src.meta())</span></a>
-<a name="88"><span class="lineNum">      88 </span><span class="lineCov">      14324 :     copy_or_match(coord, dst.meta()[name], dim, srcIndices, dstIndices);</span></a>
-<a name="89"><span class="lineNum">      89 </span><span class="lineCov">       3872 :   for (const auto &amp;[name, mask] : src.masks())</span></a>
+<a name="84"><span class="lineNum">      84 </span><span class="lineCov">       3282 :   copy_slices(src.data(), dst.data(), dim, srcIndices, dstIndices);</span></a>
+<a name="85"><span class="lineNum">      85 </span><span class="lineCov">       3298 :   expect_matching_keys(src.meta(), dst.meta());</span></a>
+<a name="86"><span class="lineNum">      86 </span><span class="lineCov">       3262 :   expect_matching_keys(src.masks(), dst.masks());</span></a>
+<a name="87"><span class="lineNum">      87 </span><span class="lineCov">      11849 :   for (const auto &amp;[name, coord] : src.meta())</span></a>
+<a name="88"><span class="lineNum">      88 </span><span class="lineCov">      11849 :     copy_or_match(coord, dst.meta()[name], dim, srcIndices, dstIndices);</span></a>
+<a name="89"><span class="lineNum">      89 </span><span class="lineCov">       3302 :   for (const auto &amp;[name, mask] : src.masks())</span></a>
 <a name="90"><span class="lineNum">      90 </span><span class="lineCov">         44 :     copy_or_match(mask, dst.masks()[name], dim, srcIndices, dstIndices);</span></a>
-<a name="91"><span class="lineNum">      91 </span><span class="lineCov">       3828 : }</span></a>
+<a name="91"><span class="lineNum">      91 </span><span class="lineCov">       3258 : }</span></a>
 <a name="92"><span class="lineNum">      92 </span>            : </a>
 <a name="93"><span class="lineNum">      93 </span><span class="lineCov">         61 : void copy_slices(const Dataset &amp;src, Dataset dst, const Dim dim,</span></a>
 <a name="94"><span class="lineNum">      94 </span>            :                  const Variable &amp;srcIndices, const Variable &amp;dstIndices) {</a>
@@ -171,33 +171,33 @@
 <a name="109"><span class="lineNum">     109 </span><span class="lineCov">         55 : }</span></a>
 <a name="110"><span class="lineNum">     110 </span>            : </a>
 <a name="111"><span class="lineNum">     111 </span>            : namespace {</a>
-<a name="112"><span class="lineNum">     112 </span><span class="lineCov">      14462 : constexpr auto copy_or_resize = [](const auto &amp;var, const Dim dim,</span></a>
+<a name="112"><span class="lineNum">     112 </span><span class="lineCov">      11987 : constexpr auto copy_or_resize = [](const auto &amp;var, const Dim dim,</span></a>
 <a name="113"><span class="lineNum">     113 </span>            :                                    const scipp::index size) {</a>
-<a name="114"><span class="lineNum">     114 </span><span class="lineCov">      14462 :   auto dims = var.dims();</span></a>
-<a name="115"><span class="lineNum">     115 </span><span class="lineCov">      14462 :   if (dims.contains(dim))</span></a>
-<a name="116"><span class="lineNum">     116 </span><span class="lineCov">      14393 :     dims.resize(dim, size);</span></a>
+<a name="114"><span class="lineNum">     114 </span><span class="lineCov">      11987 :   auto dims = var.dims();</span></a>
+<a name="115"><span class="lineNum">     115 </span><span class="lineCov">      11987 :   if (dims.contains(dim))</span></a>
+<a name="116"><span class="lineNum">     116 </span><span class="lineCov">      11918 :     dims.resize(dim, size);</span></a>
 <a name="117"><span class="lineNum">     117 </span>            :   // Using variableFactory instead of variable::resize for creating</a>
 <a name="118"><span class="lineNum">     118 </span>            :   // _uninitialized_ variable.</a>
-<a name="119"><span class="lineNum">     119 </span><span class="lineCov">      14462 :   return var.dims().contains(dim)</span></a>
-<a name="120"><span class="lineNum">     120 </span><span class="lineCov">      14393 :              ? variable::variableFactory().create(var.dtype(), dims, var.unit(),</span></a>
-<a name="121"><span class="lineNum">     121 </span><span class="lineCov">      14393 :                                                   var.has_variances())</span></a>
-<a name="122"><span class="lineNum">     122 </span><span class="lineCov">      43317 :              : copy(var);</span></a>
-<a name="123"><span class="lineNum">     123 </span><span class="lineCov">      14462 : };</span></a>
+<a name="119"><span class="lineNum">     119 </span><span class="lineCov">      11987 :   return var.dims().contains(dim)</span></a>
+<a name="120"><span class="lineNum">     120 </span><span class="lineCov">      11918 :              ? variable::variableFactory().create(var.dtype(), dims, var.unit(),</span></a>
+<a name="121"><span class="lineNum">     121 </span><span class="lineCov">      11918 :                                                   var.has_variances())</span></a>
+<a name="122"><span class="lineNum">     122 </span><span class="lineCov">      35892 :              : copy(var);</span></a>
+<a name="123"><span class="lineNum">     123 </span><span class="lineCov">      11987 : };</span></a>
 <a name="124"><span class="lineNum">     124 </span>            : }</a>
 <a name="125"><span class="lineNum">     125 </span>            : </a>
 <a name="126"><span class="lineNum">     126 </span>            : // TODO These functions are an unfortunate near-duplicate of `resize`. However,</a>
 <a name="127"><span class="lineNum">     127 </span>            : // the latter drops coords along the resized dimension. Is there a way to unify</a>
 <a name="128"><span class="lineNum">     128 </span>            : // this? Can the need to drop coords in resize be avoided?</a>
-<a name="129"><span class="lineNum">     129 </span><span class="lineCov">       3797 : DataArray resize_default_init(const DataArray &amp;parent, const Dim dim,</span></a>
+<a name="129"><span class="lineNum">     129 </span><span class="lineCov">       3227 : DataArray resize_default_init(const DataArray &amp;parent, const Dim dim,</span></a>
 <a name="130"><span class="lineNum">     130 </span>            :                               const scipp::index size) {</a>
-<a name="131"><span class="lineNum">     131 </span><span class="lineCov">       7594 :   DataArray buffer(copy_or_resize(parent.data(), dim, size));</span></a>
-<a name="132"><span class="lineNum">     132 </span><span class="lineCov">      14229 :   for (const auto &amp;[name, var] : parent.coords())</span></a>
-<a name="133"><span class="lineNum">     133 </span><span class="lineCov">      10432 :     buffer.coords().set(name, copy_or_resize(var, dim, size));</span></a>
-<a name="134"><span class="lineNum">     134 </span><span class="lineCov">       3844 :   for (const auto &amp;[name, var] : parent.masks())</span></a>
+<a name="131"><span class="lineNum">     131 </span><span class="lineCov">       6454 :   DataArray buffer(copy_or_resize(parent.data(), dim, size));</span></a>
+<a name="132"><span class="lineNum">     132 </span><span class="lineCov">      11754 :   for (const auto &amp;[name, var] : parent.coords())</span></a>
+<a name="133"><span class="lineNum">     133 </span><span class="lineCov">       8527 :     buffer.coords().set(name, copy_or_resize(var, dim, size));</span></a>
+<a name="134"><span class="lineNum">     134 </span><span class="lineCov">       3274 :   for (const auto &amp;[name, var] : parent.masks())</span></a>
 <a name="135"><span class="lineNum">     135 </span><span class="lineCov">         47 :     buffer.masks().set(name, copy_or_resize(var, dim, size));</span></a>
-<a name="136"><span class="lineNum">     136 </span><span class="lineCov">       3811 :   for (const auto &amp;[name, var] : parent.attrs())</span></a>
+<a name="136"><span class="lineNum">     136 </span><span class="lineCov">       3241 :   for (const auto &amp;[name, var] : parent.attrs())</span></a>
 <a name="137"><span class="lineNum">     137 </span><span class="lineCov">         14 :     buffer.attrs().set(name, copy_or_resize(var, dim, size));</span></a>
-<a name="138"><span class="lineNum">     138 </span><span class="lineCov">       3797 :   return buffer;</span></a>
+<a name="138"><span class="lineNum">     138 </span><span class="lineCov">       3227 :   return buffer;</span></a>
 <a name="139"><span class="lineNum">     139 </span><span class="lineNoCov">          0 : }</span></a>
 <a name="140"><span class="lineNum">     140 </span>            : </a>
 <a name="141"><span class="lineNum">     141 </span><span class="lineCov">         49 : Dataset resize_default_init(const Dataset &amp;parent, const Dim dim,</span></a>
@@ -223,18 +223,18 @@
 <a name="161"><span class="lineNum">     161 </span>            : ///</a>
 <a name="162"><span class="lineNum">     162 </span>            : /// Each bin is represented by a Variable slice. `indices` defines the array of</a>
 <a name="163"><span class="lineNum">     163 </span>            : /// bins as slices of `buffer` along `dim`.</a>
-<a name="164"><span class="lineNum">     164 </span><span class="lineCov">       8635 : Variable make_bins(Variable indices, const Dim dim, DataArray buffer) {</span></a>
-<a name="165"><span class="lineNum">     165 </span><span class="lineCov">       8635 :   expect_valid_bin_indices(indices, dim, buffer.dims());</span></a>
-<a name="166"><span class="lineNum">     166 </span><span class="lineCov">       8635 :   return make_bins_no_validate(std::move(indices), dim, std::move(buffer));</span></a>
+<a name="164"><span class="lineNum">     164 </span><span class="lineCov">       8637 : Variable make_bins(Variable indices, const Dim dim, DataArray buffer) {</span></a>
+<a name="165"><span class="lineNum">     165 </span><span class="lineCov">       8637 :   expect_valid_bin_indices(indices, dim, buffer.dims());</span></a>
+<a name="166"><span class="lineNum">     166 </span><span class="lineCov">       8637 :   return make_bins_no_validate(std::move(indices), dim, std::move(buffer));</span></a>
 <a name="167"><span class="lineNum">     167 </span>            : }</a>
 <a name="168"><span class="lineNum">     168 </span>            : </a>
 <a name="169"><span class="lineNum">     169 </span>            : /// Construct a bin-variable over a data array without index validation.</a>
 <a name="170"><span class="lineNum">     170 </span>            : ///</a>
 <a name="171"><span class="lineNum">     171 </span>            : /// Must be used only when it is guaranteed that indices are valid or overlap of</a>
 <a name="172"><span class="lineNum">     172 </span>            : /// bins is acceptable.</a>
-<a name="173"><span class="lineNum">     173 </span><span class="lineCov">      35396 : Variable make_bins_no_validate(Variable indices, const Dim dim,</span></a>
+<a name="173"><span class="lineNum">     173 </span><span class="lineCov">      33692 : Variable make_bins_no_validate(Variable indices, const Dim dim,</span></a>
 <a name="174"><span class="lineNum">     174 </span>            :                                DataArray buffer) {</a>
-<a name="175"><span class="lineNum">     175 </span><span class="lineCov">      35396 :   return variable::make_bins_impl(std::move(indices), dim, std::move(buffer));</span></a>
+<a name="175"><span class="lineNum">     175 </span><span class="lineCov">      33692 :   return variable::make_bins_impl(std::move(indices), dim, std::move(buffer));</span></a>
 <a name="176"><span class="lineNum">     176 </span>            : }</a>
 <a name="177"><span class="lineNum">     177 </span>            : </a>
 <a name="178"><span class="lineNum">     178 </span>            : /// Construct a bin-variable over a dataset.</a>
@@ -255,7 +255,7 @@
 <a name="193"><span class="lineNum">     193 </span><span class="lineCov">        103 :   return variable::make_bins_impl(std::move(indices), dim, std::move(buffer));</span></a>
 <a name="194"><span class="lineNum">     194 </span>            : }</a>
 <a name="195"><span class="lineNum">     195 </span>            : </a>
-<a name="196"><span class="lineNum">     196 </span><span class="lineCov">      74659 : bool is_bins(const DataArray &amp;array) { return is_bins(array.data()); }</span></a>
+<a name="196"><span class="lineNum">     196 </span><span class="lineCov">      70081 : bool is_bins(const DataArray &amp;array) { return is_bins(array.data()); }</span></a>
 <a name="197"><span class="lineNum">     197 </span>            : </a>
 <a name="198"><span class="lineNum">     198 </span><span class="lineCov">          1 : bool is_bins(const Dataset &amp;dataset) {</span></a>
 <a name="199"><span class="lineNum">     199 </span><span class="lineCov">          2 :   return std::any_of(dataset.begin(), dataset.end(),</span></a>
@@ -278,21 +278,21 @@
 <a name="216"><span class="lineNum">     216 </span><span class="lineCov">        120 :                              &quot;lookup_previous&quot;);</span></a>
 <a name="217"><span class="lineNum">     217 </span><span class="lineCov">         40 : }</span></a>
 <a name="218"><span class="lineNum">     218 </span>            : </a>
-<a name="219"><span class="lineNum">     219 </span><span class="lineCov">       6070 : Variable pretend_bins_for_threading(const DataArray &amp;da, Dim bin_dim) {</span></a>
-<a name="220"><span class="lineNum">     220 </span><span class="lineCov">       6070 :   const auto dim = da.dims().inner();</span></a>
-<a name="221"><span class="lineNum">     221 </span><span class="lineCov">       6070 :   const auto size = std::max(scipp::index(1), da.dims()[dim]);</span></a>
-<a name="222"><span class="lineNum">     222 </span><span class="lineCov">      12140 :   const auto nthread = size &gt; 10000000  ? 24</span></a>
-<a name="223"><span class="lineNum">     223 </span><span class="lineCov">      12136 :                        : size &gt; 1000000 ? 4</span></a>
-<a name="224"><span class="lineNum">     224 </span><span class="lineCov">       6066 :                        : size &gt; 100000  ? 2</span></a>
+<a name="219"><span class="lineNum">     219 </span><span class="lineCov">       6072 : Variable pretend_bins_for_threading(const DataArray &amp;da, Dim bin_dim) {</span></a>
+<a name="220"><span class="lineNum">     220 </span><span class="lineCov">       6072 :   const auto dim = da.dims().inner();</span></a>
+<a name="221"><span class="lineNum">     221 </span><span class="lineCov">       6072 :   const auto size = std::max(scipp::index(1), da.dims()[dim]);</span></a>
+<a name="222"><span class="lineNum">     222 </span><span class="lineCov">      12144 :   const auto nthread = size &gt; 10000000  ? 24</span></a>
+<a name="223"><span class="lineNum">     223 </span><span class="lineCov">      12140 :                        : size &gt; 1000000 ? 4</span></a>
+<a name="224"><span class="lineNum">     224 </span><span class="lineCov">       6068 :                        : size &gt; 100000  ? 2</span></a>
 <a name="225"><span class="lineNum">     225 </span>            :                                         : 1;</a>
 <a name="226"><span class="lineNum">     226 </span>            : </a>
-<a name="227"><span class="lineNum">     227 </span><span class="lineCov">       6070 :   const auto stride = std::max(scipp::index(1), size / nthread);</span></a>
-<a name="228"><span class="lineNum">     228 </span><span class="lineCov">       6070 :   auto begin = bin_detail::make_range(0, size, stride, bin_dim);</span></a>
-<a name="229"><span class="lineNum">     229 </span><span class="lineCov">       6070 :   auto end = begin + stride * units::none;</span></a>
-<a name="230"><span class="lineNum">     230 </span><span class="lineCov">       6070 :   end.values&lt;scipp::index&gt;().as_span().back() = da.dims()[dim];</span></a>
-<a name="231"><span class="lineNum">     231 </span><span class="lineCov">       6070 :   const auto indices = zip(begin, end);</span></a>
-<a name="232"><span class="lineNum">     232 </span><span class="lineCov">      12140 :   return make_bins_no_validate(indices, dim, da);</span></a>
-<a name="233"><span class="lineNum">     233 </span><span class="lineCov">       6070 : }</span></a>
+<a name="227"><span class="lineNum">     227 </span><span class="lineCov">       6072 :   const auto stride = std::max(scipp::index(1), size / nthread);</span></a>
+<a name="228"><span class="lineNum">     228 </span><span class="lineCov">       6072 :   auto begin = bin_detail::make_range(0, size, stride, bin_dim);</span></a>
+<a name="229"><span class="lineNum">     229 </span><span class="lineCov">       6072 :   auto end = begin + stride * units::none;</span></a>
+<a name="230"><span class="lineNum">     230 </span><span class="lineCov">       6072 :   end.values&lt;scipp::index&gt;().as_span().back() = da.dims()[dim];</span></a>
+<a name="231"><span class="lineNum">     231 </span><span class="lineCov">       6072 :   const auto indices = zip(begin, end);</span></a>
+<a name="232"><span class="lineNum">     232 </span><span class="lineCov">      12144 :   return make_bins_no_validate(indices, dim, da);</span></a>
+<a name="233"><span class="lineNum">     233 </span><span class="lineCov">       6072 : }</span></a>
 <a name="234"><span class="lineNum">     234 </span>            : </a>
 <a name="235"><span class="lineNum">     235 </span>            : } // namespace scipp::dataset</a>
 <a name="236"><span class="lineNum">     236 </span>            : </a>
@@ -436,13 +436,13 @@
 <a name="374"><span class="lineNum">     374 </span><span class="lineCov">        125 :   const auto data = masked_data(function, dim, fill);</span></a>
 <a name="375"><span class="lineNum">     375 </span><span class="lineCov">        125 :   const auto weights = subspan_view(data, dim);</span></a>
 <a name="376"><span class="lineNum">     376 </span><span class="lineCov">        125 :   if (all(islinspace(edges, dim)).value&lt;bool&gt;()) {</span></a>
-<a name="377"><span class="lineNum">     377 </span><span class="lineCov">        205 :     return variable::transform(x, subspan_view(edges, dim), weights, fill,</span></a>
-<a name="378"><span class="lineNum">     378 </span><span class="lineCov">        306 :                                core::element::event::map_linspace, &quot;map&quot;);</span></a>
+<a name="377"><span class="lineNum">     377 </span><span class="lineCov">        207 :     return variable::transform(x, subspan_view(edges, dim), weights, fill,</span></a>
+<a name="378"><span class="lineNum">     378 </span><span class="lineCov">        309 :                                core::element::event::map_linspace, &quot;map&quot;);</span></a>
 <a name="379"><span class="lineNum">     379 </span>            :   } else {</a>
-<a name="380"><span class="lineNum">     380 </span><span class="lineCov">         23 :     if (!allsorted(edges, dim))</span></a>
+<a name="380"><span class="lineNum">     380 </span><span class="lineCov">         22 :     if (!allsorted(edges, dim))</span></a>
 <a name="381"><span class="lineNum">     381 </span><span class="lineNoCov">          0 :       throw except::BinEdgeError(&quot;Bin edges of histogram must be sorted.&quot;);</span></a>
-<a name="382"><span class="lineNum">     382 </span><span class="lineCov">         46 :     return variable::transform(x, subspan_view(edges, dim), weights, fill,</span></a>
-<a name="383"><span class="lineNum">     383 </span><span class="lineCov">         69 :                                core::element::event::map_sorted_edges, &quot;map&quot;);</span></a>
+<a name="382"><span class="lineNum">     382 </span><span class="lineCov">         44 :     return variable::transform(x, subspan_view(edges, dim), weights, fill,</span></a>
+<a name="383"><span class="lineNum">     383 </span><span class="lineCov">         66 :                                core::element::event::map_sorted_edges, &quot;map&quot;);</span></a>
 <a name="384"><span class="lineNum">     384 </span>            :   }</a>
 <a name="385"><span class="lineNum">     385 </span><span class="lineCov">        130 : }</span></a>
 <a name="386"><span class="lineNum">     386 </span>            : </a>
@@ -459,13 +459,13 @@
 <a name="397"><span class="lineNum">     397 </span><span class="lineCov">        119 :   const auto masked = masked_data(histogram, dim);</span></a>
 <a name="398"><span class="lineNum">     398 </span><span class="lineCov">        119 :   const auto weights = subspan_view(masked, dim);</span></a>
 <a name="399"><span class="lineNum">     399 </span><span class="lineCov">        119 :   if (all(islinspace(edges, dim)).value&lt;bool&gt;()) {</span></a>
-<a name="400"><span class="lineNum">     400 </span><span class="lineCov">        112 :     transform_in_place(data, coord, subspan_view(edges, dim), weights,</span></a>
+<a name="400"><span class="lineNum">     400 </span><span class="lineCov">        114 :     transform_in_place(data, coord, subspan_view(edges, dim), weights,</span></a>
 <a name="401"><span class="lineNum">     401 </span>            :                        core::element::event::map_and_mul_linspace,</a>
 <a name="402"><span class="lineNum">     402 </span>            :                        &quot;bins.scale&quot;);</a>
 <a name="403"><span class="lineNum">     403 </span>            :   } else {</a>
-<a name="404"><span class="lineNum">     404 </span><span class="lineCov">          9 :     if (!allsorted(edges, dim))</span></a>
+<a name="404"><span class="lineNum">     404 </span><span class="lineCov">          7 :     if (!allsorted(edges, dim))</span></a>
 <a name="405"><span class="lineNum">     405 </span><span class="lineNoCov">          0 :       throw except::BinEdgeError(&quot;Bin edges of histogram must be sorted.&quot;);</span></a>
-<a name="406"><span class="lineNum">     406 </span><span class="lineCov">          9 :     transform_in_place(data, coord, subspan_view(edges, dim), weights,</span></a>
+<a name="406"><span class="lineNum">     406 </span><span class="lineCov">          7 :     transform_in_place(data, coord, subspan_view(edges, dim), weights,</span></a>
 <a name="407"><span class="lineNum">     407 </span>            :                        core::element::event::map_and_mul_sorted_edges,</a>
 <a name="408"><span class="lineNum">     408 </span>            :                        &quot;bins.scale&quot;);</a>
 <a name="409"><span class="lineNum">     409 </span>            :   }</a>

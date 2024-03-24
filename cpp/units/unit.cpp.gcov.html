@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-03-17 01:23:35</td>
+            <td class="headerValue">2024-03-24 01:24:54</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">46</td>
@@ -77,50 +77,50 @@
 <a name="15"><span class="lineNum">      15 </span>            : namespace scipp::units {</a>
 <a name="16"><span class="lineNum">      16 </span>            : </a>
 <a name="17"><span class="lineNum">      17 </span>            : namespace {</a>
-<a name="18"><span class="lineNum">      18 </span><span class="lineCov">      27550 : std::string map_unit_string(const std::string &amp;unit) {</span></a>
+<a name="18"><span class="lineNum">      18 </span><span class="lineCov">      27491 : std::string map_unit_string(const std::string &amp;unit) {</span></a>
 <a name="19"><span class="lineNum">      19 </span>            :   // custom dimensionless name</a>
-<a name="20"><span class="lineNum">      20 </span><span class="lineCov">      27550 :   return unit == &quot;dimensionless&quot; ? &quot;&quot;</span></a>
+<a name="20"><span class="lineNum">      20 </span><span class="lineCov">      27491 :   return unit == &quot;dimensionless&quot; ? &quot;&quot;</span></a>
 <a name="21"><span class="lineNum">      21 </span>            :          // Use Gregorian months and years by default.</a>
-<a name="22"><span class="lineNum">      22 </span><span class="lineCov">      27350 :          : unit == &quot;y&quot; || unit == &quot;Y&quot; || unit == &quot;year&quot; ? &quot;a_g&quot;</span></a>
+<a name="22"><span class="lineNum">      22 </span><span class="lineCov">      27291 :          : unit == &quot;y&quot; || unit == &quot;Y&quot; || unit == &quot;year&quot; ? &quot;a_g&quot;</span></a>
 <a name="23"><span class="lineNum">      23 </span>            :          // Overwrite M to mean month instead of molarity for numpy</a>
 <a name="24"><span class="lineNum">      24 </span>            :          // interop.</a>
-<a name="25"><span class="lineNum">      25 </span><span class="lineCov">      27171 :          : unit == &quot;M&quot; || unit == &quot;month&quot; ? &quot;mog&quot;</span></a>
-<a name="26"><span class="lineNum">      26 </span><span class="lineCov">      58408 :                                           : unit;</span></a>
+<a name="25"><span class="lineNum">      25 </span><span class="lineCov">      27112 :          : unit == &quot;M&quot; || unit == &quot;month&quot; ? &quot;mog&quot;</span></a>
+<a name="26"><span class="lineNum">      26 </span><span class="lineCov">      58268 :                                           : unit;</span></a>
 <a name="27"><span class="lineNum">      27 </span>            : }</a>
 <a name="28"><span class="lineNum">      28 </span>            : </a>
-<a name="29"><span class="lineNum">      29 </span><span class="lineCov">      27550 : bool is_special_unit(const llnl::units::precise_unit &amp;unit) {</span></a>
+<a name="29"><span class="lineNum">      29 </span><span class="lineCov">      27491 : bool is_special_unit(const llnl::units::precise_unit &amp;unit) {</span></a>
 <a name="30"><span class="lineNum">      30 </span>            :   using namespace llnl::units::precise::custom;</a>
-<a name="31"><span class="lineNum">      31 </span><span class="lineCov">      27550 :   const auto &amp;base = unit.base_units();</span></a>
+<a name="31"><span class="lineNum">      31 </span><span class="lineCov">      27491 :   const auto &amp;base = unit.base_units();</span></a>
 <a name="32"><span class="lineNum">      32 </span>            : </a>
 <a name="33"><span class="lineNum">      33 </span>            :   // Allowing custom_count_unit_number == 1 because that is 'arbitrary unit'</a>
-<a name="34"><span class="lineNum">      34 </span><span class="lineCov">      55085 :   return is_custom_unit(base) ||</span></a>
-<a name="35"><span class="lineNum">      35 </span><span class="lineCov">      55091 :          (is_custom_count_unit(base) &amp;&amp; custom_count_unit_number(base) != 1) ||</span></a>
-<a name="36"><span class="lineNum">      36 </span><span class="lineCov">      55083 :          unit.commodity() != 0;</span></a>
+<a name="34"><span class="lineNum">      34 </span><span class="lineCov">      54967 :   return is_custom_unit(base) ||</span></a>
+<a name="35"><span class="lineNum">      35 </span><span class="lineCov">      54973 :          (is_custom_count_unit(base) &amp;&amp; custom_count_unit_number(base) != 1) ||</span></a>
+<a name="36"><span class="lineNum">      36 </span><span class="lineCov">      54965 :          unit.commodity() != 0;</span></a>
 <a name="37"><span class="lineNum">      37 </span>            : }</a>
 <a name="38"><span class="lineNum">      38 </span>            : } // namespace</a>
 <a name="39"><span class="lineNum">      39 </span>            : </a>
-<a name="40"><span class="lineNum">      40 </span><span class="lineCov">      27550 : Unit::Unit(const std::string &amp;unit)</span></a>
-<a name="41"><span class="lineNum">      41 </span><span class="lineCov">      55100 :     : Unit(llnl::units::unit_from_string(map_unit_string(unit),</span></a>
-<a name="42"><span class="lineNum">      42 </span><span class="lineCov">      27550 :                                          llnl::units::strict_si)) {</span></a>
-<a name="43"><span class="lineNum">      43 </span><span class="lineCov">      27550 :   if (const auto &amp;u = m_unit.value(); is_special_unit(u) || !is_valid(u))</span></a>
+<a name="40"><span class="lineNum">      40 </span><span class="lineCov">      27491 : Unit::Unit(const std::string &amp;unit)</span></a>
+<a name="41"><span class="lineNum">      41 </span><span class="lineCov">      54982 :     : Unit(llnl::units::unit_from_string(map_unit_string(unit),</span></a>
+<a name="42"><span class="lineNum">      42 </span><span class="lineCov">      27491 :                                          llnl::units::strict_si)) {</span></a>
+<a name="43"><span class="lineNum">      43 </span><span class="lineCov">      27491 :   if (const auto &amp;u = m_unit.value(); is_special_unit(u) || !is_valid(u))</span></a>
 <a name="44"><span class="lineNum">      44 </span><span class="lineCov">         19 :     throw except::UnitError(&quot;Failed to convert string `&quot; + unit +</span></a>
 <a name="45"><span class="lineNum">      45 </span><span class="lineCov">         38 :                             &quot;` to valid unit.&quot;);</span></a>
-<a name="46"><span class="lineNum">      46 </span><span class="lineCov">      27531 : }</span></a>
+<a name="46"><span class="lineNum">      46 </span><span class="lineCov">      27472 : }</span></a>
 <a name="47"><span class="lineNum">      47 </span>            : </a>
-<a name="48"><span class="lineNum">      48 </span><span class="lineCov">       3189 : std::string Unit::name() const {</span></a>
-<a name="49"><span class="lineNum">      49 </span><span class="lineCov">       3189 :   if (!has_value())</span></a>
+<a name="48"><span class="lineNum">      48 </span><span class="lineCov">       3167 : std::string Unit::name() const {</span></a>
+<a name="49"><span class="lineNum">      49 </span><span class="lineCov">       3167 :   if (!has_value())</span></a>
 <a name="50"><span class="lineNum">      50 </span><span class="lineCov">         29 :     return &quot;None&quot;;</span></a>
-<a name="51"><span class="lineNum">      51 </span><span class="lineCov">       3160 :   if (*this == Unit{&quot;month&quot;}) {</span></a>
+<a name="51"><span class="lineNum">      51 </span><span class="lineCov">       3138 :   if (*this == Unit{&quot;month&quot;}) {</span></a>
 <a name="52"><span class="lineNum">      52 </span><span class="lineCov">         48 :     return &quot;M&quot;;</span></a>
 <a name="53"><span class="lineNum">      53 </span>            :   }</a>
-<a name="54"><span class="lineNum">      54 </span><span class="lineCov">       3112 :   auto repr = to_string(*m_unit);</span></a>
-<a name="55"><span class="lineNum">      55 </span><span class="lineCov">       3112 :   repr = std::regex_replace(repr, std::regex(&quot;^u&quot;), &quot;µ&quot;);</span></a>
-<a name="56"><span class="lineNum">      56 </span><span class="lineCov">       3112 :   repr = std::regex_replace(repr, std::regex(&quot;item&quot;), &quot;count&quot;);</span></a>
-<a name="57"><span class="lineNum">      57 </span><span class="lineCov">       3112 :   repr = std::regex_replace(repr, std::regex(&quot;count(?!s)&quot;), &quot;counts&quot;);</span></a>
-<a name="58"><span class="lineNum">      58 </span><span class="lineCov">       3112 :   repr = std::regex_replace(repr, std::regex(&quot;day&quot;), &quot;D&quot;);</span></a>
-<a name="59"><span class="lineNum">      59 </span><span class="lineCov">       3112 :   repr = std::regex_replace(repr, std::regex(&quot;a_g&quot;), &quot;Y&quot;);</span></a>
-<a name="60"><span class="lineNum">      60 </span><span class="lineCov">       3112 :   return repr.empty() ? &quot;dimensionless&quot; : repr;</span></a>
-<a name="61"><span class="lineNum">      61 </span><span class="lineCov">       3112 : }</span></a>
+<a name="54"><span class="lineNum">      54 </span><span class="lineCov">       3090 :   auto repr = to_string(*m_unit);</span></a>
+<a name="55"><span class="lineNum">      55 </span><span class="lineCov">       3090 :   repr = std::regex_replace(repr, std::regex(&quot;^u&quot;), &quot;µ&quot;);</span></a>
+<a name="56"><span class="lineNum">      56 </span><span class="lineCov">       3090 :   repr = std::regex_replace(repr, std::regex(&quot;item&quot;), &quot;count&quot;);</span></a>
+<a name="57"><span class="lineNum">      57 </span><span class="lineCov">       3090 :   repr = std::regex_replace(repr, std::regex(&quot;count(?!s)&quot;), &quot;counts&quot;);</span></a>
+<a name="58"><span class="lineNum">      58 </span><span class="lineCov">       3090 :   repr = std::regex_replace(repr, std::regex(&quot;day&quot;), &quot;D&quot;);</span></a>
+<a name="59"><span class="lineNum">      59 </span><span class="lineCov">       3090 :   repr = std::regex_replace(repr, std::regex(&quot;a_g&quot;), &quot;Y&quot;);</span></a>
+<a name="60"><span class="lineNum">      60 </span><span class="lineCov">       3090 :   return repr.empty() ? &quot;dimensionless&quot; : repr;</span></a>
+<a name="61"><span class="lineNum">      61 </span><span class="lineCov">       3090 : }</span></a>
 <a name="62"><span class="lineNum">      62 </span>            : </a>
 <a name="63"><span class="lineNum">      63 </span><span class="lineCov">         19 : bool Unit::isCounts() const { return *this == counts; }</span></a>
 <a name="64"><span class="lineNum">      64 </span>            : </a>
@@ -132,13 +132,13 @@
 <a name="70"><span class="lineNum">      70 </span><span class="lineCov">        554 :   return has_value() &amp;&amp; m_unit-&gt;has_same_base(other.underlying());</span></a>
 <a name="71"><span class="lineNum">      71 </span>            : }</a>
 <a name="72"><span class="lineNum">      72 </span>            : </a>
-<a name="73"><span class="lineNum">      73 </span><span class="lineCov">    2943673 : bool Unit::operator==(const Unit &amp;other) const {</span></a>
-<a name="74"><span class="lineNum">      74 </span><span class="lineCov">    2943673 :   return m_unit == other.m_unit;</span></a>
+<a name="73"><span class="lineNum">      73 </span><span class="lineCov">    2874188 : bool Unit::operator==(const Unit &amp;other) const {</span></a>
+<a name="74"><span class="lineNum">      74 </span><span class="lineCov">    2874188 :   return m_unit == other.m_unit;</span></a>
 <a name="75"><span class="lineNum">      75 </span>            : }</a>
 <a name="76"><span class="lineNum">      76 </span>            : </a>
-<a name="77"><span class="lineNum">      77 </span><span class="lineCov">    2300779 : bool Unit::operator!=(const Unit &amp;other) const { return !(*this == other); }</span></a>
+<a name="77"><span class="lineNum">      77 </span><span class="lineCov">    2233196 : bool Unit::operator!=(const Unit &amp;other) const { return !(*this == other); }</span></a>
 <a name="78"><span class="lineNum">      78 </span>            : </a>
-<a name="79"><span class="lineNum">      79 </span><span class="lineCov">      15697 : Unit &amp;Unit::operator+=(const Unit &amp;other) { return *this = *this + other; }</span></a>
+<a name="79"><span class="lineNum">      79 </span><span class="lineCov">      15701 : Unit &amp;Unit::operator+=(const Unit &amp;other) { return *this = *this + other; }</span></a>
 <a name="80"><span class="lineNum">      80 </span>            : </a>
 <a name="81"><span class="lineNum">      81 </span><span class="lineCov">        122 : Unit &amp;Unit::operator-=(const Unit &amp;other) { return *this = *this - other; }</span></a>
 <a name="82"><span class="lineNum">      82 </span>            : </a>
@@ -148,46 +148,46 @@
 <a name="86"><span class="lineNum">      86 </span>            : </a>
 <a name="87"><span class="lineNum">      87 </span><span class="lineCov">         20 : Unit &amp;Unit::operator%=(const Unit &amp;other) { return *this = *this % other; }</span></a>
 <a name="88"><span class="lineNum">      88 </span>            : </a>
-<a name="89"><span class="lineNum">      89 </span><span class="lineCov">     318291 : Unit operator+(const Unit &amp;a, const Unit &amp;b) {</span></a>
-<a name="90"><span class="lineNum">      90 </span><span class="lineCov">     318291 :   if (a == b)</span></a>
-<a name="91"><span class="lineNum">      91 </span><span class="lineCov">     318274 :     return a;</span></a>
+<a name="89"><span class="lineNum">      89 </span><span class="lineCov">     318330 : Unit operator+(const Unit &amp;a, const Unit &amp;b) {</span></a>
+<a name="90"><span class="lineNum">      90 </span><span class="lineCov">     318330 :   if (a == b)</span></a>
+<a name="91"><span class="lineNum">      91 </span><span class="lineCov">     318313 :     return a;</span></a>
 <a name="92"><span class="lineNum">      92 </span><span class="lineCov">         17 :   throw except::UnitError(&quot;Cannot add &quot; + a.name() + &quot; and &quot; + b.name() + &quot;.&quot;);</span></a>
 <a name="93"><span class="lineNum">      93 </span>            : }</a>
 <a name="94"><span class="lineNum">      94 </span>            : </a>
-<a name="95"><span class="lineNum">      95 </span><span class="lineCov">      34901 : Unit operator-(const Unit &amp;a, const Unit &amp;b) {</span></a>
-<a name="96"><span class="lineNum">      96 </span><span class="lineCov">      34901 :   if (a == b)</span></a>
-<a name="97"><span class="lineNum">      97 </span><span class="lineCov">      34897 :     return a;</span></a>
+<a name="95"><span class="lineNum">      95 </span><span class="lineCov">      32709 : Unit operator-(const Unit &amp;a, const Unit &amp;b) {</span></a>
+<a name="96"><span class="lineNum">      96 </span><span class="lineCov">      32709 :   if (a == b)</span></a>
+<a name="97"><span class="lineNum">      97 </span><span class="lineCov">      32705 :     return a;</span></a>
 <a name="98"><span class="lineNum">      98 </span><span class="lineCov">          4 :   throw except::UnitError(&quot;Cannot subtract &quot; + a.name() + &quot; and &quot; + b.name() +</span></a>
 <a name="99"><span class="lineNum">      99 </span><span class="lineCov">          8 :                           &quot;.&quot;);</span></a>
 <a name="100"><span class="lineNum">     100 </span>            : }</a>
 <a name="101"><span class="lineNum">     101 </span>            : </a>
 <a name="102"><span class="lineNum">     102 </span>            : namespace {</a>
-<a name="103"><span class="lineNum">     103 </span><span class="lineCov">     306458 : void expect_not_none(const Unit &amp;u, const std::string &amp;name) {</span></a>
-<a name="104"><span class="lineNum">     104 </span><span class="lineCov">     306458 :   if (!u.has_value())</span></a>
+<a name="103"><span class="lineNum">     103 </span><span class="lineCov">     307302 : void expect_not_none(const Unit &amp;u, const std::string &amp;name) {</span></a>
+<a name="104"><span class="lineNum">     104 </span><span class="lineCov">     307302 :   if (!u.has_value())</span></a>
 <a name="105"><span class="lineNum">     105 </span><span class="lineCov">         11 :     throw except::UnitError(&quot;Cannot &quot; + name + &quot; with operand of unit 'None'.&quot;);</span></a>
-<a name="106"><span class="lineNum">     106 </span><span class="lineCov">     306447 : }</span></a>
+<a name="106"><span class="lineNum">     106 </span><span class="lineCov">     307291 : }</span></a>
 <a name="107"><span class="lineNum">     107 </span>            : } // namespace</a>
 <a name="108"><span class="lineNum">     108 </span>            : </a>
-<a name="109"><span class="lineNum">     109 </span><span class="lineCov">     147761 : Unit operator*(const Unit &amp;a, const Unit &amp;b) {</span></a>
-<a name="110"><span class="lineNum">     110 </span><span class="lineCov">     147761 :   if (a == none &amp;&amp; b == none)</span></a>
+<a name="109"><span class="lineNum">     109 </span><span class="lineCov">     148065 : Unit operator*(const Unit &amp;a, const Unit &amp;b) {</span></a>
+<a name="110"><span class="lineNum">     110 </span><span class="lineCov">     148065 :   if (a == none &amp;&amp; b == none)</span></a>
 <a name="111"><span class="lineNum">     111 </span><span class="lineCov">       1466 :     return none;</span></a>
-<a name="112"><span class="lineNum">     112 </span><span class="lineCov">     146299 :   expect_not_none(a, &quot;multiply&quot;);</span></a>
-<a name="113"><span class="lineNum">     113 </span><span class="lineCov">     146297 :   expect_not_none(b, &quot;multiply&quot;);</span></a>
-<a name="114"><span class="lineNum">     114 </span><span class="lineCov">     146291 :   if (llnl::units::times_overflows(a.underlying(), b.underlying()))</span></a>
+<a name="112"><span class="lineNum">     112 </span><span class="lineCov">     146603 :   expect_not_none(a, &quot;multiply&quot;);</span></a>
+<a name="113"><span class="lineNum">     113 </span><span class="lineCov">     146601 :   expect_not_none(b, &quot;multiply&quot;);</span></a>
+<a name="114"><span class="lineNum">     114 </span><span class="lineCov">     146595 :   if (llnl::units::times_overflows(a.underlying(), b.underlying()))</span></a>
 <a name="115"><span class="lineNum">     115 </span><span class="lineCov">          2 :     throw except::UnitError(&quot;Unsupported unit as result of multiplication: (&quot; +</span></a>
 <a name="116"><span class="lineNum">     116 </span><span class="lineCov">          3 :                             a.name() + &quot;) * (&quot; + b.name() + ')');</span></a>
-<a name="117"><span class="lineNum">     117 </span><span class="lineCov">     146290 :   return Unit{a.underlying() * b.underlying()};</span></a>
+<a name="117"><span class="lineNum">     117 </span><span class="lineCov">     146594 :   return Unit{a.underlying() * b.underlying()};</span></a>
 <a name="118"><span class="lineNum">     118 </span>            : }</a>
 <a name="119"><span class="lineNum">     119 </span>            : </a>
-<a name="120"><span class="lineNum">     120 </span><span class="lineCov">       6934 : Unit operator/(const Unit &amp;a, const Unit &amp;b) {</span></a>
-<a name="121"><span class="lineNum">     121 </span><span class="lineCov">       6934 :   if (a == none &amp;&amp; b == none)</span></a>
+<a name="120"><span class="lineNum">     120 </span><span class="lineCov">       7052 : Unit operator/(const Unit &amp;a, const Unit &amp;b) {</span></a>
+<a name="121"><span class="lineNum">     121 </span><span class="lineCov">       7052 :   if (a == none &amp;&amp; b == none)</span></a>
 <a name="122"><span class="lineNum">     122 </span><span class="lineCov">         25 :     return none;</span></a>
-<a name="123"><span class="lineNum">     123 </span><span class="lineCov">       6913 :   expect_not_none(a, &quot;divide&quot;);</span></a>
-<a name="124"><span class="lineNum">     124 </span><span class="lineCov">       6911 :   expect_not_none(b, &quot;divide&quot;);</span></a>
-<a name="125"><span class="lineNum">     125 </span><span class="lineCov">       6905 :   if (llnl::units::divides_overflows(a.underlying(), b.underlying()))</span></a>
+<a name="123"><span class="lineNum">     123 </span><span class="lineCov">       7031 :   expect_not_none(a, &quot;divide&quot;);</span></a>
+<a name="124"><span class="lineNum">     124 </span><span class="lineCov">       7029 :   expect_not_none(b, &quot;divide&quot;);</span></a>
+<a name="125"><span class="lineNum">     125 </span><span class="lineCov">       7023 :   if (llnl::units::divides_overflows(a.underlying(), b.underlying()))</span></a>
 <a name="126"><span class="lineNum">     126 </span><span class="lineCov">          4 :     throw except::UnitError(&quot;Unsupported unit as result of division: (&quot; +</span></a>
 <a name="127"><span class="lineNum">     127 </span><span class="lineCov">          6 :                             a.name() + &quot;) / (&quot; + b.name() + ')');</span></a>
-<a name="128"><span class="lineNum">     128 </span><span class="lineCov">       6903 :   return Unit{a.underlying() / b.underlying()};</span></a>
+<a name="128"><span class="lineNum">     128 </span><span class="lineCov">       7021 :   return Unit{a.underlying() / b.underlying()};</span></a>
 <a name="129"><span class="lineNum">     129 </span>            : }</a>
 <a name="130"><span class="lineNum">     130 </span>            : </a>
 <a name="131"><span class="lineNum">     131 </span><span class="lineCov">        100 : Unit operator%(const Unit &amp;a, const Unit &amp;b) {</span></a>
@@ -197,7 +197,7 @@
 <a name="135"><span class="lineNum">     135 </span><span class="lineCov">         36 :                           &quot; and &quot; + b.name() + &quot;. Units must be the same.&quot;);</span></a>
 <a name="136"><span class="lineNum">     136 </span>            : }</a>
 <a name="137"><span class="lineNum">     137 </span>            : </a>
-<a name="138"><span class="lineNum">     138 </span><span class="lineCov">       1083 : Unit operator-(const Unit &amp;a) { return a; }</span></a>
+<a name="138"><span class="lineNum">     138 </span><span class="lineCov">       1177 : Unit operator-(const Unit &amp;a) { return a; }</span></a>
 <a name="139"><span class="lineNum">     139 </span>            : </a>
 <a name="140"><span class="lineNum">     140 </span><span class="lineCov">        518 : Unit abs(const Unit &amp;a) { return a; }</span></a>
 <a name="141"><span class="lineNum">     141 </span>            : </a>
@@ -207,22 +207,22 @@
 <a name="145"><span class="lineNum">     145 </span>            : </a>
 <a name="146"><span class="lineNum">     146 </span><span class="lineCov">          6 : Unit rint(const Unit &amp;a) { return a; }</span></a>
 <a name="147"><span class="lineNum">     147 </span>            : </a>
-<a name="148"><span class="lineNum">     148 </span><span class="lineCov">        193 : Unit sqrt(const Unit &amp;a) {</span></a>
-<a name="149"><span class="lineNum">     149 </span><span class="lineCov">        193 :   if (a == none)</span></a>
+<a name="148"><span class="lineNum">     148 </span><span class="lineCov">        183 : Unit sqrt(const Unit &amp;a) {</span></a>
+<a name="149"><span class="lineNum">     149 </span><span class="lineCov">        183 :   if (a == none)</span></a>
 <a name="150"><span class="lineNum">     150 </span><span class="lineCov">          2 :     return a;</span></a>
-<a name="151"><span class="lineNum">     151 </span><span class="lineCov">        191 :   if (llnl::units::is_error(sqrt(a.underlying())))</span></a>
+<a name="151"><span class="lineNum">     151 </span><span class="lineCov">        181 :   if (llnl::units::is_error(sqrt(a.underlying())))</span></a>
 <a name="152"><span class="lineNum">     152 </span><span class="lineCov">          8 :     throw except::UnitError(&quot;Unsupported unit as result of sqrt: sqrt(&quot; +</span></a>
 <a name="153"><span class="lineNum">     153 </span><span class="lineCov">         12 :                             a.name() + &quot;).&quot;);</span></a>
-<a name="154"><span class="lineNum">     154 </span><span class="lineCov">        187 :   return Unit{sqrt(a.underlying())};</span></a>
+<a name="154"><span class="lineNum">     154 </span><span class="lineCov">        177 :   return Unit{sqrt(a.underlying())};</span></a>
 <a name="155"><span class="lineNum">     155 </span>            : }</a>
 <a name="156"><span class="lineNum">     156 </span>            : </a>
-<a name="157"><span class="lineNum">     157 </span><span class="lineCov">        709 : Unit pow(const Unit &amp;a, const int64_t power) {</span></a>
-<a name="158"><span class="lineNum">     158 </span><span class="lineCov">        709 :   if (a == none)</span></a>
+<a name="157"><span class="lineNum">     157 </span><span class="lineCov">        803 : Unit pow(const Unit &amp;a, const int64_t power) {</span></a>
+<a name="158"><span class="lineNum">     158 </span><span class="lineCov">        803 :   if (a == none)</span></a>
 <a name="159"><span class="lineNum">     159 </span><span class="lineNoCov">          0 :     return a;</span></a>
-<a name="160"><span class="lineNum">     160 </span><span class="lineCov">        709 :   if (llnl::units::pow_overflows(a.underlying(), static_cast&lt;int&gt;(power)))</span></a>
+<a name="160"><span class="lineNum">     160 </span><span class="lineCov">        803 :   if (llnl::units::pow_overflows(a.underlying(), static_cast&lt;int&gt;(power)))</span></a>
 <a name="161"><span class="lineNum">     161 </span><span class="lineCov">          2 :     throw except::UnitError(&quot;Unsupported unit as result of pow: pow(&quot; +</span></a>
 <a name="162"><span class="lineNum">     162 </span><span class="lineCov">          3 :                             a.name() + &quot;, &quot; + std::to_string(power) + &quot;).&quot;);</span></a>
-<a name="163"><span class="lineNum">     163 </span><span class="lineCov">        708 :   return Unit{a.underlying().pow(static_cast&lt;int&gt;(power))};</span></a>
+<a name="163"><span class="lineNum">     163 </span><span class="lineCov">        802 :   return Unit{a.underlying().pow(static_cast&lt;int&gt;(power))};</span></a>
 <a name="164"><span class="lineNum">     164 </span>            : }</a>
 <a name="165"><span class="lineNum">     165 </span>            : </a>
 <a name="166"><span class="lineNum">     166 </span><span class="lineCov">        154 : Unit trigonometric(const Unit &amp;a) {</span></a>
