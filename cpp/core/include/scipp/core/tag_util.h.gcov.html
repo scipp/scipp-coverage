@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-03-24 01:24:54</td>
+            <td class="headerValue">2024-03-31 01:24:33</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">22</td>
@@ -74,13 +74,13 @@
 <a name="12"><span class="lineNum">      12 </span>            : namespace scipp::core {</a>
 <a name="13"><span class="lineNum">      13 </span>            : </a>
 <a name="14"><span class="lineNum">      14 </span>            : template &lt;template &lt;class&gt; class Callable, class... Ts, class... Args&gt;</a>
-<a name="15"><span class="lineNum">      15 </span><span class="lineCov">      45450 : static auto callDType(const std::tuple&lt;Ts...&gt; &amp;, const DType dtype,</span></a>
+<a name="15"><span class="lineNum">      15 </span><span class="lineCov">      45401 : static auto callDType(const std::tuple&lt;Ts...&gt; &amp;, const DType dtype,</span></a>
 <a name="16"><span class="lineNum">      16 </span>            :                       Args &amp;&amp;...args) {</a>
-<a name="17"><span class="lineNum">      17 </span><span class="lineCov">      45450 :   std::array funcs{Callable&lt;Ts&gt;::apply...};</span></a>
-<a name="18"><span class="lineNum">      18 </span><span class="lineCov">      45450 :   std::array&lt;DType, sizeof...(Ts)&gt; dtypes{scipp::core::dtype&lt;Ts&gt;...};</span></a>
-<a name="19"><span class="lineNum">      19 </span><span class="lineCov">      90965 :   for (size_t i = 0; i &lt; dtypes.size(); ++i)</span></a>
-<a name="20"><span class="lineNum">      20 </span><span class="lineCov">      90961 :     if (dtypes[i] == dtype)</span></a>
-<a name="21"><span class="lineNum">      21 </span><span class="lineCov">      90499 :       return funcs[i](std::forward&lt;Args&gt;(args)...);</span></a>
+<a name="17"><span class="lineNum">      17 </span><span class="lineCov">      45401 :   std::array funcs{Callable&lt;Ts&gt;::apply...};</span></a>
+<a name="18"><span class="lineNum">      18 </span><span class="lineCov">      45401 :   std::array&lt;DType, sizeof...(Ts)&gt; dtypes{scipp::core::dtype&lt;Ts&gt;...};</span></a>
+<a name="19"><span class="lineNum">      19 </span><span class="lineCov">      91070 :   for (size_t i = 0; i &lt; dtypes.size(); ++i)</span></a>
+<a name="20"><span class="lineNum">      20 </span><span class="lineCov">      91066 :     if (dtypes[i] == dtype)</span></a>
+<a name="21"><span class="lineNum">      21 </span><span class="lineCov">      90401 :       return funcs[i](std::forward&lt;Args&gt;(args)...);</span></a>
 <a name="22"><span class="lineNum">      22 </span><span class="lineCov">          4 :   throw except::TypeError(&quot;Unsupported dtype.&quot;);</span></a>
 <a name="23"><span class="lineNum">      23 </span>            : }</a>
 <a name="24"><span class="lineNum">      24 </span>            : </a>
@@ -88,9 +88,9 @@
 <a name="26"><span class="lineNum">      26 </span>            : /// runtime dtype given by `dtype`.</a>
 <a name="27"><span class="lineNum">      27 </span>            : template &lt;class... Ts&gt; struct CallDType {</a>
 <a name="28"><span class="lineNum">      28 </span>            :   template &lt;template &lt;class&gt; class Callable, class... Args&gt;</a>
-<a name="29"><span class="lineNum">      29 </span><span class="lineCov">      43494 :   static auto apply(const DType dtype, Args &amp;&amp;...args) {</span></a>
-<a name="30"><span class="lineNum">      30 </span><span class="lineCov">      86620 :     return callDType&lt;Callable&gt;(std::tuple&lt;Ts...&gt;{}, dtype,</span></a>
-<a name="31"><span class="lineNum">      31 </span><span class="lineCov">     129628 :                                std::forward&lt;Args&gt;(args)...);</span></a>
+<a name="29"><span class="lineNum">      29 </span><span class="lineCov">      43445 :   static auto apply(const DType dtype, Args &amp;&amp;...args) {</span></a>
+<a name="30"><span class="lineNum">      30 </span><span class="lineCov">      86522 :     return callDType&lt;Callable&gt;(std::tuple&lt;Ts...&gt;{}, dtype,</span></a>
+<a name="31"><span class="lineNum">      31 </span><span class="lineCov">     129481 :                                std::forward&lt;Args&gt;(args)...);</span></a>
 <a name="32"><span class="lineNum">      32 </span>            :   }</a>
 <a name="33"><span class="lineNum">      33 </span>            : };</a>
 <a name="34"><span class="lineNum">      34 </span>            : </a>
