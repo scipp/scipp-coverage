@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-03-31 01:24:33</td>
+            <td class="headerValue">2024-04-07 01:25:11</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">2</td>
@@ -114,12 +114,12 @@
 <a name="52"><span class="lineNum">      52 </span>            : </a>
 <a name="53"><span class="lineNum">      53 </span>            : namespace scipp::expect {</a>
 <a name="54"><span class="lineNum">      54 </span>            : template &lt;class Key, class Value&gt;</a>
-<a name="55"><span class="lineNum">      55 </span><span class="lineCov">     227996 : void contains(const scipp::dataset::SizedDict&lt;Key, Value&gt; &amp;a, const Key &amp;b) {</span></a>
+<a name="55"><span class="lineNum">      55 </span><span class="lineCov">     227754 : void contains(const scipp::dataset::SizedDict&lt;Key, Value&gt; &amp;a, const Key &amp;b) {</span></a>
 <a name="56"><span class="lineNum">      56 </span>            :   using core::to_string;</a>
-<a name="57"><span class="lineNum">      57 </span><span class="lineCov">     227996 :   if (!a.contains(b))</span></a>
+<a name="57"><span class="lineNum">      57 </span><span class="lineCov">     227754 :   if (!a.contains(b))</span></a>
 <a name="58"><span class="lineNum">      58 </span><span class="lineCov">       5616 :     throw except::NotFoundError(&quot;Expected '&quot; + to_string(b) + &quot;' in &quot; +</span></a>
 <a name="59"><span class="lineNum">      59 </span>            :                                 scipp::dataset::dict_keys_to_string(a) + &quot;.&quot;);</a>
-<a name="60"><span class="lineNum">      60 </span><span class="lineCov">     222380 : }</span></a>
+<a name="60"><span class="lineNum">      60 </span><span class="lineCov">     222138 : }</span></a>
 <a name="61"><span class="lineNum">      61 </span>            : </a>
 <a name="62"><span class="lineNum">      62 </span>            : template &lt;&gt;</a>
 <a name="63"><span class="lineNum">      63 </span>            : SCIPP_DATASET_EXPORT void contains(const scipp::dataset::Dataset &amp;a,</a>

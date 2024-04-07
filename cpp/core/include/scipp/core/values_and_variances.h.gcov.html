@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-03-31 01:24:33</td>
+            <td class="headerValue">2024-04-07 01:25:11</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">13</td>
@@ -78,9 +78,9 @@
 <a name="16"><span class="lineNum">      16 </span>            : template &lt;class T&gt; struct ValuesAndVariances {</a>
 <a name="17"><span class="lineNum">      17 </span>            :   using value_type = typename T::value_type;</a>
 <a name="18"><span class="lineNum">      18 </span>            : </a>
-<a name="19"><span class="lineNum">      19 </span><span class="lineCov">      26849 :   ValuesAndVariances(T &amp;val, T &amp;var) : values(val), variances(var) {</span></a>
-<a name="20"><span class="lineNum">      20 </span><span class="lineCov">      26849 :     expect::sizeMatches(values, variances);</span></a>
-<a name="21"><span class="lineNum">      21 </span><span class="lineCov">      26849 :   }</span></a>
+<a name="19"><span class="lineNum">      19 </span><span class="lineCov">      26860 :   ValuesAndVariances(T &amp;val, T &amp;var) : values(val), variances(var) {</span></a>
+<a name="20"><span class="lineNum">      20 </span><span class="lineCov">      26860 :     expect::sizeMatches(values, variances);</span></a>
+<a name="21"><span class="lineNum">      21 </span><span class="lineCov">      26860 :   }</span></a>
 <a name="22"><span class="lineNum">      22 </span>            :   ValuesAndVariances &amp;operator=(const ValuesAndVariances&lt;const T&gt; &amp;other) {</a>
 <a name="23"><span class="lineNum">      23 </span>            :     values = other.values;</a>
 <a name="24"><span class="lineNum">      24 </span>            :     variances = other.variances;</a>

@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-03-31 01:24:33</td>
+            <td class="headerValue">2024-04-07 01:25:11</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">6</td>
@@ -76,7 +76,7 @@
 <a name="14"><span class="lineNum">      14 </span>            : /// range</a>
 <a name="15"><span class="lineNum">      15 </span>            : class SCIPP_CORE_EXPORT Slice {</a>
 <a name="16"><span class="lineNum">      16 </span>            : public:</a>
-<a name="17"><span class="lineNum">      17 </span><span class="lineCov">    3082452 :   Slice() : m_dim(Dim::None), m_begin(-1), m_end(-1), m_stride(1) {}</span></a>
+<a name="17"><span class="lineNum">      17 </span><span class="lineCov">    3082256 :   Slice() : m_dim(Dim::None), m_begin(-1), m_end(-1), m_stride(1) {}</span></a>
 <a name="18"><span class="lineNum">      18 </span>            :   Slice(const Dim dim_, const scipp::index begin_, const scipp::index end_,</a>
 <a name="19"><span class="lineNum">      19 </span>            :         const scipp::index stride_ = 1);</a>
 <a name="20"><span class="lineNum">      20 </span>            :   Slice(const Dim dim_, const scipp::index begin_);</a>
@@ -84,11 +84,11 @@
 <a name="22"><span class="lineNum">      22 </span>            :   Slice &amp;operator=(const Slice &amp;) = default;</a>
 <a name="23"><span class="lineNum">      23 </span>            :   bool operator==(const Slice &amp;other) const noexcept;</a>
 <a name="24"><span class="lineNum">      24 </span>            :   bool operator!=(const Slice &amp;other) const noexcept;</a>
-<a name="25"><span class="lineNum">      25 </span><span class="lineCov">    2339514 :   scipp::index begin() const noexcept { return m_begin; }</span></a>
-<a name="26"><span class="lineNum">      26 </span><span class="lineCov">    5151038 :   scipp::index end() const noexcept { return m_end; }</span></a>
-<a name="27"><span class="lineNum">      27 </span><span class="lineCov">    7701188 :   Dim dim() const noexcept { return m_dim; }</span></a>
-<a name="28"><span class="lineNum">      28 </span><span class="lineCov">    2215459 :   scipp::index stride() const noexcept { return m_stride; }</span></a>
-<a name="29"><span class="lineNum">      29 </span><span class="lineCov">     713750 :   bool isRange() const noexcept { return m_end != -1; }</span></a>
+<a name="25"><span class="lineNum">      25 </span><span class="lineCov">    2339298 :   scipp::index begin() const noexcept { return m_begin; }</span></a>
+<a name="26"><span class="lineNum">      26 </span><span class="lineCov">    5150752 :   scipp::index end() const noexcept { return m_end; }</span></a>
+<a name="27"><span class="lineNum">      27 </span><span class="lineCov">    7700875 :   Dim dim() const noexcept { return m_dim; }</span></a>
+<a name="28"><span class="lineNum">      28 </span><span class="lineCov">    2215306 :   scipp::index stride() const noexcept { return m_stride; }</span></a>
+<a name="29"><span class="lineNum">      29 </span><span class="lineCov">     713725 :   bool isRange() const noexcept { return m_end != -1; }</span></a>
 <a name="30"><span class="lineNum">      30 </span>            : </a>
 <a name="31"><span class="lineNum">      31 </span>            : private:</a>
 <a name="32"><span class="lineNum">      32 </span>            :   Dim m_dim;</a>
