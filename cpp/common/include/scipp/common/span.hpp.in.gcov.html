@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-04-07 01:25:11</td>
+            <td class="headerValue">2024-04-14 01:23:21</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">225</td>
@@ -225,11 +225,11 @@
 <a name="163"><span class="lineNum">     163 </span>            : </a>
 <a name="164"><span class="lineNum">     164 </span>            : template &lt;typename E&gt;</a>
 <a name="165"><span class="lineNum">     165 </span>            : struct span_storage&lt;E, dynamic_extent&gt; {</a>
-<a name="166"><span class="lineNum">     166 </span><span class="lineCov">    7839710 :     constexpr span_storage() noexcept = default;</span></a>
+<a name="166"><span class="lineNum">     166 </span><span class="lineCov">    7842061 :     constexpr span_storage() noexcept = default;</span></a>
 <a name="167"><span class="lineNum">     167 </span>            : </a>
-<a name="168"><span class="lineNum">     168 </span><span class="lineCov">   59959020 :     constexpr span_storage(E* p_ptr, std::size_t p_size) noexcept</span></a>
-<a name="169"><span class="lineNum">     169 </span><span class="lineCov">   59959020 :         : ptr(p_ptr), size(p_size)</span></a>
-<a name="170"><span class="lineNum">     170 </span><span class="lineCov">   59959020 :     {}</span></a>
+<a name="168"><span class="lineNum">     168 </span><span class="lineCov">   61297844 :     constexpr span_storage(E* p_ptr, std::size_t p_size) noexcept</span></a>
+<a name="169"><span class="lineNum">     169 </span><span class="lineCov">   61297844 :         : ptr(p_ptr), size(p_size)</span></a>
+<a name="170"><span class="lineNum">     170 </span><span class="lineCov">   61297844 :     {}</span></a>
 <a name="171"><span class="lineNum">     171 </span>            : </a>
 <a name="172"><span class="lineNum">     172 </span>            :     E* ptr = nullptr;</a>
 <a name="173"><span class="lineNum">     173 </span>            :     std::size_t size = 0;</a>
@@ -373,22 +373,22 @@
 <a name="311"><span class="lineNum">     311 </span>            :     template &lt;</a>
 <a name="312"><span class="lineNum">     312 </span>            :         std::size_t E = Extent,</a>
 <a name="313"><span class="lineNum">     313 </span>            :         typename std::enable_if&lt;(E == dynamic_extent || E &lt;= 0), int&gt;::type = 0&gt;</a>
-<a name="314"><span class="lineNum">     314 </span><span class="lineCov">    7839710 :     constexpr span() noexcept</span></a>
-<a name="315"><span class="lineNum">     315 </span><span class="lineCov">    7839710 :     {}</span></a>
+<a name="314"><span class="lineNum">     314 </span><span class="lineCov">    7842061 :     constexpr span() noexcept</span></a>
+<a name="315"><span class="lineNum">     315 </span><span class="lineCov">    7842061 :     {}</span></a>
 <a name="316"><span class="lineNum">     316 </span>            : </a>
-<a name="317"><span class="lineNum">     317 </span><span class="lineCov">   57013257 :     TCB_SPAN_CONSTEXPR11 span(pointer ptr, size_type count)</span></a>
-<a name="318"><span class="lineNum">     318 </span><span class="lineCov">   57013257 :         : storage_(ptr, count)</span></a>
+<a name="317"><span class="lineNum">     317 </span><span class="lineCov">   58314178 :     TCB_SPAN_CONSTEXPR11 span(pointer ptr, size_type count)</span></a>
+<a name="318"><span class="lineNum">     318 </span><span class="lineCov">   58314178 :         : storage_(ptr, count)</span></a>
 <a name="319"><span class="lineNum">     319 </span>            :     {</a>
 <a name="320"><span class="lineNum">     320 </span>            :         TCB_SPAN_EXPECT(extent == dynamic_extent || count == extent);</a>
-<a name="321"><span class="lineNum">     321 </span><span class="lineCov">   57013257 :     }</span></a>
+<a name="321"><span class="lineNum">     321 </span><span class="lineCov">   58314178 :     }</span></a>
 <a name="322"><span class="lineNum">     322 </span>            : </a>
-<a name="323"><span class="lineNum">     323 </span><span class="lineCov">    2893426 :     TCB_SPAN_CONSTEXPR11 span(pointer first_elem, pointer last_elem)</span></a>
-<a name="324"><span class="lineNum">     324 </span><span class="lineCov">    2893426 :         : storage_(first_elem, last_elem - first_elem)</span></a>
+<a name="323"><span class="lineNum">     323 </span><span class="lineCov">    2924405 :     TCB_SPAN_CONSTEXPR11 span(pointer first_elem, pointer last_elem)</span></a>
+<a name="324"><span class="lineNum">     324 </span><span class="lineCov">    2924405 :         : storage_(first_elem, last_elem - first_elem)</span></a>
 <a name="325"><span class="lineNum">     325 </span>            :     {</a>
 <a name="326"><span class="lineNum">     326 </span>            :         TCB_SPAN_EXPECT(extent == dynamic_extent ||</a>
 <a name="327"><span class="lineNum">     327 </span>            :                         last_elem - first_elem ==</a>
 <a name="328"><span class="lineNum">     328 </span>            :                             static_cast&lt;std::ptrdiff_t&gt;(extent));</a>
-<a name="329"><span class="lineNum">     329 </span><span class="lineCov">    2893426 :     }</span></a>
+<a name="329"><span class="lineNum">     329 </span><span class="lineCov">    2924405 :     }</span></a>
 <a name="330"><span class="lineNum">     330 </span>            : </a>
 <a name="331"><span class="lineNum">     331 </span>            :     template &lt;std::size_t N, std::size_t E = Extent,</a>
 <a name="332"><span class="lineNum">     332 </span>            :               typename std::enable_if&lt;</a>
@@ -426,9 +426,9 @@
 <a name="364"><span class="lineNum">     364 </span>            :                 detail::is_container_element_type_compatible&lt;</a>
 <a name="365"><span class="lineNum">     365 </span>            :                     Container&amp;, ElementType&gt;::value,</a>
 <a name="366"><span class="lineNum">     366 </span>            :             int&gt;::type = 0&gt;</a>
-<a name="367"><span class="lineNum">     367 </span><span class="lineCov">      16751 :     constexpr span(Container&amp; cont)</span></a>
-<a name="368"><span class="lineNum">     368 </span><span class="lineCov">      16751 :         : storage_(detail::data(cont), detail::size(cont))</span></a>
-<a name="369"><span class="lineNum">     369 </span><span class="lineCov">      16751 :     {}</span></a>
+<a name="367"><span class="lineNum">     367 </span><span class="lineCov">      21359 :     constexpr span(Container&amp; cont)</span></a>
+<a name="368"><span class="lineNum">     368 </span><span class="lineCov">      21359 :         : storage_(detail::data(cont), detail::size(cont))</span></a>
+<a name="369"><span class="lineNum">     369 </span><span class="lineCov">      21359 :     {}</span></a>
 <a name="370"><span class="lineNum">     370 </span>            : </a>
 <a name="371"><span class="lineNum">     371 </span>            :     template &lt;</a>
 <a name="372"><span class="lineNum">     372 </span>            :         typename Container, std::size_t E = Extent,</a>
@@ -437,9 +437,9 @@
 <a name="375"><span class="lineNum">     375 </span>            :                 detail::is_container_element_type_compatible&lt;</a>
 <a name="376"><span class="lineNum">     376 </span>            :                     const Container&amp;, ElementType&gt;::value,</a>
 <a name="377"><span class="lineNum">     377 </span>            :             int&gt;::type = 0&gt;</a>
-<a name="378"><span class="lineNum">     378 </span><span class="lineCov">      35586 :     constexpr span(const Container&amp; cont)</span></a>
-<a name="379"><span class="lineNum">     379 </span><span class="lineCov">      35586 :         : storage_(detail::data(cont), detail::size(cont))</span></a>
-<a name="380"><span class="lineNum">     380 </span><span class="lineCov">      35586 :     {}</span></a>
+<a name="378"><span class="lineNum">     378 </span><span class="lineCov">      37902 :     constexpr span(const Container&amp; cont)</span></a>
+<a name="379"><span class="lineNum">     379 </span><span class="lineCov">      37902 :         : storage_(detail::data(cont), detail::size(cont))</span></a>
+<a name="380"><span class="lineNum">     380 </span><span class="lineCov">      37902 :     {}</span></a>
 <a name="381"><span class="lineNum">     381 </span>            : </a>
 <a name="382"><span class="lineNum">     382 </span>            :     constexpr span(const span&amp; other) noexcept = default;</a>
 <a name="383"><span class="lineNum">     383 </span>            : </a>
@@ -513,52 +513,52 @@
 <a name="451"><span class="lineNum">     451 </span>            :     }</a>
 <a name="452"><span class="lineNum">     452 </span>            : </a>
 <a name="453"><span class="lineNum">     453 </span>            :     // [span.obs], span observers</a>
-<a name="454"><span class="lineNum">     454 </span><span class="lineCov"> 1326461072 :     constexpr size_type size() const noexcept { return storage_.size; }</span></a>
+<a name="454"><span class="lineNum">     454 </span><span class="lineCov"> 1330027613 :     constexpr size_type size() const noexcept { return storage_.size; }</span></a>
 <a name="455"><span class="lineNum">     455 </span>            : </a>
 <a name="456"><span class="lineNum">     456 </span>            :     constexpr size_type size_bytes() const noexcept</a>
 <a name="457"><span class="lineNum">     457 </span>            :     {</a>
 <a name="458"><span class="lineNum">     458 </span>            :         return size() * sizeof(element_type);</a>
 <a name="459"><span class="lineNum">     459 </span>            :     }</a>
 <a name="460"><span class="lineNum">     460 </span>            : </a>
-<a name="461"><span class="lineNum">     461 </span><span class="lineCov">  132265564 :     TCB_SPAN_NODISCARD constexpr bool empty() const noexcept</span></a>
+<a name="461"><span class="lineNum">     461 </span><span class="lineCov">  132053876 :     TCB_SPAN_NODISCARD constexpr bool empty() const noexcept</span></a>
 <a name="462"><span class="lineNum">     462 </span>            :     {</a>
-<a name="463"><span class="lineNum">     463 </span><span class="lineCov">  132265564 :         return size() == 0;</span></a>
+<a name="463"><span class="lineNum">     463 </span><span class="lineCov">  132053876 :         return size() == 0;</span></a>
 <a name="464"><span class="lineNum">     464 </span>            :     }</a>
 <a name="465"><span class="lineNum">     465 </span>            : </a>
 <a name="466"><span class="lineNum">     466 </span>            :     // [span.elem], span element access</a>
-<a name="467"><span class="lineNum">     467 </span><span class="lineCov"> 1030562689 :     TCB_SPAN_CONSTEXPR11 reference operator[](size_type idx) const</span></a>
+<a name="467"><span class="lineNum">     467 </span><span class="lineCov"> 1032651653 :     TCB_SPAN_CONSTEXPR11 reference operator[](size_type idx) const</span></a>
 <a name="468"><span class="lineNum">     468 </span>            :     {</a>
-<a name="469"><span class="lineNum">     469 </span><span class="lineCov"> 1030562689 :         TCB_SPAN_EXPECT(idx &lt; size());</span></a>
-<a name="470"><span class="lineNum">     470 </span><span class="lineCov"> 1030562689 :         return *(data() + idx);</span></a>
+<a name="469"><span class="lineNum">     469 </span><span class="lineCov"> 1032651653 :         TCB_SPAN_EXPECT(idx &lt; size());</span></a>
+<a name="470"><span class="lineNum">     470 </span><span class="lineCov"> 1032651653 :         return *(data() + idx);</span></a>
 <a name="471"><span class="lineNum">     471 </span>            :     }</a>
 <a name="472"><span class="lineNum">     472 </span>            : </a>
-<a name="473"><span class="lineNum">     473 </span><span class="lineCov">   77476338 :     TCB_SPAN_CONSTEXPR11 reference front() const</span></a>
+<a name="473"><span class="lineNum">     473 </span><span class="lineCov">   77347050 :     TCB_SPAN_CONSTEXPR11 reference front() const</span></a>
 <a name="474"><span class="lineNum">     474 </span>            :     {</a>
-<a name="475"><span class="lineNum">     475 </span><span class="lineCov">   77476338 :         TCB_SPAN_EXPECT(!empty());</span></a>
-<a name="476"><span class="lineNum">     476 </span><span class="lineCov">   77476338 :         return *data();</span></a>
+<a name="475"><span class="lineNum">     475 </span><span class="lineCov">   77347050 :         TCB_SPAN_EXPECT(!empty());</span></a>
+<a name="476"><span class="lineNum">     476 </span><span class="lineCov">   77347050 :         return *data();</span></a>
 <a name="477"><span class="lineNum">     477 </span>            :     }</a>
 <a name="478"><span class="lineNum">     478 </span>            : </a>
-<a name="479"><span class="lineNum">     479 </span><span class="lineCov">   54677693 :     TCB_SPAN_CONSTEXPR11 reference back() const</span></a>
+<a name="479"><span class="lineNum">     479 </span><span class="lineCov">   54591434 :     TCB_SPAN_CONSTEXPR11 reference back() const</span></a>
 <a name="480"><span class="lineNum">     480 </span>            :     {</a>
-<a name="481"><span class="lineNum">     481 </span><span class="lineCov">   54677693 :         TCB_SPAN_EXPECT(!empty());</span></a>
-<a name="482"><span class="lineNum">     482 </span><span class="lineCov">   54677693 :         return *(data() + (size() - 1));</span></a>
+<a name="481"><span class="lineNum">     481 </span><span class="lineCov">   54591434 :         TCB_SPAN_EXPECT(!empty());</span></a>
+<a name="482"><span class="lineNum">     482 </span><span class="lineCov">   54591434 :         return *(data() + (size() - 1));</span></a>
 <a name="483"><span class="lineNum">     483 </span>            :     }</a>
 <a name="484"><span class="lineNum">     484 </span>            : </a>
-<a name="485"><span class="lineNum">     485 </span><span class="lineCov"> 1303747358 :     constexpr pointer data() const noexcept { return storage_.ptr; }</span></a>
+<a name="485"><span class="lineNum">     485 </span><span class="lineCov"> 1309072355 :     constexpr pointer data() const noexcept { return storage_.ptr; }</span></a>
 <a name="486"><span class="lineNum">     486 </span>            : </a>
 <a name="487"><span class="lineNum">     487 </span>            :     // [span.iterators], span iterator support</a>
-<a name="488"><span class="lineNum">     488 </span><span class="lineCov">   75102278 :     constexpr iterator begin() const noexcept { return data(); }</span></a>
+<a name="488"><span class="lineNum">     488 </span><span class="lineCov">   76823325 :     constexpr iterator begin() const noexcept { return data(); }</span></a>
 <a name="489"><span class="lineNum">     489 </span>            : </a>
-<a name="490"><span class="lineNum">     490 </span><span class="lineCov">   64825602 :     constexpr iterator end() const noexcept { return data() + size(); }</span></a>
+<a name="490"><span class="lineNum">     490 </span><span class="lineCov">   66546675 :     constexpr iterator end() const noexcept { return data() + size(); }</span></a>
 <a name="491"><span class="lineNum">     491 </span>            : </a>
-<a name="492"><span class="lineNum">     492 </span><span class="lineCov">       2263 :     TCB_SPAN_ARRAY_CONSTEXPR reverse_iterator rbegin() const noexcept</span></a>
+<a name="492"><span class="lineNum">     492 </span><span class="lineCov">       3051 :     TCB_SPAN_ARRAY_CONSTEXPR reverse_iterator rbegin() const noexcept</span></a>
 <a name="493"><span class="lineNum">     493 </span>            :     {</a>
-<a name="494"><span class="lineNum">     494 </span><span class="lineCov">       2263 :         return reverse_iterator(end());</span></a>
+<a name="494"><span class="lineNum">     494 </span><span class="lineCov">       3051 :         return reverse_iterator(end());</span></a>
 <a name="495"><span class="lineNum">     495 </span>            :     }</a>
 <a name="496"><span class="lineNum">     496 </span>            : </a>
-<a name="497"><span class="lineNum">     497 </span><span class="lineCov">       2263 :     TCB_SPAN_ARRAY_CONSTEXPR reverse_iterator rend() const noexcept</span></a>
+<a name="497"><span class="lineNum">     497 </span><span class="lineCov">       3051 :     TCB_SPAN_ARRAY_CONSTEXPR reverse_iterator rend() const noexcept</span></a>
 <a name="498"><span class="lineNum">     498 </span>            :     {</a>
-<a name="499"><span class="lineNum">     499 </span><span class="lineCov">       2263 :         return reverse_iterator(begin());</span></a>
+<a name="499"><span class="lineNum">     499 </span><span class="lineCov">       3051 :         return reverse_iterator(begin());</span></a>
 <a name="500"><span class="lineNum">     500 </span>            :     }</a>
 <a name="501"><span class="lineNum">     501 </span>            : </a>
 <a name="502"><span class="lineNum">     502 </span>            : private:</a>
