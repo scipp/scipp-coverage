@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-04-14 01:23:21</td>
+            <td class="headerValue">2024-04-21 01:33:07</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">77</td>
@@ -103,7 +103,7 @@
 <a name="41"><span class="lineNum">      41 </span>            : /// labels.</a>
 <a name="42"><span class="lineNum">      42 </span>            : class SCIPP_VARIABLE_EXPORT Variable {</a>
 <a name="43"><span class="lineNum">      43 </span>            : public:</a>
-<a name="44"><span class="lineNum">      44 </span><span class="lineCov">    2116587 :   Variable() = default;</span></a>
+<a name="44"><span class="lineNum">      44 </span><span class="lineCov">    2097995 :   Variable() = default;</span></a>
 <a name="45"><span class="lineNum">      45 </span>            :   Variable(const Variable &amp;parent, const Dimensions &amp;dims);</a>
 <a name="46"><span class="lineNum">      46 </span>            :   Variable(const Dimensions &amp;dims, VariableConceptHandle data);</a>
 <a name="47"><span class="lineNum">      47 </span>            :   template &lt;class T&gt;</a>
@@ -118,13 +118,13 @@
 <a name="56"><span class="lineNum">      56 </span>            :   /// should be preferred where possible, since it generates less code.</a>
 <a name="57"><span class="lineNum">      57 </span>            :   template &lt;class... Ts&gt; Variable(const DType &amp;type, Ts &amp;&amp;...args);</a>
 <a name="58"><span class="lineNum">      58 </span>            : </a>
-<a name="59"><span class="lineNum">      59 </span><span class="lineCov">    6111441 :   Variable(const Variable &amp;other) = default;</span></a>
-<a name="60"><span class="lineNum">      60 </span><span class="lineCov">    4519936 :   Variable(Variable &amp;&amp;other) noexcept = default;</span></a>
+<a name="59"><span class="lineNum">      59 </span><span class="lineCov">    6006770 :   Variable(const Variable &amp;other) = default;</span></a>
+<a name="60"><span class="lineNum">      60 </span><span class="lineCov">    4424877 :   Variable(Variable &amp;&amp;other) noexcept = default;</span></a>
 <a name="61"><span class="lineNum">      61 </span>            : </a>
 <a name="62"><span class="lineNum">      62 </span>            :   Variable &amp;operator=(const Variable &amp;other);</a>
 <a name="63"><span class="lineNum">      63 </span>            :   Variable &amp;operator=(Variable &amp;&amp;other);</a>
 <a name="64"><span class="lineNum">      64 </span>            : </a>
-<a name="65"><span class="lineNum">      65 </span><span class="lineCov">   15225107 :   ~Variable() noexcept = default;</span></a>
+<a name="65"><span class="lineNum">      65 </span><span class="lineCov">   14985673 :   ~Variable() noexcept = default;</span></a>
 <a name="66"><span class="lineNum">      66 </span>            : </a>
 <a name="67"><span class="lineNum">      67 </span>            :   [[nodiscard]] const units::Unit &amp;unit() const;</a>
 <a name="68"><span class="lineNum">      68 </span>            :   void setUnit(const units::Unit &amp;unit);</a>
@@ -146,17 +146,17 @@
 <a name="84"><span class="lineNum">      84 </span>            :   template &lt;class T&gt; ElementArrayView&lt;T&gt; values();</a>
 <a name="85"><span class="lineNum">      85 </span>            :   template &lt;class T&gt; ElementArrayView&lt;const T&gt; variances() const;</a>
 <a name="86"><span class="lineNum">      86 </span>            :   template &lt;class T&gt; ElementArrayView&lt;T&gt; variances();</a>
-<a name="87"><span class="lineNum">      87 </span><span class="lineCov">      20404 :   template &lt;class T&gt; const auto &amp;value() const {</span></a>
-<a name="88"><span class="lineNum">      88 </span><span class="lineCov">      20404 :     core::expect::ndim_is(dims(), 0);</span></a>
-<a name="89"><span class="lineNum">      89 </span><span class="lineCov">      20402 :     return values&lt;T&gt;()[0];</span></a>
+<a name="87"><span class="lineNum">      87 </span><span class="lineCov">      20377 :   template &lt;class T&gt; const auto &amp;value() const {</span></a>
+<a name="88"><span class="lineNum">      88 </span><span class="lineCov">      20377 :     core::expect::ndim_is(dims(), 0);</span></a>
+<a name="89"><span class="lineNum">      89 </span><span class="lineCov">      20375 :     return values&lt;T&gt;()[0];</span></a>
 <a name="90"><span class="lineNum">      90 </span>            :   }</a>
 <a name="91"><span class="lineNum">      91 </span>            :   template &lt;class T&gt; const auto &amp;variance() const {</a>
 <a name="92"><span class="lineNum">      92 </span>            :     core::expect::ndim_is(dims(), 0);</a>
 <a name="93"><span class="lineNum">      93 </span>            :     return variances&lt;T&gt;()[0];</a>
 <a name="94"><span class="lineNum">      94 </span>            :   }</a>
-<a name="95"><span class="lineNum">      95 </span><span class="lineCov">      25846 :   template &lt;class T&gt; auto &amp;value() {</span></a>
-<a name="96"><span class="lineNum">      96 </span><span class="lineCov">      25846 :     core::expect::ndim_is(dims(), 0);</span></a>
-<a name="97"><span class="lineNum">      97 </span><span class="lineCov">      25846 :     return values&lt;T&gt;()[0];</span></a>
+<a name="95"><span class="lineNum">      95 </span><span class="lineCov">      25815 :   template &lt;class T&gt; auto &amp;value() {</span></a>
+<a name="96"><span class="lineNum">      96 </span><span class="lineCov">      25815 :     core::expect::ndim_is(dims(), 0);</span></a>
+<a name="97"><span class="lineNum">      97 </span><span class="lineCov">      25815 :     return values&lt;T&gt;()[0];</span></a>
 <a name="98"><span class="lineNum">      98 </span>            :   }</a>
 <a name="99"><span class="lineNum">      99 </span>            :   template &lt;class T&gt; auto &amp;variance() {</a>
 <a name="100"><span class="lineNum">     100 </span>            :     core::expect::ndim_is(dims(), 0);</a>
@@ -210,8 +210,8 @@
 <a name="148"><span class="lineNum">     148 </span>            : </a>
 <a name="149"><span class="lineNum">     149 </span>            :   [[nodiscard]] Variable as_const() const;</a>
 <a name="150"><span class="lineNum">     150 </span>            : </a>
-<a name="151"><span class="lineNum">     151 </span><span class="lineCov">      43207 :   auto &amp;unchecked_dims() { return m_dims; }</span></a>
-<a name="152"><span class="lineNum">     152 </span><span class="lineCov">      24435 :   auto &amp;unchecked_strides() { return m_strides; }</span></a>
+<a name="151"><span class="lineNum">     151 </span><span class="lineCov">      43350 :   auto &amp;unchecked_dims() { return m_dims; }</span></a>
+<a name="152"><span class="lineNum">     152 </span><span class="lineCov">      24536 :   auto &amp;unchecked_strides() { return m_strides; }</span></a>
 <a name="153"><span class="lineNum">     153 </span>            : </a>
 <a name="154"><span class="lineNum">     154 </span>            : private:</a>
 <a name="155"><span class="lineNum">     155 </span>            :   // Declared friend so gtest recognizes it</a>
@@ -254,29 +254,29 @@
 <a name="192"><span class="lineNum">     192 </span>            : ///    Variable which contains both Values and Variances given length</a>
 <a name="193"><span class="lineNum">     193 </span>            : ///    uninitialized is:</a>
 <a name="194"><span class="lineNum">     194 </span>            : ///        makeVariable&lt;T&gt;(Dims{Dim::X}, Shape{5}, Values{}, Variances{});</a>
-<a name="195"><span class="lineNum">     195 </span><span class="lineCov">     682997 : template &lt;class T, class... Ts&gt; Variable makeVariable(Ts &amp;&amp;...ts) {</span></a>
-<a name="196"><span class="lineNum">     196 </span><span class="lineCov">     682997 :   detail::ArgParser&lt;T&gt; parser;</span></a>
-<a name="197"><span class="lineNum">     197 </span><span class="lineCov">     682997 :   (parser.parse(std::forward&lt;Ts&gt;(ts)), ...);</span></a>
-<a name="198"><span class="lineNum">     198 </span><span class="lineCov">    1365990 :   return std::make_from_tuple&lt;Variable&gt;(std::move(parser.args));</span></a>
-<a name="199"><span class="lineNum">     199 </span><span class="lineCov">     682997 : }</span></a>
+<a name="195"><span class="lineNum">     195 </span><span class="lineCov">     682893 : template &lt;class T, class... Ts&gt; Variable makeVariable(Ts &amp;&amp;...ts) {</span></a>
+<a name="196"><span class="lineNum">     196 </span><span class="lineCov">     682893 :   detail::ArgParser&lt;T&gt; parser;</span></a>
+<a name="197"><span class="lineNum">     197 </span><span class="lineCov">     682893 :   (parser.parse(std::forward&lt;Ts&gt;(ts)), ...);</span></a>
+<a name="198"><span class="lineNum">     198 </span><span class="lineCov">    1365782 :   return std::make_from_tuple&lt;Variable&gt;(std::move(parser.args));</span></a>
+<a name="199"><span class="lineNum">     199 </span><span class="lineCov">     682893 : }</span></a>
 <a name="200"><span class="lineNum">     200 </span>            : </a>
 <a name="201"><span class="lineNum">     201 </span>            : template &lt;class... Ts, class... Args&gt;</a>
-<a name="202"><span class="lineNum">     202 </span><span class="lineCov">      12611 : Variable Variable::construct(const DType &amp;type, Args &amp;&amp;...args) {</span></a>
-<a name="203"><span class="lineNum">     203 </span><span class="lineCov">      12611 :   std::array vars{core::dtype&lt;Ts&gt; == type</span></a>
+<a name="202"><span class="lineNum">     202 </span><span class="lineCov">      12583 : Variable Variable::construct(const DType &amp;type, Args &amp;&amp;...args) {</span></a>
+<a name="203"><span class="lineNum">     203 </span><span class="lineCov">      12583 :   std::array vars{core::dtype&lt;Ts&gt; == type</span></a>
 <a name="204"><span class="lineNum">     204 </span>            :                       ? makeVariable&lt;Ts&gt;(std::forward&lt;Args&gt;(args)...)</a>
 <a name="205"><span class="lineNum">     205 </span>            :                       : Variable()...};</a>
-<a name="206"><span class="lineNum">     206 </span><span class="lineCov">      56216 :   for (auto &amp;var : vars)</span></a>
-<a name="207"><span class="lineNum">     207 </span><span class="lineCov">      56216 :     if (var.is_valid())</span></a>
-<a name="208"><span class="lineNum">     208 </span><span class="lineCov">      25222 :       return var;</span></a>
+<a name="206"><span class="lineNum">     206 </span><span class="lineCov">      56076 :   for (auto &amp;var : vars)</span></a>
+<a name="207"><span class="lineNum">     207 </span><span class="lineCov">      56076 :     if (var.is_valid())</span></a>
+<a name="208"><span class="lineNum">     208 </span><span class="lineCov">      25166 :       return var;</span></a>
 <a name="209"><span class="lineNum">     209 </span><span class="lineNoCov">          0 :   throw except::TypeError(&quot;Unsupported dtype for constructing a Variable: &quot; +</span></a>
 <a name="210"><span class="lineNum">     210 </span>            :                           to_string(type));</a>
-<a name="211"><span class="lineNum">     211 </span><span class="lineCov">      12611 : }</span></a>
+<a name="211"><span class="lineNum">     211 </span><span class="lineCov">      12583 : }</span></a>
 <a name="212"><span class="lineNum">     212 </span>            : </a>
 <a name="213"><span class="lineNum">     213 </span>            : template &lt;class... Ts&gt;</a>
-<a name="214"><span class="lineNum">     214 </span><span class="lineCov">      12611 : Variable::Variable(const DType &amp;type, Ts &amp;&amp;...args)</span></a>
+<a name="214"><span class="lineNum">     214 </span><span class="lineCov">      12583 : Variable::Variable(const DType &amp;type, Ts &amp;&amp;...args)</span></a>
 <a name="215"><span class="lineNum">     215 </span>            :     : Variable{construct&lt;double, float, int64_t, int32_t, bool, std::string,</a>
 <a name="216"><span class="lineNum">     216 </span>            :                          scipp::core::time_point, scipp::index_pair&gt;(</a>
-<a name="217"><span class="lineNum">     217 </span><span class="lineCov">      12611 :           type, std::forward&lt;Ts&gt;(args)...)} {}</span></a>
+<a name="217"><span class="lineNum">     217 </span><span class="lineCov">      12583 :           type, std::forward&lt;Ts&gt;(args)...)} {}</span></a>
 <a name="218"><span class="lineNum">     218 </span>            : </a>
 <a name="219"><span class="lineNum">     219 </span>            : [[nodiscard]] SCIPP_VARIABLE_EXPORT Variable copy(const Variable &amp;var);</a>
 <a name="220"><span class="lineNum">     220 </span>            : [[maybe_unused]] SCIPP_VARIABLE_EXPORT Variable &amp;copy(const Variable &amp;var,</a>

@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-04-14 01:23:21</td>
+            <td class="headerValue">2024-04-21 01:33:07</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">52</td>
@@ -149,9 +149,9 @@
 <a name="87"><span class="lineNum">      87 </span><span class="lineCov">        404 :       out = element::pow(base, exponent);</span></a>
 <a name="88"><span class="lineNum">      88 </span><span class="lineCov">        404 :     }};</span></a>
 <a name="89"><span class="lineNum">      89 </span>            : </a>
-<a name="90"><span class="lineNum">      90 </span><span class="lineCov">       8063 : constexpr auto sqrt = overloaded{arg_list&lt;double, float&gt;, [](const auto x) {</span></a>
+<a name="90"><span class="lineNum">      90 </span><span class="lineCov">       7706 : constexpr auto sqrt = overloaded{arg_list&lt;double, float&gt;, [](const auto x) {</span></a>
 <a name="91"><span class="lineNum">      91 </span>            :                                    using std::sqrt;</a>
-<a name="92"><span class="lineNum">      92 </span><span class="lineCov">       8063 :                                    return sqrt(x);</span></a>
+<a name="92"><span class="lineNum">      92 </span><span class="lineCov">       7706 :                                    return sqrt(x);</span></a>
 <a name="93"><span class="lineNum">      93 </span>            :                                  }};</a>
 <a name="94"><span class="lineNum">      94 </span>            : </a>
 <a name="95"><span class="lineNum">      95 </span>            : constexpr auto dot = overloaded{</a>
@@ -171,9 +171,9 @@
 <a name="109"><span class="lineNum">     109 </span>            : </a>
 <a name="110"><span class="lineNum">     110 </span>            : constexpr auto exp =</a>
 <a name="111"><span class="lineNum">     111 </span>            :     overloaded{arg_list&lt;double, float&gt;, dimensionless_unit_check_return,</a>
-<a name="112"><span class="lineNum">     112 </span><span class="lineCov">    1162614 :                [](const auto &amp;x) {</span></a>
+<a name="112"><span class="lineNum">     112 </span><span class="lineCov">    1162440 :                [](const auto &amp;x) {</span></a>
 <a name="113"><span class="lineNum">     113 </span>            :                  using std::exp;</a>
-<a name="114"><span class="lineNum">     114 </span><span class="lineCov">    1162614 :                  return exp(x);</span></a>
+<a name="114"><span class="lineNum">     114 </span><span class="lineCov">    1162440 :                  return exp(x);</span></a>
 <a name="115"><span class="lineNum">     115 </span>            :                }};</a>
 <a name="116"><span class="lineNum">     116 </span>            : </a>
 <a name="117"><span class="lineNum">     117 </span>            : constexpr auto log =</a>
