@@ -37,12 +37,12 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-04-21 01:33:07</td>
+            <td class="headerValue">2024-04-28 01:25:40</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">4</td>
+            <td class="headerCovTableEntry">5</td>
             <td class="headerCovTableEntry">7</td>
-            <td class="headerCovTableEntryLo">57.1 %</td>
+            <td class="headerCovTableEntryLo">71.4 %</td>
           </tr>
           <tr><td><img src="../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -73,11 +73,11 @@
 <a name="11"><span class="lineNum">      11 </span>            : </a>
 <a name="12"><span class="lineNum">      12 </span>            : namespace scipp::python {</a>
 <a name="13"><span class="lineNum">      13 </span>            : /// Format a string from all arguments.</a>
-<a name="14"><span class="lineNum">      14 </span><span class="lineCov">         18 : template &lt;class... Args&gt; std::string format(Args &amp;&amp;...args) {</span></a>
-<a name="15"><span class="lineNum">      15 </span><span class="lineCov">         18 :   std::ostringstream oss;</span></a>
-<a name="16"><span class="lineNum">      16 </span><span class="lineCov">         18 :   (oss &lt;&lt; ... &lt;&lt; std::forward&lt;Args&gt;(args));</span></a>
-<a name="17"><span class="lineNum">      17 </span><span class="lineCov">         36 :   return oss.str();</span></a>
-<a name="18"><span class="lineNum">      18 </span><span class="lineCov">         18 : }</span></a>
+<a name="14"><span class="lineNum">      14 </span><span class="lineCov">        102 : template &lt;class... Args&gt; std::string format(Args &amp;&amp;...args) {</span></a>
+<a name="15"><span class="lineNum">      15 </span><span class="lineCov">        102 :   std::ostringstream oss;</span></a>
+<a name="16"><span class="lineNum">      16 </span><span class="lineCov">        102 :   (oss &lt;&lt; ... &lt;&lt; std::forward&lt;Args&gt;(args));</span></a>
+<a name="17"><span class="lineNum">      17 </span><span class="lineCov">        204 :   return oss.str();</span></a>
+<a name="18"><span class="lineNum">      18 </span><span class="lineCov">        102 : }</span></a>
 <a name="19"><span class="lineNum">      19 </span>            : } // namespace scipp::python</a>
 </pre>
       </td>

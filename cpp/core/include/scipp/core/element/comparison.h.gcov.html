@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-04-21 01:33:07</td>
+            <td class="headerValue">2024-04-28 01:25:40</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">77</td>
@@ -136,9 +136,9 @@
 <a name="74"><span class="lineNum">      74 </span>            : // See issue #3266</a>
 <a name="75"><span class="lineNum">      75 </span>            : constexpr auto comparison = overloaded{</a>
 <a name="76"><span class="lineNum">      76 </span>            :     transform_flags::no_out_variance, transform_flags::force_variance_broadcast,</a>
-<a name="77"><span class="lineNum">      77 </span><span class="lineCov">       5672 :     [](const units::Unit &amp;x, const units::Unit &amp;y) {</span></a>
-<a name="78"><span class="lineNum">      78 </span><span class="lineCov">       5673 :       expect::equals(x, y);</span></a>
-<a name="79"><span class="lineNum">      79 </span><span class="lineCov">       5671 :       return units::none;</span></a>
+<a name="77"><span class="lineNum">      77 </span><span class="lineCov">       5665 :     [](const units::Unit &amp;x, const units::Unit &amp;y) {</span></a>
+<a name="78"><span class="lineNum">      78 </span><span class="lineCov">       5666 :       expect::equals(x, y);</span></a>
+<a name="79"><span class="lineNum">      79 </span><span class="lineCov">       5664 :       return units::none;</span></a>
 <a name="80"><span class="lineNum">      80 </span>            :     }};</a>
 <a name="81"><span class="lineNum">      81 </span>            : </a>
 <a name="82"><span class="lineNum">      82 </span>            : constexpr auto inequality = overloaded{comparison_types_t{}, comparison};</a>
@@ -152,7 +152,7 @@
 <a name="90"><span class="lineNum">      90 </span>            : </a>
 <a name="91"><span class="lineNum">      91 </span>            : constexpr auto greater = overloaded{</a>
 <a name="92"><span class="lineNum">      92 </span>            :     inequality,</a>
-<a name="93"><span class="lineNum">      93 </span><span class="lineCov">       5099 :     [](const auto &amp;x, const auto &amp;y) { return x &gt; y; },</span></a>
+<a name="93"><span class="lineNum">      93 </span><span class="lineCov">       5092 :     [](const auto &amp;x, const auto &amp;y) { return x &gt; y; },</span></a>
 <a name="94"><span class="lineNum">      94 </span>            : };</a>
 <a name="95"><span class="lineNum">      95 </span>            : </a>
 <a name="96"><span class="lineNum">      96 </span>            : constexpr auto less_equal = overloaded{</a>
@@ -161,7 +161,7 @@
 <a name="99"><span class="lineNum">      99 </span>            : };</a>
 <a name="100"><span class="lineNum">     100 </span>            : </a>
 <a name="101"><span class="lineNum">     101 </span>            : constexpr auto greater_equal =</a>
-<a name="102"><span class="lineNum">     102 </span><span class="lineCov">       1873 :     overloaded{inequality, [](const auto &amp;x, const auto &amp;y) { return x &gt;= y; }};</span></a>
+<a name="102"><span class="lineNum">     102 </span><span class="lineCov">       1835 :     overloaded{inequality, [](const auto &amp;x, const auto &amp;y) { return x &gt;= y; }};</span></a>
 <a name="103"><span class="lineNum">     103 </span>            : </a>
 <a name="104"><span class="lineNum">     104 </span>            : constexpr auto equal = overloaded{</a>
 <a name="105"><span class="lineNum">     105 </span>            :     equality,</a>
@@ -179,14 +179,14 @@
 <a name="117"><span class="lineNum">     117 </span>            : constexpr auto max_equals =</a>
 <a name="118"><span class="lineNum">     118 </span>            :     overloaded{arg_list&lt;double, float, int64_t, int32_t, bool, time_point&gt;,</a>
 <a name="119"><span class="lineNum">     119 </span>            :                transform_flags::expect_in_variance_if_out_variance,</a>
-<a name="120"><span class="lineNum">     120 </span><span class="lineCov">   49943132 :                [](auto &amp;&amp;a, const auto &amp;b) {</span></a>
+<a name="120"><span class="lineNum">     120 </span><span class="lineCov">   49598064 :                [](auto &amp;&amp;a, const auto &amp;b) {</span></a>
 <a name="121"><span class="lineNum">     121 </span>            :                  using numeric::isnan;</a>
 <a name="122"><span class="lineNum">     122 </span>            :                  using std::max;</a>
-<a name="123"><span class="lineNum">     123 </span><span class="lineCov">   49943132 :                  if (isnan(b))</span></a>
+<a name="123"><span class="lineNum">     123 </span><span class="lineCov">   49598064 :                  if (isnan(b))</span></a>
 <a name="124"><span class="lineNum">     124 </span><span class="lineNoCov">          0 :                    a = b;</span></a>
-<a name="125"><span class="lineNum">     125 </span><span class="lineCov">   49943132 :                  else if (!isnan(a))</span></a>
-<a name="126"><span class="lineNum">     126 </span><span class="lineCov">   49943132 :                    a = max(a, b);</span></a>
-<a name="127"><span class="lineNum">     127 </span><span class="lineCov">   49943132 :                }};</span></a>
+<a name="125"><span class="lineNum">     125 </span><span class="lineCov">   49598064 :                  else if (!isnan(a))</span></a>
+<a name="126"><span class="lineNum">     126 </span><span class="lineCov">   49598064 :                    a = max(a, b);</span></a>
+<a name="127"><span class="lineNum">     127 </span><span class="lineCov">   49598064 :                }};</span></a>
 <a name="128"><span class="lineNum">     128 </span>            : </a>
 <a name="129"><span class="lineNum">     129 </span>            : constexpr auto nanmax_equals =</a>
 <a name="130"><span class="lineNum">     130 </span>            :     overloaded{arg_list&lt;double, float, int64_t, int32_t, bool, time_point&gt;,</a>
@@ -203,14 +203,14 @@
 <a name="141"><span class="lineNum">     141 </span>            : constexpr auto min_equals =</a>
 <a name="142"><span class="lineNum">     142 </span>            :     overloaded{arg_list&lt;double, float, int64_t, int32_t, bool, time_point&gt;,</a>
 <a name="143"><span class="lineNum">     143 </span>            :                transform_flags::expect_in_variance_if_out_variance,</a>
-<a name="144"><span class="lineNum">     144 </span><span class="lineCov">   49942310 :                [](auto &amp;&amp;a, const auto &amp;b) {</span></a>
+<a name="144"><span class="lineNum">     144 </span><span class="lineCov">   49597242 :                [](auto &amp;&amp;a, const auto &amp;b) {</span></a>
 <a name="145"><span class="lineNum">     145 </span>            :                  using numeric::isnan;</a>
 <a name="146"><span class="lineNum">     146 </span>            :                  using std::min;</a>
-<a name="147"><span class="lineNum">     147 </span><span class="lineCov">   49942310 :                  if (isnan(b))</span></a>
+<a name="147"><span class="lineNum">     147 </span><span class="lineCov">   49597242 :                  if (isnan(b))</span></a>
 <a name="148"><span class="lineNum">     148 </span><span class="lineNoCov">          0 :                    a = b;</span></a>
-<a name="149"><span class="lineNum">     149 </span><span class="lineCov">   49942310 :                  else if (!isnan(a))</span></a>
-<a name="150"><span class="lineNum">     150 </span><span class="lineCov">   49942310 :                    a = min(a, b);</span></a>
-<a name="151"><span class="lineNum">     151 </span><span class="lineCov">   49942310 :                }};</span></a>
+<a name="149"><span class="lineNum">     149 </span><span class="lineCov">   49597242 :                  else if (!isnan(a))</span></a>
+<a name="150"><span class="lineNum">     150 </span><span class="lineCov">   49597242 :                    a = min(a, b);</span></a>
+<a name="151"><span class="lineNum">     151 </span><span class="lineCov">   49597242 :                }};</span></a>
 <a name="152"><span class="lineNum">     152 </span>            : </a>
 <a name="153"><span class="lineNum">     153 </span>            : constexpr auto nanmin_equals =</a>
 <a name="154"><span class="lineNum">     154 </span>            :     overloaded{arg_list&lt;double, float, int64_t, int32_t, bool, time_point&gt;,</a>

@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-04-21 01:33:07</td>
+            <td class="headerValue">2024-04-28 01:25:40</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">13</td>
@@ -127,9 +127,9 @@
 <a name="65"><span class="lineNum">      65 </span><span class="lineCov">          6 : template &lt;class T&gt; void bind_to_unit(py::module &amp;m) {</span></a>
 <a name="66"><span class="lineNum">      66 </span><span class="lineCov">          6 :   m.def(</span></a>
 <a name="67"><span class="lineNum">      67 </span>            :       &quot;to_unit&quot;,</a>
-<a name="68"><span class="lineNum">      68 </span><span class="lineCov">      19759 :       [](const T &amp;x, const ProtoUnit &amp;unit, const bool copy) {</span></a>
-<a name="69"><span class="lineNum">      69 </span><span class="lineCov">      39499 :         return to_unit(x, unit_or_default(unit),</span></a>
-<a name="70"><span class="lineNum">      70 </span><span class="lineCov">      59257 :                        copy ? CopyPolicy::Always : CopyPolicy::TryAvoid);</span></a>
+<a name="68"><span class="lineNum">      68 </span><span class="lineCov">      19745 :       [](const T &amp;x, const ProtoUnit &amp;unit, const bool copy) {</span></a>
+<a name="69"><span class="lineNum">      69 </span><span class="lineCov">      39471 :         return to_unit(x, unit_or_default(unit),</span></a>
+<a name="70"><span class="lineNum">      70 </span><span class="lineCov">      59215 :                        copy ? CopyPolicy::Always : CopyPolicy::TryAvoid);</span></a>
 <a name="71"><span class="lineNum">      71 </span>            :       },</a>
 <a name="72"><span class="lineNum">      72 </span><span class="lineCov">         12 :       py::arg(&quot;x&quot;), py::arg(&quot;unit&quot;), py::arg(&quot;copy&quot;) = true,</span></a>
 <a name="73"><span class="lineNum">      73 </span><span class="lineCov">          6 :       py::call_guard&lt;py::gil_scoped_release&gt;());</span></a>

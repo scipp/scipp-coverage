@@ -65,7 +65,7 @@
             <a id="nextFileLink" class="nav" href="d_6a3ecaa2f0ab0305_table_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.4.0">coverage.py v7.4.0</a>,
-            created at 2024-04-21 01:35 +0000
+            created at 2024-04-28 01:28 +0000
         </p>
         <aside class="hidden">
             <button type="button" class="button_next_chunk" data-shortcut="j"/>
@@ -161,11 +161,11 @@
     <p class="pln"><span class="n"><a id="t79" href="#t79">79</a></span><span class="t">                    <span class="str">'id="rect"'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t80" href="#t80">80</a></span><span class="t">                    <span class="str">'width="xlen" height="1" x="origin_x" y="origin_y"/>'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t81" href="#t81">81</a></span><span class="t">                    <span class="str">'&lt;path'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t82" href="#t82">82</a></span><span class="t">                    <span class="str">'style="fill:{};stroke:#000;stroke-width:0.05;stroke-linejoin:round"'</span><span class="op">,</span>  <span class="com"># noqa #501</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t82" href="#t82">82</a></span><span class="t">                    <span class="str">'style="fill:{};stroke:#000;stroke-width:0.05;stroke-linejoin:round"'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t83" href="#t83">83</a></span><span class="t">                    <span class="str">'d="m origin_x origin_y l 0.3 -0.3 h xlen l -0.3 0.3 z"'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t84" href="#t84">84</a></span><span class="t">                    <span class="str">'id="path1" />'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t85" href="#t85">85</a></span><span class="t">                    <span class="str">'&lt;path'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
-    <p class="pln"><span class="n"><a id="t86" href="#t86">86</a></span><span class="t">                    <span class="str">'style="fill:{};stroke:#000;stroke-width:0.05;stroke-linejoin:round"'</span><span class="op">,</span>  <span class="com"># noqa #501</span>&nbsp;</span><span class="r"></span></p>
+    <p class="pln"><span class="n"><a id="t86" href="#t86">86</a></span><span class="t">                    <span class="str">'style="fill:{};stroke:#000;stroke-width:0.05;stroke-linejoin:round"'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t87" href="#t87">87</a></span><span class="t">                    <span class="str">'d="m origin_x origin_y m xlen 0 l 0.3 -0.3 v 1 l -0.3 0.3 z"'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t88" href="#t88">88</a></span><span class="t">                    <span class="str">'id="path2" />'</span><span class="op">,</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t89" href="#t89">89</a></span><span class="t">                <span class="op">]</span>&nbsp;</span><span class="r"></span></p>
@@ -459,7 +459,7 @@
     <p class="run"><span class="n"><a id="t377" href="#t377">377</a></span><span class="t">            <span class="key">for</span> <span class="nam">item</span> <span class="key">in</span> <span class="nam">self</span><span class="op">.</span><span class="nam">_dataset</span><span class="op">.</span><span class="nam">deprecated_meta</span><span class="op">.</span><span class="nam">values</span><span class="op">(</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t378" href="#t378">378</a></span><span class="t">                <span class="key">for</span> <span class="nam">dim</span> <span class="key">in</span> <span class="nam">item</span><span class="op">.</span><span class="nam">dims</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t379" href="#t379">379</a></span><span class="t">                    <span class="key">if</span> <span class="nam">dim</span> <span class="key">not</span> <span class="key">in</span> <span class="nam">dims</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t380" href="#t380">380</a></span><span class="t">                        <span class="nam">dims</span> <span class="op">=</span> <span class="op">(</span><span class="nam">dim</span><span class="op">,</span><span class="op">)</span> <span class="op">+</span> <span class="nam">dims</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t380" href="#t380">380</a></span><span class="t">                        <span class="nam">dims</span> <span class="op">=</span> <span class="op">(</span><span class="nam">dim</span><span class="op">,</span> <span class="op">*</span><span class="nam">dims</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t381" href="#t381">381</a></span><span class="t">        <span class="key">if</span> <span class="nam">len</span><span class="op">(</span><span class="nam">dims</span><span class="op">)</span> <span class="op">></span> <span class="num">3</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t382" href="#t382">382</a></span><span class="t">            <span class="key">raise</span> <span class="nam">RuntimeError</span><span class="op">(</span><span class="str">"Cannot visualize {}-D data"</span><span class="op">.</span><span class="nam">format</span><span class="op">(</span><span class="nam">len</span><span class="op">(</span><span class="nam">dims</span><span class="op">)</span><span class="op">)</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t383" href="#t383">383</a></span><span class="t">        <span class="key">return</span> <span class="nam">dims</span>&nbsp;</span><span class="r"></span></p>
@@ -622,7 +622,7 @@
             <a id="nextFileLink" class="nav" href="d_6a3ecaa2f0ab0305_table_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.4.0">coverage.py v7.4.0</a>,
-            created at 2024-04-21 01:35 +0000
+            created at 2024-04-28 01:28 +0000
         </p>
     </div>
 </footer>

@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-04-21 01:33:07</td>
+            <td class="headerValue">2024-04-28 01:25:40</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">19</td>
@@ -82,9 +82,9 @@
 <a name="20"><span class="lineNum">      20 </span><span class="lineCov">         12 :   static auto pyexc = py_exception;</span></a>
 <a name="21"><span class="lineNum">      21 </span><span class="lineCov">       5622 :   py::register_exception_translator([](std::exception_ptr p) {</span></a>
 <a name="22"><span class="lineNum">      22 </span>            :     try {</a>
-<a name="23"><span class="lineNum">      23 </span><span class="lineCov">      76349 :       if (p)</span></a>
-<a name="24"><span class="lineNum">      24 </span><span class="lineCov">     152698 :         std::rethrow_exception(p);</span></a>
-<a name="25"><span class="lineNum">      25 </span><span class="lineCov">      81959 :     } catch (const CppException &amp;e) {</span></a>
+<a name="23"><span class="lineNum">      23 </span><span class="lineCov">      73661 :       if (p)</span></a>
+<a name="24"><span class="lineNum">      24 </span><span class="lineCov">     147322 :         std::rethrow_exception(p);</span></a>
+<a name="25"><span class="lineNum">      25 </span><span class="lineCov">      79271 :     } catch (const CppException &amp;e) {</span></a>
 <a name="26"><span class="lineNum">      26 </span><span class="lineCov">       5610 :       PyErr_SetString(pyexc, e.what());</span></a>
 <a name="27"><span class="lineNum">      27 </span>            :     }</a>
 <a name="28"><span class="lineNum">      28 </span>            :   });</a>
