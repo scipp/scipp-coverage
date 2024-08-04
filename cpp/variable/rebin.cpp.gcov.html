@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-04-28 01:25:40</td>
+            <td class="headerValue">2024-08-04 01:35:26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">11</td>
@@ -144,19 +144,19 @@
 <a name="82"><span class="lineNum">      82 </span>            : </a>
 <a name="83"><span class="lineNum">      83 </span>            : struct Less {</a>
 <a name="84"><span class="lineNum">      84 </span>            :   template &lt;class A, class B&gt;</a>
-<a name="85"><span class="lineNum">      85 </span><span class="lineCov">       3705 :   constexpr bool operator()(const A a, const B b) const noexcept {</span></a>
-<a name="86"><span class="lineNum">      86 </span><span class="lineCov">       3705 :     return a &lt; b;</span></a>
+<a name="85"><span class="lineNum">      85 </span><span class="lineCov">       1545 :   constexpr bool operator()(const A a, const B b) const noexcept {</span></a>
+<a name="86"><span class="lineNum">      86 </span><span class="lineCov">       1545 :     return a &lt; b;</span></a>
 <a name="87"><span class="lineNum">      87 </span>            :   }</a>
 <a name="88"><span class="lineNum">      88 </span>            : };</a>
 <a name="89"><span class="lineNum">      89 </span>            : </a>
 <a name="90"><span class="lineNum">      90 </span>            : } // namespace</a>
 <a name="91"><span class="lineNum">      91 </span>            : </a>
-<a name="92"><span class="lineNum">      92 </span><span class="lineCov">        100 : Variable rebin(const Variable &amp;var, const Dim dim, const Variable &amp;oldCoord,</span></a>
+<a name="92"><span class="lineNum">      92 </span><span class="lineCov">         96 : Variable rebin(const Variable &amp;var, const Dim dim, const Variable &amp;oldCoord,</span></a>
 <a name="93"><span class="lineNum">      93 </span>            :                const Variable &amp;newCoord) {</a>
 <a name="94"><span class="lineNum">      94 </span>            :   // The code branch dealing with non-stride-1 data cannot handle non-1D edges.</a>
 <a name="95"><span class="lineNum">      95 </span>            :   // This is likely a rare case in practice so a slow transpose of input and</a>
 <a name="96"><span class="lineNum">      96 </span>            :   // output should be sufficient for now.</a>
-<a name="97"><span class="lineNum">      97 </span><span class="lineCov">        100 :   if (var.stride(dim) != 1 &amp;&amp; (oldCoord.ndim() != 1 || newCoord.ndim() != 1))</span></a>
+<a name="97"><span class="lineNum">      97 </span><span class="lineCov">         96 :   if (var.stride(dim) != 1 &amp;&amp; (oldCoord.ndim() != 1 || newCoord.ndim() != 1))</span></a>
 <a name="98"><span class="lineNum">      98 </span>            :     // We *copy* the transpose to ensure that memory order of dims matches input</a>
 <a name="99"><span class="lineNum">      99 </span>            :     return copy(</a>
 <a name="100"><span class="lineNum">     100 </span><span class="lineCov">          4 :         transpose(rebin(as_contiguous(var, dim), dim, oldCoord, newCoord),</span></a>
@@ -164,11 +164,11 @@
 <a name="102"><span class="lineNum">     102 </span>            :   // Rebin could also implemented for count-densities. However, it may be better</a>
 <a name="103"><span class="lineNum">     103 </span>            :   // to avoid this since it increases complexity. Instead, densities could</a>
 <a name="104"><span class="lineNum">     104 </span>            :   // always be computed on-the-fly for visualization, if required.</a>
-<a name="105"><span class="lineNum">     105 </span><span class="lineCov">         98 :   if (!is_edges(var.dims(), oldCoord.dims(), dim))</span></a>
+<a name="105"><span class="lineNum">     105 </span><span class="lineCov">         94 :   if (!is_edges(var.dims(), oldCoord.dims(), dim))</span></a>
 <a name="106"><span class="lineNum">     106 </span><span class="lineNoCov">          0 :     throw except::BinEdgeError(</span></a>
 <a name="107"><span class="lineNum">     107 </span><span class="lineNoCov">          0 :         &quot;The input does not have coordinates with bin-edges.&quot;);</span></a>
 <a name="108"><span class="lineNum">     108 </span>            : </a>
-<a name="109"><span class="lineNum">     109 </span><span class="lineCov">         98 :   if (is_bins(var))</span></a>
+<a name="109"><span class="lineNum">     109 </span><span class="lineCov">         94 :   if (is_bins(var))</span></a>
 <a name="110"><span class="lineNum">     110 </span><span class="lineCov">          1 :     throw except::TypeError(&quot;The input variable cannot be binned data. Use &quot;</span></a>
 <a name="111"><span class="lineNum">     111 </span><span class="lineCov">          2 :                             &quot;`bin` or `histogram` instead of `rebin`.&quot;);</span></a>
 <a name="112"><span class="lineNum">     112 </span>            : </a>
@@ -184,24 +184,24 @@
 <a name="122"><span class="lineNum">     122 </span>            :       args&lt;float, double, float, double&gt;, args&lt;float, float, float, double&gt;,</a>
 <a name="123"><span class="lineNum">     123 </span>            :       args&lt;double, double, bool, double&gt;&gt;;</a>
 <a name="124"><span class="lineNum">     124 </span>            : </a>
-<a name="125"><span class="lineNum">     125 </span><span class="lineCov">        165 :   const bool ascending = allsorted(oldCoord, dim, SortOrder::Ascending) &amp;&amp;</span></a>
-<a name="126"><span class="lineNum">     126 </span><span class="lineCov">         68 :                          allsorted(newCoord, dim, SortOrder::Ascending);</span></a>
-<a name="127"><span class="lineNum">     127 </span><span class="lineCov">        126 :   if (!ascending &amp;&amp; !(allsorted(oldCoord, dim, SortOrder::Descending) &amp;&amp;</span></a>
+<a name="125"><span class="lineNum">     125 </span><span class="lineCov">        157 :   const bool ascending = allsorted(oldCoord, dim, SortOrder::Ascending) &amp;&amp;</span></a>
+<a name="126"><span class="lineNum">     126 </span><span class="lineCov">         64 :                          allsorted(newCoord, dim, SortOrder::Ascending);</span></a>
+<a name="127"><span class="lineNum">     127 </span><span class="lineCov">        122 :   if (!ascending &amp;&amp; !(allsorted(oldCoord, dim, SortOrder::Descending) &amp;&amp;</span></a>
 <a name="128"><span class="lineNum">     128 </span><span class="lineCov">         29 :                       allsorted(newCoord, dim, SortOrder::Descending)))</span></a>
 <a name="129"><span class="lineNum">     129 </span><span class="lineNoCov">          0 :     throw except::BinEdgeError(</span></a>
 <a name="130"><span class="lineNum">     130 </span><span class="lineNoCov">          0 :         &quot;Rebin: The old or new bin edges are not sorted.&quot;);</span></a>
-<a name="131"><span class="lineNum">     131 </span><span class="lineCov">        190 :   const auto out_type = (is_int(var.dtype()) || var.dtype() == dtype&lt;bool&gt;)</span></a>
-<a name="132"><span class="lineNum">     132 </span><span class="lineCov">         97 :                             ? dtype&lt;double&gt;</span></a>
-<a name="133"><span class="lineNum">     133 </span><span class="lineCov">         97 :                             : var.dtype();</span></a>
+<a name="131"><span class="lineNum">     131 </span><span class="lineCov">        182 :   const auto out_type = (is_int(var.dtype()) || var.dtype() == dtype&lt;bool&gt;)</span></a>
+<a name="132"><span class="lineNum">     132 </span><span class="lineCov">         93 :                             ? dtype&lt;double&gt;</span></a>
+<a name="133"><span class="lineNum">     133 </span><span class="lineCov">         93 :                             : var.dtype();</span></a>
 <a name="134"><span class="lineNum">     134 </span>            :   // Both code branches below require stride 1 for input and output edges.</a>
-<a name="135"><span class="lineNum">     135 </span><span class="lineCov">         97 :   const auto oldEdges = as_contiguous(oldCoord, dim);</span></a>
-<a name="136"><span class="lineNum">     136 </span><span class="lineCov">         97 :   const auto newEdges = as_contiguous(newCoord, dim);</span></a>
-<a name="137"><span class="lineNum">     137 </span><span class="lineCov">         97 :   Variable rebinned;</span></a>
-<a name="138"><span class="lineNum">     138 </span><span class="lineCov">         97 :   if (var.stride(dim) == 1) {</span></a>
-<a name="139"><span class="lineNum">     139 </span><span class="lineCov">         57 :     if (ascending) {</span></a>
-<a name="140"><span class="lineNum">     140 </span><span class="lineCov">         84 :       rebinned = transform_subspan&lt;transform_args&gt;(</span></a>
-<a name="141"><span class="lineNum">     141 </span><span class="lineCov">         42 :           out_type, dim, newEdges.dims()[dim] - 1, newEdges, var, oldEdges,</span></a>
-<a name="142"><span class="lineNum">     142 </span><span class="lineCov">         42 :           core::element::rebin&lt;Less&gt;, &quot;rebin&quot;);</span></a>
+<a name="135"><span class="lineNum">     135 </span><span class="lineCov">         93 :   const auto oldEdges = as_contiguous(oldCoord, dim);</span></a>
+<a name="136"><span class="lineNum">     136 </span><span class="lineCov">         93 :   const auto newEdges = as_contiguous(newCoord, dim);</span></a>
+<a name="137"><span class="lineNum">     137 </span><span class="lineCov">         93 :   Variable rebinned;</span></a>
+<a name="138"><span class="lineNum">     138 </span><span class="lineCov">         93 :   if (var.stride(dim) == 1) {</span></a>
+<a name="139"><span class="lineNum">     139 </span><span class="lineCov">         53 :     if (ascending) {</span></a>
+<a name="140"><span class="lineNum">     140 </span><span class="lineCov">         76 :       rebinned = transform_subspan&lt;transform_args&gt;(</span></a>
+<a name="141"><span class="lineNum">     141 </span><span class="lineCov">         38 :           out_type, dim, newEdges.dims()[dim] - 1, newEdges, var, oldEdges,</span></a>
+<a name="142"><span class="lineNum">     142 </span><span class="lineCov">         38 :           core::element::rebin&lt;Less&gt;, &quot;rebin&quot;);</span></a>
 <a name="143"><span class="lineNum">     143 </span>            :     } else {</a>
 <a name="144"><span class="lineNum">     144 </span><span class="lineCov">         30 :       rebinned = transform_subspan&lt;transform_args&gt;(</span></a>
 <a name="145"><span class="lineNum">     145 </span><span class="lineCov">         15 :           out_type, dim, newEdges.dims()[dim] - 1, newEdges, var, oldEdges,</span></a>
@@ -233,8 +233,8 @@
 <a name="171"><span class="lineNum">     171 </span>            :   // If rebinned dimension has stride 1 but is not an inner dimension then we</a>
 <a name="172"><span class="lineNum">     172 </span>            :   // need to transpose the output of transform_subspan to retain the input</a>
 <a name="173"><span class="lineNum">     173 </span>            :   // dimension order.</a>
-<a name="174"><span class="lineNum">     174 </span><span class="lineCov">         97 :   return transpose(rebinned, var.dims().labels());</span></a>
-<a name="175"><span class="lineNum">     175 </span><span class="lineCov">         97 : }</span></a>
+<a name="174"><span class="lineNum">     174 </span><span class="lineCov">         93 :   return transpose(rebinned, var.dims().labels());</span></a>
+<a name="175"><span class="lineNum">     175 </span><span class="lineCov">         93 : }</span></a>
 <a name="176"><span class="lineNum">     176 </span>            : </a>
 <a name="177"><span class="lineNum">     177 </span>            : } // namespace scipp::variable</a>
 </pre>

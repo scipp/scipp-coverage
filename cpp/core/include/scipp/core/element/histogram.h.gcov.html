@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-04-28 01:25:40</td>
+            <td class="headerValue">2024-08-04 01:35:26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">11</td>
@@ -79,16 +79,16 @@
 <a name="17"><span class="lineNum">      17 </span>            : namespace scipp::core::element {</a>
 <a name="18"><span class="lineNum">      18 </span>            : </a>
 <a name="19"><span class="lineNum">      19 </span>            : namespace {</a>
-<a name="20"><span class="lineNum">      20 </span><span class="lineCov">    8059817 : constexpr auto iadd = [](const auto &amp;x1, const scipp::index i1, const auto &amp;x2,</span></a>
+<a name="20"><span class="lineNum">      20 </span><span class="lineCov">    8059417 : constexpr auto iadd = [](const auto &amp;x1, const scipp::index i1, const auto &amp;x2,</span></a>
 <a name="21"><span class="lineNum">      21 </span>            :                          const scipp::index i2) {</a>
 <a name="22"><span class="lineNum">      22 </span>            :   using V = std::decay_t&lt;decltype(x1)&gt;;</a>
 <a name="23"><span class="lineNum">      23 </span>            :   if constexpr (is_ValueAndVariance_v&lt;V&gt;) {</a>
 <a name="24"><span class="lineNum">      24 </span><span class="lineCov">       9888 :     x1.value[i1] += x2.value[i2];</span></a>
 <a name="25"><span class="lineNum">      25 </span><span class="lineCov">       9888 :     x1.variance[i1] += x2.variance[i2];</span></a>
 <a name="26"><span class="lineNum">      26 </span>            :   } else {</a>
-<a name="27"><span class="lineNum">      27 </span><span class="lineCov">    8049929 :     x1[i1] += x2[i2];</span></a>
+<a name="27"><span class="lineNum">      27 </span><span class="lineCov">    8049529 :     x1[i1] += x2[i2];</span></a>
 <a name="28"><span class="lineNum">      28 </span>            :   }</a>
-<a name="29"><span class="lineNum">      29 </span><span class="lineCov">    8059817 : };</span></a>
+<a name="29"><span class="lineNum">      29 </span><span class="lineCov">    8059417 : };</span></a>
 <a name="30"><span class="lineNum">      30 </span>            : } // namespace</a>
 <a name="31"><span class="lineNum">      31 </span>            : </a>
 <a name="32"><span class="lineNum">      32 </span>            : namespace histogram_detail {</a>
@@ -118,35 +118,35 @@
 <a name="56"><span class="lineNum">      56 </span>            :                       histogram_detail::args&lt;time_point, float&gt;,</a>
 <a name="57"><span class="lineNum">      57 </span>            :                       histogram_detail::args&lt;time_point, int64_t&gt;,</a>
 <a name="58"><span class="lineNum">      58 </span>            :                       histogram_detail::args&lt;time_point, int32_t&gt;&gt;,</a>
-<a name="59"><span class="lineNum">      59 </span><span class="lineCov">      54391 :     [](const auto &amp;data, const auto &amp;events, const auto &amp;weights,</span></a>
+<a name="59"><span class="lineNum">      59 </span><span class="lineCov">      54387 :     [](const auto &amp;data, const auto &amp;events, const auto &amp;weights,</span></a>
 <a name="60"><span class="lineNum">      60 </span>            :        const auto &amp;edges) {</a>
-<a name="61"><span class="lineNum">      61 </span><span class="lineCov">      54391 :       zero(data);</span></a>
+<a name="61"><span class="lineNum">      61 </span><span class="lineCov">      54387 :       zero(data);</span></a>
 <a name="62"><span class="lineNum">      62 </span>            :       // Special implementation for linear bins. Gives a 1x to 20x speedup</a>
 <a name="63"><span class="lineNum">      63 </span>            :       // for few and many events per histogram, respectively.</a>
-<a name="64"><span class="lineNum">      64 </span><span class="lineCov">      54391 :       if (scipp::numeric::islinspace(edges)) {</span></a>
-<a name="65"><span class="lineNum">      65 </span><span class="lineCov">      53071 :         const auto params = core::linear_edge_params(edges);</span></a>
-<a name="66"><span class="lineNum">      66 </span><span class="lineCov">    8120787 :         for (scipp::index i = 0; i &lt; scipp::size(events); ++i) {</span></a>
-<a name="67"><span class="lineNum">      67 </span><span class="lineCov">    8067716 :           const auto x = events[i];</span></a>
-<a name="68"><span class="lineNum">      68 </span><span class="lineCov">    8067716 :           if (const auto bin = get_bin&lt;scipp::index&gt;(x, edges, params);</span></a>
+<a name="64"><span class="lineNum">      64 </span><span class="lineCov">      54387 :       if (scipp::numeric::islinspace(edges)) {</span></a>
+<a name="65"><span class="lineNum">      65 </span><span class="lineCov">      53073 :         const auto params = core::linear_edge_params(edges);</span></a>
+<a name="66"><span class="lineNum">      66 </span><span class="lineCov">    8120401 :         for (scipp::index i = 0; i &lt; scipp::size(events); ++i) {</span></a>
+<a name="67"><span class="lineNum">      67 </span><span class="lineCov">    8067328 :           const auto x = events[i];</span></a>
+<a name="68"><span class="lineNum">      68 </span><span class="lineCov">    8067328 :           if (const auto bin = get_bin&lt;scipp::index&gt;(x, edges, params);</span></a>
 <a name="69"><span class="lineNum">      69 </span>            :               bin &gt;= 0)</a>
-<a name="70"><span class="lineNum">      70 </span><span class="lineCov">    8051773 :             iadd(data, bin, weights, i);</span></a>
+<a name="70"><span class="lineNum">      70 </span><span class="lineCov">    8051385 :             iadd(data, bin, weights, i);</span></a>
 <a name="71"><span class="lineNum">      71 </span>            :         }</a>
 <a name="72"><span class="lineNum">      72 </span>            :       } else {</a>
-<a name="73"><span class="lineNum">      73 </span><span class="lineCov">       1320 :         core::expect::histogram::sorted_edges(edges);</span></a>
-<a name="74"><span class="lineNum">      74 </span><span class="lineCov">       9373 :         for (scipp::index i = 0; i &lt; scipp::size(events); ++i) {</span></a>
-<a name="75"><span class="lineNum">      75 </span><span class="lineCov">       8054 :           const auto x = events[i];</span></a>
-<a name="76"><span class="lineNum">      76 </span><span class="lineCov">       8054 :           auto it = std::upper_bound(edges.begin(), edges.end(), x);</span></a>
-<a name="77"><span class="lineNum">      77 </span><span class="lineCov">       8054 :           if (it != edges.end() &amp;&amp; it != edges.begin())</span></a>
-<a name="78"><span class="lineNum">      78 </span><span class="lineCov">       8044 :             iadd(data, --it - edges.begin(), weights, i);</span></a>
+<a name="73"><span class="lineNum">      73 </span><span class="lineCov">       1314 :         core::expect::histogram::sorted_edges(edges);</span></a>
+<a name="74"><span class="lineNum">      74 </span><span class="lineCov">       9355 :         for (scipp::index i = 0; i &lt; scipp::size(events); ++i) {</span></a>
+<a name="75"><span class="lineNum">      75 </span><span class="lineCov">       8042 :           const auto x = events[i];</span></a>
+<a name="76"><span class="lineNum">      76 </span><span class="lineCov">       8042 :           auto it = std::upper_bound(edges.begin(), edges.end(), x);</span></a>
+<a name="77"><span class="lineNum">      77 </span><span class="lineCov">       8042 :           if (it != edges.end() &amp;&amp; it != edges.begin())</span></a>
+<a name="78"><span class="lineNum">      78 </span><span class="lineCov">       8032 :             iadd(data, --it - edges.begin(), weights, i);</span></a>
 <a name="79"><span class="lineNum">      79 </span>            :         }</a>
 <a name="80"><span class="lineNum">      80 </span>            :       }</a>
-<a name="81"><span class="lineNum">      81 </span><span class="lineCov">      54390 :     },</span></a>
-<a name="82"><span class="lineNum">      82 </span><span class="lineCov">      47552 :     [](const units::Unit &amp;events_unit, const units::Unit &amp;weights_unit,</span></a>
+<a name="81"><span class="lineNum">      81 </span><span class="lineCov">      54386 :     },</span></a>
+<a name="82"><span class="lineNum">      82 </span><span class="lineCov">      47548 :     [](const units::Unit &amp;events_unit, const units::Unit &amp;weights_unit,</span></a>
 <a name="83"><span class="lineNum">      83 </span>            :        const units::Unit &amp;edge_unit) {</a>
-<a name="84"><span class="lineNum">      84 </span><span class="lineCov">      47552 :       if (events_unit != edge_unit)</span></a>
+<a name="84"><span class="lineNum">      84 </span><span class="lineCov">      47548 :       if (events_unit != edge_unit)</span></a>
 <a name="85"><span class="lineNum">      85 </span><span class="lineNoCov">          0 :         throw except::UnitError(</span></a>
 <a name="86"><span class="lineNum">      86 </span><span class="lineNoCov">          0 :             &quot;Bin edges must have same unit as the input coordinate.&quot;);</span></a>
-<a name="87"><span class="lineNum">      87 </span><span class="lineCov">      47552 :       return weights_unit;</span></a>
+<a name="87"><span class="lineNum">      87 </span><span class="lineCov">      47548 :       return weights_unit;</span></a>
 <a name="88"><span class="lineNum">      88 </span>            :     },</a>
 <a name="89"><span class="lineNum">      89 </span>            :     transform_flags::expect_in_variance_if_out_variance,</a>
 <a name="90"><span class="lineNum">      90 </span>            :     transform_flags::expect_no_variance_arg&lt;1&gt;,</a>

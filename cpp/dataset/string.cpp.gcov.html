@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-04-28 01:25:40</td>
+            <td class="headerValue">2024-08-04 01:35:26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">17</td>
@@ -185,19 +185,19 @@
 <a name="123"><span class="lineNum">     123 </span><span class="lineCov">        146 : std::string to_string(const Coords &amp;coords) { return dict_to_string(coords); }</span></a>
 <a name="124"><span class="lineNum">     124 </span><span class="lineCov">         50 : std::string to_string(const Masks &amp;masks) { return dict_to_string(masks); }</span></a>
 <a name="125"><span class="lineNum">     125 </span>            : </a>
-<a name="126"><span class="lineNum">     126 </span><span class="lineCov">       5759 : std::string dict_keys_to_string(const Coords &amp;coords) {</span></a>
-<a name="127"><span class="lineNum">     127 </span><span class="lineCov">       5759 :   return core::dict_keys_to_string(coords.keys_begin(), coords.keys_end(),</span></a>
-<a name="128"><span class="lineNum">     128 </span><span class="lineCov">      17277 :                                    &quot;scipp.Dict.keys&quot;);</span></a>
+<a name="126"><span class="lineNum">     126 </span><span class="lineCov">       5715 : std::string dict_keys_to_string(const Coords &amp;coords) {</span></a>
+<a name="127"><span class="lineNum">     127 </span><span class="lineCov">       5715 :   return core::dict_keys_to_string(coords.keys_begin(), coords.keys_end(),</span></a>
+<a name="128"><span class="lineNum">     128 </span><span class="lineCov">      17145 :                                    &quot;scipp.Dict.keys&quot;);</span></a>
 <a name="129"><span class="lineNum">     129 </span>            : }</a>
 <a name="130"><span class="lineNum">     130 </span>            : </a>
-<a name="131"><span class="lineNum">     131 </span><span class="lineCov">         55 : std::string dict_keys_to_string(const Masks &amp;masks) {</span></a>
-<a name="132"><span class="lineNum">     132 </span><span class="lineCov">         55 :   return core::dict_keys_to_string(masks.keys_begin(), masks.keys_end(),</span></a>
-<a name="133"><span class="lineNum">     133 </span><span class="lineCov">        165 :                                    &quot;scipp.Dict.keys&quot;);</span></a>
+<a name="131"><span class="lineNum">     131 </span><span class="lineCov">         39 : std::string dict_keys_to_string(const Masks &amp;masks) {</span></a>
+<a name="132"><span class="lineNum">     132 </span><span class="lineCov">         39 :   return core::dict_keys_to_string(masks.keys_begin(), masks.keys_end(),</span></a>
+<a name="133"><span class="lineNum">     133 </span><span class="lineCov">        117 :                                    &quot;scipp.Dict.keys&quot;);</span></a>
 <a name="134"><span class="lineNum">     134 </span>            : }</a>
 <a name="135"><span class="lineNum">     135 </span>            : </a>
-<a name="136"><span class="lineNum">     136 </span><span class="lineCov">         29 : std::string dict_keys_to_string(const Dataset &amp;dataset) {</span></a>
-<a name="137"><span class="lineNum">     137 </span><span class="lineCov">         29 :   return core::dict_keys_to_string(dataset.keys_begin(), dataset.keys_end(),</span></a>
-<a name="138"><span class="lineNum">     138 </span><span class="lineCov">         87 :                                    &quot;scipp.Dataset.keys&quot;);</span></a>
+<a name="136"><span class="lineNum">     136 </span><span class="lineCov">         25 : std::string dict_keys_to_string(const Dataset &amp;dataset) {</span></a>
+<a name="137"><span class="lineNum">     137 </span><span class="lineCov">         25 :   return core::dict_keys_to_string(dataset.keys_begin(), dataset.keys_end(),</span></a>
+<a name="138"><span class="lineNum">     138 </span><span class="lineCov">         75 :                                    &quot;scipp.Dataset.keys&quot;);</span></a>
 <a name="139"><span class="lineNum">     139 </span>            : }</a>
 <a name="140"><span class="lineNum">     140 </span>            : </a>
 <a name="141"><span class="lineNum">     141 </span>            : } // namespace scipp::dataset</a>

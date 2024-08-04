@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-04-28 01:25:40</td>
+            <td class="headerValue">2024-08-04 01:35:26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">1</td>
@@ -71,18 +71,18 @@
 <a name="9"><span class="lineNum">       9 </span>            : using namespace scipp::variable;</a>
 <a name="10"><span class="lineNum">      10 </span>            : </a>
 <a name="11"><span class="lineNum">      11 </span>            : std::tuple&lt;Variable, Variable&gt;</a>
-<a name="12"><span class="lineNum">      12 </span><span class="lineCov">       2485 : label_bounds_from_pyslice(const py::slice &amp;py_slice) {</span></a>
-<a name="13"><span class="lineNum">      13 </span><span class="lineCov">       2485 :   auto start = py::getattr(py_slice, &quot;start&quot;);</span></a>
-<a name="14"><span class="lineNum">      14 </span><span class="lineCov">       2485 :   auto stop = py::getattr(py_slice, &quot;stop&quot;);</span></a>
-<a name="15"><span class="lineNum">      15 </span><span class="lineCov">       2485 :   auto step = py::getattr(py_slice, &quot;step&quot;);</span></a>
-<a name="16"><span class="lineNum">      16 </span><span class="lineCov">       2485 :   auto start_var = start.is_none() ? Variable{} : start.cast&lt;Variable&gt;();</span></a>
+<a name="12"><span class="lineNum">      12 </span><span class="lineCov">       2486 : label_bounds_from_pyslice(const py::slice &amp;py_slice) {</span></a>
+<a name="13"><span class="lineNum">      13 </span><span class="lineCov">       2486 :   auto start = py::getattr(py_slice, &quot;start&quot;);</span></a>
+<a name="14"><span class="lineNum">      14 </span><span class="lineCov">       2486 :   auto stop = py::getattr(py_slice, &quot;stop&quot;);</span></a>
+<a name="15"><span class="lineNum">      15 </span><span class="lineCov">       2486 :   auto step = py::getattr(py_slice, &quot;step&quot;);</span></a>
+<a name="16"><span class="lineNum">      16 </span><span class="lineCov">       2486 :   auto start_var = start.is_none() ? Variable{} : start.cast&lt;Variable&gt;();</span></a>
 <a name="17"><span class="lineNum">      17 </span><span class="lineCov">       1149 :   auto stop_var = stop.is_none() ? Variable{} : stop.cast&lt;Variable&gt;();</span></a>
 <a name="18"><span class="lineNum">      18 </span><span class="lineCov">         97 :   if (!step.is_none()) {</span></a>
 <a name="19"><span class="lineNum">      19 </span><span class="lineCov">          1 :     throw std::runtime_error(</span></a>
 <a name="20"><span class="lineNum">      20 </span><span class="lineCov">          2 :         &quot;Step cannot be specified for value based slicing.&quot;);</span></a>
 <a name="21"><span class="lineNum">      21 </span>            :   }</a>
 <a name="22"><span class="lineNum">      22 </span><span class="lineCov">        192 :   return std::tuple{start_var, stop_var};</span></a>
-<a name="23"><span class="lineNum">      23 </span><span class="lineCov">       8317 : }</span></a>
+<a name="23"><span class="lineNum">      23 </span><span class="lineCov">       8320 : }</span></a>
 </pre>
       </td>
     </tr>

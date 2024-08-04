@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-04-28 01:25:40</td>
+            <td class="headerValue">2024-08-04 01:35:26</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">55</td>
@@ -238,27 +238,27 @@
 <a name="176"><span class="lineNum">     176 </span>            : /// 2. If at least one (but not all) of the from_dims is contained in the</a>
 <a name="177"><span class="lineNum">     177 </span>            : ///    variable's dims, broadcast</a>
 <a name="178"><span class="lineNum">     178 </span>            : /// 3. If none of the variables's dimensions are contained, no broadcast</a>
-<a name="179"><span class="lineNum">     179 </span><span class="lineCov">       6970 : Variable maybe_broadcast(const Variable &amp;var,</span></a>
+<a name="179"><span class="lineNum">     179 </span><span class="lineCov">       7047 : Variable maybe_broadcast(const Variable &amp;var,</span></a>
 <a name="180"><span class="lineNum">     180 </span>            :                          const scipp::span&lt;const Dim&gt; &amp;from_labels,</a>
 <a name="181"><span class="lineNum">     181 </span>            :                          const Dimensions &amp;data_dims) {</a>
-<a name="182"><span class="lineNum">     182 </span><span class="lineCov">       6970 :   const auto &amp;var_dims = var.dims();</span></a>
-<a name="183"><span class="lineNum">     183 </span><span class="lineCov">       6970 :   Dimensions broadcast_dims;</span></a>
-<a name="184"><span class="lineNum">     184 </span><span class="lineCov">      18108 :   for (const auto &amp;dim : var_dims.labels())</span></a>
-<a name="185"><span class="lineNum">     185 </span><span class="lineCov">      22276 :     if (std::find(from_labels.begin(), from_labels.end(), dim) ==</span></a>
-<a name="186"><span class="lineNum">     186 </span><span class="lineCov">      11138 :         from_labels.end())</span></a>
+<a name="182"><span class="lineNum">     182 </span><span class="lineCov">       7047 :   const auto &amp;var_dims = var.dims();</span></a>
+<a name="183"><span class="lineNum">     183 </span><span class="lineCov">       7047 :   Dimensions broadcast_dims;</span></a>
+<a name="184"><span class="lineNum">     184 </span><span class="lineCov">      18262 :   for (const auto &amp;dim : var_dims.labels())</span></a>
+<a name="185"><span class="lineNum">     185 </span><span class="lineCov">      22430 :     if (std::find(from_labels.begin(), from_labels.end(), dim) ==</span></a>
+<a name="186"><span class="lineNum">     186 </span><span class="lineCov">      11215 :         from_labels.end())</span></a>
 <a name="187"><span class="lineNum">     187 </span><span class="lineCov">         13 :       broadcast_dims.addInner(dim, var_dims[dim]);</span></a>
 <a name="188"><span class="lineNum">     188 </span>            :     else</a>
-<a name="189"><span class="lineNum">     189 </span><span class="lineCov">      42684 :       for (const auto &amp;lab : from_labels)</span></a>
-<a name="190"><span class="lineNum">     190 </span><span class="lineCov">      31559 :         if (!broadcast_dims.contains(lab)) {</span></a>
+<a name="189"><span class="lineNum">     189 </span><span class="lineCov">      42838 :       for (const auto &amp;lab : from_labels)</span></a>
+<a name="190"><span class="lineNum">     190 </span><span class="lineCov">      31636 :         if (!broadcast_dims.contains(lab)) {</span></a>
 <a name="191"><span class="lineNum">     191 </span>            :           // Need to check if the variable contains that dim, and use the</a>
 <a name="192"><span class="lineNum">     192 </span>            :           // variable shape in case we have a bin edge.</a>
-<a name="193"><span class="lineNum">     193 </span><span class="lineCov">      19091 :           if (var_dims.contains(lab))</span></a>
-<a name="194"><span class="lineNum">     194 </span><span class="lineCov">      11125 :             broadcast_dims.addInner(lab, var_dims[lab]);</span></a>
+<a name="193"><span class="lineNum">     193 </span><span class="lineCov">      19168 :           if (var_dims.contains(lab))</span></a>
+<a name="194"><span class="lineNum">     194 </span><span class="lineCov">      11202 :             broadcast_dims.addInner(lab, var_dims[lab]);</span></a>
 <a name="195"><span class="lineNum">     195 </span>            :           else</a>
 <a name="196"><span class="lineNum">     196 </span><span class="lineCov">       7966 :             broadcast_dims.addInner(lab, data_dims[lab]);</span></a>
 <a name="197"><span class="lineNum">     197 </span>            :         }</a>
-<a name="198"><span class="lineNum">     198 </span><span class="lineCov">      13940 :   return broadcast(var, broadcast_dims);</span></a>
-<a name="199"><span class="lineNum">     199 </span><span class="lineCov">       6970 : }</span></a>
+<a name="198"><span class="lineNum">     198 </span><span class="lineCov">      14094 :   return broadcast(var, broadcast_dims);</span></a>
+<a name="199"><span class="lineNum">     199 </span><span class="lineCov">       7047 : }</span></a>
 <a name="200"><span class="lineNum">     200 </span>            : </a>
 <a name="201"><span class="lineNum">     201 </span>            : /// Special handling for folding coord along a dim that contains bin edges.</a>
 <a name="202"><span class="lineNum">     202 </span><span class="lineCov">          4 : Variable fold_bin_edge(const Variable &amp;var, const Dim from_dim,</span></a>
@@ -300,12 +300,12 @@
 <a name="238"><span class="lineNum">     238 </span><span class="lineCov">          5 : }</span></a>
 <a name="239"><span class="lineNum">     239 </span>            : </a>
 <a name="240"><span class="lineNum">     240 </span>            : /// Check if one of the from_labels is a bin edge</a>
-<a name="241"><span class="lineNum">     241 </span><span class="lineCov">       8956 : Dim bin_edge_in_from_labels(const Variable &amp;var, const Dimensions &amp;array_dims,</span></a>
+<a name="241"><span class="lineNum">     241 </span><span class="lineCov">       9096 : Dim bin_edge_in_from_labels(const Variable &amp;var, const Dimensions &amp;array_dims,</span></a>
 <a name="242"><span class="lineNum">     242 </span>            :                             const scipp::span&lt;const Dim&gt; &amp;from_labels) {</a>
-<a name="243"><span class="lineNum">     243 </span><span class="lineCov">      32382 :   for (const auto &amp;dim : from_labels)</span></a>
-<a name="244"><span class="lineNum">     244 </span><span class="lineCov">      23431 :     if (is_edges(array_dims, var.dims(), dim))</span></a>
+<a name="243"><span class="lineNum">     243 </span><span class="lineCov">      32662 :   for (const auto &amp;dim : from_labels)</span></a>
+<a name="244"><span class="lineNum">     244 </span><span class="lineCov">      23571 :     if (is_edges(array_dims, var.dims(), dim))</span></a>
 <a name="245"><span class="lineNum">     245 </span><span class="lineCov">          5 :       return dim;</span></a>
-<a name="246"><span class="lineNum">     246 </span><span class="lineCov">       8951 :   return Dim::Invalid;</span></a>
+<a name="246"><span class="lineNum">     246 </span><span class="lineCov">       9091 :   return Dim::Invalid;</span></a>
 <a name="247"><span class="lineNum">     247 </span>            : }</a>
 <a name="248"><span class="lineNum">     248 </span>            : </a>
 <a name="249"><span class="lineNum">     249 </span>            : } // end anonymous namespace</a>
@@ -325,46 +325,46 @@
 <a name="263"><span class="lineNum">     263 </span>            : }</a>
 <a name="264"><span class="lineNum">     264 </span>            : </a>
 <a name="265"><span class="lineNum">     265 </span>            : namespace {</a>
-<a name="266"><span class="lineNum">     266 </span><span class="lineCov">       1989 : void expect_dimension_subset(const core::Dimensions &amp;full_set,</span></a>
+<a name="266"><span class="lineNum">     266 </span><span class="lineCov">       2052 : void expect_dimension_subset(const core::Dimensions &amp;full_set,</span></a>
 <a name="267"><span class="lineNum">     267 </span>            :                              const scipp::span&lt;const Dim&gt; &amp;subset) {</a>
-<a name="268"><span class="lineNum">     268 </span><span class="lineCov">       6317 :   for (const auto &amp;dim : subset) {</span></a>
-<a name="269"><span class="lineNum">     269 </span><span class="lineCov">       4331 :     if (!full_set.contains(dim)) {</span></a>
+<a name="268"><span class="lineNum">     268 </span><span class="lineCov">       6443 :   for (const auto &amp;dim : subset) {</span></a>
+<a name="269"><span class="lineNum">     269 </span><span class="lineCov">       4394 :     if (!full_set.contains(dim)) {</span></a>
 <a name="270"><span class="lineNum">     270 </span><span class="lineCov">          9 :       throw except::DimensionError{&quot;Expected dimension &quot; + to_string(dim) +</span></a>
 <a name="271"><span class="lineNum">     271 </span><span class="lineCov">         12 :                                    &quot;to be in &quot; + to_string(full_set)};</span></a>
 <a name="272"><span class="lineNum">     272 </span>            :     }</a>
 <a name="273"><span class="lineNum">     273 </span>            :   }</a>
-<a name="274"><span class="lineNum">     274 </span><span class="lineCov">       1986 : }</span></a>
+<a name="274"><span class="lineNum">     274 </span><span class="lineCov">       2049 : }</span></a>
 <a name="275"><span class="lineNum">     275 </span>            : } // namespace</a>
 <a name="276"><span class="lineNum">     276 </span>            : </a>
 <a name="277"><span class="lineNum">     277 </span>            : /// Flatten multiple dimensions into a single dimension:</a>
 <a name="278"><span class="lineNum">     278 </span>            : /// ['y', 'z'] -&gt; ['x']</a>
-<a name="279"><span class="lineNum">     279 </span><span class="lineCov">       1991 : DataArray flatten(const DataArray &amp;a,</span></a>
+<a name="279"><span class="lineNum">     279 </span><span class="lineCov">       2054 : DataArray flatten(const DataArray &amp;a,</span></a>
 <a name="280"><span class="lineNum">     280 </span>            :                   const std::optional&lt;scipp::span&lt;const Dim&gt;&gt; &amp;from_labels,</a>
 <a name="281"><span class="lineNum">     281 </span>            :                   const Dim to_dim) {</a>
-<a name="282"><span class="lineNum">     282 </span><span class="lineCov">       1991 :   const auto &amp;labels = from_labels.value_or(a.dims().labels());</span></a>
-<a name="283"><span class="lineNum">     283 </span><span class="lineCov">       1991 :   if (from_labels.has_value() &amp;&amp; labels.empty())</span></a>
+<a name="282"><span class="lineNum">     282 </span><span class="lineCov">       2054 :   const auto &amp;labels = from_labels.value_or(a.dims().labels());</span></a>
+<a name="283"><span class="lineNum">     283 </span><span class="lineCov">       2054 :   if (from_labels.has_value() &amp;&amp; labels.empty())</span></a>
 <a name="284"><span class="lineNum">     284 </span><span class="lineCov">          8 :     return DataArray(flatten(a.data(), labels, to_dim), a.coords(), a.masks(),</span></a>
 <a name="285"><span class="lineNum">     285 </span><span class="lineCov">         10 :                      a.attrs());</span></a>
-<a name="286"><span class="lineNum">     286 </span><span class="lineCov">       1989 :   expect_dimension_subset(a.dims(), labels);</span></a>
-<a name="287"><span class="lineNum">     287 </span><span class="lineCov">       8956 :   return dataset::transform(a, [&amp;](const auto &amp;in) {</span></a>
-<a name="288"><span class="lineNum">     288 </span><span class="lineCov">       8956 :     auto var = (&amp;in == &amp;a.data()) ? in : maybe_broadcast(in, labels, a.dims());</span></a>
-<a name="289"><span class="lineNum">     289 </span><span class="lineCov">       8956 :     const auto bin_edge_dim = bin_edge_in_from_labels(in, a.dims(), labels);</span></a>
-<a name="290"><span class="lineNum">     290 </span><span class="lineCov">       8956 :     if (bin_edge_dim != Dim::Invalid) {</span></a>
+<a name="286"><span class="lineNum">     286 </span><span class="lineCov">       2052 :   expect_dimension_subset(a.dims(), labels);</span></a>
+<a name="287"><span class="lineNum">     287 </span><span class="lineCov">       9096 :   return dataset::transform(a, [&amp;](const auto &amp;in) {</span></a>
+<a name="288"><span class="lineNum">     288 </span><span class="lineCov">       9096 :     auto var = (&amp;in == &amp;a.data()) ? in : maybe_broadcast(in, labels, a.dims());</span></a>
+<a name="289"><span class="lineNum">     289 </span><span class="lineCov">       9096 :     const auto bin_edge_dim = bin_edge_in_from_labels(in, a.dims(), labels);</span></a>
+<a name="290"><span class="lineNum">     290 </span><span class="lineCov">       9096 :     if (bin_edge_dim != Dim::Invalid) {</span></a>
 <a name="291"><span class="lineNum">     291 </span><span class="lineCov">          5 :       return flatten_bin_edge(var, labels, to_dim, bin_edge_dim);</span></a>
-<a name="292"><span class="lineNum">     292 </span><span class="lineCov">       8951 :     } else if (a.dims().empty() || var.dims().contains(labels.front())) {</span></a>
+<a name="292"><span class="lineNum">     292 </span><span class="lineCov">       9091 :     } else if (a.dims().empty() || var.dims().contains(labels.front())) {</span></a>
 <a name="293"><span class="lineNum">     293 </span>            :       // maybe_broadcast ensures that all variables contain</a>
 <a name="294"><span class="lineNum">     294 </span>            :       // all dims in labels, so only need to check labels.front().</a>
-<a name="295"><span class="lineNum">     295 </span><span class="lineCov">       8943 :       return flatten(var, labels, to_dim);</span></a>
+<a name="295"><span class="lineNum">     295 </span><span class="lineCov">       9083 :       return flatten(var, labels, to_dim);</span></a>
 <a name="296"><span class="lineNum">     296 </span>            :     } else {</a>
 <a name="297"><span class="lineNum">     297 </span>            :       // This only happens for metadata.</a>
 <a name="298"><span class="lineNum">     298 </span><span class="lineCov">          8 :       return var;</span></a>
 <a name="299"><span class="lineNum">     299 </span>            :     }</a>
-<a name="300"><span class="lineNum">     300 </span><span class="lineCov">      10942 :   });</span></a>
+<a name="300"><span class="lineNum">     300 </span><span class="lineCov">      11145 :   });</span></a>
 <a name="301"><span class="lineNum">     301 </span>            : }</a>
 <a name="302"><span class="lineNum">     302 </span>            : </a>
-<a name="303"><span class="lineNum">     303 </span><span class="lineCov">        860 : DataArray transpose(const DataArray &amp;a, const scipp::span&lt;const Dim&gt; dims) {</span></a>
-<a name="304"><span class="lineNum">     304 </span><span class="lineCov">       3440 :   return {transpose(a.data(), dims), a.coords(), a.masks(), a.attrs(),</span></a>
-<a name="305"><span class="lineNum">     305 </span><span class="lineCov">       3440 :           a.name()};</span></a>
+<a name="303"><span class="lineNum">     303 </span><span class="lineCov">       1452 : DataArray transpose(const DataArray &amp;a, const scipp::span&lt;const Dim&gt; dims) {</span></a>
+<a name="304"><span class="lineNum">     304 </span><span class="lineCov">       5808 :   return {transpose(a.data(), dims), a.coords(), a.masks(), a.attrs(),</span></a>
+<a name="305"><span class="lineNum">     305 </span><span class="lineCov">       5808 :           a.name()};</span></a>
 <a name="306"><span class="lineNum">     306 </span>            : }</a>
 <a name="307"><span class="lineNum">     307 </span>            : </a>
 <a name="308"><span class="lineNum">     308 </span><span class="lineCov">          2 : Dataset transpose(const Dataset &amp;d, const scipp::span&lt;const Dim&gt; dims) {</span></a>
