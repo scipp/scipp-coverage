@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-08-11 01:40:11</td>
+            <td class="headerValue">2024-08-18 01:39:39</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">195</td>
@@ -96,9 +96,9 @@
 <a name="34"><span class="lineNum">      34 </span><span class="lineCov">         75 :           .def(&quot;__str__&quot;, [](const View&lt;T&gt; &amp;self) { return self.tostring(); })</span></a>
 <a name="35"><span class="lineNum">      35 </span><span class="lineCov">         45 :           .def(</span></a>
 <a name="36"><span class="lineNum">      36 </span>            :               &quot;__iter__&quot;,</a>
-<a name="37"><span class="lineNum">      37 </span><span class="lineCov">      14773 :               [](const View&lt;T&gt; &amp;self) {</span></a>
+<a name="37"><span class="lineNum">      37 </span><span class="lineCov">      15108 :               [](const View&lt;T&gt; &amp;self) {</span></a>
 <a name="38"><span class="lineNum">      38 </span>            :                 return py::make_iterator(self.begin(), self.end(),</a>
-<a name="39"><span class="lineNum">      39 </span><span class="lineCov">      14773 :                                          py::return_value_policy::move);</span></a>
+<a name="39"><span class="lineNum">      39 </span><span class="lineCov">      15108 :                                          py::return_value_policy::move);</span></a>
 <a name="40"><span class="lineNum">      40 </span>            :               },</a>
 <a name="41"><span class="lineNum">      41 </span><span class="lineCov">         90 :               py::return_value_policy::move, py::keep_alive&lt;0, 1&gt;());</span></a>
 <a name="42"><span class="lineNum">      42 </span>            :   if constexpr (!std::is_same_v&lt;View&lt;T&gt;, values_view&lt;T&gt;&gt;)</a>
@@ -107,12 +107,12 @@
 <a name="45"><span class="lineNum">      45 </span>            :     });</a>
 <a name="46"><span class="lineNum">      46 </span><span class="lineCov">         45 : }</span></a>
 <a name="47"><span class="lineNum">      47 </span>            : </a>
-<a name="48"><span class="lineNum">      48 </span><span class="lineCov">      15744 : template &lt;class D&gt; auto cast_to_dict_key(const py::handle &amp;obj) {</span></a>
+<a name="48"><span class="lineNum">      48 </span><span class="lineCov">      15771 : template &lt;class D&gt; auto cast_to_dict_key(const py::handle &amp;obj) {</span></a>
 <a name="49"><span class="lineNum">      49 </span>            :   using key_type = typename D::key_type;</a>
 <a name="50"><span class="lineNum">      50 </span>            :   if constexpr (std::is_same_v&lt;key_type, std::string&gt;) {</a>
 <a name="51"><span class="lineNum">      51 </span><span class="lineCov">         71 :     return obj.cast&lt;std::string&gt;();</span></a>
 <a name="52"><span class="lineNum">      52 </span>            :   } else {</a>
-<a name="53"><span class="lineNum">      53 </span><span class="lineCov">      15673 :     return key_type{obj.cast&lt;std::string&gt;()};</span></a>
+<a name="53"><span class="lineNum">      53 </span><span class="lineCov">      15700 :     return key_type{obj.cast&lt;std::string&gt;()};</span></a>
 <a name="54"><span class="lineNum">      54 </span>            :   }</a>
 <a name="55"><span class="lineNum">      55 </span>            : }</a>
 <a name="56"><span class="lineNum">      56 </span>            : </a>
@@ -126,13 +126,13 @@
 <a name="64"><span class="lineNum">      64 </span><span class="lineCov">         18 :   view.def(&quot;__len__&quot;, &amp;T::size)</span></a>
 <a name="65"><span class="lineNum">      65 </span><span class="lineNoCov">          0 :       .def(</span></a>
 <a name="66"><span class="lineNum">      66 </span>            :           &quot;__getitem__&quot;,</a>
-<a name="67"><span class="lineNum">      67 </span><span class="lineCov">      39602 :           [](const T &amp;self, const std::string &amp;key) {</span></a>
-<a name="68"><span class="lineNum">      68 </span><span class="lineCov">      73596 :             return self[typename T::key_type{key}];</span></a>
+<a name="67"><span class="lineNum">      67 </span><span class="lineCov">      39610 :           [](const T &amp;self, const std::string &amp;key) {</span></a>
+<a name="68"><span class="lineNum">      68 </span><span class="lineCov">      73612 :             return self[typename T::key_type{key}];</span></a>
 <a name="69"><span class="lineNum">      69 </span>            :           },</a>
 <a name="70"><span class="lineNum">      70 </span><span class="lineCov">         18 :           py::return_value_policy::copy)</span></a>
 <a name="71"><span class="lineNum">      71 </span><span class="lineCov">         18 :       .def(&quot;__setitem__&quot;,</span></a>
-<a name="72"><span class="lineNum">      72 </span><span class="lineCov">      27715 :            [](T &amp;self, const std::string &amp;key, const Variable &amp;var) {</span></a>
-<a name="73"><span class="lineNum">      73 </span><span class="lineCov">      13873 :              self.set(typename T::key_type{key}, var);</span></a>
+<a name="72"><span class="lineNum">      72 </span><span class="lineCov">      27811 :            [](T &amp;self, const std::string &amp;key, const Variable &amp;var) {</span></a>
+<a name="73"><span class="lineNum">      73 </span><span class="lineCov">      13921 :              self.set(typename T::key_type{key}, var);</span></a>
 <a name="74"><span class="lineNum">      74 </span>            :            })</a>
 <a name="75"><span class="lineNum">      75 </span><span class="lineCov">         18 :       .def(</span></a>
 <a name="76"><span class="lineNum">      76 </span>            :           &quot;__delitem__&quot;,</a>
@@ -140,9 +140,9 @@
 <a name="78"><span class="lineNum">      78 </span><span class="lineCov">       2549 :             self.erase(typename T::key_type{key});</span></a>
 <a name="79"><span class="lineNum">      79 </span>            :           },</a>
 <a name="80"><span class="lineNum">      80 </span><span class="lineNoCov">          0 :           py::call_guard&lt;py::gil_scoped_release&gt;())</span></a>
-<a name="81"><span class="lineNum">      81 </span><span class="lineCov">      15620 :       .def(&quot;__contains__&quot;, [](const T &amp;self, const py::handle &amp;key) {</span></a>
+<a name="81"><span class="lineNum">      81 </span><span class="lineCov">      15647 :       .def(&quot;__contains__&quot;, [](const T &amp;self, const py::handle &amp;key) {</span></a>
 <a name="82"><span class="lineNum">      82 </span>            :         try {</a>
-<a name="83"><span class="lineNum">      83 </span><span class="lineCov">      15602 :           return self.contains(cast_to_dict_key&lt;T&gt;(key));</span></a>
+<a name="83"><span class="lineNum">      83 </span><span class="lineCov">      15629 :           return self.contains(cast_to_dict_key&lt;T&gt;(key));</span></a>
 <a name="84"><span class="lineNum">      84 </span><span class="lineNoCov">          0 :         } catch (py::cast_error &amp;) {</span></a>
 <a name="85"><span class="lineNum">      85 </span><span class="lineNoCov">          0 :           return false; // if `key` is not a string, it cannot be contained</span></a>
 <a name="86"><span class="lineNum">      86 </span>            :         }</a>
@@ -269,11 +269,11 @@
 <a name="207"><span class="lineNum">     207 </span><span class="lineCov">         12 : void bind_is_edges(py::class_&lt;T, Ignored...&gt; &amp;view) {</span></a>
 <a name="208"><span class="lineNum">     208 </span><span class="lineCov">         12 :   view.def(</span></a>
 <a name="209"><span class="lineNum">     209 </span>            :       &quot;is_edges&quot;,</a>
-<a name="210"><span class="lineNum">     210 </span><span class="lineCov">       4843 :       [](const T &amp;self, const std::string &amp;key,</span></a>
+<a name="210"><span class="lineNum">     210 </span><span class="lineCov">       4852 :       [](const T &amp;self, const std::string &amp;key,</span></a>
 <a name="211"><span class="lineNum">     211 </span>            :          const std::optional&lt;std::string&gt; &amp;dim) {</a>
-<a name="212"><span class="lineNum">     212 </span><span class="lineCov">       9136 :         return self.is_edges(typename T::key_type{key},</span></a>
-<a name="213"><span class="lineNum">     213 </span><span class="lineCov">      13976 :                              dim.has_value() ? std::optional{Dim(*dim)}</span></a>
-<a name="214"><span class="lineNum">     214 </span><span class="lineCov">       9686 :                                              : std::optional&lt;Dim&gt;{});</span></a>
+<a name="212"><span class="lineNum">     212 </span><span class="lineCov">       9154 :         return self.is_edges(typename T::key_type{key},</span></a>
+<a name="213"><span class="lineNum">     213 </span><span class="lineCov">      14002 :                              dim.has_value() ? std::optional{Dim(*dim)}</span></a>
+<a name="214"><span class="lineNum">     214 </span><span class="lineCov">       9704 :                                              : std::optional&lt;Dim&gt;{});</span></a>
 <a name="215"><span class="lineNum">     215 </span>            :       },</a>
 <a name="216"><span class="lineNum">     216 </span><span class="lineCov">         24 :       py::arg(&quot;key&quot;), py::arg(&quot;dim&quot;) = std::nullopt,</span></a>
 <a name="217"><span class="lineNum">     217 </span>            :       R&quot;(Return True if the given key contains bin-edges in the given dim.)&quot;);</a>
@@ -294,19 +294,19 @@
 <a name="232"><span class="lineNum">     232 </span><span class="lineCov">          6 :   bind_is_edges(view);</span></a>
 <a name="233"><span class="lineNum">     233 </span><span class="lineCov">          6 :   view.def(</span></a>
 <a name="234"><span class="lineNum">     234 </span>            :           &quot;__iter__&quot;,</a>
-<a name="235"><span class="lineNum">     235 </span><span class="lineCov">        334 :           [](const T &amp;self) {</span></a>
+<a name="235"><span class="lineNum">     235 </span><span class="lineCov">        337 :           [](const T &amp;self) {</span></a>
 <a name="236"><span class="lineNum">     236 </span>            :             return py::make_iterator(self.keys_begin(), self.keys_end(),</a>
-<a name="237"><span class="lineNum">     237 </span><span class="lineCov">        334 :                                      py::return_value_policy::move);</span></a>
+<a name="237"><span class="lineNum">     237 </span><span class="lineCov">        337 :                                      py::return_value_policy::move);</span></a>
 <a name="238"><span class="lineNum">     238 </span>            :           },</a>
 <a name="239"><span class="lineNum">     239 </span><span class="lineNoCov">          0 :           py::keep_alive&lt;0, 1&gt;())</span></a>
 <a name="240"><span class="lineNum">     240 </span><span class="lineCov">          6 :       .def(</span></a>
 <a name="241"><span class="lineNum">     241 </span><span class="lineCov">       1090 :           &quot;keys&quot;, [](T &amp;self) { return keys_view(self); },</span></a>
 <a name="242"><span class="lineNum">     242 </span><span class="lineNoCov">          0 :           py::keep_alive&lt;0, 1&gt;(), R&quot;(view on self's keys)&quot;)</span></a>
 <a name="243"><span class="lineNum">     243 </span><span class="lineCov">          6 :       .def(</span></a>
-<a name="244"><span class="lineNum">     244 </span><span class="lineCov">       2565 :           &quot;values&quot;, [](T &amp;self) { return values_view(self); },</span></a>
+<a name="244"><span class="lineNum">     244 </span><span class="lineCov">       2645 :           &quot;values&quot;, [](T &amp;self) { return values_view(self); },</span></a>
 <a name="245"><span class="lineNum">     245 </span><span class="lineNoCov">          0 :           py::keep_alive&lt;0, 1&gt;(), R&quot;(view on self's values)&quot;)</span></a>
 <a name="246"><span class="lineNum">     246 </span><span class="lineNoCov">          0 :       .def(</span></a>
-<a name="247"><span class="lineNum">     247 </span><span class="lineCov">       3357 :           &quot;items&quot;, [](T &amp;self) { return items_view(self); },</span></a>
+<a name="247"><span class="lineNum">     247 </span><span class="lineCov">       3440 :           &quot;items&quot;, [](T &amp;self) { return items_view(self); },</span></a>
 <a name="248"><span class="lineNum">     248 </span><span class="lineCov">          6 :           py::return_value_policy::move, py::keep_alive&lt;0, 1&gt;(),</span></a>
 <a name="249"><span class="lineNum">     249 </span>            :           R&quot;(view on self's items)&quot;)</a>
 <a name="250"><span class="lineNum">     250 </span><span class="lineCov">          6 :       .def(&quot;_ipython_key_completions_&quot;,</span></a>
@@ -338,10 +338,10 @@
 <a name="276"><span class="lineNum">     276 </span><span class="lineCov">          6 :   bind_is_edges(view);</span></a>
 <a name="277"><span class="lineNum">     277 </span><span class="lineCov">          6 :   view.def(</span></a>
 <a name="278"><span class="lineNum">     278 </span>            :           &quot;__iter__&quot;,</a>
-<a name="279"><span class="lineNum">     279 </span><span class="lineCov">        434 :           [](T &amp;self) {</span></a>
-<a name="280"><span class="lineNum">     280 </span><span class="lineCov">        434 :             auto keys_view = str_keys_view(self);</span></a>
+<a name="279"><span class="lineNum">     279 </span><span class="lineCov">        437 :           [](T &amp;self) {</span></a>
+<a name="280"><span class="lineNum">     280 </span><span class="lineCov">        437 :             auto keys_view = str_keys_view(self);</span></a>
 <a name="281"><span class="lineNum">     281 </span>            :             return py::make_iterator(keys_view.begin(), keys_view.end(),</a>
-<a name="282"><span class="lineNum">     282 </span><span class="lineCov">        434 :                                      py::return_value_policy::move);</span></a>
+<a name="282"><span class="lineNum">     282 </span><span class="lineCov">        437 :                                      py::return_value_policy::move);</span></a>
 <a name="283"><span class="lineNum">     283 </span>            :           },</a>
 <a name="284"><span class="lineNum">     284 </span><span class="lineNoCov">          0 :           py::keep_alive&lt;0, 1&gt;())</span></a>
 <a name="285"><span class="lineNum">     285 </span><span class="lineCov">          6 :       .def(</span></a>
@@ -351,7 +351,7 @@
 <a name="289"><span class="lineNum">     289 </span><span class="lineCov">         92 :           &quot;values&quot;, [](T &amp;self) { return values_view(self); },</span></a>
 <a name="290"><span class="lineNum">     290 </span><span class="lineNoCov">          0 :           py::keep_alive&lt;0, 1&gt;(), R&quot;(view on self's values)&quot;)</span></a>
 <a name="291"><span class="lineNum">     291 </span><span class="lineNoCov">          0 :       .def(</span></a>
-<a name="292"><span class="lineNum">     292 </span><span class="lineCov">       6705 :           &quot;items&quot;, [](T &amp;self) { return str_items_view(self); },</span></a>
+<a name="292"><span class="lineNum">     292 </span><span class="lineCov">       6877 :           &quot;items&quot;, [](T &amp;self) { return str_items_view(self); },</span></a>
 <a name="293"><span class="lineNum">     293 </span><span class="lineCov">          6 :           py::return_value_policy::move, py::keep_alive&lt;0, 1&gt;(),</span></a>
 <a name="294"><span class="lineNum">     294 </span>            :           R&quot;(view on self's items)&quot;)</a>
 <a name="295"><span class="lineNum">     295 </span><span class="lineCov">          6 :       .def(&quot;_ipython_key_completions_&quot;,</span></a>
@@ -376,40 +376,40 @@
 <a name="314"><span class="lineNum">     314 </span><span class="lineCov">          3 :     c.def_property_readonly(&quot;name&quot;, &amp;T::name, R&quot;(The name of the held data.)&quot;);</span></a>
 <a name="315"><span class="lineNum">     315 </span><span class="lineCov">          6 :   c.def_property(</span></a>
 <a name="316"><span class="lineNum">     316 </span>            :       &quot;data&quot;,</a>
-<a name="317"><span class="lineNum">     317 </span><span class="lineCov">      28570 :       py::cpp_function([](T &amp;self) { return self.data(); },</span></a>
+<a name="317"><span class="lineNum">     317 </span><span class="lineCov">      28650 :       py::cpp_function([](T &amp;self) { return self.data(); },</span></a>
 <a name="318"><span class="lineNum">     318 </span><span class="lineCov">          6 :                        py::return_value_policy::copy),</span></a>
 <a name="319"><span class="lineNum">     319 </span><span class="lineCov">        167 :       [](T &amp;self, const Variable &amp;data) { self.setData(data); },</span></a>
 <a name="320"><span class="lineNum">     320 </span>            :       R&quot;(Underlying data item.)&quot;);</a>
 <a name="321"><span class="lineNum">     321 </span><span class="lineCov">          6 :   c.def_property_readonly(</span></a>
-<a name="322"><span class="lineNum">     322 </span><span class="lineCov">      70864 :       &quot;coords&quot;, [](T &amp;self) -&gt; decltype(auto) { return self.coords(); },</span></a>
+<a name="322"><span class="lineNum">     322 </span><span class="lineCov">      70976 :       &quot;coords&quot;, [](T &amp;self) -&gt; decltype(auto) { return self.coords(); },</span></a>
 <a name="323"><span class="lineNum">     323 </span>            :       R&quot;(Dict of coords.)&quot;);</a>
 <a name="324"><span class="lineNum">     324 </span><span class="lineCov">          6 :   c.def_property_readonly(</span></a>
-<a name="325"><span class="lineNum">     325 </span><span class="lineCov">       7670 :       &quot;deprecated_meta&quot;, [](T &amp;self) -&gt; decltype(auto) { return self.meta(); },</span></a>
+<a name="325"><span class="lineNum">     325 </span><span class="lineCov">       7678 :       &quot;deprecated_meta&quot;, [](T &amp;self) -&gt; decltype(auto) { return self.meta(); },</span></a>
 <a name="326"><span class="lineNum">     326 </span>            :       R&quot;(Dict of coords and attrs.)&quot;);</a>
 <a name="327"><span class="lineNum">     327 </span><span class="lineCov">          6 :   c.def_property_readonly(</span></a>
 <a name="328"><span class="lineNum">     328 </span>            :       &quot;deprecated_attrs&quot;,</a>
-<a name="329"><span class="lineNum">     329 </span><span class="lineCov">       4555 :       [](T &amp;self) -&gt; decltype(auto) { return self.attrs(); },</span></a>
+<a name="329"><span class="lineNum">     329 </span><span class="lineCov">       4635 :       [](T &amp;self) -&gt; decltype(auto) { return self.attrs(); },</span></a>
 <a name="330"><span class="lineNum">     330 </span>            :       R&quot;(Dict of attrs.)&quot;);</a>
 <a name="331"><span class="lineNum">     331 </span><span class="lineCov">          6 :   c.def_property_readonly(</span></a>
-<a name="332"><span class="lineNum">     332 </span><span class="lineCov">       9724 :       &quot;masks&quot;, [](T &amp;self) -&gt; decltype(auto) { return self.masks(); },</span></a>
+<a name="332"><span class="lineNum">     332 </span><span class="lineCov">       9929 :       &quot;masks&quot;, [](T &amp;self) -&gt; decltype(auto) { return self.masks(); },</span></a>
 <a name="333"><span class="lineNum">     333 </span>            :       R&quot;(Dict of masks.)&quot;);</a>
 <a name="334"><span class="lineNum">     334 </span><span class="lineCov">          6 :   c.def(&quot;drop_coords&quot;, [](T &amp;self, const std::string &amp;coord_name) {</span></a>
 <a name="335"><span class="lineNum">     335 </span><span class="lineCov">          3 :     std::vector&lt;scipp::Dim&gt; coord_names_c = {scipp::Dim{coord_name}};</span></a>
 <a name="336"><span class="lineNum">     336 </span><span class="lineCov">          6 :     return self.drop_coords(coord_names_c);</span></a>
 <a name="337"><span class="lineNum">     337 </span><span class="lineCov">          3 :   });</span></a>
 <a name="338"><span class="lineNum">     338 </span><span class="lineCov">          6 :   c.def(&quot;drop_coords&quot;,</span></a>
-<a name="339"><span class="lineNum">     339 </span><span class="lineCov">         25 :         [](T &amp;self, const std::vector&lt;std::string&gt; &amp;coord_names) {</span></a>
-<a name="340"><span class="lineNum">     340 </span><span class="lineCov">         25 :           std::vector&lt;scipp::Dim&gt; coord_names_c;</span></a>
-<a name="341"><span class="lineNum">     341 </span><span class="lineCov">         25 :           std::transform(coord_names.begin(), coord_names.end(),</span></a>
+<a name="339"><span class="lineNum">     339 </span><span class="lineCov">         26 :         [](T &amp;self, const std::vector&lt;std::string&gt; &amp;coord_names) {</span></a>
+<a name="340"><span class="lineNum">     340 </span><span class="lineCov">         26 :           std::vector&lt;scipp::Dim&gt; coord_names_c;</span></a>
+<a name="341"><span class="lineNum">     341 </span><span class="lineCov">         26 :           std::transform(coord_names.begin(), coord_names.end(),</span></a>
 <a name="342"><span class="lineNum">     342 </span>            :                          std::back_inserter(coord_names_c),</a>
-<a name="343"><span class="lineNum">     343 </span><span class="lineCov">         44 :                          [](const auto &amp;name) { return scipp::Dim{name}; });</span></a>
-<a name="344"><span class="lineNum">     344 </span><span class="lineCov">         50 :           return self.drop_coords(coord_names_c);</span></a>
-<a name="345"><span class="lineNum">     345 </span><span class="lineCov">         25 :         });</span></a>
+<a name="343"><span class="lineNum">     343 </span><span class="lineCov">         45 :                          [](const auto &amp;name) { return scipp::Dim{name}; });</span></a>
+<a name="344"><span class="lineNum">     344 </span><span class="lineCov">         52 :           return self.drop_coords(coord_names_c);</span></a>
+<a name="345"><span class="lineNum">     345 </span><span class="lineCov">         26 :         });</span></a>
 <a name="346"><span class="lineNum">     346 </span><span class="lineCov">          6 :   c.def(&quot;drop_masks&quot;, [](T &amp;self, const std::string &amp;mask_name) {</span></a>
 <a name="347"><span class="lineNum">     347 </span><span class="lineCov">          4 :     return self.drop_masks(std::vector({mask_name}));</span></a>
 <a name="348"><span class="lineNum">     348 </span>            :   });</a>
 <a name="349"><span class="lineNum">     349 </span><span class="lineCov">          6 :   c.def(&quot;drop_masks&quot;, [](T &amp;self, std::vector&lt;std::string&gt; &amp;mask_names) {</span></a>
-<a name="350"><span class="lineNum">     350 </span><span class="lineCov">          4 :     return self.drop_masks(mask_names);</span></a>
+<a name="350"><span class="lineNum">     350 </span><span class="lineCov">          5 :     return self.drop_masks(mask_names);</span></a>
 <a name="351"><span class="lineNum">     351 </span>            :   });</a>
 <a name="352"><span class="lineNum">     352 </span><span class="lineCov">          6 :   c.def(&quot;deprecated_drop_attrs&quot;, [](T &amp;self, std::string &amp;attr_name) {</span></a>
 <a name="353"><span class="lineNum">     353 </span><span class="lineCov">          2 :     std::vector&lt;scipp::Dim&gt; attr_names_c = {scipp::Dim{attr_name}};</span></a>
