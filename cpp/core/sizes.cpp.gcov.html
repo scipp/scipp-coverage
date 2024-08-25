@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-08-18 01:39:39</td>
+            <td class="headerValue">2024-08-25 01:35:12</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">25</td>
@@ -73,10 +73,10 @@
 <a name="11"><span class="lineNum">      11 </span>            : namespace scipp::core {</a>
 <a name="12"><span class="lineNum">      12 </span>            : </a>
 <a name="13"><span class="lineNum">      13 </span>            : namespace {</a>
-<a name="14"><span class="lineNum">      14 </span><span class="lineCov">    1549085 : template &lt;class T&gt; void expectUnique(const T &amp;map, const Dim label) {</span></a>
-<a name="15"><span class="lineNum">      15 </span><span class="lineCov">    1549085 :   if (map.contains(label))</span></a>
+<a name="14"><span class="lineNum">      14 </span><span class="lineCov">    1640815 : template &lt;class T&gt; void expectUnique(const T &amp;map, const Dim label) {</span></a>
+<a name="15"><span class="lineNum">      15 </span><span class="lineCov">    1640815 :   if (map.contains(label))</span></a>
 <a name="16"><span class="lineNum">      16 </span><span class="lineCov">         12 :     throw except::DimensionError(&quot;Duplicate dimension.&quot;);</span></a>
-<a name="17"><span class="lineNum">      17 </span><span class="lineCov">    1549073 : }</span></a>
+<a name="17"><span class="lineNum">      17 </span><span class="lineCov">    1640803 : }</span></a>
 <a name="18"><span class="lineNum">      18 </span>            : </a>
 <a name="19"><span class="lineNum">      19 </span><span class="lineCov">         21 : template &lt;class T&gt; std::string to_string(const T &amp;map) {</span></a>
 <a name="20"><span class="lineNum">      20 </span><span class="lineCov">         21 :   std::string repr(&quot;[&quot;);</span></a>
@@ -100,8 +100,8 @@
 <a name="38"><span class="lineNum">      38 </span>            :     const small_stable_map &amp;other) const noexcept {</a>
 <a name="39"><span class="lineNum">      39 </span><span class="lineCov">       4571 :   if (size() != other.size())</span></a>
 <a name="40"><span class="lineNum">      40 </span><span class="lineCov">          7 :     return false;</span></a>
-<a name="41"><span class="lineNum">      41 </span><span class="lineCov">      16850 :   for (const auto &amp;key : *this)</span></a>
-<a name="42"><span class="lineNum">      42 </span><span class="lineCov">       7728 :     if (!other.contains(key) || at(key) != other.at(key))</span></a>
+<a name="41"><span class="lineNum">      41 </span><span class="lineCov">      16866 :   for (const auto &amp;key : *this)</span></a>
+<a name="42"><span class="lineNum">      42 </span><span class="lineCov">       7744 :     if (!other.contains(key) || at(key) != other.at(key))</span></a>
 <a name="43"><span class="lineNum">      43 </span><span class="lineCov">          6 :       return false;</span></a>
 <a name="44"><span class="lineNum">      44 </span><span class="lineCov">       4558 :   return true;</span></a>
 <a name="45"><span class="lineNum">      45 </span>            : }</a>
@@ -114,40 +114,40 @@
 <a name="52"><span class="lineNum">      52 </span>            : </a>
 <a name="53"><span class="lineNum">      53 </span>            : template &lt;class Key, class Value, int16_t Capacity&gt;</a>
 <a name="54"><span class="lineNum">      54 </span>            : typename boost::container::small_vector&lt;Key, Capacity&gt;::const_iterator</a>
-<a name="55"><span class="lineNum">      55 </span><span class="lineCov">   23501930 : small_stable_map&lt;Key, Value, Capacity&gt;::find(const Key &amp;key) const {</span></a>
-<a name="56"><span class="lineNum">      56 </span><span class="lineCov">   23501930 :   return std::find(begin(), end(), key);</span></a>
+<a name="55"><span class="lineNum">      55 </span><span class="lineCov">   24639386 : small_stable_map&lt;Key, Value, Capacity&gt;::find(const Key &amp;key) const {</span></a>
+<a name="56"><span class="lineNum">      56 </span><span class="lineCov">   24639386 :   return std::find(begin(), end(), key);</span></a>
 <a name="57"><span class="lineNum">      57 </span>            : }</a>
 <a name="58"><span class="lineNum">      58 </span>            : </a>
 <a name="59"><span class="lineNum">      59 </span>            : template &lt;class Key, class Value, int16_t Capacity&gt;</a>
-<a name="60"><span class="lineNum">      60 </span><span class="lineCov">   10100983 : bool small_stable_map&lt;Key, Value, Capacity&gt;::contains(const Key &amp;key) const {</span></a>
-<a name="61"><span class="lineNum">      61 </span><span class="lineCov">   20201966 :   return find(key) != end();</span></a>
+<a name="60"><span class="lineNum">      60 </span><span class="lineCov">   10637952 : bool small_stable_map&lt;Key, Value, Capacity&gt;::contains(const Key &amp;key) const {</span></a>
+<a name="61"><span class="lineNum">      61 </span><span class="lineCov">   21275904 :   return find(key) != end();</span></a>
 <a name="62"><span class="lineNum">      62 </span>            : }</a>
 <a name="63"><span class="lineNum">      63 </span>            : </a>
 <a name="64"><span class="lineNum">      64 </span>            : template &lt;class Key, class Value, int16_t Capacity&gt;</a>
 <a name="65"><span class="lineNum">      65 </span>            : scipp::index</a>
-<a name="66"><span class="lineNum">      66 </span><span class="lineCov">   13400947 : small_stable_map&lt;Key, Value, Capacity&gt;::index(const Key &amp;key) const {</span></a>
-<a name="67"><span class="lineNum">      67 </span><span class="lineCov">   13400947 :   const auto it = find(key);</span></a>
-<a name="68"><span class="lineNum">      68 </span><span class="lineCov">   26801894 :   if (it == end())</span></a>
+<a name="66"><span class="lineNum">      66 </span><span class="lineCov">   14001434 : small_stable_map&lt;Key, Value, Capacity&gt;::index(const Key &amp;key) const {</span></a>
+<a name="67"><span class="lineNum">      67 </span><span class="lineCov">   14001434 :   const auto it = find(key);</span></a>
+<a name="68"><span class="lineNum">      68 </span><span class="lineCov">   28002868 :   if (it == end())</span></a>
 <a name="69"><span class="lineNum">      69 </span><span class="lineCov">         21 :     throw_dimension_not_found_error(*this, key);</span></a>
-<a name="70"><span class="lineNum">      70 </span><span class="lineCov">   13400926 :   return std::distance(begin(), it);</span></a>
+<a name="70"><span class="lineNum">      70 </span><span class="lineCov">   14001413 :   return std::distance(begin(), it);</span></a>
 <a name="71"><span class="lineNum">      71 </span>            : }</a>
 <a name="72"><span class="lineNum">      72 </span>            : </a>
 <a name="73"><span class="lineNum">      73 </span>            : template &lt;class Key, class Value, int16_t Capacity&gt;</a>
 <a name="74"><span class="lineNum">      74 </span>            : const Value &amp;</a>
-<a name="75"><span class="lineNum">      75 </span><span class="lineCov">    7351882 : small_stable_map&lt;Key, Value, Capacity&gt;::operator[](const Key &amp;key) const {</span></a>
-<a name="76"><span class="lineNum">      76 </span><span class="lineCov">    7351882 :   return at(key);</span></a>
+<a name="75"><span class="lineNum">      75 </span><span class="lineCov">    7734275 : small_stable_map&lt;Key, Value, Capacity&gt;::operator[](const Key &amp;key) const {</span></a>
+<a name="76"><span class="lineNum">      76 </span><span class="lineCov">    7734275 :   return at(key);</span></a>
 <a name="77"><span class="lineNum">      77 </span>            : }</a>
 <a name="78"><span class="lineNum">      78 </span>            : </a>
 <a name="79"><span class="lineNum">      79 </span>            : template &lt;class Key, class Value, int16_t Capacity&gt;</a>
-<a name="80"><span class="lineNum">      80 </span><span class="lineCov">    8442868 : const Value &amp;small_stable_map&lt;Key, Value, Capacity&gt;::at(const Key &amp;key) const {</span></a>
-<a name="81"><span class="lineNum">      81 </span><span class="lineCov">   16885725 :   return m_values[index(key)];</span></a>
+<a name="80"><span class="lineNum">      80 </span><span class="lineCov">    8889680 : const Value &amp;small_stable_map&lt;Key, Value, Capacity&gt;::at(const Key &amp;key) const {</span></a>
+<a name="81"><span class="lineNum">      81 </span><span class="lineCov">   17779349 :   return m_values[index(key)];</span></a>
 <a name="82"><span class="lineNum">      82 </span>            : }</a>
 <a name="83"><span class="lineNum">      83 </span>            : </a>
 <a name="84"><span class="lineNum">      84 </span>            : template &lt;class Key, class Value, int16_t Capacity&gt;</a>
-<a name="85"><span class="lineNum">      85 </span><span class="lineCov">     880790 : void small_stable_map&lt;Key, Value, Capacity&gt;::assign(const Key &amp;key,</span></a>
+<a name="85"><span class="lineNum">      85 </span><span class="lineCov">     889363 : void small_stable_map&lt;Key, Value, Capacity&gt;::assign(const Key &amp;key,</span></a>
 <a name="86"><span class="lineNum">      86 </span>            :                                                     const Value &amp;value) {</a>
-<a name="87"><span class="lineNum">      87 </span><span class="lineCov">     880790 :   m_values[index(key)] = value;</span></a>
-<a name="88"><span class="lineNum">      88 </span><span class="lineCov">     880790 : }</span></a>
+<a name="87"><span class="lineNum">      87 </span><span class="lineCov">     889363 :   m_values[index(key)] = value;</span></a>
+<a name="88"><span class="lineNum">      88 </span><span class="lineCov">     889363 : }</span></a>
 <a name="89"><span class="lineNum">      89 </span>            : </a>
 <a name="90"><span class="lineNum">      90 </span>            : template &lt;class Key, class Value, int16_t Capacity&gt;</a>
 <a name="91"><span class="lineNum">      91 </span><span class="lineCov">        240 : void small_stable_map&lt;Key, Value, Capacity&gt;::insert_left(const Key &amp;key,</span></a>
@@ -158,19 +158,19 @@
 <a name="96"><span class="lineNum">      96 </span><span class="lineCov">        237 : }</span></a>
 <a name="97"><span class="lineNum">      97 </span>            : </a>
 <a name="98"><span class="lineNum">      98 </span>            : template &lt;class Key, class Value, int16_t Capacity&gt;</a>
-<a name="99"><span class="lineNum">      99 </span><span class="lineCov">    1537155 : void small_stable_map&lt;Key, Value, Capacity&gt;::insert_right(const Key &amp;key,</span></a>
+<a name="99"><span class="lineNum">      99 </span><span class="lineCov">    1628785 : void small_stable_map&lt;Key, Value, Capacity&gt;::insert_right(const Key &amp;key,</span></a>
 <a name="100"><span class="lineNum">     100 </span>            :                                                           const Value &amp;value) {</a>
-<a name="101"><span class="lineNum">     101 </span><span class="lineCov">    1537155 :   expectUnique(*this, key);</span></a>
-<a name="102"><span class="lineNum">     102 </span><span class="lineCov">    1537147 :   m_keys.push_back(key);</span></a>
-<a name="103"><span class="lineNum">     103 </span><span class="lineCov">    1537147 :   m_values.push_back(value);</span></a>
-<a name="104"><span class="lineNum">     104 </span><span class="lineCov">    1537147 : }</span></a>
+<a name="101"><span class="lineNum">     101 </span><span class="lineCov">    1628785 :   expectUnique(*this, key);</span></a>
+<a name="102"><span class="lineNum">     102 </span><span class="lineCov">    1628777 :   m_keys.push_back(key);</span></a>
+<a name="103"><span class="lineNum">     103 </span><span class="lineCov">    1628777 :   m_values.push_back(value);</span></a>
+<a name="104"><span class="lineNum">     104 </span><span class="lineCov">    1628777 : }</span></a>
 <a name="105"><span class="lineNum">     105 </span>            : </a>
 <a name="106"><span class="lineNum">     106 </span>            : template &lt;class Key, class Value, int16_t Capacity&gt;</a>
-<a name="107"><span class="lineNum">     107 </span><span class="lineCov">     449107 : void small_stable_map&lt;Key, Value, Capacity&gt;::erase(const Key &amp;key) {</span></a>
-<a name="108"><span class="lineNum">     108 </span><span class="lineCov">     449107 :   const auto i = index(key);</span></a>
-<a name="109"><span class="lineNum">     109 </span><span class="lineCov">     898198 :   m_keys.erase(m_keys.begin() + i);</span></a>
-<a name="110"><span class="lineNum">     110 </span><span class="lineCov">     898198 :   m_values.erase(m_values.begin() + i);</span></a>
-<a name="111"><span class="lineNum">     111 </span><span class="lineCov">     449099 : }</span></a>
+<a name="107"><span class="lineNum">     107 </span><span class="lineCov">     450806 : void small_stable_map&lt;Key, Value, Capacity&gt;::erase(const Key &amp;key) {</span></a>
+<a name="108"><span class="lineNum">     108 </span><span class="lineCov">     450806 :   const auto i = index(key);</span></a>
+<a name="109"><span class="lineNum">     109 </span><span class="lineCov">     901596 :   m_keys.erase(m_keys.begin() + i);</span></a>
+<a name="110"><span class="lineNum">     110 </span><span class="lineCov">     901596 :   m_values.erase(m_values.begin() + i);</span></a>
+<a name="111"><span class="lineNum">     111 </span><span class="lineCov">     450798 : }</span></a>
 <a name="112"><span class="lineNum">     112 </span>            : </a>
 <a name="113"><span class="lineNum">     113 </span>            : template &lt;class Key, class Value, int16_t Capacity&gt;</a>
 <a name="114"><span class="lineNum">     114 </span><span class="lineCov">          1 : void small_stable_map&lt;Key, Value, Capacity&gt;::clear() noexcept {</span></a>
@@ -179,12 +179,12 @@
 <a name="117"><span class="lineNum">     117 </span><span class="lineCov">          1 : }</span></a>
 <a name="118"><span class="lineNum">     118 </span>            : </a>
 <a name="119"><span class="lineNum">     119 </span>            : template &lt;class Key, class Value, int16_t Capacity&gt;</a>
-<a name="120"><span class="lineNum">     120 </span><span class="lineCov">      12898 : void small_stable_map&lt;Key, Value, Capacity&gt;::replace_key(const Key &amp;key,</span></a>
+<a name="120"><span class="lineNum">     120 </span><span class="lineCov">      12998 : void small_stable_map&lt;Key, Value, Capacity&gt;::replace_key(const Key &amp;key,</span></a>
 <a name="121"><span class="lineNum">     121 </span>            :                                                          const Key &amp;new_key) {</a>
-<a name="122"><span class="lineNum">     122 </span><span class="lineCov">      12898 :   if (key != new_key)</span></a>
-<a name="123"><span class="lineNum">     123 </span><span class="lineCov">      11690 :     expectUnique(*this, new_key);</span></a>
-<a name="124"><span class="lineNum">     124 </span><span class="lineCov">      12897 :   m_keys[index(key)] = new_key;</span></a>
-<a name="125"><span class="lineNum">     125 </span><span class="lineCov">      12897 : }</span></a>
+<a name="122"><span class="lineNum">     122 </span><span class="lineCov">      12998 :   if (key != new_key)</span></a>
+<a name="123"><span class="lineNum">     123 </span><span class="lineCov">      11790 :     expectUnique(*this, new_key);</span></a>
+<a name="124"><span class="lineNum">     124 </span><span class="lineCov">      12997 :   m_keys[index(key)] = new_key;</span></a>
+<a name="125"><span class="lineNum">     125 </span><span class="lineCov">      12997 : }</span></a>
 <a name="126"><span class="lineNum">     126 </span>            : </a>
 <a name="127"><span class="lineNum">     127 </span>            : template class small_stable_map&lt;Dim, scipp::index, NDIM_STACK&gt;;</a>
 <a name="128"><span class="lineNum">     128 </span>            : </a>
@@ -199,33 +199,33 @@
 <a name="137"><span class="lineNum">     137 </span><span class="lineCov">         78 :     insert_right(dim, size);</span></a>
 <a name="138"><span class="lineNum">     138 </span><span class="lineCov">         78 : }</span></a>
 <a name="139"><span class="lineNum">     139 </span>            : </a>
-<a name="140"><span class="lineNum">     140 </span><span class="lineCov">     880790 : void Sizes::resize(const Dim dim, const scipp::index size) {</span></a>
-<a name="141"><span class="lineNum">     141 </span><span class="lineCov">     880790 :   expect::validExtent(size);</span></a>
-<a name="142"><span class="lineNum">     142 </span><span class="lineCov">     880790 :   assign(dim, size);</span></a>
-<a name="143"><span class="lineNum">     143 </span><span class="lineCov">     880790 : }</span></a>
+<a name="140"><span class="lineNum">     140 </span><span class="lineCov">     889363 : void Sizes::resize(const Dim dim, const scipp::index size) {</span></a>
+<a name="141"><span class="lineNum">     141 </span><span class="lineCov">     889363 :   expect::validExtent(size);</span></a>
+<a name="142"><span class="lineNum">     142 </span><span class="lineCov">     889363 :   assign(dim, size);</span></a>
+<a name="143"><span class="lineNum">     143 </span><span class="lineCov">     889363 : }</span></a>
 <a name="144"><span class="lineNum">     144 </span>            : </a>
 <a name="145"><span class="lineNum">     145 </span>            : /// Return true if all dimensions of other contained in *this, with same size.</a>
-<a name="146"><span class="lineNum">     146 </span><span class="lineCov">    1217267 : bool Sizes::includes(const Sizes &amp;sizes) const {</span></a>
-<a name="147"><span class="lineNum">     147 </span><span class="lineCov">    2434534 :   return std::all_of(sizes.begin(), sizes.end(), [&amp;](const auto &amp;dim) {</span></a>
-<a name="148"><span class="lineNum">     148 </span><span class="lineCov">    1075219 :     return contains(dim) &amp;&amp; at(dim) == sizes[dim];</span></a>
-<a name="149"><span class="lineNum">     149 </span><span class="lineCov">    2434534 :   });</span></a>
+<a name="146"><span class="lineNum">     146 </span><span class="lineCov">    1255492 : bool Sizes::includes(const Sizes &amp;sizes) const {</span></a>
+<a name="147"><span class="lineNum">     147 </span><span class="lineCov">    2510984 :   return std::all_of(sizes.begin(), sizes.end(), [&amp;](const auto &amp;dim) {</span></a>
+<a name="148"><span class="lineNum">     148 </span><span class="lineCov">    1139606 :     return contains(dim) &amp;&amp; at(dim) == sizes[dim];</span></a>
+<a name="149"><span class="lineNum">     149 </span><span class="lineCov">    2510984 :   });</span></a>
 <a name="150"><span class="lineNum">     150 </span>            : }</a>
 <a name="151"><span class="lineNum">     151 </span>            : </a>
-<a name="152"><span class="lineNum">     152 </span><span class="lineCov">     714581 : Sizes Sizes::slice(const Slice &amp;params) const {</span></a>
-<a name="153"><span class="lineNum">     153 </span><span class="lineCov">     714581 :   core::expect::validSlice(*this, params);</span></a>
-<a name="154"><span class="lineNum">     154 </span><span class="lineCov">     714580 :   Sizes sliced(*this);</span></a>
-<a name="155"><span class="lineNum">     155 </span><span class="lineCov">     714580 :   if (params == Slice{})</span></a>
+<a name="152"><span class="lineNum">     152 </span><span class="lineCov">     715587 : Sizes Sizes::slice(const Slice &amp;params) const {</span></a>
+<a name="153"><span class="lineNum">     153 </span><span class="lineCov">     715587 :   core::expect::validSlice(*this, params);</span></a>
+<a name="154"><span class="lineNum">     154 </span><span class="lineCov">     715586 :   Sizes sliced(*this);</span></a>
+<a name="155"><span class="lineNum">     155 </span><span class="lineCov">     715586 :   if (params == Slice{})</span></a>
 <a name="156"><span class="lineNum">     156 </span><span class="lineCov">          4 :     return sliced;</span></a>
-<a name="157"><span class="lineNum">     157 </span><span class="lineCov">     714576 :   if (params.isRange()) {</span></a>
+<a name="157"><span class="lineNum">     157 </span><span class="lineCov">     715582 :   if (params.isRange()) {</span></a>
 <a name="158"><span class="lineNum">     158 </span>            :     const auto remainder =</a>
-<a name="159"><span class="lineNum">     159 </span><span class="lineCov">     707331 :         (params.end() - params.begin()) % params.stride() != 0;</span></a>
-<a name="160"><span class="lineNum">     160 </span><span class="lineCov">     707331 :     sliced.resize(params.dim(),</span></a>
+<a name="159"><span class="lineNum">     159 </span><span class="lineCov">     708337 :         (params.end() - params.begin()) % params.stride() != 0;</span></a>
+<a name="160"><span class="lineNum">     160 </span><span class="lineCov">     708337 :     sliced.resize(params.dim(),</span></a>
 <a name="161"><span class="lineNum">     161 </span><span class="lineNoCov">          0 :                   std::max(scipp::index{0},</span></a>
-<a name="162"><span class="lineNum">     162 </span><span class="lineCov">    1414662 :                            (params.end() - params.begin()) / params.stride() +</span></a>
-<a name="163"><span class="lineNum">     163 </span><span class="lineCov">     707331 :                                remainder));</span></a>
+<a name="162"><span class="lineNum">     162 </span><span class="lineCov">    1416674 :                            (params.end() - params.begin()) / params.stride() +</span></a>
+<a name="163"><span class="lineNum">     163 </span><span class="lineCov">     708337 :                                remainder));</span></a>
 <a name="164"><span class="lineNum">     164 </span>            :   } else</a>
 <a name="165"><span class="lineNum">     165 </span><span class="lineCov">       7245 :     sliced.erase(params.dim());</span></a>
-<a name="166"><span class="lineNum">     166 </span><span class="lineCov">     714576 :   return sliced;</span></a>
+<a name="166"><span class="lineNum">     166 </span><span class="lineCov">     715582 :   return sliced;</span></a>
 <a name="167"><span class="lineNum">     167 </span><span class="lineNoCov">          0 : }</span></a>
 <a name="168"><span class="lineNum">     168 </span>            : </a>
 <a name="169"><span class="lineNum">     169 </span><span class="lineCov">        893 : Sizes Sizes::rename_dims(const std::vector&lt;std::pair&lt;Dim, Dim&gt;&gt; &amp;names,</span></a>
@@ -255,22 +255,22 @@
 <a name="193"><span class="lineNum">     193 </span><span class="lineNoCov">          0 :   return out;</span></a>
 <a name="194"><span class="lineNum">     194 </span><span class="lineNoCov">          0 : }</span></a>
 <a name="195"><span class="lineNum">     195 </span>            : </a>
-<a name="196"><span class="lineNum">     196 </span><span class="lineCov">      33318 : bool is_edges(const Sizes &amp;sizes, const Sizes &amp;dataSizes, const Dim dim) {</span></a>
-<a name="197"><span class="lineNum">     197 </span><span class="lineCov">      33318 :   if (dim == Dim::Invalid || !dataSizes.contains(dim))</span></a>
-<a name="198"><span class="lineNum">     198 </span><span class="lineCov">      12171 :     return false;</span></a>
+<a name="196"><span class="lineNum">     196 </span><span class="lineCov">      33326 : bool is_edges(const Sizes &amp;sizes, const Sizes &amp;dataSizes, const Dim dim) {</span></a>
+<a name="197"><span class="lineNum">     197 </span><span class="lineCov">      33326 :   if (dim == Dim::Invalid || !dataSizes.contains(dim))</span></a>
+<a name="198"><span class="lineNum">     198 </span><span class="lineCov">      12181 :     return false;</span></a>
 <a name="199"><span class="lineNum">     199 </span>            :   // Without this if, !sizes.contains(d) below would identify 2d coords</a>
 <a name="200"><span class="lineNum">     200 </span>            :   // with a length-2 dim as non-edge.</a>
-<a name="201"><span class="lineNum">     201 </span><span class="lineCov">      21147 :   if (!sizes.empty()) {</span></a>
-<a name="202"><span class="lineNum">     202 </span><span class="lineCov">      83477 :     for (const auto &amp;d : dataSizes) {</span></a>
+<a name="201"><span class="lineNum">     201 </span><span class="lineCov">      21145 :   if (!sizes.empty()) {</span></a>
+<a name="202"><span class="lineNum">     202 </span><span class="lineCov">      83471 :     for (const auto &amp;d : dataSizes) {</span></a>
 <a name="203"><span class="lineNum">     203 </span>            :       // !(sizes[d] == dataSizes[d]) assumes that a coordinate can only be</a>
 <a name="204"><span class="lineNum">     204 </span>            :       // bin-edges in one dim. I.e. if its size does not match the data in `d`,</a>
 <a name="205"><span class="lineNum">     205 </span>            :       // it cannot be a bin-edge in `dim`.</a>
-<a name="206"><span class="lineNum">     206 </span><span class="lineCov">      41203 :       if (d != dim &amp;&amp; !(sizes.contains(d) &amp;&amp; sizes[d] == dataSizes[d]))</span></a>
+<a name="206"><span class="lineNum">     206 </span><span class="lineCov">      41201 :       if (d != dim &amp;&amp; !(sizes.contains(d) &amp;&amp; sizes[d] == dataSizes[d]))</span></a>
 <a name="207"><span class="lineNum">     207 </span><span class="lineCov">         16 :         return false;</span></a>
 <a name="208"><span class="lineNum">     208 </span>            :     }</a>
 <a name="209"><span class="lineNum">     209 </span>            :   }</a>
-<a name="210"><span class="lineNum">     210 </span><span class="lineCov">      21131 :   const auto size = dataSizes[dim];</span></a>
-<a name="211"><span class="lineNum">     211 </span><span class="lineCov">      21131 :   return size == (sizes.contains(dim) ? sizes[dim] + 1 : 2);</span></a>
+<a name="210"><span class="lineNum">     210 </span><span class="lineCov">      21129 :   const auto size = dataSizes[dim];</span></a>
+<a name="211"><span class="lineNum">     211 </span><span class="lineCov">      21129 :   return size == (sizes.contains(dim) ? sizes[dim] + 1 : 2);</span></a>
 <a name="212"><span class="lineNum">     212 </span>            : }</a>
 <a name="213"><span class="lineNum">     213 </span>            : </a>
 <a name="214"><span class="lineNum">     214 </span>            : } // namespace scipp::core</a>

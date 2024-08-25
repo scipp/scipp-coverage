@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-08-18 01:39:39</td>
+            <td class="headerValue">2024-08-25 01:35:12</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">194</td>
@@ -116,18 +116,18 @@
 <a name="54"><span class="lineNum">      54 </span>            :   using reference = typename ReferenceType&lt;It...&gt;::type;</a>
 <a name="55"><span class="lineNum">      55 </span>            : </a>
 <a name="56"><span class="lineNum">      56 </span>            :   template &lt;class... T&gt;</a>
-<a name="57"><span class="lineNum">      57 </span><span class="lineCov">    2300340 :   explicit Iterator(std::reference_wrapper&lt;Container&gt; container, T &amp;&amp;...it)</span></a>
-<a name="58"><span class="lineNum">      58 </span><span class="lineCov">    2300340 :       : m_iterators{std::forward&lt;T&gt;(it)...}, m_container(container),</span></a>
-<a name="59"><span class="lineNum">      59 </span><span class="lineCov">    2300340 :         m_base_address(container.get().data()), m_size(container.get().size()) {</span></a>
-<a name="60"><span class="lineNum">      60 </span><span class="lineCov">    2300340 :   }</span></a>
+<a name="57"><span class="lineNum">      57 </span><span class="lineCov">    2330762 :   explicit Iterator(std::reference_wrapper&lt;Container&gt; container, T &amp;&amp;...it)</span></a>
+<a name="58"><span class="lineNum">      58 </span><span class="lineCov">    2330762 :       : m_iterators{std::forward&lt;T&gt;(it)...}, m_container(container),</span></a>
+<a name="59"><span class="lineNum">      59 </span><span class="lineCov">    2330762 :         m_base_address(container.get().data()), m_size(container.get().size()) {</span></a>
+<a name="60"><span class="lineNum">      60 </span><span class="lineCov">    2330762 :   }</span></a>
 <a name="61"><span class="lineNum">      61 </span>            : </a>
-<a name="62"><span class="lineNum">      62 </span><span class="lineCov">     757115 :   decltype(auto) operator*() const {</span></a>
-<a name="63"><span class="lineNum">      63 </span><span class="lineCov">     757115 :     expect_container_unchanged();</span></a>
+<a name="62"><span class="lineNum">      62 </span><span class="lineCov">     817568 :   decltype(auto) operator*() const {</span></a>
+<a name="63"><span class="lineNum">      63 </span><span class="lineCov">     817568 :     expect_container_unchanged();</span></a>
 <a name="64"><span class="lineNum">      64 </span>            :     if constexpr (sizeof...(It) == 1) {</a>
-<a name="65"><span class="lineNum">      65 </span><span class="lineCov">      48667 :       return *std::get&lt;0&gt;(m_iterators);</span></a>
+<a name="65"><span class="lineNum">      65 </span><span class="lineCov">      54867 :       return *std::get&lt;0&gt;(m_iterators);</span></a>
 <a name="66"><span class="lineNum">      66 </span>            :     } else {</a>
-<a name="67"><span class="lineNum">      67 </span><span class="lineCov">     708448 :       return std::make_pair(std::cref(*std::get&lt;0&gt;(m_iterators)),</span></a>
-<a name="68"><span class="lineNum">      68 </span><span class="lineCov">    1416896 :                             std::ref(*std::get&lt;1&gt;(m_iterators)));</span></a>
+<a name="67"><span class="lineNum">      67 </span><span class="lineCov">     762701 :       return std::make_pair(std::cref(*std::get&lt;0&gt;(m_iterators)),</span></a>
+<a name="68"><span class="lineNum">      68 </span><span class="lineCov">    1525402 :                             std::ref(*std::get&lt;1&gt;(m_iterators)));</span></a>
 <a name="69"><span class="lineNum">      69 </span>            :     }</a>
 <a name="70"><span class="lineNum">      70 </span>            :   }</a>
 <a name="71"><span class="lineNum">      71 </span>            : </a>
@@ -142,30 +142,30 @@
 <a name="80"><span class="lineNum">      80 </span>            :     }</a>
 <a name="81"><span class="lineNum">      81 </span>            :   }</a>
 <a name="82"><span class="lineNum">      82 </span>            : </a>
-<a name="83"><span class="lineNum">      83 </span><span class="lineCov">     747890 :   Iterator &amp;operator++() {</span></a>
-<a name="84"><span class="lineNum">      84 </span><span class="lineCov">     747890 :     expect_container_unchanged();</span></a>
-<a name="85"><span class="lineNum">      85 </span><span class="lineCov">     747890 :     ++std::get&lt;0&gt;(m_iterators);</span></a>
+<a name="83"><span class="lineNum">      83 </span><span class="lineCov">     808343 :   Iterator &amp;operator++() {</span></a>
+<a name="84"><span class="lineNum">      84 </span><span class="lineCov">     808343 :     expect_container_unchanged();</span></a>
+<a name="85"><span class="lineNum">      85 </span><span class="lineCov">     808343 :     ++std::get&lt;0&gt;(m_iterators);</span></a>
 <a name="86"><span class="lineNum">      86 </span>            :     if constexpr (sizeof...(It) == 2)</a>
-<a name="87"><span class="lineNum">      87 </span><span class="lineCov">     699278 :       ++std::get&lt;1&gt;(m_iterators);</span></a>
-<a name="88"><span class="lineNum">      88 </span><span class="lineCov">     747890 :     return *this;</span></a>
+<a name="87"><span class="lineNum">      87 </span><span class="lineCov">     753531 :       ++std::get&lt;1&gt;(m_iterators);</span></a>
+<a name="88"><span class="lineNum">      88 </span><span class="lineCov">     808343 :     return *this;</span></a>
 <a name="89"><span class="lineNum">      89 </span>            :   }</a>
 <a name="90"><span class="lineNum">      90 </span>            : </a>
-<a name="91"><span class="lineNum">      91 </span><span class="lineCov">    1918199 :   bool operator==(const Iterator&lt;Container, It...&gt; &amp;other) const {</span></a>
-<a name="92"><span class="lineNum">      92 </span><span class="lineCov">    1918199 :     expect_container_unchanged();</span></a>
+<a name="91"><span class="lineNum">      91 </span><span class="lineCov">    1994715 :   bool operator==(const Iterator&lt;Container, It...&gt; &amp;other) const {</span></a>
+<a name="92"><span class="lineNum">      92 </span><span class="lineCov">    1994715 :     expect_container_unchanged();</span></a>
 <a name="93"><span class="lineNum">      93 </span>            :     // Assuming m_iterators are always in sync.</a>
-<a name="94"><span class="lineNum">      94 </span><span class="lineCov">    1918199 :     return std::get&lt;0&gt;(m_iterators) == std::get&lt;0&gt;(other.m_iterators);</span></a>
+<a name="94"><span class="lineNum">      94 </span><span class="lineCov">    1994715 :     return std::get&lt;0&gt;(m_iterators) == std::get&lt;0&gt;(other.m_iterators);</span></a>
 <a name="95"><span class="lineNum">      95 </span>            :   }</a>
 <a name="96"><span class="lineNum">      96 </span>            : </a>
-<a name="97"><span class="lineNum">      97 </span><span class="lineCov">    1844304 :   bool operator!=(const Iterator&lt;Container, It...&gt; &amp;other) const {</span></a>
-<a name="98"><span class="lineNum">      98 </span><span class="lineCov">    1844304 :     return !(*this == other); // NOLINT</span></a>
+<a name="97"><span class="lineNum">      97 </span><span class="lineCov">    1905377 :   bool operator!=(const Iterator&lt;Container, It...&gt; &amp;other) const {</span></a>
+<a name="98"><span class="lineNum">      98 </span><span class="lineCov">    1905377 :     return !(*this == other); // NOLINT</span></a>
 <a name="99"><span class="lineNum">      99 </span>            :   }</a>
 <a name="100"><span class="lineNum">     100 </span>            : </a>
 <a name="101"><span class="lineNum">     101 </span><span class="lineCov">          2 :   template &lt;class F&gt; auto transform(F &amp;&amp;func) const &amp; {</span></a>
 <a name="102"><span class="lineNum">     102 </span><span class="lineCov">          2 :     return TransformIterator{*this, std::forward&lt;F&gt;(func)};</span></a>
 <a name="103"><span class="lineNum">     103 </span>            :   }</a>
 <a name="104"><span class="lineNum">     104 </span>            : </a>
-<a name="105"><span class="lineNum">     105 </span><span class="lineCov">      83926 :   template &lt;class F&gt; auto transform(F &amp;&amp;func) &amp;&amp; {</span></a>
-<a name="106"><span class="lineNum">     106 </span><span class="lineCov">      83926 :     return TransformIterator{std::move(*this), std::forward&lt;F&gt;(func)};</span></a>
+<a name="105"><span class="lineNum">     105 </span><span class="lineCov">      85082 :   template &lt;class F&gt; auto transform(F &amp;&amp;func) &amp;&amp; {</span></a>
+<a name="106"><span class="lineNum">     106 </span><span class="lineCov">      85082 :     return TransformIterator{std::move(*this), std::forward&lt;F&gt;(func)};</span></a>
 <a name="107"><span class="lineNum">     107 </span>            :   }</a>
 <a name="108"><span class="lineNum">     108 </span>            : </a>
 <a name="109"><span class="lineNum">     109 </span>            :   friend void swap(Iterator &amp;a, Iterator &amp;b) {</a>
@@ -196,12 +196,12 @@
 <a name="134"><span class="lineNum">     134 </span>            :   const void *m_base_address;</a>
 <a name="135"><span class="lineNum">     135 </span>            :   size_t m_size;</a>
 <a name="136"><span class="lineNum">     136 </span>            : </a>
-<a name="137"><span class="lineNum">     137 </span><span class="lineCov">    3423212 :   void expect_container_unchanged() const {</span></a>
-<a name="138"><span class="lineNum">     138 </span><span class="lineCov">    6846424 :     if (m_container.get().data() != m_base_address ||</span></a>
-<a name="139"><span class="lineNum">     139 </span><span class="lineCov">    3423212 :         m_container.get().size() != m_size) {</span></a>
+<a name="137"><span class="lineNum">     137 </span><span class="lineCov">    3620634 :   void expect_container_unchanged() const {</span></a>
+<a name="138"><span class="lineNum">     138 </span><span class="lineCov">    7241268 :     if (m_container.get().data() != m_base_address ||</span></a>
+<a name="139"><span class="lineNum">     139 </span><span class="lineCov">    3620634 :         m_container.get().size() != m_size) {</span></a>
 <a name="140"><span class="lineNum">     140 </span><span class="lineNoCov">          0 :       throw std::runtime_error(&quot;dictionary changed size during iteration&quot;);</span></a>
 <a name="141"><span class="lineNum">     141 </span>            :     }</a>
-<a name="142"><span class="lineNum">     142 </span><span class="lineCov">    3423212 :   }</span></a>
+<a name="142"><span class="lineNum">     142 </span><span class="lineCov">    3620634 :   }</span></a>
 <a name="143"><span class="lineNum">     143 </span>            : };</a>
 <a name="144"><span class="lineNum">     144 </span>            : </a>
 <a name="145"><span class="lineNum">     145 </span>            : template &lt;class BaseIterator, class Func&gt;</a>
@@ -214,10 +214,10 @@
 <a name="152"><span class="lineNum">     152 </span>            :   using reference = std::add_lvalue_reference_t&lt;value_type&gt;;</a>
 <a name="153"><span class="lineNum">     153 </span>            : </a>
 <a name="154"><span class="lineNum">     154 </span>            :   template &lt;class It, class F&gt;</a>
-<a name="155"><span class="lineNum">     155 </span><span class="lineCov">      83928 :   TransformIterator(It &amp;&amp;base, F &amp;&amp;func)</span></a>
-<a name="156"><span class="lineNum">     156 </span><span class="lineCov">      83928 :       : BaseIterator(std::forward&lt;It&gt;(base)), m_func(std::forward&lt;F&gt;(func)) {}</span></a>
+<a name="155"><span class="lineNum">     155 </span><span class="lineCov">      85084 :   TransformIterator(It &amp;&amp;base, F &amp;&amp;func)</span></a>
+<a name="156"><span class="lineNum">     156 </span><span class="lineCov">      85084 :       : BaseIterator(std::forward&lt;It&gt;(base)), m_func(std::forward&lt;F&gt;(func)) {}</span></a>
 <a name="157"><span class="lineNum">     157 </span>            : </a>
-<a name="158"><span class="lineNum">     158 </span><span class="lineCov">      82347 :   decltype(auto) operator*() const { return m_func(BaseIterator::operator*()); }</span></a>
+<a name="158"><span class="lineNum">     158 </span><span class="lineCov">      84412 :   decltype(auto) operator*() const { return m_func(BaseIterator::operator*()); }</span></a>
 <a name="159"><span class="lineNum">     159 </span>            : </a>
 <a name="160"><span class="lineNum">     160 </span><span class="lineCov">         44 :   decltype(auto) operator-&gt;() const {</span></a>
 <a name="161"><span class="lineNum">     161 </span>            :     using Result = typename BaseIterator::template TemporaryItem&lt;</a>
@@ -317,10 +317,10 @@
 <a name="255"><span class="lineNum">     255 </span>            :     }</a>
 <a name="256"><span class="lineNum">     256 </span><span class="lineCov">       2249 :   }</span></a>
 <a name="257"><span class="lineNum">     257 </span>            : </a>
-<a name="258"><span class="lineNum">     258 </span><span class="lineCov">     885526 :   Dict() = default;</span></a>
+<a name="258"><span class="lineNum">     258 </span><span class="lineCov">     894294 :   Dict() = default;</span></a>
 <a name="259"><span class="lineNum">     259 </span>            : </a>
 <a name="260"><span class="lineNum">     260 </span>            :   /// Return the number of elements.</a>
-<a name="261"><span class="lineNum">     261 </span><span class="lineCov">      50653 :   [[nodiscard]] index size() const noexcept { return scipp::size(m_keys); }</span></a>
+<a name="261"><span class="lineNum">     261 </span><span class="lineCov">      52407 :   [[nodiscard]] index size() const noexcept { return scipp::size(m_keys); }</span></a>
 <a name="262"><span class="lineNum">     262 </span>            :   /// Return true if there are 0 elements.</a>
 <a name="263"><span class="lineNum">     263 </span><span class="lineCov">       2505 :   [[nodiscard]] bool empty() const noexcept { return size() == 0; }</span></a>
 <a name="264"><span class="lineNum">     264 </span>            :   /// Return the number of elements that space is currently allocated for.</a>
@@ -331,18 +331,18 @@
 <a name="269"><span class="lineNum">     269 </span><span class="lineCov">       2524 :     m_values.reserve(new_capacity);</span></a>
 <a name="270"><span class="lineNum">     270 </span><span class="lineCov">       2524 :   }</span></a>
 <a name="271"><span class="lineNum">     271 </span>            : </a>
-<a name="272"><span class="lineNum">     272 </span><span class="lineCov">     950511 :   [[nodiscard]] bool contains(const Key &amp;key) const noexcept {</span></a>
-<a name="273"><span class="lineNum">     273 </span><span class="lineCov">     950511 :     return find_key(key) != m_keys.end();</span></a>
+<a name="272"><span class="lineNum">     272 </span><span class="lineCov">     979365 :   [[nodiscard]] bool contains(const Key &amp;key) const noexcept {</span></a>
+<a name="273"><span class="lineNum">     273 </span><span class="lineCov">     979365 :     return find_key(key) != m_keys.end();</span></a>
 <a name="274"><span class="lineNum">     274 </span>            :   }</a>
 <a name="275"><span class="lineNum">     275 </span>            : </a>
-<a name="276"><span class="lineNum">     276 </span><span class="lineCov">     578568 :   template &lt;class V&gt; void insert_or_assign(const key_type &amp;key, V &amp;&amp;value) {</span></a>
-<a name="277"><span class="lineNum">     277 </span><span class="lineCov">     578568 :     if (const auto key_it = find_key(key); key_it == m_keys.end()) {</span></a>
-<a name="278"><span class="lineNum">     278 </span><span class="lineCov">     577583 :       m_keys.push_back(key);</span></a>
-<a name="279"><span class="lineNum">     279 </span><span class="lineCov">     577583 :       m_values.emplace_back(std::forward&lt;V&gt;(value));</span></a>
+<a name="276"><span class="lineNum">     276 </span><span class="lineCov">     607166 :   template &lt;class V&gt; void insert_or_assign(const key_type &amp;key, V &amp;&amp;value) {</span></a>
+<a name="277"><span class="lineNum">     277 </span><span class="lineCov">     607166 :     if (const auto key_it = find_key(key); key_it == m_keys.end()) {</span></a>
+<a name="278"><span class="lineNum">     278 </span><span class="lineCov">     606186 :       m_keys.push_back(key);</span></a>
+<a name="279"><span class="lineNum">     279 </span><span class="lineCov">     606186 :       m_values.emplace_back(std::forward&lt;V&gt;(value));</span></a>
 <a name="280"><span class="lineNum">     280 </span>            :     } else {</a>
-<a name="281"><span class="lineNum">     281 </span><span class="lineCov">        985 :       m_values[index_of(key_it)] = std::forward&lt;V&gt;(value);</span></a>
+<a name="281"><span class="lineNum">     281 </span><span class="lineCov">        980 :       m_values[index_of(key_it)] = std::forward&lt;V&gt;(value);</span></a>
 <a name="282"><span class="lineNum">     282 </span>            :     }</a>
-<a name="283"><span class="lineNum">     283 </span><span class="lineCov">     578568 :   }</span></a>
+<a name="283"><span class="lineNum">     283 </span><span class="lineCov">     607166 :   }</span></a>
 <a name="284"><span class="lineNum">     284 </span>            : </a>
 <a name="285"><span class="lineNum">     285 </span><span class="lineCov">         38 :   void erase(const key_type &amp;key) { static_cast&lt;void&gt;(extract(key)); }</span></a>
 <a name="286"><span class="lineNum">     286 </span>            : </a>
@@ -360,19 +360,19 @@
 <a name="298"><span class="lineNum">     298 </span><span class="lineCov">          3 :     m_values.clear();</span></a>
 <a name="299"><span class="lineNum">     299 </span><span class="lineCov">          3 :   }</span></a>
 <a name="300"><span class="lineNum">     300 </span>            : </a>
-<a name="301"><span class="lineNum">     301 </span><span class="lineCov">     244756 :   [[nodiscard]] const mapped_type &amp;operator[](const key_type &amp;key) const {</span></a>
-<a name="302"><span class="lineNum">     302 </span><span class="lineCov">     244756 :     return m_values[expect_find_index(key)];</span></a>
+<a name="301"><span class="lineNum">     301 </span><span class="lineCov">     246501 :   [[nodiscard]] const mapped_type &amp;operator[](const key_type &amp;key) const {</span></a>
+<a name="302"><span class="lineNum">     302 </span><span class="lineCov">     246501 :     return m_values[expect_find_index(key)];</span></a>
 <a name="303"><span class="lineNum">     303 </span>            :   }</a>
 <a name="304"><span class="lineNum">     304 </span>            : </a>
-<a name="305"><span class="lineNum">     305 </span><span class="lineCov">      15969 :   [[nodiscard]] mapped_type &amp;operator[](const key_type &amp;key) {</span></a>
-<a name="306"><span class="lineNum">     306 </span><span class="lineCov">      15969 :     return m_values[expect_find_index(key)];</span></a>
+<a name="305"><span class="lineNum">     305 </span><span class="lineCov">      16959 :   [[nodiscard]] mapped_type &amp;operator[](const key_type &amp;key) {</span></a>
+<a name="306"><span class="lineNum">     306 </span><span class="lineCov">      16959 :     return m_values[expect_find_index(key)];</span></a>
 <a name="307"><span class="lineNum">     307 </span>            :   }</a>
 <a name="308"><span class="lineNum">     308 </span>            : </a>
-<a name="309"><span class="lineNum">     309 </span><span class="lineCov">     244756 :   [[nodiscard]] const mapped_type &amp;at(const key_type &amp;key) const {</span></a>
-<a name="310"><span class="lineNum">     310 </span><span class="lineCov">     244756 :     return (*this)[key];</span></a>
+<a name="309"><span class="lineNum">     309 </span><span class="lineCov">     246501 :   [[nodiscard]] const mapped_type &amp;at(const key_type &amp;key) const {</span></a>
+<a name="310"><span class="lineNum">     310 </span><span class="lineCov">     246501 :     return (*this)[key];</span></a>
 <a name="311"><span class="lineNum">     311 </span>            :   }</a>
 <a name="312"><span class="lineNum">     312 </span>            : </a>
-<a name="313"><span class="lineNum">     313 </span><span class="lineCov">      12271 :   [[nodiscard]] mapped_type &amp;at(const key_type &amp;key) { return (*this)[key]; }</span></a>
+<a name="313"><span class="lineNum">     313 </span><span class="lineCov">      13261 :   [[nodiscard]] mapped_type &amp;at(const key_type &amp;key) { return (*this)[key]; }</span></a>
 <a name="314"><span class="lineNum">     314 </span>            : </a>
 <a name="315"><span class="lineNum">     315 </span><span class="lineCov">       6881 :   [[nodiscard]] const_iterator find(const key_type &amp;key) const {</span></a>
 <a name="316"><span class="lineNum">     316 </span><span class="lineCov">       6881 :     if (const auto key_it = find_key(key); key_it == m_keys.end()) {</span></a>
@@ -408,41 +408,41 @@
 <a name="346"><span class="lineNum">     346 </span>            :     return value_iterator(m_values, m_values.end());</a>
 <a name="347"><span class="lineNum">     347 </span>            :   }</a>
 <a name="348"><span class="lineNum">     348 </span>            : </a>
-<a name="349"><span class="lineNum">     349 </span><span class="lineCov">       2653 :   [[nodiscard]] auto values_begin() const noexcept {</span></a>
-<a name="350"><span class="lineNum">     350 </span><span class="lineCov">       2653 :     return const_value_iterator(m_values, m_values.cbegin());</span></a>
+<a name="349"><span class="lineNum">     349 </span><span class="lineCov">       2937 :   [[nodiscard]] auto values_begin() const noexcept {</span></a>
+<a name="350"><span class="lineNum">     350 </span><span class="lineCov">       2937 :     return const_value_iterator(m_values, m_values.cbegin());</span></a>
 <a name="351"><span class="lineNum">     351 </span>            :   }</a>
 <a name="352"><span class="lineNum">     352 </span>            : </a>
-<a name="353"><span class="lineNum">     353 </span><span class="lineCov">       2677 :   [[nodiscard]] auto values_end() const noexcept {</span></a>
-<a name="354"><span class="lineNum">     354 </span><span class="lineCov">       2677 :     return const_value_iterator(m_values, m_values.cend());</span></a>
+<a name="353"><span class="lineNum">     353 </span><span class="lineCov">       2961 :   [[nodiscard]] auto values_end() const noexcept {</span></a>
+<a name="354"><span class="lineNum">     354 </span><span class="lineCov">       2961 :     return const_value_iterator(m_values, m_values.cend());</span></a>
 <a name="355"><span class="lineNum">     355 </span>            :   }</a>
 <a name="356"><span class="lineNum">     356 </span>            : </a>
-<a name="357"><span class="lineNum">     357 </span><span class="lineCov">     484086 :   [[nodiscard]] auto begin() noexcept {</span></a>
-<a name="358"><span class="lineNum">     358 </span><span class="lineCov">     484086 :     return iterator(m_keys, m_keys.cbegin(), m_values.begin());</span></a>
+<a name="357"><span class="lineNum">     357 </span><span class="lineCov">     488808 :   [[nodiscard]] auto begin() noexcept {</span></a>
+<a name="358"><span class="lineNum">     358 </span><span class="lineCov">     488808 :     return iterator(m_keys, m_keys.cbegin(), m_values.begin());</span></a>
 <a name="359"><span class="lineNum">     359 </span>            :   }</a>
 <a name="360"><span class="lineNum">     360 </span>            : </a>
-<a name="361"><span class="lineNum">     361 </span><span class="lineCov">     494559 :   [[nodiscard]] auto end() noexcept {</span></a>
-<a name="362"><span class="lineNum">     362 </span><span class="lineCov">     494559 :     return iterator(m_keys, m_keys.cend(), m_values.end());</span></a>
+<a name="361"><span class="lineNum">     361 </span><span class="lineCov">     499281 :   [[nodiscard]] auto end() noexcept {</span></a>
+<a name="362"><span class="lineNum">     362 </span><span class="lineCov">     499281 :     return iterator(m_keys, m_keys.cend(), m_values.end());</span></a>
 <a name="363"><span class="lineNum">     363 </span>            :   }</a>
 <a name="364"><span class="lineNum">     364 </span>            : </a>
-<a name="365"><span class="lineNum">     365 </span><span class="lineCov">     616386 :   [[nodiscard]] auto begin() const noexcept {</span></a>
-<a name="366"><span class="lineNum">     366 </span><span class="lineCov">     616386 :     return const_iterator(m_keys, m_keys.cbegin(), m_values.cbegin());</span></a>
+<a name="365"><span class="lineNum">     365 </span><span class="lineCov">     626591 :   [[nodiscard]] auto begin() const noexcept {</span></a>
+<a name="366"><span class="lineNum">     366 </span><span class="lineCov">     626591 :     return const_iterator(m_keys, m_keys.cbegin(), m_values.cbegin());</span></a>
 <a name="367"><span class="lineNum">     367 </span>            :   }</a>
 <a name="368"><span class="lineNum">     368 </span>            : </a>
-<a name="369"><span class="lineNum">     369 </span><span class="lineCov">     621305 :   [[nodiscard]] auto end() const noexcept {</span></a>
-<a name="370"><span class="lineNum">     370 </span><span class="lineCov">     621305 :     return const_iterator(m_keys, m_keys.cend(), m_values.cbegin());</span></a>
+<a name="369"><span class="lineNum">     369 </span><span class="lineCov">     631510 :   [[nodiscard]] auto end() const noexcept {</span></a>
+<a name="370"><span class="lineNum">     370 </span><span class="lineCov">     631510 :     return const_iterator(m_keys, m_keys.cend(), m_values.cbegin());</span></a>
 <a name="371"><span class="lineNum">     371 </span>            :   }</a>
 <a name="372"><span class="lineNum">     372 </span>            : </a>
 <a name="373"><span class="lineNum">     373 </span>            : private:</a>
 <a name="374"><span class="lineNum">     374 </span>            :   Keys m_keys;</a>
 <a name="375"><span class="lineNum">     375 </span>            :   Values m_values;</a>
 <a name="376"><span class="lineNum">     376 </span>            : </a>
-<a name="377"><span class="lineNum">     377 </span><span class="lineCov">    1811027 :   auto find_key(const Key &amp;key) const noexcept {</span></a>
-<a name="378"><span class="lineNum">     378 </span><span class="lineCov">    1811027 :     return std::find(m_keys.begin(), m_keys.end(), key);</span></a>
+<a name="377"><span class="lineNum">     377 </span><span class="lineCov">    1871214 :   auto find_key(const Key &amp;key) const noexcept {</span></a>
+<a name="378"><span class="lineNum">     378 </span><span class="lineCov">    1871214 :     return std::find(m_keys.begin(), m_keys.end(), key);</span></a>
 <a name="379"><span class="lineNum">     379 </span>            :   }</a>
 <a name="380"><span class="lineNum">     380 </span>            : </a>
-<a name="381"><span class="lineNum">     381 </span><span class="lineCov">     268728 :   auto expect_find_key(const Key &amp;key) const {</span></a>
-<a name="382"><span class="lineNum">     382 </span><span class="lineCov">     268728 :     if (const auto key_it = find_key(key); key_it != m_keys.end()) {</span></a>
-<a name="383"><span class="lineNum">     383 </span><span class="lineCov">     268726 :       return key_it;</span></a>
+<a name="381"><span class="lineNum">     381 </span><span class="lineCov">     271463 :   auto expect_find_key(const Key &amp;key) const {</span></a>
+<a name="382"><span class="lineNum">     382 </span><span class="lineCov">     271463 :     if (const auto key_it = find_key(key); key_it != m_keys.end()) {</span></a>
+<a name="383"><span class="lineNum">     383 </span><span class="lineCov">     271461 :       return key_it;</span></a>
 <a name="384"><span class="lineNum">     384 </span>            :     }</a>
 <a name="385"><span class="lineNum">     385 </span>            :     using scipp::core::to_string;</a>
 <a name="386"><span class="lineNum">     386 </span>            :     using std::to_string;</a>
@@ -450,12 +450,12 @@
 <a name="388"><span class="lineNum">     388 </span><span class="lineNoCov">          0 :                                 &quot; to contain &quot; + to_string(key) + &quot;.&quot;);</span></a>
 <a name="389"><span class="lineNum">     389 </span>            :   }</a>
 <a name="390"><span class="lineNum">     390 </span>            : </a>
-<a name="391"><span class="lineNum">     391 </span><span class="lineCov">     276287 :   auto index_of(const typename Keys::const_iterator &amp;it) const noexcept {</span></a>
-<a name="392"><span class="lineNum">     392 </span><span class="lineCov">     276287 :     return std::distance(m_keys.begin(), it);</span></a>
+<a name="391"><span class="lineNum">     391 </span><span class="lineCov">     279017 :   auto index_of(const typename Keys::const_iterator &amp;it) const noexcept {</span></a>
+<a name="392"><span class="lineNum">     392 </span><span class="lineCov">     279017 :     return std::distance(m_keys.begin(), it);</span></a>
 <a name="393"><span class="lineNum">     393 </span>            :   }</a>
 <a name="394"><span class="lineNum">     394 </span>            : </a>
-<a name="395"><span class="lineNum">     395 </span><span class="lineCov">     260725 :   scipp::index expect_find_index(const Key &amp;key) const {</span></a>
-<a name="396"><span class="lineNum">     396 </span><span class="lineCov">     260725 :     return index_of(expect_find_key(key));</span></a>
+<a name="395"><span class="lineNum">     395 </span><span class="lineCov">     263460 :   scipp::index expect_find_index(const Key &amp;key) const {</span></a>
+<a name="396"><span class="lineNum">     396 </span><span class="lineCov">     263460 :     return index_of(expect_find_key(key));</span></a>
 <a name="397"><span class="lineNum">     397 </span>            :   }</a>
 <a name="398"><span class="lineNum">     398 </span>            : };</a>
 <a name="399"><span class="lineNum">     399 </span>            : </a>
