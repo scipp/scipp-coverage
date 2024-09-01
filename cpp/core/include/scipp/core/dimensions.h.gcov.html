@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-08-25 01:35:12</td>
+            <td class="headerValue">2024-09-01 01:46:48</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">11</td>
@@ -81,50 +81,50 @@
 <a name="19"><span class="lineNum">      19 </span>            : /// dimension is inner dimension.</a>
 <a name="20"><span class="lineNum">      20 </span>            : class SCIPP_CORE_EXPORT Dimensions : public Sizes {</a>
 <a name="21"><span class="lineNum">      21 </span>            : public:</a>
-<a name="22"><span class="lineNum">      22 </span><span class="lineCov">   13525953 :   Dimensions() noexcept = default;</span></a>
-<a name="23"><span class="lineNum">      23 </span><span class="lineCov">       7971 :   Dimensions(const Dim dim, const scipp::index size)</span></a>
-<a name="24"><span class="lineNum">      24 </span><span class="lineCov">       7971 :       : Dimensions({{dim, size}}) {}</span></a>
+<a name="22"><span class="lineNum">      22 </span><span class="lineCov">   13375191 :   Dimensions() noexcept = default;</span></a>
+<a name="23"><span class="lineNum">      23 </span><span class="lineCov">       8117 :   Dimensions(const Dim dim, const scipp::index size)</span></a>
+<a name="24"><span class="lineNum">      24 </span><span class="lineCov">       8117 :       : Dimensions({{dim, size}}) {}</span></a>
 <a name="25"><span class="lineNum">      25 </span>            :   Dimensions(scipp::span&lt;const Dim&gt; labels,</a>
 <a name="26"><span class="lineNum">      26 </span>            :              scipp::span&lt;const scipp::index&gt; shape);</a>
 <a name="27"><span class="lineNum">      27 </span><span class="lineCov">         30 :   Dimensions(const std::initializer_list&lt;Dim&gt; labels,</span></a>
 <a name="28"><span class="lineNum">      28 </span>            :              const std::initializer_list&lt;scipp::index&gt; shape)</a>
 <a name="29"><span class="lineNum">      29 </span><span class="lineCov">         30 :       : Dimensions({labels.begin(), labels.end()},</span></a>
 <a name="30"><span class="lineNum">      30 </span><span class="lineCov">         30 :                    {shape.begin(), shape.end()}) {}</span></a>
-<a name="31"><span class="lineNum">      31 </span><span class="lineCov">       7971 :   Dimensions(const std::initializer_list&lt;std::pair&lt;Dim, scipp::index&gt;&gt; dims) {</span></a>
-<a name="32"><span class="lineNum">      32 </span><span class="lineCov">      15942 :     for (const auto &amp;[dim, len] : dims)</span></a>
-<a name="33"><span class="lineNum">      33 </span><span class="lineCov">       7971 :       addInner(dim, len);</span></a>
-<a name="34"><span class="lineNum">      34 </span><span class="lineCov">       7971 :   }</span></a>
+<a name="31"><span class="lineNum">      31 </span><span class="lineCov">       8117 :   Dimensions(const std::initializer_list&lt;std::pair&lt;Dim, scipp::index&gt;&gt; dims) {</span></a>
+<a name="32"><span class="lineNum">      32 </span><span class="lineCov">      16234 :     for (const auto &amp;[dim, len] : dims)</span></a>
+<a name="33"><span class="lineNum">      33 </span><span class="lineCov">       8117 :       addInner(dim, len);</span></a>
+<a name="34"><span class="lineNum">      34 </span><span class="lineCov">       8117 :   }</span></a>
 <a name="35"><span class="lineNum">      35 </span>            : </a>
-<a name="36"><span class="lineNum">      36 </span><span class="lineCov">    4675149 :   bool operator==(const Dimensions &amp;other) const noexcept {</span></a>
-<a name="37"><span class="lineNum">      37 </span><span class="lineCov">    4675149 :     if (ndim() != other.ndim())</span></a>
-<a name="38"><span class="lineNum">      38 </span><span class="lineCov">     251766 :       return false;</span></a>
-<a name="39"><span class="lineNum">      39 </span><span class="lineCov">    8125454 :     for (int32_t i = 0; i &lt; ndim(); ++i) {</span></a>
-<a name="40"><span class="lineNum">      40 </span><span class="lineCov">    3704077 :       if (shape()[i] != other.shape()[i])</span></a>
-<a name="41"><span class="lineNum">      41 </span><span class="lineCov">       1408 :         return false;</span></a>
-<a name="42"><span class="lineNum">      42 </span><span class="lineCov">    3702669 :       if (labels()[i] != other.labels()[i])</span></a>
-<a name="43"><span class="lineNum">      43 </span><span class="lineCov">        598 :         return false;</span></a>
+<a name="36"><span class="lineNum">      36 </span><span class="lineCov">    4620993 :   bool operator==(const Dimensions &amp;other) const noexcept {</span></a>
+<a name="37"><span class="lineNum">      37 </span><span class="lineCov">    4620993 :     if (ndim() != other.ndim())</span></a>
+<a name="38"><span class="lineNum">      38 </span><span class="lineCov">     244066 :       return false;</span></a>
+<a name="39"><span class="lineNum">      39 </span><span class="lineCov">    7955466 :     for (int32_t i = 0; i &lt; ndim(); ++i) {</span></a>
+<a name="40"><span class="lineNum">      40 </span><span class="lineCov">    3580064 :       if (shape()[i] != other.shape()[i])</span></a>
+<a name="41"><span class="lineNum">      41 </span><span class="lineCov">       1119 :         return false;</span></a>
+<a name="42"><span class="lineNum">      42 </span><span class="lineCov">    3578945 :       if (labels()[i] != other.labels()[i])</span></a>
+<a name="43"><span class="lineNum">      43 </span><span class="lineCov">        406 :         return false;</span></a>
 <a name="44"><span class="lineNum">      44 </span>            :     }</a>
-<a name="45"><span class="lineNum">      45 </span><span class="lineCov">    4421377 :     return true;</span></a>
+<a name="45"><span class="lineNum">      45 </span><span class="lineCov">    4375402 :     return true;</span></a>
 <a name="46"><span class="lineNum">      46 </span>            :   }</a>
-<a name="47"><span class="lineNum">      47 </span><span class="lineCov">     548852 :   bool operator!=(const Dimensions &amp;other) const noexcept {</span></a>
-<a name="48"><span class="lineNum">      48 </span><span class="lineCov">     548852 :     return !(*this == other);</span></a>
+<a name="47"><span class="lineNum">      47 </span><span class="lineCov">     548508 :   bool operator!=(const Dimensions &amp;other) const noexcept {</span></a>
+<a name="48"><span class="lineNum">      48 </span><span class="lineCov">     548508 :     return !(*this == other);</span></a>
 <a name="49"><span class="lineNum">      49 </span>            :   }</a>
 <a name="50"><span class="lineNum">      50 </span>            : </a>
 <a name="51"><span class="lineNum">      51 </span>            :   /// Return the shape of the space defined by *this.</a>
-<a name="52"><span class="lineNum">      52 </span><span class="lineCov">   37386194 :   [[nodiscard]] scipp::span&lt;const scipp::index&gt; shape() const &amp;noexcept {</span></a>
-<a name="53"><span class="lineNum">      53 </span><span class="lineCov">   37386194 :     return sizes();</span></a>
+<a name="52"><span class="lineNum">      52 </span><span class="lineCov">   36732003 :   [[nodiscard]] scipp::span&lt;const scipp::index&gt; shape() const &amp; noexcept {</span></a>
+<a name="53"><span class="lineNum">      53 </span><span class="lineCov">   36732003 :     return sizes();</span></a>
 <a name="54"><span class="lineNum">      54 </span>            :   }</a>
 <a name="55"><span class="lineNum">      55 </span>            : </a>
 <a name="56"><span class="lineNum">      56 </span>            :   /// Return the volume of the space defined by *this.</a>
-<a name="57"><span class="lineNum">      57 </span><span class="lineCov">   22113916 :   [[nodiscard]] scipp::index volume() const noexcept {</span></a>
-<a name="58"><span class="lineNum">      58 </span><span class="lineCov">   22113916 :     scipp::index volume{1};</span></a>
-<a name="59"><span class="lineNum">      59 </span><span class="lineCov">   48780302 :     for (const auto &amp;length : shape())</span></a>
-<a name="60"><span class="lineNum">      60 </span><span class="lineCov">   26666386 :       volume *= length;</span></a>
-<a name="61"><span class="lineNum">      61 </span><span class="lineCov">   22113916 :     return volume;</span></a>
+<a name="57"><span class="lineNum">      57 </span><span class="lineCov">   21852542 :   [[nodiscard]] scipp::index volume() const noexcept {</span></a>
+<a name="58"><span class="lineNum">      58 </span><span class="lineCov">   21852542 :     scipp::index volume{1};</span></a>
+<a name="59"><span class="lineNum">      59 </span><span class="lineCov">   47750044 :     for (const auto &amp;length : shape())</span></a>
+<a name="60"><span class="lineNum">      60 </span><span class="lineCov">   25897502 :       volume *= length;</span></a>
+<a name="61"><span class="lineNum">      61 </span><span class="lineCov">   21852542 :     return volume;</span></a>
 <a name="62"><span class="lineNum">      62 </span>            :   }</a>
 <a name="63"><span class="lineNum">      63 </span>            : </a>
 <a name="64"><span class="lineNum">      64 </span>            :   /// Return number of dims</a>
-<a name="65"><span class="lineNum">      65 </span><span class="lineCov">   38126120 :   [[nodiscard]] scipp::index ndim() const noexcept { return Sizes::size(); }</span></a>
+<a name="65"><span class="lineNum">      65 </span><span class="lineCov">   37502105 :   [[nodiscard]] scipp::index ndim() const noexcept { return Sizes::size(); }</span></a>
 <a name="66"><span class="lineNum">      66 </span>            : </a>
 <a name="67"><span class="lineNum">      67 </span>            :   [[nodiscard]] Dim inner() const noexcept;</a>
 <a name="68"><span class="lineNum">      68 </span>            : </a>
@@ -147,8 +147,8 @@
 <a name="85"><span class="lineNum">      85 </span>            :                                                  const Dimensions &amp;b);</a>
 <a name="86"><span class="lineNum">      86 </span>            : </a>
 <a name="87"><span class="lineNum">      87 </span>            : template &lt;class... Ts&gt;</a>
-<a name="88"><span class="lineNum">      88 </span><span class="lineCov">     329016 : Dimensions merge(const Dimensions &amp;a, const Dimensions &amp;b, const Ts &amp;...other) {</span></a>
-<a name="89"><span class="lineNum">      89 </span><span class="lineCov">     329016 :   return merge(merge(a, b), other...);</span></a>
+<a name="88"><span class="lineNum">      88 </span><span class="lineCov">     329442 : Dimensions merge(const Dimensions &amp;a, const Dimensions &amp;b, const Ts &amp;...other) {</span></a>
+<a name="89"><span class="lineNum">      89 </span><span class="lineCov">     329442 :   return merge(merge(a, b), other...);</span></a>
 <a name="90"><span class="lineNum">      90 </span>            : }</a>
 <a name="91"><span class="lineNum">      91 </span>            : </a>
 <a name="92"><span class="lineNum">      92 </span>            : [[nodiscard]] SCIPP_CORE_EXPORT Dimensions intersection(const Dimensions &amp;a,</a>

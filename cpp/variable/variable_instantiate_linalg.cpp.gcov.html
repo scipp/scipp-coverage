@@ -32,12 +32,12 @@
             <td></td>
             <td class="headerItem">Lines:</td>
             <td class="headerCovTableEntry">15</td>
-            <td class="headerCovTableEntry">27</td>
-            <td class="headerCovTableEntryLo">55.6 %</td>
+            <td class="headerCovTableEntry">28</td>
+            <td class="headerCovTableEntryLo">53.6 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-08-25 01:35:12</td>
+            <td class="headerValue">2024-09-01 01:46:48</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">16</td>
@@ -112,45 +112,46 @@
 <a name="50"><span class="lineNum">      50 </span>            : };</a>
 <a name="51"><span class="lineNum">      51 </span>            : </a>
 <a name="52"><span class="lineNum">      52 </span>            : template &lt;&gt;</a>
-<a name="53"><span class="lineNum">      53 </span>            : constexpr auto structure_element_offset&lt;</a>
-<a name="54"><span class="lineNum">      54 </span><span class="lineCov">      46730 :     scipp::index_pair&gt; = [](const std::string &amp;key) {</span></a>
-<a name="55"><span class="lineNum">      55 </span><span class="lineCov">      46738 :   static std::map&lt;std::string, scipp::index&gt; offsets{{&quot;begin&quot;, 0}, {&quot;end&quot;, 1}};</span></a>
-<a name="56"><span class="lineNum">      56 </span><span class="lineCov">      46730 :   return offsets.at(key);</span></a>
-<a name="57"><span class="lineNum">      57 </span>            : };</a>
-<a name="58"><span class="lineNum">      58 </span>            : </a>
-<a name="59"><span class="lineNum">      59 </span><span class="lineCov">         62 : std::vector&lt;std::string&gt; element_keys(const Variable &amp;var) {</span></a>
-<a name="60"><span class="lineNum">      60 </span><span class="lineCov">         62 :   if (variableFactory().elem_dtype(var) == dtype&lt;Eigen::Vector3d&gt;)</span></a>
-<a name="61"><span class="lineNum">      61 </span><span class="lineCov">        128 :     return {&quot;x&quot;, &quot;y&quot;, &quot;z&quot;};</span></a>
-<a name="62"><span class="lineNum">      62 </span><span class="lineCov">         30 :   if (variableFactory().elem_dtype(var) == dtype&lt;Eigen::Matrix3d&gt;)</span></a>
-<a name="63"><span class="lineNum">      63 </span><span class="lineCov">        300 :     return {&quot;xx&quot;, &quot;xy&quot;, &quot;xz&quot;, &quot;yx&quot;, &quot;yy&quot;, &quot;yz&quot;, &quot;zx&quot;, &quot;zy&quot;, &quot;zz&quot;};</span></a>
-<a name="64"><span class="lineNum">      64 </span><span class="lineNoCov">          0 :   if (variableFactory().elem_dtype(var) == dtype&lt;Eigen::Affine3d&gt;)</span></a>
-<a name="65"><span class="lineNum">      65 </span><span class="lineNoCov">          0 :     throw except::TypeError(&quot;Not supported for Affine3d types&quot;);</span></a>
-<a name="66"><span class="lineNum">      66 </span><span class="lineNoCov">          0 :   if (variableFactory().elem_dtype(var) == dtype&lt;scipp::index_pair&gt;)</span></a>
-<a name="67"><span class="lineNum">      67 </span><span class="lineNoCov">          0 :     return {&quot;begin&quot;, &quot;end&quot;};</span></a>
-<a name="68"><span class="lineNum">      68 </span><span class="lineNoCov">          0 :   throw except::TypeError(&quot;dtype is not structured&quot;);</span></a>
-<a name="69"><span class="lineNum">      69 </span>            : }</a>
-<a name="70"><span class="lineNum">      70 </span>            : </a>
-<a name="71"><span class="lineNum">      71 </span>            : // Defining the destructor here ensures that all users of StructureArrayModel</a>
-<a name="72"><span class="lineNum">      72 </span>            : // use the same visibility of that class. Otherwise, instantiating the</a>
-<a name="73"><span class="lineNum">      73 </span>            : // StructureArrayModel template creates a class without visibility attribute.</a>
-<a name="74"><span class="lineNum">      74 </span>            : // But INSTANTIATE_STRUCTURE_ARRAY_VARIABLE below gives it SCIPP_EXPORT</a>
-<a name="75"><span class="lineNum">      75 </span>            : // visibility which would cause a mismatch.</a>
-<a name="76"><span class="lineNum">      76 </span>            : // With this explicit definition, instantiation is deferred.</a>
-<a name="77"><span class="lineNum">      77 </span>            : // This was observed with Apple Clang 13 and using</a>
-<a name="78"><span class="lineNum">      78 </span>            : // std::make_shared&lt;StructureArrayModel&lt;T, Elem&gt;&gt; in structures.cpp</a>
-<a name="79"><span class="lineNum">      79 </span>            : template &lt;class T_, class Elem_&gt;</a>
-<a name="80"><span class="lineNum">      80 </span><span class="lineCov">     349764 : StructureArrayModel&lt;T_, Elem_&gt;::~StructureArrayModel() = default;</span></a>
-<a name="81"><span class="lineNum">      81 </span>            : </a>
-<a name="82"><span class="lineNum">      82 </span>            : INSTANTIATE_STRUCTURE_ARRAY_VARIABLE(vector3, Eigen::Vector3d, double)</a>
-<a name="83"><span class="lineNum">      83 </span>            : INSTANTIATE_STRUCTURE_ARRAY_VARIABLE(linear_transform3, Eigen::Matrix3d, double)</a>
-<a name="84"><span class="lineNum">      84 </span>            : INSTANTIATE_STRUCTURE_ARRAY_VARIABLE(affine_transform3, Eigen::Affine3d, double)</a>
-<a name="85"><span class="lineNum">      85 </span>            : INSTANTIATE_STRUCTURE_ARRAY_VARIABLE(rotation3, scipp::core::Quaternion, double)</a>
-<a name="86"><span class="lineNum">      86 </span>            : INSTANTIATE_STRUCTURE_ARRAY_VARIABLE(translation3, scipp::core::Translation,</a>
-<a name="87"><span class="lineNum">      87 </span>            :                                      double)</a>
-<a name="88"><span class="lineNum">      88 </span>            : INSTANTIATE_STRUCTURE_ARRAY_VARIABLE(index_pair, scipp::index_pair,</a>
-<a name="89"><span class="lineNum">      89 </span>            :                                      scipp::index)</a>
-<a name="90"><span class="lineNum">      90 </span>            : </a>
-<a name="91"><span class="lineNum">      91 </span>            : } // namespace scipp::variable</a>
+<a name="53"><span class="lineNum">      53 </span>            : constexpr auto structure_element_offset&lt;scipp::index_pair&gt; =</a>
+<a name="54"><span class="lineNum">      54 </span><span class="lineCov">      44900 :     [](const std::string &amp;key) {</span></a>
+<a name="55"><span class="lineNum">      55 </span><span class="lineNoCov">          0 :       static std::map&lt;std::string, scipp::index&gt; offsets{{&quot;begin&quot;, 0},</span></a>
+<a name="56"><span class="lineNum">      56 </span><span class="lineCov">      44908 :                                                          {&quot;end&quot;, 1}};</span></a>
+<a name="57"><span class="lineNum">      57 </span><span class="lineCov">      44900 :       return offsets.at(key);</span></a>
+<a name="58"><span class="lineNum">      58 </span>            :     };</a>
+<a name="59"><span class="lineNum">      59 </span>            : </a>
+<a name="60"><span class="lineNum">      60 </span><span class="lineCov">         62 : std::vector&lt;std::string&gt; element_keys(const Variable &amp;var) {</span></a>
+<a name="61"><span class="lineNum">      61 </span><span class="lineCov">         62 :   if (variableFactory().elem_dtype(var) == dtype&lt;Eigen::Vector3d&gt;)</span></a>
+<a name="62"><span class="lineNum">      62 </span><span class="lineCov">        128 :     return {&quot;x&quot;, &quot;y&quot;, &quot;z&quot;};</span></a>
+<a name="63"><span class="lineNum">      63 </span><span class="lineCov">         30 :   if (variableFactory().elem_dtype(var) == dtype&lt;Eigen::Matrix3d&gt;)</span></a>
+<a name="64"><span class="lineNum">      64 </span><span class="lineCov">        300 :     return {&quot;xx&quot;, &quot;xy&quot;, &quot;xz&quot;, &quot;yx&quot;, &quot;yy&quot;, &quot;yz&quot;, &quot;zx&quot;, &quot;zy&quot;, &quot;zz&quot;};</span></a>
+<a name="65"><span class="lineNum">      65 </span><span class="lineNoCov">          0 :   if (variableFactory().elem_dtype(var) == dtype&lt;Eigen::Affine3d&gt;)</span></a>
+<a name="66"><span class="lineNum">      66 </span><span class="lineNoCov">          0 :     throw except::TypeError(&quot;Not supported for Affine3d types&quot;);</span></a>
+<a name="67"><span class="lineNum">      67 </span><span class="lineNoCov">          0 :   if (variableFactory().elem_dtype(var) == dtype&lt;scipp::index_pair&gt;)</span></a>
+<a name="68"><span class="lineNum">      68 </span><span class="lineNoCov">          0 :     return {&quot;begin&quot;, &quot;end&quot;};</span></a>
+<a name="69"><span class="lineNum">      69 </span><span class="lineNoCov">          0 :   throw except::TypeError(&quot;dtype is not structured&quot;);</span></a>
+<a name="70"><span class="lineNum">      70 </span>            : }</a>
+<a name="71"><span class="lineNum">      71 </span>            : </a>
+<a name="72"><span class="lineNum">      72 </span>            : // Defining the destructor here ensures that all users of StructureArrayModel</a>
+<a name="73"><span class="lineNum">      73 </span>            : // use the same visibility of that class. Otherwise, instantiating the</a>
+<a name="74"><span class="lineNum">      74 </span>            : // StructureArrayModel template creates a class without visibility attribute.</a>
+<a name="75"><span class="lineNum">      75 </span>            : // But INSTANTIATE_STRUCTURE_ARRAY_VARIABLE below gives it SCIPP_EXPORT</a>
+<a name="76"><span class="lineNum">      76 </span>            : // visibility which would cause a mismatch.</a>
+<a name="77"><span class="lineNum">      77 </span>            : // With this explicit definition, instantiation is deferred.</a>
+<a name="78"><span class="lineNum">      78 </span>            : // This was observed with Apple Clang 13 and using</a>
+<a name="79"><span class="lineNum">      79 </span>            : // std::make_shared&lt;StructureArrayModel&lt;T, Elem&gt;&gt; in structures.cpp</a>
+<a name="80"><span class="lineNum">      80 </span>            : template &lt;class T_, class Elem_&gt;</a>
+<a name="81"><span class="lineNum">      81 </span><span class="lineCov">     350035 : StructureArrayModel&lt;T_, Elem_&gt;::~StructureArrayModel() = default;</span></a>
+<a name="82"><span class="lineNum">      82 </span>            : </a>
+<a name="83"><span class="lineNum">      83 </span>            : INSTANTIATE_STRUCTURE_ARRAY_VARIABLE(vector3, Eigen::Vector3d, double)</a>
+<a name="84"><span class="lineNum">      84 </span>            : INSTANTIATE_STRUCTURE_ARRAY_VARIABLE(linear_transform3, Eigen::Matrix3d, double)</a>
+<a name="85"><span class="lineNum">      85 </span>            : INSTANTIATE_STRUCTURE_ARRAY_VARIABLE(affine_transform3, Eigen::Affine3d, double)</a>
+<a name="86"><span class="lineNum">      86 </span>            : INSTANTIATE_STRUCTURE_ARRAY_VARIABLE(rotation3, scipp::core::Quaternion, double)</a>
+<a name="87"><span class="lineNum">      87 </span>            : INSTANTIATE_STRUCTURE_ARRAY_VARIABLE(translation3, scipp::core::Translation,</a>
+<a name="88"><span class="lineNum">      88 </span>            :                                      double)</a>
+<a name="89"><span class="lineNum">      89 </span>            : INSTANTIATE_STRUCTURE_ARRAY_VARIABLE(index_pair, scipp::index_pair,</a>
+<a name="90"><span class="lineNum">      90 </span>            :                                      scipp::index)</a>
+<a name="91"><span class="lineNum">      91 </span>            : </a>
+<a name="92"><span class="lineNum">      92 </span>            : } // namespace scipp::variable</a>
 </pre>
       </td>
     </tr>

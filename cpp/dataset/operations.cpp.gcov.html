@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-08-25 01:35:12</td>
+            <td class="headerValue">2024-09-01 01:46:48</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">14</td>
@@ -99,15 +99,15 @@
 <a name="37"><span class="lineNum">      37 </span>            : }</a>
 <a name="38"><span class="lineNum">      38 </span>            : </a>
 <a name="39"><span class="lineNum">      39 </span>            : /// Return a copy of dict-like objects as a core::Dict.</a>
-<a name="40"><span class="lineNum">      40 </span><span class="lineCov">      13653 : template &lt;class Mapping&gt; auto copy_map(const Mapping &amp;map) {</span></a>
-<a name="41"><span class="lineNum">      41 </span><span class="lineCov">      13653 :   core::Dict&lt;typename Mapping::key_type, typename Mapping::mapped_type&gt; out;</span></a>
-<a name="42"><span class="lineNum">      42 </span><span class="lineCov">      40833 :   for (const auto &amp;[key, item] : map)</span></a>
-<a name="43"><span class="lineNum">      43 </span><span class="lineCov">      27180 :     out.insert_or_assign(key, copy(item));</span></a>
-<a name="44"><span class="lineNum">      44 </span><span class="lineCov">      13653 :   return out;</span></a>
+<a name="40"><span class="lineNum">      40 </span><span class="lineCov">      13164 : template &lt;class Mapping&gt; auto copy_map(const Mapping &amp;map) {</span></a>
+<a name="41"><span class="lineNum">      41 </span><span class="lineCov">      13164 :   core::Dict&lt;typename Mapping::key_type, typename Mapping::mapped_type&gt; out;</span></a>
+<a name="42"><span class="lineNum">      42 </span><span class="lineCov">      32092 :   for (const auto &amp;[key, item] : map)</span></a>
+<a name="43"><span class="lineNum">      43 </span><span class="lineCov">      18928 :     out.insert_or_assign(key, copy(item));</span></a>
+<a name="44"><span class="lineNum">      44 </span><span class="lineCov">      13164 :   return out;</span></a>
 <a name="45"><span class="lineNum">      45 </span><span class="lineNoCov">          0 : }</span></a>
 <a name="46"><span class="lineNum">      46 </span>            : </a>
-<a name="47"><span class="lineNum">      47 </span><span class="lineCov">       7486 : Coords copy(const Coords &amp;coords) { return {coords.sizes(), copy_map(coords)}; }</span></a>
-<a name="48"><span class="lineNum">      48 </span><span class="lineCov">      19820 : Masks copy(const Masks &amp;masks) { return {masks.sizes(), copy_map(masks)}; }</span></a>
+<a name="47"><span class="lineNum">      47 </span><span class="lineCov">       7510 : Coords copy(const Coords &amp;coords) { return {coords.sizes(), copy_map(coords)}; }</span></a>
+<a name="48"><span class="lineNum">      48 </span><span class="lineCov">      18818 : Masks copy(const Masks &amp;masks) { return {masks.sizes(), copy_map(masks)}; }</span></a>
 <a name="49"><span class="lineNum">      49 </span>            : </a>
 <a name="50"><span class="lineNum">      50 </span>            : /// Return a deep copy of a DataArray.</a>
 <a name="51"><span class="lineNum">      51 </span><span class="lineCov">       1686 : DataArray copy(const DataArray &amp;array, const AttrPolicy attrPolicy) {</span></a>
@@ -177,16 +177,16 @@
 <a name="115"><span class="lineNum">     115 </span>            : ///</a>
 <a name="116"><span class="lineNum">     116 </span>            : /// Only in the latter case a copy is returned. Masked values are replaced by</a>
 <a name="117"><span class="lineNum">     117 </span>            : /// fill_value. If not provided, values are replaced by zero.</a>
-<a name="118"><span class="lineNum">     118 </span><span class="lineCov">      47844 : Variable masked_data(const DataArray &amp;array, const Dim dim,</span></a>
+<a name="118"><span class="lineNum">     118 </span><span class="lineCov">      47889 : Variable masked_data(const DataArray &amp;array, const Dim dim,</span></a>
 <a name="119"><span class="lineNum">     119 </span>            :                      const std::optional&lt;Variable&gt; &amp;fill_value) {</a>
-<a name="120"><span class="lineNum">     120 </span><span class="lineCov">      47844 :   const auto mask = irreducible_mask(array.masks(), dim);</span></a>
-<a name="121"><span class="lineNum">     121 </span><span class="lineCov">      47844 :   if (mask.is_valid()) {</span></a>
+<a name="120"><span class="lineNum">     120 </span><span class="lineCov">      47889 :   const auto mask = irreducible_mask(array.masks(), dim);</span></a>
+<a name="121"><span class="lineNum">     121 </span><span class="lineCov">      47889 :   if (mask.is_valid()) {</span></a>
 <a name="122"><span class="lineNum">     122 </span><span class="lineCov">         28 :     const auto &amp;data = array.data();</span></a>
 <a name="123"><span class="lineNum">     123 </span><span class="lineCov">         28 :     const auto fill = fill_value.value_or(zero_like(array.data()));</span></a>
 <a name="124"><span class="lineNum">     124 </span><span class="lineCov">         28 :     return where(mask, fill, data);</span></a>
 <a name="125"><span class="lineNum">     125 </span><span class="lineCov">         28 :   } else</span></a>
-<a name="126"><span class="lineNum">     126 </span><span class="lineCov">      47816 :     return array.data();</span></a>
-<a name="127"><span class="lineNum">     127 </span><span class="lineCov">      47844 : }</span></a>
+<a name="126"><span class="lineNum">     126 </span><span class="lineCov">      47861 :     return array.data();</span></a>
+<a name="127"><span class="lineNum">     127 </span><span class="lineCov">      47889 : }</span></a>
 <a name="128"><span class="lineNum">     128 </span>            : </a>
 <a name="129"><span class="lineNum">     129 </span>            : namespace {</a>
 <a name="130"><span class="lineNum">     130 </span><span class="lineNoCov">          0 : template &lt;class Dict&gt; auto strip_(const Dict &amp;dict, const Dim dim) {</span></a>

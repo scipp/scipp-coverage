@@ -31,13 +31,13 @@
             <td class="headerValue">coverage.info</td>
             <td></td>
             <td class="headerItem">Lines:</td>
-            <td class="headerCovTableEntry">53</td>
-            <td class="headerCovTableEntry">55</td>
-            <td class="headerCovTableEntryHi">96.4 %</td>
+            <td class="headerCovTableEntry">52</td>
+            <td class="headerCovTableEntry">54</td>
+            <td class="headerCovTableEntryHi">96.3 %</td>
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-08-25 01:35:12</td>
+            <td class="headerValue">2024-09-01 01:46:48</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">13</td>
@@ -127,28 +127,27 @@
 <a name="65"><span class="lineNum">      65 </span><span class="lineCov">          6 : template &lt;class T&gt; void bind_to_unit(py::module &amp;m) {</span></a>
 <a name="66"><span class="lineNum">      66 </span><span class="lineCov">          6 :   m.def(</span></a>
 <a name="67"><span class="lineNum">      67 </span>            :       &quot;to_unit&quot;,</a>
-<a name="68"><span class="lineNum">      68 </span><span class="lineCov">      19941 :       [](const T &amp;x, const ProtoUnit &amp;unit, const bool copy) {</span></a>
-<a name="69"><span class="lineNum">      69 </span><span class="lineCov">      39863 :         return to_unit(x, unit_or_default(unit),</span></a>
-<a name="70"><span class="lineNum">      70 </span><span class="lineCov">      59803 :                        copy ? CopyPolicy::Always : CopyPolicy::TryAvoid);</span></a>
+<a name="68"><span class="lineNum">      68 </span><span class="lineCov">      20145 :       [](const T &amp;x, const ProtoUnit &amp;unit, const bool copy) {</span></a>
+<a name="69"><span class="lineNum">      69 </span><span class="lineCov">      40271 :         return to_unit(x, unit_or_default(unit),</span></a>
+<a name="70"><span class="lineNum">      70 </span><span class="lineCov">      60415 :                        copy ? CopyPolicy::Always : CopyPolicy::TryAvoid);</span></a>
 <a name="71"><span class="lineNum">      71 </span>            :       },</a>
 <a name="72"><span class="lineNum">      72 </span><span class="lineCov">         12 :       py::arg(&quot;x&quot;), py::arg(&quot;unit&quot;), py::arg(&quot;copy&quot;) = true,</span></a>
 <a name="73"><span class="lineNum">      73 </span><span class="lineCov">          6 :       py::call_guard&lt;py::gil_scoped_release&gt;());</span></a>
 <a name="74"><span class="lineNum">      74 </span><span class="lineCov">          6 : }</span></a>
 <a name="75"><span class="lineNum">      75 </span>            : </a>
 <a name="76"><span class="lineNum">      76 </span><span class="lineCov">          6 : template &lt;class T&gt; void bind_as_const(py::module &amp;m) {</span></a>
-<a name="77"><span class="lineNum">      77 </span><span class="lineCov">          6 :   m.def(</span></a>
-<a name="78"><span class="lineNum">      78 </span><span class="lineCov">         46 :       &quot;as_const&quot;, [](const T &amp;x) { return x.as_const(); }, py::arg(&quot;x&quot;));</span></a>
-<a name="79"><span class="lineNum">      79 </span><span class="lineCov">          6 : }</span></a>
-<a name="80"><span class="lineNum">      80 </span>            : } // namespace</a>
-<a name="81"><span class="lineNum">      81 </span>            : </a>
-<a name="82"><span class="lineNum">      82 </span><span class="lineCov">          3 : void init_unary(py::module &amp;m) {</span></a>
-<a name="83"><span class="lineNum">      83 </span><span class="lineCov">          3 :   bind_norm&lt;Variable&gt;(m);</span></a>
-<a name="84"><span class="lineNum">      84 </span><span class="lineCov">          3 :   bind_nan_to_num&lt;Variable&gt;(m);</span></a>
-<a name="85"><span class="lineNum">      85 </span><span class="lineCov">          3 :   bind_to_unit&lt;Variable&gt;(m);</span></a>
-<a name="86"><span class="lineNum">      86 </span><span class="lineCov">          3 :   bind_to_unit&lt;DataArray&gt;(m);</span></a>
-<a name="87"><span class="lineNum">      87 </span><span class="lineCov">          3 :   bind_as_const&lt;Variable&gt;(m);</span></a>
-<a name="88"><span class="lineNum">      88 </span><span class="lineCov">          3 :   bind_as_const&lt;DataArray&gt;(m);</span></a>
-<a name="89"><span class="lineNum">      89 </span><span class="lineCov">          3 : }</span></a>
+<a name="77"><span class="lineNum">      77 </span><span class="lineCov">         46 :   m.def(&quot;as_const&quot;, [](const T &amp;x) { return x.as_const(); }, py::arg(&quot;x&quot;));</span></a>
+<a name="78"><span class="lineNum">      78 </span><span class="lineCov">          6 : }</span></a>
+<a name="79"><span class="lineNum">      79 </span>            : } // namespace</a>
+<a name="80"><span class="lineNum">      80 </span>            : </a>
+<a name="81"><span class="lineNum">      81 </span><span class="lineCov">          3 : void init_unary(py::module &amp;m) {</span></a>
+<a name="82"><span class="lineNum">      82 </span><span class="lineCov">          3 :   bind_norm&lt;Variable&gt;(m);</span></a>
+<a name="83"><span class="lineNum">      83 </span><span class="lineCov">          3 :   bind_nan_to_num&lt;Variable&gt;(m);</span></a>
+<a name="84"><span class="lineNum">      84 </span><span class="lineCov">          3 :   bind_to_unit&lt;Variable&gt;(m);</span></a>
+<a name="85"><span class="lineNum">      85 </span><span class="lineCov">          3 :   bind_to_unit&lt;DataArray&gt;(m);</span></a>
+<a name="86"><span class="lineNum">      86 </span><span class="lineCov">          3 :   bind_as_const&lt;Variable&gt;(m);</span></a>
+<a name="87"><span class="lineNum">      87 </span><span class="lineCov">          3 :   bind_as_const&lt;DataArray&gt;(m);</span></a>
+<a name="88"><span class="lineNum">      88 </span><span class="lineCov">          3 : }</span></a>
 </pre>
       </td>
     </tr>

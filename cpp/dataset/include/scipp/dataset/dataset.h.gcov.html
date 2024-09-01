@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-08-25 01:35:12</td>
+            <td class="headerValue">2024-09-01 01:46:48</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">27</td>
@@ -80,9 +80,9 @@
 <a name="18"><span class="lineNum">      18 </span>            : /// Helper for creating iterators of Dataset.</a>
 <a name="19"><span class="lineNum">      19 </span>            : template &lt;class D&gt; struct with_coords {</a>
 <a name="20"><span class="lineNum">      20 </span>            :   const D *dataset;</a>
-<a name="21"><span class="lineNum">      21 </span><span class="lineCov">       7354 :   template &lt;class T&gt; auto operator()(T &amp;&amp;item) const {</span></a>
-<a name="22"><span class="lineNum">      22 </span><span class="lineCov">      14708 :     return item.second.view_with_coords(dataset-&gt;coords(), item.first,</span></a>
-<a name="23"><span class="lineNum">      23 </span><span class="lineCov">       7354 :                                         dataset-&gt;is_readonly());</span></a>
+<a name="21"><span class="lineNum">      21 </span><span class="lineCov">       7353 :   template &lt;class T&gt; auto operator()(T &amp;&amp;item) const {</span></a>
+<a name="22"><span class="lineNum">      22 </span><span class="lineCov">      14706 :     return item.second.view_with_coords(dataset-&gt;coords(), item.first,</span></a>
+<a name="23"><span class="lineNum">      23 </span><span class="lineCov">       7353 :                                         dataset-&gt;is_readonly());</span></a>
 <a name="24"><span class="lineNum">      24 </span>            :   }</a>
 <a name="25"><span class="lineNum">      25 </span>            : };</a>
 <a name="26"><span class="lineNum">      26 </span>            : template &lt;class D&gt; with_coords(const D *) -&gt; with_coords&lt;D&gt;;</a>
@@ -187,10 +187,10 @@
 <a name="125"><span class="lineNum">     125 </span>            : </a>
 <a name="126"><span class="lineNum">     126 </span>            :   auto find() const &amp;&amp; = delete;</a>
 <a name="127"><span class="lineNum">     127 </span>            :   auto find() &amp;&amp; = delete;</a>
-<a name="128"><span class="lineNum">     128 </span><span class="lineCov">       3255 :   auto find(const std::string &amp;name) &amp;noexcept {</span></a>
+<a name="128"><span class="lineNum">     128 </span><span class="lineCov">       3255 :   auto find(const std::string &amp;name) &amp; noexcept {</span></a>
 <a name="129"><span class="lineNum">     129 </span><span class="lineCov">       3255 :     return m_data.find(name).transform(detail::with_coords{this});</span></a>
 <a name="130"><span class="lineNum">     130 </span>            :   }</a>
-<a name="131"><span class="lineNum">     131 </span><span class="lineCov">       3734 :   auto find(const std::string &amp;name) const &amp;noexcept {</span></a>
+<a name="131"><span class="lineNum">     131 </span><span class="lineCov">       3734 :   auto find(const std::string &amp;name) const &amp; noexcept {</span></a>
 <a name="132"><span class="lineNum">     132 </span><span class="lineCov">       3734 :     return m_data.find(name).transform(detail::with_coords{this});</span></a>
 <a name="133"><span class="lineNum">     133 </span>            :   }</a>
 <a name="134"><span class="lineNum">     134 </span>            : </a>
@@ -199,52 +199,52 @@
 <a name="137"><span class="lineNum">     137 </span>            :   auto begin() const &amp;&amp; = delete;</a>
 <a name="138"><span class="lineNum">     138 </span>            :   auto begin() &amp;&amp; = delete;</a>
 <a name="139"><span class="lineNum">     139 </span>            :   /// Return const iterator to the beginning of all data items.</a>
-<a name="140"><span class="lineNum">     140 </span><span class="lineCov">       2423 :   auto begin() const &amp;noexcept {</span></a>
-<a name="141"><span class="lineNum">     141 </span><span class="lineCov">       2423 :     return m_data.begin().transform(detail::with_coords{this});</span></a>
+<a name="140"><span class="lineNum">     140 </span><span class="lineCov">       2422 :   auto begin() const &amp; noexcept {</span></a>
+<a name="141"><span class="lineNum">     141 </span><span class="lineCov">       2422 :     return m_data.begin().transform(detail::with_coords{this});</span></a>
 <a name="142"><span class="lineNum">     142 </span>            :   }</a>
 <a name="143"><span class="lineNum">     143 </span>            :   /// Return iterator to the beginning of all data items.</a>
-<a name="144"><span class="lineNum">     144 </span><span class="lineCov">        213 :   auto begin() &amp;noexcept {</span></a>
+<a name="144"><span class="lineNum">     144 </span><span class="lineCov">        213 :   auto begin() &amp; noexcept {</span></a>
 <a name="145"><span class="lineNum">     145 </span><span class="lineCov">        213 :     return m_data.begin().transform(detail::with_coords{this});</span></a>
 <a name="146"><span class="lineNum">     146 </span>            :   }</a>
 <a name="147"><span class="lineNum">     147 </span>            :   auto end() const &amp;&amp; = delete;</a>
 <a name="148"><span class="lineNum">     148 </span>            :   auto end() &amp;&amp; = delete;</a>
 <a name="149"><span class="lineNum">     149 </span>            :   /// Return const iterator to the end of all data items.</a>
-<a name="150"><span class="lineNum">     150 </span><span class="lineCov">       2485 :   auto end() const &amp;noexcept {</span></a>
-<a name="151"><span class="lineNum">     151 </span><span class="lineCov">       2485 :     return m_data.end().transform(detail::with_coords{this});</span></a>
+<a name="150"><span class="lineNum">     150 </span><span class="lineCov">       2484 :   auto end() const &amp; noexcept {</span></a>
+<a name="151"><span class="lineNum">     151 </span><span class="lineCov">       2484 :     return m_data.end().transform(detail::with_coords{this});</span></a>
 <a name="152"><span class="lineNum">     152 </span>            :   }</a>
 <a name="153"><span class="lineNum">     153 </span>            : </a>
 <a name="154"><span class="lineNum">     154 </span>            :   /// Return iterator to the end of all data items.</a>
-<a name="155"><span class="lineNum">     155 </span><span class="lineCov">       3472 :   auto end() &amp;noexcept {</span></a>
+<a name="155"><span class="lineNum">     155 </span><span class="lineCov">       3472 :   auto end() &amp; noexcept {</span></a>
 <a name="156"><span class="lineNum">     156 </span><span class="lineCov">       3472 :     return m_data.end().transform(detail::with_coords{this});</span></a>
 <a name="157"><span class="lineNum">     157 </span>            :   }</a>
 <a name="158"><span class="lineNum">     158 </span>            : </a>
 <a name="159"><span class="lineNum">     159 </span>            :   auto items_begin() const &amp;&amp; = delete;</a>
 <a name="160"><span class="lineNum">     160 </span>            :   auto items_begin() &amp;&amp; = delete;</a>
-<a name="161"><span class="lineNum">     161 </span>            :   auto items_begin() const &amp;noexcept {</a>
+<a name="161"><span class="lineNum">     161 </span>            :   auto items_begin() const &amp; noexcept {</a>
 <a name="162"><span class="lineNum">     162 </span>            :     return m_data.begin().transform(detail::item_with_coords{this});</a>
 <a name="163"><span class="lineNum">     163 </span>            :   }</a>
-<a name="164"><span class="lineNum">     164 </span><span class="lineCov">        503 :   auto items_begin() &amp;noexcept {</span></a>
+<a name="164"><span class="lineNum">     164 </span><span class="lineCov">        503 :   auto items_begin() &amp; noexcept {</span></a>
 <a name="165"><span class="lineNum">     165 </span><span class="lineCov">        503 :     return m_data.begin().transform(detail::item_with_coords{this});</span></a>
 <a name="166"><span class="lineNum">     166 </span>            :   }</a>
 <a name="167"><span class="lineNum">     167 </span>            :   auto items_end() const &amp;&amp; = delete;</a>
 <a name="168"><span class="lineNum">     168 </span>            :   auto items_end() &amp;&amp; = delete;</a>
-<a name="169"><span class="lineNum">     169 </span>            :   auto items_end() const &amp;noexcept {</a>
+<a name="169"><span class="lineNum">     169 </span>            :   auto items_end() const &amp; noexcept {</a>
 <a name="170"><span class="lineNum">     170 </span>            :     return m_data.end().transform(detail::item_with_coords{this});</a>
 <a name="171"><span class="lineNum">     171 </span>            :   }</a>
 <a name="172"><span class="lineNum">     172 </span>            : </a>
-<a name="173"><span class="lineNum">     173 </span><span class="lineCov">        503 :   auto items_end() &amp;noexcept {</span></a>
+<a name="173"><span class="lineNum">     173 </span><span class="lineCov">        503 :   auto items_end() &amp; noexcept {</span></a>
 <a name="174"><span class="lineNum">     174 </span><span class="lineCov">        503 :     return m_data.end().transform(detail::item_with_coords{this});</span></a>
 <a name="175"><span class="lineNum">     175 </span>            :   }</a>
 <a name="176"><span class="lineNum">     176 </span>            : </a>
 <a name="177"><span class="lineNum">     177 </span>            :   auto keys_begin() const &amp;&amp; = delete;</a>
 <a name="178"><span class="lineNum">     178 </span>            :   auto keys_begin() &amp;&amp; = delete;</a>
-<a name="179"><span class="lineNum">     179 </span><span class="lineCov">         29 :   auto keys_begin() const &amp;noexcept { return m_data.keys_begin(); }</span></a>
-<a name="180"><span class="lineNum">     180 </span><span class="lineCov">        226 :   auto keys_begin() &amp;noexcept { return m_data.keys_begin(); }</span></a>
+<a name="179"><span class="lineNum">     179 </span><span class="lineCov">         29 :   auto keys_begin() const &amp; noexcept { return m_data.keys_begin(); }</span></a>
+<a name="180"><span class="lineNum">     180 </span><span class="lineCov">        226 :   auto keys_begin() &amp; noexcept { return m_data.keys_begin(); }</span></a>
 <a name="181"><span class="lineNum">     181 </span>            :   auto keys_end() const &amp;&amp; = delete;</a>
 <a name="182"><span class="lineNum">     182 </span>            :   auto keys_end() &amp;&amp; = delete;</a>
-<a name="183"><span class="lineNum">     183 </span><span class="lineCov">         29 :   auto keys_end() const &amp;noexcept { return m_data.keys_end(); }</span></a>
+<a name="183"><span class="lineNum">     183 </span><span class="lineCov">         29 :   auto keys_end() const &amp; noexcept { return m_data.keys_end(); }</span></a>
 <a name="184"><span class="lineNum">     184 </span>            : </a>
-<a name="185"><span class="lineNum">     185 </span><span class="lineCov">        226 :   auto keys_end() &amp;noexcept { return m_data.keys_end(); }</span></a>
+<a name="185"><span class="lineNum">     185 </span><span class="lineCov">        226 :   auto keys_end() &amp; noexcept { return m_data.keys_end(); }</span></a>
 <a name="186"><span class="lineNum">     186 </span>            : </a>
 <a name="187"><span class="lineNum">     187 </span>            :   void setCoord(const Dim dim, Variable coord);</a>
 <a name="188"><span class="lineNum">     188 </span>            :   void setData(const std::string &amp;name, Variable data,</a>

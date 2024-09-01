@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-08-25 01:35:12</td>
+            <td class="headerValue">2024-09-01 01:46:48</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">55</td>
@@ -80,12 +80,12 @@
 <a name="18"><span class="lineNum">      18 </span>            : namespace scipp::dataset {</a>
 <a name="19"><span class="lineNum">      19 </span>            : </a>
 <a name="20"><span class="lineNum">      20 </span>            : /// Map `op` over `items`, return vector of results</a>
-<a name="21"><span class="lineNum">      21 </span><span class="lineCov">       6358 : template &lt;class T, class Op&gt; auto map(const T &amp;items, Op op) {</span></a>
-<a name="22"><span class="lineNum">      22 </span><span class="lineCov">       6358 :   std::vector&lt;std::decay_t&lt;decltype(op(items.front()))&gt;&gt; out;</span></a>
-<a name="23"><span class="lineNum">      23 </span><span class="lineCov">       6358 :   out.reserve(items.size());</span></a>
-<a name="24"><span class="lineNum">      24 </span><span class="lineCov">      19315 :   for (const auto &amp;i : items)</span></a>
-<a name="25"><span class="lineNum">      25 </span><span class="lineCov">      12957 :     out.emplace_back(op(i));</span></a>
-<a name="26"><span class="lineNum">      26 </span><span class="lineCov">       6358 :   return out;</span></a>
+<a name="21"><span class="lineNum">      21 </span><span class="lineCov">       6368 : template &lt;class T, class Op&gt; auto map(const T &amp;items, Op op) {</span></a>
+<a name="22"><span class="lineNum">      22 </span><span class="lineCov">       6368 :   std::vector&lt;std::decay_t&lt;decltype(op(items.front()))&gt;&gt; out;</span></a>
+<a name="23"><span class="lineNum">      23 </span><span class="lineCov">       6368 :   out.reserve(items.size());</span></a>
+<a name="24"><span class="lineNum">      24 </span><span class="lineCov">      19345 :   for (const auto &amp;i : items)</span></a>
+<a name="25"><span class="lineNum">      25 </span><span class="lineCov">      12977 :     out.emplace_back(op(i));</span></a>
+<a name="26"><span class="lineNum">      26 </span><span class="lineCov">       6368 :   return out;</span></a>
 <a name="27"><span class="lineNum">      27 </span><span class="lineNoCov">          0 : }</span></a>
 <a name="28"><span class="lineNum">      28 </span>            : </a>
 <a name="29"><span class="lineNum">      29 </span>            : /// Concatenate a and b, assuming that a and b contain bin edges.</a>
@@ -134,15 +134,15 @@
 <a name="72"><span class="lineNum">      72 </span><span class="lineCov">         58 :   });</span></a>
 <a name="73"><span class="lineNum">      73 </span>            : }</a>
 <a name="74"><span class="lineNum">      74 </span>            : </a>
-<a name="75"><span class="lineNum">      75 </span><span class="lineCov">       3481 : template &lt;class Maps&gt; auto concat_maps(const Maps &amp;maps, const Dim dim) {</span></a>
-<a name="76"><span class="lineNum">      76 </span><span class="lineCov">       3481 :   if (maps.empty())</span></a>
+<a name="75"><span class="lineNum">      75 </span><span class="lineCov">       3487 : template &lt;class Maps&gt; auto concat_maps(const Maps &amp;maps, const Dim dim) {</span></a>
+<a name="76"><span class="lineNum">      76 </span><span class="lineCov">       3487 :   if (maps.empty())</span></a>
 <a name="77"><span class="lineNum">      77 </span><span class="lineCov">          1 :     throw std::invalid_argument(&quot;Cannot concat empty list.&quot;);</span></a>
 <a name="78"><span class="lineNum">      78 </span>            :   using T = typename Maps::value_type;</a>
-<a name="79"><span class="lineNum">      79 </span><span class="lineCov">       3480 :   core::Dict&lt;typename T::key_type, typename T::mapped_type&gt; out;</span></a>
-<a name="80"><span class="lineNum">      80 </span><span class="lineCov">       3480 :   const auto &amp;a = maps.front();</span></a>
-<a name="81"><span class="lineNum">      81 </span><span class="lineCov">       5081 :   for (const auto &amp;[key, a_] : a) {</span></a>
-<a name="82"><span class="lineNum">      82 </span><span class="lineCov">       4915 :     auto vars = map(maps, [&amp;key = key](auto &amp;&amp;map) { return map[key]; });</span></a>
-<a name="83"><span class="lineNum">      83 </span><span class="lineCov">       1601 :     if (a.dim_of(key) == dim) {</span></a>
+<a name="79"><span class="lineNum">      79 </span><span class="lineCov">       3486 :   core::Dict&lt;typename T::key_type, typename T::mapped_type&gt; out;</span></a>
+<a name="80"><span class="lineNum">      80 </span><span class="lineCov">       3486 :   const auto &amp;a = maps.front();</span></a>
+<a name="81"><span class="lineNum">      81 </span><span class="lineCov">       5089 :   for (const auto &amp;[key, a_] : a) {</span></a>
+<a name="82"><span class="lineNum">      82 </span><span class="lineCov">       4921 :     auto vars = map(maps, [&amp;key = key](auto &amp;&amp;map) { return map[key]; });</span></a>
+<a name="83"><span class="lineNum">      83 </span><span class="lineCov">       1603 :     if (a.dim_of(key) == dim) {</span></a>
 <a name="84"><span class="lineNum">      84 </span><span class="lineCov">       1183 :       if (!equal_is_edges(maps, key, dim)) {</span></a>
 <a name="85"><span class="lineNum">      85 </span><span class="lineCov">          7 :         throw except::BinEdgeError(</span></a>
 <a name="86"><span class="lineNum">      86 </span>            :             &quot;Either all or none of the inputs must have bin edge coordinates.&quot;);</a>
@@ -153,8 +153,8 @@
 <a name="91"><span class="lineNum">      91 </span>            :       }</a>
 <a name="92"><span class="lineNum">      92 </span>            :     } else {</a>
 <a name="93"><span class="lineNum">      93 </span>            :       // 1D coord is kept only if all inputs have matching 1D coords.</a>
-<a name="94"><span class="lineNum">      94 </span><span class="lineCov">       2159 :       if (std::any_of(vars.begin(), vars.end(), [dim, &amp;vars](auto &amp;var) {</span></a>
-<a name="95"><span class="lineNum">      95 </span><span class="lineCov">        890 :             return var.dims().contains(dim) || !equals_nan(var, vars.front());</span></a>
+<a name="94"><span class="lineNum">      94 </span><span class="lineCov">       2169 :       if (std::any_of(vars.begin(), vars.end(), [dim, &amp;vars](auto &amp;var) {</span></a>
+<a name="95"><span class="lineNum">      95 </span><span class="lineCov">        894 :             return var.dims().contains(dim) || !equals_nan(var, vars.front());</span></a>
 <a name="96"><span class="lineNum">      96 </span>            :           })) {</a>
 <a name="97"><span class="lineNum">      97 </span>            :         // Mismatching 1D coords must be broadcast to ensure new coord shape</a>
 <a name="98"><span class="lineNum">      98 </span>            :         // matches new data shape.</a>
@@ -164,30 +164,30 @@
 <a name="102"><span class="lineNum">     102 </span>            :         if constexpr (std::is_same_v&lt;T, Masks&gt;)</a>
 <a name="103"><span class="lineNum">     103 </span><span class="lineCov">        130 :           out.insert_or_assign(key, copy(a_));</span></a>
 <a name="104"><span class="lineNum">     104 </span>            :         else</a>
-<a name="105"><span class="lineNum">     105 </span><span class="lineCov">        230 :           out.insert_or_assign(key, a_);</span></a>
+<a name="105"><span class="lineNum">     105 </span><span class="lineCov">        232 :           out.insert_or_assign(key, a_);</span></a>
 <a name="106"><span class="lineNum">     106 </span>            :       }</a>
 <a name="107"><span class="lineNum">     107 </span>            :     }</a>
 <a name="108"><span class="lineNum">     108 </span>            :   }</a>
-<a name="109"><span class="lineNum">     109 </span><span class="lineCov">       3470 :   return out;</span></a>
+<a name="109"><span class="lineNum">     109 </span><span class="lineCov">       3476 :   return out;</span></a>
 <a name="110"><span class="lineNum">     110 </span><span class="lineCov">         10 : }</span></a>
 <a name="111"><span class="lineNum">     111 </span>            : </a>
 <a name="112"><span class="lineNum">     112 </span>            : } // namespace</a>
 <a name="113"><span class="lineNum">     113 </span>            : </a>
-<a name="114"><span class="lineNum">     114 </span><span class="lineCov">       1162 : DataArray concat(const scipp::span&lt;const DataArray&gt; das, const Dim dim) {</span></a>
-<a name="115"><span class="lineNum">     115 </span><span class="lineCov">       2322 :   auto out = DataArray(concat(map(das, get_data), dim), {},</span></a>
-<a name="116"><span class="lineNum">     116 </span><span class="lineCov">       3487 :                        concat_maps(map(das, get_masks), dim));</span></a>
-<a name="117"><span class="lineNum">     117 </span><span class="lineCov">       1161 :   const auto &amp;coords = map(das, get_coords);</span></a>
-<a name="118"><span class="lineNum">     118 </span><span class="lineCov">       2388 :   for (auto &amp;&amp;[d, coord] : concat_maps(coords, dim)) {</span></a>
-<a name="119"><span class="lineNum">     119 </span><span class="lineCov">       2373 :     coord.set_aligned(d == dim ||</span></a>
-<a name="120"><span class="lineNum">     120 </span><span class="lineCov">       1146 :                       std::any_of(coords.begin(), coords.end(),</span></a>
-<a name="121"><span class="lineNum">     121 </span><span class="lineCov">       1146 :                                   [&amp;d = d](auto &amp;_) { return _.contains(d); }));</span></a>
-<a name="122"><span class="lineNum">     122 </span><span class="lineCov">       1227 :     out.coords().set(d, std::move(coord));</span></a>
-<a name="123"><span class="lineNum">     123 </span><span class="lineCov">       1151 :   }</span></a>
-<a name="124"><span class="lineNum">     124 </span><span class="lineCov">       1311 :   for (auto &amp;&amp;[d, attr] : concat_maps(map(das, get_attrs), dim)) {</span></a>
+<a name="114"><span class="lineNum">     114 </span><span class="lineCov">       1164 : DataArray concat(const scipp::span&lt;const DataArray&gt; das, const Dim dim) {</span></a>
+<a name="115"><span class="lineNum">     115 </span><span class="lineCov">       2326 :   auto out = DataArray(concat(map(das, get_data), dim), {},</span></a>
+<a name="116"><span class="lineNum">     116 </span><span class="lineCov">       3493 :                        concat_maps(map(das, get_masks), dim));</span></a>
+<a name="117"><span class="lineNum">     117 </span><span class="lineCov">       1163 :   const auto &amp;coords = map(das, get_coords);</span></a>
+<a name="118"><span class="lineNum">     118 </span><span class="lineCov">       2392 :   for (auto &amp;&amp;[d, coord] : concat_maps(coords, dim)) {</span></a>
+<a name="119"><span class="lineNum">     119 </span><span class="lineCov">       2377 :     coord.set_aligned(d == dim ||</span></a>
+<a name="120"><span class="lineNum">     120 </span><span class="lineCov">       1148 :                       std::any_of(coords.begin(), coords.end(),</span></a>
+<a name="121"><span class="lineNum">     121 </span><span class="lineCov">       1148 :                                   [&amp;d = d](auto &amp;_) { return _.contains(d); }));</span></a>
+<a name="122"><span class="lineNum">     122 </span><span class="lineCov">       1229 :     out.coords().set(d, std::move(coord));</span></a>
+<a name="123"><span class="lineNum">     123 </span><span class="lineCov">       1153 :   }</span></a>
+<a name="124"><span class="lineNum">     124 </span><span class="lineCov">       1313 :   for (auto &amp;&amp;[d, attr] : concat_maps(map(das, get_attrs), dim)) {</span></a>
 <a name="125"><span class="lineNum">     125 </span><span class="lineCov">        160 :     out.attrs().set(d, std::move(attr));</span></a>
-<a name="126"><span class="lineNum">     126 </span><span class="lineCov">       1151 :   }</span></a>
-<a name="127"><span class="lineNum">     127 </span><span class="lineCov">       2302 :   return out;</span></a>
-<a name="128"><span class="lineNum">     128 </span><span class="lineCov">       1171 : }</span></a>
+<a name="126"><span class="lineNum">     126 </span><span class="lineCov">       1153 :   }</span></a>
+<a name="127"><span class="lineNum">     127 </span><span class="lineCov">       2306 :   return out;</span></a>
+<a name="128"><span class="lineNum">     128 </span><span class="lineCov">       1173 : }</span></a>
 <a name="129"><span class="lineNum">     129 </span>            : </a>
 <a name="130"><span class="lineNum">     130 </span><span class="lineCov">         48 : Dataset concat(const scipp::span&lt;const Dataset&gt; dss, const Dim dim) {</span></a>
 <a name="131"><span class="lineNum">     131 </span><span class="lineCov">         48 :   if (dss.empty())</span></a>
@@ -238,27 +238,27 @@
 <a name="176"><span class="lineNum">     176 </span>            : /// 2. If at least one (but not all) of the from_dims is contained in the</a>
 <a name="177"><span class="lineNum">     177 </span>            : ///    variable's dims, broadcast</a>
 <a name="178"><span class="lineNum">     178 </span>            : /// 3. If none of the variables's dimensions are contained, no broadcast</a>
-<a name="179"><span class="lineNum">     179 </span><span class="lineCov">       7047 : Variable maybe_broadcast(const Variable &amp;var,</span></a>
+<a name="179"><span class="lineNum">     179 </span><span class="lineCov">       7297 : Variable maybe_broadcast(const Variable &amp;var,</span></a>
 <a name="180"><span class="lineNum">     180 </span>            :                          const scipp::span&lt;const Dim&gt; &amp;from_labels,</a>
 <a name="181"><span class="lineNum">     181 </span>            :                          const Dimensions &amp;data_dims) {</a>
-<a name="182"><span class="lineNum">     182 </span><span class="lineCov">       7047 :   const auto &amp;var_dims = var.dims();</span></a>
-<a name="183"><span class="lineNum">     183 </span><span class="lineCov">       7047 :   Dimensions broadcast_dims;</span></a>
-<a name="184"><span class="lineNum">     184 </span><span class="lineCov">      18262 :   for (const auto &amp;dim : var_dims.labels())</span></a>
-<a name="185"><span class="lineNum">     185 </span><span class="lineCov">      22430 :     if (std::find(from_labels.begin(), from_labels.end(), dim) ==</span></a>
-<a name="186"><span class="lineNum">     186 </span><span class="lineCov">      11215 :         from_labels.end())</span></a>
-<a name="187"><span class="lineNum">     187 </span><span class="lineCov">         13 :       broadcast_dims.addInner(dim, var_dims[dim]);</span></a>
+<a name="182"><span class="lineNum">     182 </span><span class="lineCov">       7297 :   const auto &amp;var_dims = var.dims();</span></a>
+<a name="183"><span class="lineNum">     183 </span><span class="lineCov">       7297 :   Dimensions broadcast_dims;</span></a>
+<a name="184"><span class="lineNum">     184 </span><span class="lineCov">      18809 :   for (const auto &amp;dim : var_dims.labels())</span></a>
+<a name="185"><span class="lineNum">     185 </span><span class="lineCov">      23024 :     if (std::find(from_labels.begin(), from_labels.end(), dim) ==</span></a>
+<a name="186"><span class="lineNum">     186 </span><span class="lineCov">      11512 :         from_labels.end())</span></a>
+<a name="187"><span class="lineNum">     187 </span><span class="lineCov">         55 :       broadcast_dims.addInner(dim, var_dims[dim]);</span></a>
 <a name="188"><span class="lineNum">     188 </span>            :     else</a>
-<a name="189"><span class="lineNum">     189 </span><span class="lineCov">      42838 :       for (const auto &amp;lab : from_labels)</span></a>
-<a name="190"><span class="lineNum">     190 </span><span class="lineCov">      31636 :         if (!broadcast_dims.contains(lab)) {</span></a>
+<a name="189"><span class="lineNum">     189 </span><span class="lineCov">      43471 :       for (const auto &amp;lab : from_labels)</span></a>
+<a name="190"><span class="lineNum">     190 </span><span class="lineCov">      32014 :         if (!broadcast_dims.contains(lab)) {</span></a>
 <a name="191"><span class="lineNum">     191 </span>            :           // Need to check if the variable contains that dim, and use the</a>
 <a name="192"><span class="lineNum">     192 </span>            :           // variable shape in case we have a bin edge.</a>
-<a name="193"><span class="lineNum">     193 </span><span class="lineCov">      19168 :           if (var_dims.contains(lab))</span></a>
-<a name="194"><span class="lineNum">     194 </span><span class="lineCov">      11202 :             broadcast_dims.addInner(lab, var_dims[lab]);</span></a>
+<a name="193"><span class="lineNum">     193 </span><span class="lineCov">      19454 :           if (var_dims.contains(lab))</span></a>
+<a name="194"><span class="lineNum">     194 </span><span class="lineCov">      11457 :             broadcast_dims.addInner(lab, var_dims[lab]);</span></a>
 <a name="195"><span class="lineNum">     195 </span>            :           else</a>
-<a name="196"><span class="lineNum">     196 </span><span class="lineCov">       7966 :             broadcast_dims.addInner(lab, data_dims[lab]);</span></a>
+<a name="196"><span class="lineNum">     196 </span><span class="lineCov">       7997 :             broadcast_dims.addInner(lab, data_dims[lab]);</span></a>
 <a name="197"><span class="lineNum">     197 </span>            :         }</a>
-<a name="198"><span class="lineNum">     198 </span><span class="lineCov">      14094 :   return broadcast(var, broadcast_dims);</span></a>
-<a name="199"><span class="lineNum">     199 </span><span class="lineCov">       7047 : }</span></a>
+<a name="198"><span class="lineNum">     198 </span><span class="lineCov">      14594 :   return broadcast(var, broadcast_dims);</span></a>
+<a name="199"><span class="lineNum">     199 </span><span class="lineCov">       7297 : }</span></a>
 <a name="200"><span class="lineNum">     200 </span>            : </a>
 <a name="201"><span class="lineNum">     201 </span>            : /// Special handling for folding coord along a dim that contains bin edges.</a>
 <a name="202"><span class="lineNum">     202 </span><span class="lineCov">          4 : Variable fold_bin_edge(const Variable &amp;var, const Dim from_dim,</span></a>
@@ -272,40 +272,40 @@
 <a name="210"><span class="lineNum">     210 </span><span class="lineNoCov">          0 : }</span></a>
 <a name="211"><span class="lineNum">     211 </span>            : </a>
 <a name="212"><span class="lineNum">     212 </span>            : /// Special handling for flattening coord along a dim that contains bin edges.</a>
-<a name="213"><span class="lineNum">     213 </span><span class="lineCov">          5 : Variable flatten_bin_edge(const Variable &amp;var,</span></a>
+<a name="213"><span class="lineNum">     213 </span><span class="lineCov">         20 : Variable flatten_bin_edge(const Variable &amp;var,</span></a>
 <a name="214"><span class="lineNum">     214 </span>            :                           const scipp::span&lt;const Dim&gt; &amp;from_labels,</a>
 <a name="215"><span class="lineNum">     215 </span>            :                           const Dim to_dim, const Dim bin_edge_dim) {</a>
-<a name="216"><span class="lineNum">     216 </span><span class="lineCov">          5 :   const auto data_shape = var.dims()[bin_edge_dim] - 1;</span></a>
+<a name="216"><span class="lineNum">     216 </span><span class="lineCov">         20 :   const auto data_shape = var.dims()[bin_edge_dim] - 1;</span></a>
 <a name="217"><span class="lineNum">     217 </span>            : </a>
 <a name="218"><span class="lineNum">     218 </span>            :   // Make sure that the bin edges can be joined together</a>
-<a name="219"><span class="lineNum">     219 </span><span class="lineCov">          5 :   const auto front = var.slice({bin_edge_dim, 0});</span></a>
-<a name="220"><span class="lineNum">     220 </span><span class="lineCov">          5 :   const auto back = var.slice({bin_edge_dim, data_shape});</span></a>
-<a name="221"><span class="lineNum">     221 </span><span class="lineCov">          5 :   const auto front_flat = flatten(front, front.dims().labels(), to_dim);</span></a>
-<a name="222"><span class="lineNum">     222 </span><span class="lineCov">          5 :   const auto back_flat = flatten(back, back.dims().labels(), to_dim);</span></a>
-<a name="223"><span class="lineNum">     223 </span><span class="lineCov">          5 :   if (front_flat.slice({to_dim, 1, front.dims().volume()}) !=</span></a>
-<a name="224"><span class="lineNum">     224 </span><span class="lineCov">         10 :       back_flat.slice({to_dim, 0, back.dims().volume() - 1}))</span></a>
-<a name="225"><span class="lineNum">     225 </span><span class="lineCov">          2 :     return {};</span></a>
+<a name="219"><span class="lineNum">     219 </span><span class="lineCov">         20 :   const auto front = var.slice({bin_edge_dim, 0});</span></a>
+<a name="220"><span class="lineNum">     220 </span><span class="lineCov">         20 :   const auto back = var.slice({bin_edge_dim, data_shape});</span></a>
+<a name="221"><span class="lineNum">     221 </span><span class="lineCov">         20 :   const auto front_flat = flatten(front, front.dims().labels(), to_dim);</span></a>
+<a name="222"><span class="lineNum">     222 </span><span class="lineCov">         20 :   const auto back_flat = flatten(back, back.dims().labels(), to_dim);</span></a>
+<a name="223"><span class="lineNum">     223 </span><span class="lineCov">         20 :   if (front_flat.slice({to_dim, 1, front.dims().volume()}) !=</span></a>
+<a name="224"><span class="lineNum">     224 </span><span class="lineCov">         40 :       back_flat.slice({to_dim, 0, back.dims().volume() - 1}))</span></a>
+<a name="225"><span class="lineNum">     225 </span><span class="lineCov">         11 :     return {};</span></a>
 <a name="226"><span class="lineNum">     226 </span>            : </a>
 <a name="227"><span class="lineNum">     227 </span>            :   // Make the bulk slice of the coord, leaving out the last bin edge</a>
 <a name="228"><span class="lineNum">     228 </span>            :   const auto bulk =</a>
-<a name="229"><span class="lineNum">     229 </span><span class="lineCov">          3 :       flatten(var.slice({bin_edge_dim, 0, data_shape}), from_labels, to_dim);</span></a>
-<a name="230"><span class="lineNum">     230 </span><span class="lineCov">          3 :   auto out_dims = bulk.dims();</span></a>
+<a name="229"><span class="lineNum">     229 </span><span class="lineCov">          9 :       flatten(var.slice({bin_edge_dim, 0, data_shape}), from_labels, to_dim);</span></a>
+<a name="230"><span class="lineNum">     230 </span><span class="lineCov">          9 :   auto out_dims = bulk.dims();</span></a>
 <a name="231"><span class="lineNum">     231 </span>            :   // To make the container of the right size, we increase to_dim by 1</a>
-<a name="232"><span class="lineNum">     232 </span><span class="lineCov">          3 :   out_dims.resize(to_dim, out_dims[to_dim] + 1);</span></a>
-<a name="233"><span class="lineNum">     233 </span><span class="lineCov">          3 :   auto out = empty(out_dims, var.unit(), var.dtype(), var.has_variances());</span></a>
-<a name="234"><span class="lineNum">     234 </span><span class="lineCov">          3 :   copy(bulk, out.slice({to_dim, 0, out_dims[to_dim] - 1}));</span></a>
-<a name="235"><span class="lineNum">     235 </span><span class="lineCov">          3 :   copy(back_flat.slice({to_dim, back.dims().volume() - 1}),</span></a>
-<a name="236"><span class="lineNum">     236 </span><span class="lineCov">          6 :        out.slice({to_dim, out_dims[to_dim] - 1}));</span></a>
-<a name="237"><span class="lineNum">     237 </span><span class="lineCov">          3 :   return out;</span></a>
-<a name="238"><span class="lineNum">     238 </span><span class="lineCov">          5 : }</span></a>
+<a name="232"><span class="lineNum">     232 </span><span class="lineCov">          9 :   out_dims.resize(to_dim, out_dims[to_dim] + 1);</span></a>
+<a name="233"><span class="lineNum">     233 </span><span class="lineCov">          9 :   auto out = empty(out_dims, var.unit(), var.dtype(), var.has_variances());</span></a>
+<a name="234"><span class="lineNum">     234 </span><span class="lineCov">          9 :   copy(bulk, out.slice({to_dim, 0, out_dims[to_dim] - 1}));</span></a>
+<a name="235"><span class="lineNum">     235 </span><span class="lineCov">          9 :   copy(back_flat.slice({to_dim, back.dims().volume() - 1}),</span></a>
+<a name="236"><span class="lineNum">     236 </span><span class="lineCov">         18 :        out.slice({to_dim, out_dims[to_dim] - 1}));</span></a>
+<a name="237"><span class="lineNum">     237 </span><span class="lineCov">          9 :   return out;</span></a>
+<a name="238"><span class="lineNum">     238 </span><span class="lineCov">         20 : }</span></a>
 <a name="239"><span class="lineNum">     239 </span>            : </a>
 <a name="240"><span class="lineNum">     240 </span>            : /// Check if one of the from_labels is a bin edge</a>
-<a name="241"><span class="lineNum">     241 </span><span class="lineCov">       9096 : Dim bin_edge_in_from_labels(const Variable &amp;var, const Dimensions &amp;array_dims,</span></a>
+<a name="241"><span class="lineNum">     241 </span><span class="lineCov">       9559 : Dim bin_edge_in_from_labels(const Variable &amp;var, const Dimensions &amp;array_dims,</span></a>
 <a name="242"><span class="lineNum">     242 </span>            :                             const scipp::span&lt;const Dim&gt; &amp;from_labels) {</a>
-<a name="243"><span class="lineNum">     243 </span><span class="lineCov">      32662 :   for (const auto &amp;dim : from_labels)</span></a>
-<a name="244"><span class="lineNum">     244 </span><span class="lineCov">      23571 :     if (is_edges(array_dims, var.dims(), dim))</span></a>
-<a name="245"><span class="lineNum">     245 </span><span class="lineCov">          5 :       return dim;</span></a>
-<a name="246"><span class="lineNum">     246 </span><span class="lineCov">       9091 :   return Dim::Invalid;</span></a>
+<a name="243"><span class="lineNum">     243 </span><span class="lineCov">      33688 :   for (const auto &amp;dim : from_labels)</span></a>
+<a name="244"><span class="lineNum">     244 </span><span class="lineCov">      24149 :     if (is_edges(array_dims, var.dims(), dim))</span></a>
+<a name="245"><span class="lineNum">     245 </span><span class="lineCov">         20 :       return dim;</span></a>
+<a name="246"><span class="lineNum">     246 </span><span class="lineCov">       9539 :   return Dim::Invalid;</span></a>
 <a name="247"><span class="lineNum">     247 </span>            : }</a>
 <a name="248"><span class="lineNum">     248 </span>            : </a>
 <a name="249"><span class="lineNum">     249 </span>            : } // end anonymous namespace</a>
@@ -325,76 +325,75 @@
 <a name="263"><span class="lineNum">     263 </span>            : }</a>
 <a name="264"><span class="lineNum">     264 </span>            : </a>
 <a name="265"><span class="lineNum">     265 </span>            : namespace {</a>
-<a name="266"><span class="lineNum">     266 </span><span class="lineCov">       2052 : void expect_dimension_subset(const core::Dimensions &amp;full_set,</span></a>
+<a name="266"><span class="lineNum">     266 </span><span class="lineCov">       2265 : void expect_dimension_subset(const core::Dimensions &amp;full_set,</span></a>
 <a name="267"><span class="lineNum">     267 </span>            :                              const scipp::span&lt;const Dim&gt; &amp;subset) {</a>
-<a name="268"><span class="lineNum">     268 </span><span class="lineCov">       6443 :   for (const auto &amp;dim : subset) {</span></a>
-<a name="269"><span class="lineNum">     269 </span><span class="lineCov">       4394 :     if (!full_set.contains(dim)) {</span></a>
+<a name="268"><span class="lineNum">     268 </span><span class="lineCov">       6916 :   for (const auto &amp;dim : subset) {</span></a>
+<a name="269"><span class="lineNum">     269 </span><span class="lineCov">       4654 :     if (!full_set.contains(dim)) {</span></a>
 <a name="270"><span class="lineNum">     270 </span><span class="lineCov">          9 :       throw except::DimensionError{&quot;Expected dimension &quot; + to_string(dim) +</span></a>
 <a name="271"><span class="lineNum">     271 </span><span class="lineCov">         12 :                                    &quot;to be in &quot; + to_string(full_set)};</span></a>
 <a name="272"><span class="lineNum">     272 </span>            :     }</a>
 <a name="273"><span class="lineNum">     273 </span>            :   }</a>
-<a name="274"><span class="lineNum">     274 </span><span class="lineCov">       2049 : }</span></a>
+<a name="274"><span class="lineNum">     274 </span><span class="lineCov">       2262 : }</span></a>
 <a name="275"><span class="lineNum">     275 </span>            : } // namespace</a>
 <a name="276"><span class="lineNum">     276 </span>            : </a>
 <a name="277"><span class="lineNum">     277 </span>            : /// Flatten multiple dimensions into a single dimension:</a>
 <a name="278"><span class="lineNum">     278 </span>            : /// ['y', 'z'] -&gt; ['x']</a>
-<a name="279"><span class="lineNum">     279 </span><span class="lineCov">       2054 : DataArray flatten(const DataArray &amp;a,</span></a>
+<a name="279"><span class="lineNum">     279 </span><span class="lineCov">       2267 : DataArray flatten(const DataArray &amp;a,</span></a>
 <a name="280"><span class="lineNum">     280 </span>            :                   const std::optional&lt;scipp::span&lt;const Dim&gt;&gt; &amp;from_labels,</a>
 <a name="281"><span class="lineNum">     281 </span>            :                   const Dim to_dim) {</a>
-<a name="282"><span class="lineNum">     282 </span><span class="lineCov">       2054 :   const auto &amp;labels = from_labels.value_or(a.dims().labels());</span></a>
-<a name="283"><span class="lineNum">     283 </span><span class="lineCov">       2054 :   if (from_labels.has_value() &amp;&amp; labels.empty())</span></a>
+<a name="282"><span class="lineNum">     282 </span><span class="lineCov">       2267 :   const auto &amp;labels = from_labels.value_or(a.dims().labels());</span></a>
+<a name="283"><span class="lineNum">     283 </span><span class="lineCov">       2267 :   if (from_labels.has_value() &amp;&amp; labels.empty())</span></a>
 <a name="284"><span class="lineNum">     284 </span><span class="lineCov">          8 :     return DataArray(flatten(a.data(), labels, to_dim), a.coords(), a.masks(),</span></a>
 <a name="285"><span class="lineNum">     285 </span><span class="lineCov">         10 :                      a.attrs());</span></a>
-<a name="286"><span class="lineNum">     286 </span><span class="lineCov">       2052 :   expect_dimension_subset(a.dims(), labels);</span></a>
-<a name="287"><span class="lineNum">     287 </span><span class="lineCov">       9096 :   return dataset::transform(a, [&amp;](const auto &amp;in) {</span></a>
-<a name="288"><span class="lineNum">     288 </span><span class="lineCov">       9096 :     auto var = (&amp;in == &amp;a.data()) ? in : maybe_broadcast(in, labels, a.dims());</span></a>
-<a name="289"><span class="lineNum">     289 </span><span class="lineCov">       9096 :     const auto bin_edge_dim = bin_edge_in_from_labels(in, a.dims(), labels);</span></a>
-<a name="290"><span class="lineNum">     290 </span><span class="lineCov">       9096 :     if (bin_edge_dim != Dim::Invalid) {</span></a>
-<a name="291"><span class="lineNum">     291 </span><span class="lineCov">          5 :       return flatten_bin_edge(var, labels, to_dim, bin_edge_dim);</span></a>
-<a name="292"><span class="lineNum">     292 </span><span class="lineCov">       9091 :     } else if (a.dims().empty() || var.dims().contains(labels.front())) {</span></a>
+<a name="286"><span class="lineNum">     286 </span><span class="lineCov">       2265 :   expect_dimension_subset(a.dims(), labels);</span></a>
+<a name="287"><span class="lineNum">     287 </span><span class="lineCov">       9559 :   return dataset::transform(a, [&amp;](const auto &amp;in) {</span></a>
+<a name="288"><span class="lineNum">     288 </span><span class="lineCov">       9559 :     auto var = (&amp;in == &amp;a.data()) ? in : maybe_broadcast(in, labels, a.dims());</span></a>
+<a name="289"><span class="lineNum">     289 </span><span class="lineCov">       9559 :     const auto bin_edge_dim = bin_edge_in_from_labels(in, a.dims(), labels);</span></a>
+<a name="290"><span class="lineNum">     290 </span><span class="lineCov">       9559 :     if (bin_edge_dim != Dim::Invalid) {</span></a>
+<a name="291"><span class="lineNum">     291 </span><span class="lineCov">         20 :       return flatten_bin_edge(var, labels, to_dim, bin_edge_dim);</span></a>
+<a name="292"><span class="lineNum">     292 </span><span class="lineCov">       9539 :     } else if (a.dims().empty() || var.dims().contains(labels.front())) {</span></a>
 <a name="293"><span class="lineNum">     293 </span>            :       // maybe_broadcast ensures that all variables contain</a>
 <a name="294"><span class="lineNum">     294 </span>            :       // all dims in labels, so only need to check labels.front().</a>
-<a name="295"><span class="lineNum">     295 </span><span class="lineCov">       9083 :       return flatten(var, labels, to_dim);</span></a>
+<a name="295"><span class="lineNum">     295 </span><span class="lineCov">       9500 :       return flatten(var, labels, to_dim);</span></a>
 <a name="296"><span class="lineNum">     296 </span>            :     } else {</a>
 <a name="297"><span class="lineNum">     297 </span>            :       // This only happens for metadata.</a>
-<a name="298"><span class="lineNum">     298 </span><span class="lineCov">          8 :       return var;</span></a>
+<a name="298"><span class="lineNum">     298 </span><span class="lineCov">         39 :       return var;</span></a>
 <a name="299"><span class="lineNum">     299 </span>            :     }</a>
-<a name="300"><span class="lineNum">     300 </span><span class="lineCov">      11145 :   });</span></a>
+<a name="300"><span class="lineNum">     300 </span><span class="lineCov">      11821 :   });</span></a>
 <a name="301"><span class="lineNum">     301 </span>            : }</a>
 <a name="302"><span class="lineNum">     302 </span>            : </a>
-<a name="303"><span class="lineNum">     303 </span><span class="lineCov">       1466 : DataArray transpose(const DataArray &amp;a, const scipp::span&lt;const Dim&gt; dims) {</span></a>
-<a name="304"><span class="lineNum">     304 </span><span class="lineCov">       5864 :   return {transpose(a.data(), dims), a.coords(), a.masks(), a.attrs(),</span></a>
-<a name="305"><span class="lineNum">     305 </span><span class="lineCov">       5864 :           a.name()};</span></a>
+<a name="303"><span class="lineNum">     303 </span><span class="lineCov">       1404 : DataArray transpose(const DataArray &amp;a, const scipp::span&lt;const Dim&gt; dims) {</span></a>
+<a name="304"><span class="lineNum">     304 </span><span class="lineCov">       5616 :   return {transpose(a.data(), dims), a.coords(), a.masks(), a.attrs(),</span></a>
+<a name="305"><span class="lineNum">     305 </span><span class="lineCov">       5616 :           a.name()};</span></a>
 <a name="306"><span class="lineNum">     306 </span>            : }</a>
 <a name="307"><span class="lineNum">     307 </span>            : </a>
 <a name="308"><span class="lineNum">     308 </span><span class="lineCov">          2 : Dataset transpose(const Dataset &amp;d, const scipp::span&lt;const Dim&gt; dims) {</span></a>
-<a name="309"><span class="lineNum">     309 </span>            :   return apply_to_items(</a>
-<a name="310"><span class="lineNum">     310 </span><span class="lineCov">          6 :       d, [](auto &amp;&amp;..._) { return transpose(_...); }, dims);</span></a>
-<a name="311"><span class="lineNum">     311 </span>            : }</a>
-<a name="312"><span class="lineNum">     312 </span>            : </a>
-<a name="313"><span class="lineNum">     313 </span>            : namespace {</a>
-<a name="314"><span class="lineNum">     314 </span>            : template &lt;class T&gt;</a>
-<a name="315"><span class="lineNum">     315 </span><span class="lineCov">         37 : T squeeze_impl(const T &amp;x, const std::optional&lt;scipp::span&lt;const Dim&gt;&gt; dims) {</span></a>
-<a name="316"><span class="lineNum">     316 </span><span class="lineCov">         37 :   auto squeezed = x;</span></a>
-<a name="317"><span class="lineNum">     317 </span><span class="lineCov">         77 :   for (const auto &amp;dim : dims_for_squeezing(x.dims(), dims)) {</span></a>
-<a name="318"><span class="lineNum">     318 </span><span class="lineCov">         40 :     squeezed = squeezed.slice({dim, 0});</span></a>
-<a name="319"><span class="lineNum">     319 </span>            :   }</a>
-<a name="320"><span class="lineNum">     320 </span>            :   // Copy explicitly to make sure the output does not have its read-only flag</a>
-<a name="321"><span class="lineNum">     321 </span>            :   // set.</a>
-<a name="322"><span class="lineNum">     322 </span><span class="lineCov">         70 :   return T(squeezed);</span></a>
-<a name="323"><span class="lineNum">     323 </span><span class="lineCov">         37 : }</span></a>
-<a name="324"><span class="lineNum">     324 </span>            : } // namespace</a>
-<a name="325"><span class="lineNum">     325 </span><span class="lineCov">         32 : DataArray squeeze(const DataArray &amp;a,</span></a>
-<a name="326"><span class="lineNum">     326 </span>            :                   const std::optional&lt;scipp::span&lt;const Dim&gt;&gt; dims) {</a>
-<a name="327"><span class="lineNum">     327 </span><span class="lineCov">         32 :   return squeeze_impl(a, dims);</span></a>
-<a name="328"><span class="lineNum">     328 </span>            : }</a>
-<a name="329"><span class="lineNum">     329 </span>            : </a>
-<a name="330"><span class="lineNum">     330 </span><span class="lineCov">          5 : Dataset squeeze(const Dataset &amp;d,</span></a>
-<a name="331"><span class="lineNum">     331 </span>            :                 const std::optional&lt;scipp::span&lt;const Dim&gt;&gt; dims) {</a>
-<a name="332"><span class="lineNum">     332 </span><span class="lineCov">          5 :   return squeeze_impl(d, dims);</span></a>
-<a name="333"><span class="lineNum">     333 </span>            : }</a>
-<a name="334"><span class="lineNum">     334 </span>            : </a>
-<a name="335"><span class="lineNum">     335 </span>            : } // namespace scipp::dataset</a>
+<a name="309"><span class="lineNum">     309 </span><span class="lineCov">          6 :   return apply_to_items(d, [](auto &amp;&amp;..._) { return transpose(_...); }, dims);</span></a>
+<a name="310"><span class="lineNum">     310 </span>            : }</a>
+<a name="311"><span class="lineNum">     311 </span>            : </a>
+<a name="312"><span class="lineNum">     312 </span>            : namespace {</a>
+<a name="313"><span class="lineNum">     313 </span>            : template &lt;class T&gt;</a>
+<a name="314"><span class="lineNum">     314 </span><span class="lineCov">         37 : T squeeze_impl(const T &amp;x, const std::optional&lt;scipp::span&lt;const Dim&gt;&gt; dims) {</span></a>
+<a name="315"><span class="lineNum">     315 </span><span class="lineCov">         37 :   auto squeezed = x;</span></a>
+<a name="316"><span class="lineNum">     316 </span><span class="lineCov">         77 :   for (const auto &amp;dim : dims_for_squeezing(x.dims(), dims)) {</span></a>
+<a name="317"><span class="lineNum">     317 </span><span class="lineCov">         40 :     squeezed = squeezed.slice({dim, 0});</span></a>
+<a name="318"><span class="lineNum">     318 </span>            :   }</a>
+<a name="319"><span class="lineNum">     319 </span>            :   // Copy explicitly to make sure the output does not have its read-only flag</a>
+<a name="320"><span class="lineNum">     320 </span>            :   // set.</a>
+<a name="321"><span class="lineNum">     321 </span><span class="lineCov">         70 :   return T(squeezed);</span></a>
+<a name="322"><span class="lineNum">     322 </span><span class="lineCov">         37 : }</span></a>
+<a name="323"><span class="lineNum">     323 </span>            : } // namespace</a>
+<a name="324"><span class="lineNum">     324 </span><span class="lineCov">         32 : DataArray squeeze(const DataArray &amp;a,</span></a>
+<a name="325"><span class="lineNum">     325 </span>            :                   const std::optional&lt;scipp::span&lt;const Dim&gt;&gt; dims) {</a>
+<a name="326"><span class="lineNum">     326 </span><span class="lineCov">         32 :   return squeeze_impl(a, dims);</span></a>
+<a name="327"><span class="lineNum">     327 </span>            : }</a>
+<a name="328"><span class="lineNum">     328 </span>            : </a>
+<a name="329"><span class="lineNum">     329 </span><span class="lineCov">          5 : Dataset squeeze(const Dataset &amp;d,</span></a>
+<a name="330"><span class="lineNum">     330 </span>            :                 const std::optional&lt;scipp::span&lt;const Dim&gt;&gt; dims) {</a>
+<a name="331"><span class="lineNum">     331 </span><span class="lineCov">          5 :   return squeeze_impl(d, dims);</span></a>
+<a name="332"><span class="lineNum">     332 </span>            : }</a>
+<a name="333"><span class="lineNum">     333 </span>            : </a>
+<a name="334"><span class="lineNum">     334 </span>            : } // namespace scipp::dataset</a>
 </pre>
       </td>
     </tr>

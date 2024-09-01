@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-08-25 01:35:12</td>
+            <td class="headerValue">2024-09-01 01:46:48</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">7</td>
@@ -85,15 +85,14 @@
 <a name="23"><span class="lineNum">      23 </span>            : }</a>
 <a name="24"><span class="lineNum">      24 </span>            : </a>
 <a name="25"><span class="lineNum">      25 </span><span class="lineCov">         31 : Dataset mean(const Dataset &amp;d, const Dim dim) {</span></a>
-<a name="26"><span class="lineNum">      26 </span>            :   return apply_to_items(</a>
-<a name="27"><span class="lineNum">      27 </span><span class="lineCov">         62 :       d, [](auto &amp;&amp;..._) { return mean(_...); }, dim);</span></a>
-<a name="28"><span class="lineNum">      28 </span>            : }</a>
-<a name="29"><span class="lineNum">      29 </span>            : </a>
-<a name="30"><span class="lineNum">      30 </span><span class="lineCov">          6 : Dataset mean(const Dataset &amp;d) {</span></a>
-<a name="31"><span class="lineNum">      31 </span><span class="lineCov">         12 :   return apply_to_items(d, [](auto &amp;&amp;..._) { return mean(_...); });</span></a>
-<a name="32"><span class="lineNum">      32 </span>            : }</a>
-<a name="33"><span class="lineNum">      33 </span>            : </a>
-<a name="34"><span class="lineNum">      34 </span>            : } // namespace scipp::dataset</a>
+<a name="26"><span class="lineNum">      26 </span><span class="lineCov">         62 :   return apply_to_items(d, [](auto &amp;&amp;..._) { return mean(_...); }, dim);</span></a>
+<a name="27"><span class="lineNum">      27 </span>            : }</a>
+<a name="28"><span class="lineNum">      28 </span>            : </a>
+<a name="29"><span class="lineNum">      29 </span><span class="lineCov">          6 : Dataset mean(const Dataset &amp;d) {</span></a>
+<a name="30"><span class="lineNum">      30 </span><span class="lineCov">         12 :   return apply_to_items(d, [](auto &amp;&amp;..._) { return mean(_...); });</span></a>
+<a name="31"><span class="lineNum">      31 </span>            : }</a>
+<a name="32"><span class="lineNum">      32 </span>            : </a>
+<a name="33"><span class="lineNum">      33 </span>            : } // namespace scipp::dataset</a>
 </pre>
       </td>
     </tr>
