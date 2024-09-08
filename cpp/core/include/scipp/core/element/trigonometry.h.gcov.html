@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-09-01 01:46:48</td>
+            <td class="headerValue">2024-09-08 01:42:45</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">14</td>
@@ -78,14 +78,14 @@
 <a name="16"><span class="lineNum">      16 </span>            :                                  transform_flags::expect_no_variance_arg&lt;1&gt;,</a>
 <a name="17"><span class="lineNum">      17 </span>            :                                  transform_flags::expect_no_variance_arg&lt;2&gt;};</a>
 <a name="18"><span class="lineNum">      18 </span>            : </a>
-<a name="19"><span class="lineNum">      19 </span><span class="lineCov">      68261 : constexpr auto sin = overloaded{trig, [](const auto &amp;x) {</span></a>
+<a name="19"><span class="lineNum">      19 </span><span class="lineCov">      68444 : constexpr auto sin = overloaded{trig, [](const auto &amp;x) {</span></a>
 <a name="20"><span class="lineNum">      20 </span>            :                                   using std::sin;</a>
-<a name="21"><span class="lineNum">      21 </span><span class="lineCov">      68261 :                                   return sin(x);</span></a>
+<a name="21"><span class="lineNum">      21 </span><span class="lineCov">      68444 :                                   return sin(x);</span></a>
 <a name="22"><span class="lineNum">      22 </span>            :                                 }};</a>
 <a name="23"><span class="lineNum">      23 </span>            : </a>
-<a name="24"><span class="lineNum">      24 </span><span class="lineCov">         40 : constexpr auto cos = overloaded{trig, [](const auto &amp;x) {</span></a>
+<a name="24"><span class="lineNum">      24 </span><span class="lineCov">        406 : constexpr auto cos = overloaded{trig, [](const auto &amp;x) {</span></a>
 <a name="25"><span class="lineNum">      25 </span>            :                                   using std::cos;</a>
-<a name="26"><span class="lineNum">      26 </span><span class="lineCov">         40 :                                   return cos(x);</span></a>
+<a name="26"><span class="lineNum">      26 </span><span class="lineCov">        406 :                                   return cos(x);</span></a>
 <a name="27"><span class="lineNum">      27 </span>            :                                 }};</a>
 <a name="28"><span class="lineNum">      28 </span>            : </a>
 <a name="29"><span class="lineNum">      29 </span><span class="lineCov">         45 : constexpr auto tan = overloaded{trig, [](const auto &amp;x) {</span></a>
