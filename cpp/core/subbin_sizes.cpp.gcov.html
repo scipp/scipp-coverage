@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-09-08 01:42:45</td>
+            <td class="headerValue">2024-09-15 01:44:21</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">13</td>
@@ -81,8 +81,8 @@
 <a name="19"><span class="lineNum">      19 </span><span class="lineCov">      93992 : }</span></a>
 <a name="20"><span class="lineNum">      20 </span>            : </a>
 <a name="21"><span class="lineNum">      21 </span><span class="lineCov">      71901 : void SubbinSizes::operator=(const scipp::index value) {</span></a>
-<a name="22"><span class="lineNum">      22 </span><span class="lineCov">   13258322 :   for (auto &amp;size : m_sizes)</span></a>
-<a name="23"><span class="lineNum">      23 </span><span class="lineCov">   13186421 :     size = value;</span></a>
+<a name="22"><span class="lineNum">      22 </span><span class="lineCov">   13343572 :   for (auto &amp;size : m_sizes)</span></a>
+<a name="23"><span class="lineNum">      23 </span><span class="lineCov">   13271671 :     size = value;</span></a>
 <a name="24"><span class="lineNum">      24 </span><span class="lineCov">      71901 : }</span></a>
 <a name="25"><span class="lineNum">      25 </span>            : </a>
 <a name="26"><span class="lineNum">      26 </span><span class="lineCov">      42747 : SubbinSizes &amp;SubbinSizes::operator+=(const SubbinSizes &amp;other) {</span></a>
@@ -91,9 +91,9 @@
 <a name="29"><span class="lineNum">      29 </span><span class="lineCov">      42745 :   scipp::index current = other.offset() - offset();</span></a>
 <a name="30"><span class="lineNum">      30 </span><span class="lineCov">      42745 :   const auto length = current + scipp::size(other.sizes());</span></a>
 <a name="31"><span class="lineNum">      31 </span><span class="lineCov">      42745 :   if (length &gt; scipp::size(sizes()))</span></a>
-<a name="32"><span class="lineNum">      32 </span><span class="lineCov">      14414 :     m_sizes.resize(length);</span></a>
-<a name="33"><span class="lineNum">      33 </span><span class="lineCov">    2264177 :   for (const auto &amp;x : other.sizes())</span></a>
-<a name="34"><span class="lineNum">      34 </span><span class="lineCov">    2221432 :     m_sizes[current++] += x;</span></a>
+<a name="32"><span class="lineNum">      32 </span><span class="lineCov">      14420 :     m_sizes.resize(length);</span></a>
+<a name="33"><span class="lineNum">      33 </span><span class="lineCov">    2306802 :   for (const auto &amp;x : other.sizes())</span></a>
+<a name="34"><span class="lineNum">      34 </span><span class="lineCov">    2264057 :     m_sizes[current++] += x;</span></a>
 <a name="35"><span class="lineNum">      35 </span><span class="lineCov">      42745 :   return *this;</span></a>
 <a name="36"><span class="lineNum">      36 </span>            : }</a>
 <a name="37"><span class="lineNum">      37 </span>            : </a>
@@ -104,8 +104,8 @@
 <a name="42"><span class="lineNum">      42 </span><span class="lineCov">      29170 : SubbinSizes SubbinSizes::cumsum_exclusive() const {</span></a>
 <a name="43"><span class="lineNum">      43 </span><span class="lineCov">      29170 :   auto out = sizes();</span></a>
 <a name="44"><span class="lineNum">      44 </span><span class="lineCov">      29170 :   scipp::index sum = 0;</span></a>
-<a name="45"><span class="lineNum">      45 </span><span class="lineCov">   11013961 :   for (auto &amp;x : out)</span></a>
-<a name="46"><span class="lineNum">      46 </span><span class="lineCov">   10984791 :     element::exclusive_scan(sum, x);</span></a>
+<a name="45"><span class="lineNum">      45 </span><span class="lineCov">   11056586 :   for (auto &amp;x : out)</span></a>
+<a name="46"><span class="lineNum">      46 </span><span class="lineCov">   11027416 :     element::exclusive_scan(sum, x);</span></a>
 <a name="47"><span class="lineNum">      47 </span><span class="lineCov">      58340 :   return {offset(), std::move(out)};</span></a>
 <a name="48"><span class="lineNum">      48 </span><span class="lineCov">      29170 : }</span></a>
 <a name="49"><span class="lineNum">      49 </span>            : </a>
@@ -117,8 +117,8 @@
 <a name="55"><span class="lineNum">      55 </span><span class="lineCov">     111293 :   scipp::index delta = other.offset() - offset();</span></a>
 <a name="56"><span class="lineNum">      56 </span><span class="lineCov">     111293 :   auto i = std::max(scipp::index(0), delta);</span></a>
 <a name="57"><span class="lineNum">      57 </span><span class="lineCov">     111293 :   auto j = std::max(scipp::index(0), -delta);</span></a>
-<a name="58"><span class="lineNum">      58 </span><span class="lineCov">   13927630 :   for (; j &lt; scipp::size(other.sizes()) &amp;&amp; i &lt; scipp::size(sizes()); ++j, ++i) {</span></a>
-<a name="59"><span class="lineNum">      59 </span><span class="lineCov">   13816337 :     m_sizes[i] += other.sizes()[j];</span></a>
+<a name="58"><span class="lineNum">      58 </span><span class="lineCov">   14012880 :   for (; j &lt; scipp::size(other.sizes()) &amp;&amp; i &lt; scipp::size(sizes()); ++j, ++i) {</span></a>
+<a name="59"><span class="lineNum">      59 </span><span class="lineCov">   13901587 :     m_sizes[i] += other.sizes()[j];</span></a>
 <a name="60"><span class="lineNum">      60 </span>            :   }</a>
 <a name="61"><span class="lineNum">      61 </span><span class="lineCov">     111293 :   return *this;</span></a>
 <a name="62"><span class="lineNum">      62 </span>            : }</a>
@@ -164,13 +164,13 @@
 <a name="102"><span class="lineNum">     102 </span><span class="lineCov">      42744 :   const auto delta = x.offset() - offset();</span></a>
 <a name="103"><span class="lineNum">     103 </span><span class="lineCov">      42744 :   m_sizes.reserve(size);</span></a>
 <a name="104"><span class="lineNum">     104 </span><span class="lineCov">      42744 :   m_offset = x.m_offset;</span></a>
-<a name="105"><span class="lineNum">     105 </span><span class="lineCov">    2264177 :   for (scipp::index i = 0; i &lt; size; ++i) {</span></a>
-<a name="106"><span class="lineNum">     106 </span><span class="lineCov">    2221433 :     const auto prev = delta + i &gt;= osize ? 0 : m_sizes[delta + i];</span></a>
-<a name="107"><span class="lineNum">     107 </span><span class="lineCov">    2221433 :     if (i &gt;= osize)</span></a>
+<a name="105"><span class="lineNum">     105 </span><span class="lineCov">    2306802 :   for (scipp::index i = 0; i &lt; size; ++i) {</span></a>
+<a name="106"><span class="lineNum">     106 </span><span class="lineCov">    2264058 :     const auto prev = delta + i &gt;= osize ? 0 : m_sizes[delta + i];</span></a>
+<a name="107"><span class="lineNum">     107 </span><span class="lineCov">    2264058 :     if (i &gt;= osize)</span></a>
 <a name="108"><span class="lineNum">     108 </span><span class="lineCov">       3665 :       m_sizes.push_back(prev + x.m_sizes[i]);</span></a>
 <a name="109"><span class="lineNum">     109 </span>            :     else</a>
-<a name="110"><span class="lineNum">     110 </span><span class="lineCov">    2217768 :       m_sizes[i] = prev + x.m_sizes[i];</span></a>
-<a name="111"><span class="lineNum">     111 </span><span class="lineCov">    2221433 :     x.m_sizes[i] = prev;</span></a>
+<a name="110"><span class="lineNum">     110 </span><span class="lineCov">    2260393 :       m_sizes[i] = prev + x.m_sizes[i];</span></a>
+<a name="111"><span class="lineNum">     111 </span><span class="lineCov">    2264058 :     x.m_sizes[i] = prev;</span></a>
 <a name="112"><span class="lineNum">     112 </span>            :   }</a>
 <a name="113"><span class="lineNum">     113 </span><span class="lineCov">      42744 :   m_sizes.resize(size);</span></a>
 <a name="114"><span class="lineNum">     114 </span><span class="lineCov">      42744 : }</span></a>

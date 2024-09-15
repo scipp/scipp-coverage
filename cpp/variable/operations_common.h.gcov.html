@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-09-08 01:42:45</td>
+            <td class="headerValue">2024-09-15 01:44:21</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">18</td>
@@ -97,18 +97,18 @@
 <a name="35"><span class="lineNum">      35 </span>            : template &lt;class T&gt;</a>
 <a name="36"><span class="lineNum">      36 </span>            : Variable make_bins_impl(Variable indices, const Dim dim, T &amp;&amp;buffer);</a>
 <a name="37"><span class="lineNum">      37 </span>            : </a>
-<a name="38"><span class="lineNum">      38 </span><span class="lineCov">      42416 : template &lt;class T, class Op&gt; auto reduce_all_dims(const T &amp;obj, const Op &amp;op) {</span></a>
-<a name="39"><span class="lineNum">      39 </span><span class="lineCov">      42416 :   if (obj.dims().empty()) {</span></a>
-<a name="40"><span class="lineNum">      40 </span><span class="lineCov">      20767 :     if (is_bins(obj))</span></a>
+<a name="38"><span class="lineNum">      38 </span><span class="lineCov">      42527 : template &lt;class T, class Op&gt; auto reduce_all_dims(const T &amp;obj, const Op &amp;op) {</span></a>
+<a name="39"><span class="lineNum">      39 </span><span class="lineCov">      42527 :   if (obj.dims().empty()) {</span></a>
+<a name="40"><span class="lineNum">      40 </span><span class="lineCov">      20822 :     if (is_bins(obj))</span></a>
 <a name="41"><span class="lineNum">      41 </span><span class="lineCov">         29 :       return op(obj, Dim::Invalid);</span></a>
 <a name="42"><span class="lineNum">      42 </span>            :     else</a>
-<a name="43"><span class="lineNum">      43 </span><span class="lineCov">      20738 :       return copy(obj);</span></a>
+<a name="43"><span class="lineNum">      43 </span><span class="lineCov">      20793 :       return copy(obj);</span></a>
 <a name="44"><span class="lineNum">      44 </span>            :   }</a>
-<a name="45"><span class="lineNum">      45 </span><span class="lineCov">      21649 :   auto out = op(obj, obj.dims().inner());</span></a>
-<a name="46"><span class="lineNum">      46 </span><span class="lineCov">      22570 :   while (!out.dims().empty())</span></a>
-<a name="47"><span class="lineNum">      47 </span><span class="lineCov">        921 :     out = op(out, out.dims().inner());</span></a>
-<a name="48"><span class="lineNum">      48 </span><span class="lineCov">      21649 :   return out;</span></a>
-<a name="49"><span class="lineNum">      49 </span><span class="lineCov">      21649 : }</span></a>
+<a name="45"><span class="lineNum">      45 </span><span class="lineCov">      21705 :   auto out = op(obj, obj.dims().inner());</span></a>
+<a name="46"><span class="lineNum">      46 </span><span class="lineCov">      22650 :   while (!out.dims().empty())</span></a>
+<a name="47"><span class="lineNum">      47 </span><span class="lineCov">        945 :     out = op(out, out.dims().inner());</span></a>
+<a name="48"><span class="lineNum">      48 </span><span class="lineCov">      21705 :   return out;</span></a>
+<a name="49"><span class="lineNum">      49 </span><span class="lineCov">      21705 : }</span></a>
 <a name="50"><span class="lineNum">      50 </span>            : </a>
 <a name="51"><span class="lineNum">      51 </span>            : } // namespace scipp::variable</a>
 </pre>
