@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-09-15 01:44:21</td>
+            <td class="headerValue">2024-09-22 01:44:40</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">25</td>
@@ -86,7 +86,7 @@
 <a name="24"><span class="lineNum">      24 </span>            : </a>
 <a name="25"><span class="lineNum">      25 </span>            : template &lt;class T&gt;</a>
 <a name="26"><span class="lineNum">      26 </span>            : std::string</a>
-<a name="27"><span class="lineNum">      27 </span><span class="lineCov">       4834 : element_to_string(const T &amp;item,</span></a>
+<a name="27"><span class="lineNum">      27 </span><span class="lineCov">       4746 : element_to_string(const T &amp;item,</span></a>
 <a name="28"><span class="lineNum">      28 </span>            :                   const std::optional&lt;units::Unit&gt; &amp;unit = std::nullopt) {</a>
 <a name="29"><span class="lineNum">      29 </span>            :   using core::to_string;</a>
 <a name="30"><span class="lineNum">      30 </span>            :   using std::to_string;</a>
@@ -96,7 +96,7 @@
 <a name="34"><span class="lineNum">      34 </span>            :     }</a>
 <a name="35"><span class="lineNum">      35 </span><span class="lineCov">         32 :     return {'&quot;' + item + &quot;\&quot;, &quot;};</span></a>
 <a name="36"><span class="lineNum">      36 </span>            :   } else if constexpr (std::is_same_v&lt;T, bool&gt;)</a>
-<a name="37"><span class="lineNum">      37 </span><span class="lineCov">         76 :     return core::to_string(item) + &quot;, &quot;;</span></a>
+<a name="37"><span class="lineNum">      37 </span><span class="lineCov">         56 :     return core::to_string(item) + &quot;, &quot;;</span></a>
 <a name="38"><span class="lineNum">      38 </span>            :   else if constexpr (std::is_same_v&lt;T, scipp::core::time_point&gt;) {</a>
 <a name="39"><span class="lineNum">      39 </span><span class="lineCov">         24 :     return core::to_string(to_iso_date(item, unit.value())) + &quot;, &quot;;</span></a>
 <a name="40"><span class="lineNum">      40 </span>            :   } else if constexpr (std::is_same_v&lt;T, Eigen::Vector3d&gt;) {</a>
@@ -119,38 +119,38 @@
 <a name="57"><span class="lineNum">      57 </span><span class="lineNoCov">          0 :   } else if constexpr (std::is_same_v&lt;T, scipp::core::Translation&gt;)</span></a>
 <a name="58"><span class="lineNum">      58 </span><span class="lineNoCov">          0 :     return element_to_string(item.vector());</span></a>
 <a name="59"><span class="lineNum">      59 </span>            :   else {</a>
-<a name="60"><span class="lineNum">      60 </span><span class="lineCov">       4713 :     std::stringstream ss;</span></a>
-<a name="61"><span class="lineNum">      61 </span><span class="lineCov">       4713 :     ss &lt;&lt; item &lt;&lt; &quot;, &quot;;</span></a>
-<a name="62"><span class="lineNum">      62 </span><span class="lineCov">       9426 :     return ss.str();</span></a>
-<a name="63"><span class="lineNum">      63 </span><span class="lineCov">       4713 :   }</span></a>
+<a name="60"><span class="lineNum">      60 </span><span class="lineCov">       4645 :     std::stringstream ss;</span></a>
+<a name="61"><span class="lineNum">      61 </span><span class="lineCov">       4645 :     ss &lt;&lt; item &lt;&lt; &quot;, &quot;;</span></a>
+<a name="62"><span class="lineNum">      62 </span><span class="lineCov">       9290 :     return ss.str();</span></a>
+<a name="63"><span class="lineNum">      63 </span><span class="lineCov">       4645 :   }</span></a>
 <a name="64"><span class="lineNum">      64 </span>            : }</a>
 <a name="65"><span class="lineNum">      65 </span>            : </a>
 <a name="66"><span class="lineNum">      66 </span>            : template &lt;class T&gt;</a>
-<a name="67"><span class="lineNum">      67 </span><span class="lineCov">        283 : std::string scalar_array_to_string(const T &amp;arr,</span></a>
+<a name="67"><span class="lineNum">      67 </span><span class="lineCov">        207 : std::string scalar_array_to_string(const T &amp;arr,</span></a>
 <a name="68"><span class="lineNum">      68 </span>            :                                    const std::optional&lt;units::Unit&gt; &amp;unit) {</a>
-<a name="69"><span class="lineNum">      69 </span><span class="lineCov">        283 :   auto s = element_to_string(arr[0], unit);</span></a>
-<a name="70"><span class="lineNum">      70 </span><span class="lineCov">        564 :   return s.substr(0, s.size() - 2);</span></a>
-<a name="71"><span class="lineNum">      71 </span><span class="lineCov">        282 : }</span></a>
+<a name="69"><span class="lineNum">      69 </span><span class="lineCov">        207 :   auto s = element_to_string(arr[0], unit);</span></a>
+<a name="70"><span class="lineNum">      70 </span><span class="lineCov">        412 :   return s.substr(0, s.size() - 2);</span></a>
+<a name="71"><span class="lineNum">      71 </span><span class="lineCov">        206 : }</span></a>
 <a name="72"><span class="lineNum">      72 </span>            : </a>
 <a name="73"><span class="lineNum">      73 </span>            : template &lt;class T&gt;</a>
-<a name="74"><span class="lineNum">      74 </span><span class="lineCov">       1616 : std::string array_to_string(const T &amp;arr,</span></a>
+<a name="74"><span class="lineNum">      74 </span><span class="lineCov">       1612 : std::string array_to_string(const T &amp;arr,</span></a>
 <a name="75"><span class="lineNum">      75 </span>            :                             const std::optional&lt;units::Unit&gt; &amp;unit) {</a>
-<a name="76"><span class="lineNum">      76 </span><span class="lineCov">       1616 :   const auto size = scipp::size(arr);</span></a>
-<a name="77"><span class="lineNum">      77 </span><span class="lineCov">       1616 :   if (size == 0)</span></a>
+<a name="76"><span class="lineNum">      76 </span><span class="lineCov">       1612 :   const auto size = scipp::size(arr);</span></a>
+<a name="77"><span class="lineNum">      77 </span><span class="lineCov">       1612 :   if (size == 0)</span></a>
 <a name="78"><span class="lineNum">      78 </span><span class="lineCov">        248 :     return &quot;[]&quot;;</span></a>
-<a name="79"><span class="lineNum">      79 </span><span class="lineCov">       1368 :   std::string s = &quot;[&quot;;</span></a>
-<a name="80"><span class="lineNum">      80 </span><span class="lineCov">       5918 :   for (scipp::index i = 0; i &lt; size; ++i) {</span></a>
-<a name="81"><span class="lineNum">      81 </span><span class="lineCov">       4551 :     constexpr scipp::index n = 2;</span></a>
-<a name="82"><span class="lineNum">      82 </span><span class="lineCov">       4551 :     if (i == n &amp;&amp; size &gt; 2 * n) {</span></a>
+<a name="79"><span class="lineNum">      79 </span><span class="lineCov">       1364 :   std::string s = &quot;[&quot;;</span></a>
+<a name="80"><span class="lineNum">      80 </span><span class="lineCov">       5902 :   for (scipp::index i = 0; i &lt; size; ++i) {</span></a>
+<a name="81"><span class="lineNum">      81 </span><span class="lineCov">       4539 :     constexpr scipp::index n = 2;</span></a>
+<a name="82"><span class="lineNum">      82 </span><span class="lineCov">       4539 :     if (i == n &amp;&amp; size &gt; 2 * n) {</span></a>
 <a name="83"><span class="lineNum">      83 </span><span class="lineCov">        942 :       s += &quot;..., &quot;;</span></a>
 <a name="84"><span class="lineNum">      84 </span><span class="lineCov">        942 :       i = size - n;</span></a>
 <a name="85"><span class="lineNum">      85 </span>            :     }</a>
-<a name="86"><span class="lineNum">      86 </span><span class="lineCov">       4551 :     s += element_to_string(arr[i], unit);</span></a>
+<a name="86"><span class="lineNum">      86 </span><span class="lineCov">       4539 :     s += element_to_string(arr[i], unit);</span></a>
 <a name="87"><span class="lineNum">      87 </span>            :   }</a>
-<a name="88"><span class="lineNum">      88 </span><span class="lineCov">       1367 :   s.resize(s.size() &gt; 1 ? s.size() - 2 : 1);</span></a>
-<a name="89"><span class="lineNum">      89 </span><span class="lineCov">       1367 :   s += &quot;]&quot;;</span></a>
-<a name="90"><span class="lineNum">      90 </span><span class="lineCov">       1367 :   return s;</span></a>
-<a name="91"><span class="lineNum">      91 </span><span class="lineCov">       1368 : }</span></a>
+<a name="88"><span class="lineNum">      88 </span><span class="lineCov">       1363 :   s.resize(s.size() &gt; 1 ? s.size() - 2 : 1);</span></a>
+<a name="89"><span class="lineNum">      89 </span><span class="lineCov">       1363 :   s += &quot;]&quot;;</span></a>
+<a name="90"><span class="lineNum">      90 </span><span class="lineCov">       1363 :   return s;</span></a>
+<a name="91"><span class="lineNum">      91 </span><span class="lineCov">       1364 : }</span></a>
 <a name="92"><span class="lineNum">      92 </span>            : </a>
 <a name="93"><span class="lineNum">      93 </span>            : } // namespace scipp::core</a>
 </pre>

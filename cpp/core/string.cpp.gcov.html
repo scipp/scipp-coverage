@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-09-15 01:44:21</td>
+            <td class="headerValue">2024-09-22 01:44:40</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">21</td>
@@ -87,9 +87,9 @@
 <a name="25"><span class="lineNum">      25 </span><span class="lineCov">        158 :   return os &lt;&lt; to_string(index);</span></a>
 <a name="26"><span class="lineNum">      26 </span>            : }</a>
 <a name="27"><span class="lineNum">      27 </span>            : </a>
-<a name="28"><span class="lineNum">      28 </span><span class="lineCov">       1082 : std::string to_string(const Dimensions &amp;dims) {</span></a>
-<a name="29"><span class="lineNum">      29 </span><span class="lineCov">       1082 :   if (dims.empty())</span></a>
-<a name="30"><span class="lineNum">      30 </span><span class="lineCov">        294 :     return &quot;()&quot;;</span></a>
+<a name="28"><span class="lineNum">      28 </span><span class="lineCov">       1006 : std::string to_string(const Dimensions &amp;dims) {</span></a>
+<a name="29"><span class="lineNum">      29 </span><span class="lineCov">       1006 :   if (dims.empty())</span></a>
+<a name="30"><span class="lineNum">      30 </span><span class="lineCov">        218 :     return &quot;()&quot;;</span></a>
 <a name="31"><span class="lineNum">      31 </span><span class="lineCov">        788 :   std::string s = &quot;(&quot;;</span></a>
 <a name="32"><span class="lineNum">      32 </span><span class="lineCov">       1768 :   for (int32_t i = 0; i &lt; scipp::size(dims.shape()); ++i)</span></a>
 <a name="33"><span class="lineNum">      33 </span><span class="lineCov">       1960 :     s += to_string(dims.labels()[i]) + &quot;: &quot; + std::to_string(dims.shape()[i]) +</span></a>
@@ -110,22 +110,22 @@
 <a name="48"><span class="lineNum">      48 </span><span class="lineNoCov">          0 :   return s;</span></a>
 <a name="49"><span class="lineNum">      49 </span><span class="lineNoCov">          0 : }</span></a>
 <a name="50"><span class="lineNum">      50 </span>            : </a>
-<a name="51"><span class="lineNum">      51 </span><span class="lineCov">        340 : std::string to_string(const Sizes &amp;sizes) {</span></a>
-<a name="52"><span class="lineNum">      52 </span><span class="lineCov">        340 :   std::string repr(&quot;Sizes[&quot;);</span></a>
-<a name="53"><span class="lineNum">      53 </span><span class="lineCov">       1227 :   for (const auto &amp;dim : sizes)</span></a>
-<a name="54"><span class="lineNum">      54 </span><span class="lineCov">        547 :     repr += to_string(dim) + &quot;:&quot; + std::to_string(sizes[dim]) + &quot;, &quot;;</span></a>
-<a name="55"><span class="lineNum">      55 </span><span class="lineCov">        340 :   repr += &quot;]&quot;;</span></a>
-<a name="56"><span class="lineNum">      56 </span><span class="lineCov">        340 :   return repr;</span></a>
+<a name="51"><span class="lineNum">      51 </span><span class="lineCov">        336 : std::string to_string(const Sizes &amp;sizes) {</span></a>
+<a name="52"><span class="lineNum">      52 </span><span class="lineCov">        336 :   std::string repr(&quot;Sizes[&quot;);</span></a>
+<a name="53"><span class="lineNum">      53 </span><span class="lineCov">        879 :   for (const auto &amp;dim : sizes)</span></a>
+<a name="54"><span class="lineNum">      54 </span><span class="lineCov">        543 :     repr += to_string(dim) + &quot;:&quot; + std::to_string(sizes[dim]) + &quot;, &quot;;</span></a>
+<a name="55"><span class="lineNum">      55 </span><span class="lineCov">        336 :   repr += &quot;]&quot;;</span></a>
+<a name="56"><span class="lineNum">      56 </span><span class="lineCov">        336 :   return repr;</span></a>
 <a name="57"><span class="lineNum">      57 </span><span class="lineNoCov">          0 : }</span></a>
 <a name="58"><span class="lineNum">      58 </span>            : </a>
 <a name="59"><span class="lineNum">      59 </span><span class="lineCov">         27 : const std::string &amp;to_string(const std::string &amp;s) { return s; }</span></a>
 <a name="60"><span class="lineNum">      60 </span><span class="lineNoCov">          0 : std::string_view to_string(const std::string_view &amp;s) { return s; }</span></a>
 <a name="61"><span class="lineNum">      61 </span><span class="lineNoCov">          0 : std::string to_string(const char *s) { return std::string(s); }</span></a>
 <a name="62"><span class="lineNum">      62 </span>            : </a>
-<a name="63"><span class="lineNum">      63 </span><span class="lineCov">         76 : std::string to_string(const bool b) { return b ? &quot;True&quot; : &quot;False&quot;; }</span></a>
+<a name="63"><span class="lineNum">      63 </span><span class="lineCov">         56 : std::string to_string(const bool b) { return b ? &quot;True&quot; : &quot;False&quot;; }</span></a>
 <a name="64"><span class="lineNum">      64 </span>            : </a>
-<a name="65"><span class="lineNum">      65 </span><span class="lineCov">       3822 : std::string to_string(const DType dtype) {</span></a>
-<a name="66"><span class="lineNum">      66 </span><span class="lineCov">       3822 :   return dtypeNameRegistry().at(dtype);</span></a>
+<a name="65"><span class="lineNum">      65 </span><span class="lineCov">       3825 : std::string to_string(const DType dtype) {</span></a>
+<a name="66"><span class="lineNum">      66 </span><span class="lineCov">       3825 :   return dtypeNameRegistry().at(dtype);</span></a>
 <a name="67"><span class="lineNum">      67 </span>            : }</a>
 <a name="68"><span class="lineNum">      68 </span>            : </a>
 <a name="69"><span class="lineNum">      69 </span><span class="lineCov">        104 : std::string to_string(const Slice &amp;slice) {</span></a>
@@ -139,9 +139,9 @@
 <a name="77"><span class="lineNum">      77 </span><span class="lineCov">        474 :          std::to_string(index.second) + ')';</span></a>
 <a name="78"><span class="lineNum">      78 </span>            : }</a>
 <a name="79"><span class="lineNum">      79 </span>            : </a>
-<a name="80"><span class="lineNum">      80 </span><span class="lineCov">       4135 : std::map&lt;DType, std::string&gt; &amp;dtypeNameRegistry() {</span></a>
-<a name="81"><span class="lineNum">      81 </span><span class="lineCov">       4135 :   static std::map&lt;DType, std::string&gt; registry;</span></a>
-<a name="82"><span class="lineNum">      82 </span><span class="lineCov">       4135 :   return registry;</span></a>
+<a name="80"><span class="lineNum">      80 </span><span class="lineCov">       4138 : std::map&lt;DType, std::string&gt; &amp;dtypeNameRegistry() {</span></a>
+<a name="81"><span class="lineNum">      81 </span><span class="lineCov">       4138 :   static std::map&lt;DType, std::string&gt; registry;</span></a>
+<a name="82"><span class="lineNum">      82 </span><span class="lineCov">       4138 :   return registry;</span></a>
 <a name="83"><span class="lineNum">      83 </span>            : }</a>
 <a name="84"><span class="lineNum">      84 </span>            : </a>
 <a name="85"><span class="lineNum">      85 </span>            : namespace {</a>
