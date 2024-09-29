@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-09-22 01:44:40</td>
+            <td class="headerValue">2024-09-29 01:46:05</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">411</td>
@@ -76,7 +76,7 @@
 <a name="14"><span class="lineNum">      14 </span>            : </a>
 <a name="15"><span class="lineNum">      15 </span>            : /// Replacement for C++20 std::make_unique_for_overwrite</a>
 <a name="16"><span class="lineNum">      16 </span>            : template &lt;class T&gt;</a>
-<a name="17"><span class="lineNum">      17 </span><span class="lineCov">    2480946 : auto make_unique_for_overwrite_array(const scipp::index size) {</span></a>
+<a name="17"><span class="lineNum">      17 </span><span class="lineCov">    2425104 : auto make_unique_for_overwrite_array(const scipp::index size) {</span></a>
 <a name="18"><span class="lineNum">      18 </span>            :   // This is specifically written in this way to avoid an internal cppcheck</a>
 <a name="19"><span class="lineNum">      19 </span>            :   // error which happens when we try to handle both arrays and 'normal' pointers</a>
 <a name="20"><span class="lineNum">      20 </span>            :   // using std::remove_extent_t&lt;T&gt; as the type we pass to the unique_ptr.</a>
@@ -84,8 +84,8 @@
 <a name="22"><span class="lineNum">      22 </span>            :   // We add a size and sign check to avoid warnings about exceeding maximum</a>
 <a name="23"><span class="lineNum">      23 </span>            :   // object size. See e.g.</a>
 <a name="24"><span class="lineNum">      24 </span>            :   // https://gcc.gnu.org/bugzilla//show_bug.cgi?id=85783#c3</a>
-<a name="25"><span class="lineNum">      25 </span><span class="lineCov">    2480946 :   if ((size &lt;= PTRDIFF_MAX) &amp;&amp; (size &gt;= 0))</span></a>
-<a name="26"><span class="lineNum">      26 </span><span class="lineCov">    4600723 :     return Ptr(new T[size]);</span></a>
+<a name="25"><span class="lineNum">      25 </span><span class="lineCov">    2425104 :   if ((size &lt;= PTRDIFF_MAX) &amp;&amp; (size &gt;= 0))</span></a>
+<a name="26"><span class="lineNum">      26 </span><span class="lineCov">    4544683 :     return Ptr(new T[size]);</span></a>
 <a name="27"><span class="lineNum">      27 </span><span class="lineNoCov">          0 :   throw std::runtime_error(</span></a>
 <a name="28"><span class="lineNum">      28 </span>            :       &quot;Allocation size is either negative or exceeds PTRDIFF_MAX&quot;);</a>
 <a name="29"><span class="lineNum">      29 </span>            : }</a>
@@ -110,74 +110,74 @@
 <a name="48"><span class="lineNum">      48 </span>            : public:</a>
 <a name="49"><span class="lineNum">      49 </span>            :   using value_type = T;</a>
 <a name="50"><span class="lineNum">      50 </span>            : </a>
-<a name="51"><span class="lineNum">      51 </span><span class="lineCov">     632716 :   element_array() noexcept = default;</span></a>
+<a name="51"><span class="lineNum">      51 </span><span class="lineCov">     632345 :   element_array() noexcept = default;</span></a>
 <a name="52"><span class="lineNum">      52 </span>            : </a>
-<a name="53"><span class="lineNum">      53 </span><span class="lineCov">     100559 :   explicit element_array(const scipp::index new_size, const T &amp;value = T()) {</span></a>
-<a name="54"><span class="lineNum">      54 </span><span class="lineCov">     100559 :     resize(new_size, init_for_overwrite);</span></a>
-<a name="55"><span class="lineNum">      55 </span><span class="lineCov">     100559 :     parallel::parallel_for(</span></a>
-<a name="56"><span class="lineNum">      56 </span><span class="lineCov">     317759 :         parallel::blocked_range(0, size()), [&amp;](const auto &amp;range) {</span></a>
-<a name="57"><span class="lineNum">      57 </span><span class="lineCov">     100559 :           std::fill(data() + range.begin(), data() + range.end(), value);</span></a>
+<a name="53"><span class="lineNum">      53 </span><span class="lineCov">      97727 :   explicit element_array(const scipp::index new_size, const T &amp;value = T()) {</span></a>
+<a name="54"><span class="lineNum">      54 </span><span class="lineCov">      97727 :     resize(new_size, init_for_overwrite);</span></a>
+<a name="55"><span class="lineNum">      55 </span><span class="lineCov">      97727 :     parallel::parallel_for(</span></a>
+<a name="56"><span class="lineNum">      56 </span><span class="lineCov">     306431 :         parallel::blocked_range(0, size()), [&amp;](const auto &amp;range) {</span></a>
+<a name="57"><span class="lineNum">      57 </span><span class="lineCov">      97727 :           std::fill(data() + range.begin(), data() + range.end(), value);</span></a>
 <a name="58"><span class="lineNum">      58 </span>            :         });</a>
-<a name="59"><span class="lineNum">      59 </span><span class="lineCov">     100559 :   }</span></a>
+<a name="59"><span class="lineNum">      59 </span><span class="lineCov">      97727 :   }</span></a>
 <a name="60"><span class="lineNum">      60 </span>            : </a>
 <a name="61"><span class="lineNum">      61 </span>            :   /// Construct with default-initialized elements.</a>
 <a name="62"><span class="lineNum">      62 </span>            :   /// Use with care, fundamental types are not initialized.</a>
-<a name="63"><span class="lineNum">      63 </span><span class="lineCov">    1791616 :   element_array(const scipp::index new_size, const init_for_overwrite_t &amp;) {</span></a>
-<a name="64"><span class="lineNum">      64 </span><span class="lineCov">    1791616 :     resize(new_size, init_for_overwrite);</span></a>
-<a name="65"><span class="lineNum">      65 </span><span class="lineCov">    1791616 :   }</span></a>
+<a name="63"><span class="lineNum">      63 </span><span class="lineCov">    1738170 :   element_array(const scipp::index new_size, const init_for_overwrite_t &amp;) {</span></a>
+<a name="64"><span class="lineNum">      64 </span><span class="lineCov">    1738170 :     resize(new_size, init_for_overwrite);</span></a>
+<a name="65"><span class="lineNum">      65 </span><span class="lineCov">    1738170 :   }</span></a>
 <a name="66"><span class="lineNum">      66 </span>            : </a>
 <a name="67"><span class="lineNum">      67 </span>            :   template &lt;</a>
 <a name="68"><span class="lineNum">      68 </span>            :       class Iter,</a>
 <a name="69"><span class="lineNum">      69 </span>            :       std::enable_if_t&lt;</a>
 <a name="70"><span class="lineNum">      70 </span>            :           std::is_assignable&lt;T &amp;, decltype(*std::declval&lt;Iter&gt;())&gt;{}, int&gt; = 0&gt;</a>
-<a name="71"><span class="lineNum">      71 </span><span class="lineCov">     607657 :   element_array(Iter first, Iter last) {</span></a>
-<a name="72"><span class="lineNum">      72 </span><span class="lineCov">     607657 :     const scipp::index size = std::distance(first, last);</span></a>
-<a name="73"><span class="lineNum">      73 </span><span class="lineCov">     607657 :     resize(size, init_for_overwrite);</span></a>
-<a name="74"><span class="lineNum">      74 </span><span class="lineCov">     607657 :     parallel::parallel_for(</span></a>
-<a name="75"><span class="lineNum">      75 </span><span class="lineCov">     863333 :         parallel::blocked_range(0, size), [&amp;](const auto &amp;range) {</span></a>
-<a name="76"><span class="lineNum">      76 </span><span class="lineCov">     607657 :           std::copy(first + range.begin(), first + range.end(),</span></a>
-<a name="77"><span class="lineNum">      77 </span><span class="lineCov">     607657 :                     data() + range.begin());</span></a>
+<a name="71"><span class="lineNum">      71 </span><span class="lineCov">     607567 :   element_array(Iter first, Iter last) {</span></a>
+<a name="72"><span class="lineNum">      72 </span><span class="lineCov">     607567 :     const scipp::index size = std::distance(first, last);</span></a>
+<a name="73"><span class="lineNum">      73 </span><span class="lineCov">     607567 :     resize(size, init_for_overwrite);</span></a>
+<a name="74"><span class="lineNum">      74 </span><span class="lineCov">     607567 :     parallel::parallel_for(</span></a>
+<a name="75"><span class="lineNum">      75 </span><span class="lineCov">     863215 :         parallel::blocked_range(0, size), [&amp;](const auto &amp;range) {</span></a>
+<a name="76"><span class="lineNum">      76 </span><span class="lineCov">     607567 :           std::copy(first + range.begin(), first + range.end(),</span></a>
+<a name="77"><span class="lineNum">      77 </span><span class="lineCov">     607567 :                     data() + range.begin());</span></a>
 <a name="78"><span class="lineNum">      78 </span>            :         });</a>
-<a name="79"><span class="lineNum">      79 </span><span class="lineCov">     607657 :   }</span></a>
+<a name="79"><span class="lineNum">      79 </span><span class="lineCov">     607567 :   }</span></a>
 <a name="80"><span class="lineNum">      80 </span>            : </a>
 <a name="81"><span class="lineNum">      81 </span>            :   template &lt;</a>
 <a name="82"><span class="lineNum">      82 </span>            :       class Container,</a>
 <a name="83"><span class="lineNum">      83 </span>            :       std::enable_if_t&lt;</a>
 <a name="84"><span class="lineNum">      84 </span>            :           std::is_assignable_v&lt;T &amp;, typename Container::value_type&gt;, int&gt; = 0&gt;</a>
-<a name="85"><span class="lineNum">      85 </span><span class="lineCov">      30060 :   explicit element_array(const Container &amp;c)</span></a>
-<a name="86"><span class="lineNum">      86 </span><span class="lineCov">      30060 :       : element_array(c.begin(), c.end()) {}</span></a>
+<a name="85"><span class="lineNum">      85 </span><span class="lineCov">      30139 :   explicit element_array(const Container &amp;c)</span></a>
+<a name="86"><span class="lineNum">      86 </span><span class="lineCov">      30139 :       : element_array(c.begin(), c.end()) {}</span></a>
 <a name="87"><span class="lineNum">      87 </span>            : </a>
-<a name="88"><span class="lineNum">      88 </span><span class="lineCov">     553117 :   element_array(std::initializer_list&lt;T&gt; init)</span></a>
-<a name="89"><span class="lineNum">      89 </span><span class="lineCov">     553117 :       : element_array(init.begin(), init.end()) {}</span></a>
+<a name="88"><span class="lineNum">      88 </span><span class="lineCov">     552832 :   element_array(std::initializer_list&lt;T&gt; init)</span></a>
+<a name="89"><span class="lineNum">      89 </span><span class="lineCov">     552832 :       : element_array(init.begin(), init.end()) {}</span></a>
 <a name="90"><span class="lineNum">      90 </span>            : </a>
-<a name="91"><span class="lineNum">      91 </span><span class="lineCov">    6955399 :   element_array(element_array &amp;&amp;other) noexcept</span></a>
-<a name="92"><span class="lineNum">      92 </span><span class="lineCov">    6955399 :       : m_size(other.m_size), m_data(std::move(other.m_data)) {</span></a>
-<a name="93"><span class="lineNum">      93 </span><span class="lineCov">    6955399 :     other.m_size = -1;</span></a>
-<a name="94"><span class="lineNum">      94 </span><span class="lineCov">    6955399 :   }</span></a>
+<a name="91"><span class="lineNum">      91 </span><span class="lineCov">    6839348 :   element_array(element_array &amp;&amp;other) noexcept</span></a>
+<a name="92"><span class="lineNum">      92 </span><span class="lineCov">    6839348 :       : m_size(other.m_size), m_data(std::move(other.m_data)) {</span></a>
+<a name="93"><span class="lineNum">      93 </span><span class="lineCov">    6839348 :     other.m_size = -1;</span></a>
+<a name="94"><span class="lineNum">      94 </span><span class="lineCov">    6839348 :   }</span></a>
 <a name="95"><span class="lineNum">      95 </span>            : </a>
-<a name="96"><span class="lineNum">      96 </span><span class="lineCov">       3512 :   element_array(const element_array &amp;other)</span></a>
-<a name="97"><span class="lineNum">      97 </span><span class="lineCov">       3512 :       : element_array(from_other(other)) {}</span></a>
+<a name="96"><span class="lineNum">      96 </span><span class="lineCov">       3502 :   element_array(const element_array &amp;other)</span></a>
+<a name="97"><span class="lineNum">      97 </span><span class="lineCov">       3502 :       : element_array(from_other(other)) {}</span></a>
 <a name="98"><span class="lineNum">      98 </span>            : </a>
-<a name="99"><span class="lineNum">      99 </span><span class="lineCov">     652220 :   element_array &amp;operator=(element_array &amp;&amp;other) noexcept {</span></a>
-<a name="100"><span class="lineNum">     100 </span><span class="lineCov">     652220 :     m_data = std::move(other.m_data);</span></a>
-<a name="101"><span class="lineNum">     101 </span><span class="lineCov">     652220 :     m_size = other.m_size;</span></a>
-<a name="102"><span class="lineNum">     102 </span><span class="lineCov">     652220 :     other.m_size = -1;</span></a>
-<a name="103"><span class="lineNum">     103 </span><span class="lineCov">     652220 :     return *this;</span></a>
+<a name="99"><span class="lineNum">      99 </span><span class="lineCov">     651975 :   element_array &amp;operator=(element_array &amp;&amp;other) noexcept {</span></a>
+<a name="100"><span class="lineNum">     100 </span><span class="lineCov">     651975 :     m_data = std::move(other.m_data);</span></a>
+<a name="101"><span class="lineNum">     101 </span><span class="lineCov">     651975 :     m_size = other.m_size;</span></a>
+<a name="102"><span class="lineNum">     102 </span><span class="lineCov">     651975 :     other.m_size = -1;</span></a>
+<a name="103"><span class="lineNum">     103 </span><span class="lineCov">     651975 :     return *this;</span></a>
 <a name="104"><span class="lineNum">     104 </span>            :   }</a>
 <a name="105"><span class="lineNum">     105 </span>            : </a>
 <a name="106"><span class="lineNum">     106 </span><span class="lineNoCov">          0 :   element_array &amp;operator=(const element_array &amp;other) {</span></a>
 <a name="107"><span class="lineNum">     107 </span><span class="lineNoCov">          0 :     return *this = element_array(other.begin(), other.end());</span></a>
 <a name="108"><span class="lineNum">     108 </span>            :   }</a>
 <a name="109"><span class="lineNum">     109 </span>            : </a>
-<a name="110"><span class="lineNum">     110 </span><span class="lineCov">    2598394 :   explicit operator bool() const noexcept { return m_size != -1; }</span></a>
-<a name="111"><span class="lineNum">     111 </span><span class="lineCov">    6723504 :   scipp::index size() const noexcept { return m_size; }</span></a>
+<a name="110"><span class="lineNum">     110 </span><span class="lineCov">    2542036 :   explicit operator bool() const noexcept { return m_size != -1; }</span></a>
+<a name="111"><span class="lineNum">     111 </span><span class="lineCov">    6575782 :   scipp::index size() const noexcept { return m_size; }</span></a>
 <a name="112"><span class="lineNum">     112 </span>            :   [[nodiscard]] bool empty() const noexcept { return size() == 0; }</a>
-<a name="113"><span class="lineNum">     113 </span><span class="lineCov">    5663311 :   const T *data() const noexcept { return m_data.get(); }</span></a>
-<a name="114"><span class="lineNum">     114 </span><span class="lineCov">    4573904 :   T *data() noexcept { return m_data.get(); }</span></a>
-<a name="115"><span class="lineNum">     115 </span><span class="lineCov">      25606 :   const T *begin() const noexcept { return data(); }</span></a>
-<a name="116"><span class="lineNum">     116 </span><span class="lineCov">      43237 :   T *begin() noexcept { return data(); }</span></a>
-<a name="117"><span class="lineNum">     117 </span><span class="lineCov">      25606 :   const T *end() const noexcept {</span></a>
-<a name="118"><span class="lineNum">     118 </span><span class="lineCov">      25606 :     return m_size &lt; 0 ? begin() : data() + size();</span></a>
+<a name="113"><span class="lineNum">     113 </span><span class="lineCov">    5526909 :   const T *data() const noexcept { return m_data.get(); }</span></a>
+<a name="114"><span class="lineNum">     114 </span><span class="lineCov">    4481667 :   T *data() noexcept { return m_data.get(); }</span></a>
+<a name="115"><span class="lineNum">     115 </span><span class="lineCov">      25512 :   const T *begin() const noexcept { return data(); }</span></a>
+<a name="116"><span class="lineNum">     116 </span><span class="lineCov">      43279 :   T *begin() noexcept { return data(); }</span></a>
+<a name="117"><span class="lineNum">     117 </span><span class="lineCov">      25512 :   const T *end() const noexcept {</span></a>
+<a name="118"><span class="lineNum">     118 </span><span class="lineCov">      25512 :     return m_size &lt; 0 ? begin() : data() + size();</span></a>
 <a name="119"><span class="lineNum">     119 </span>            :   }</a>
 <a name="120"><span class="lineNum">     120 </span>            :   T *end() noexcept { return m_size &lt; 0 ? begin() : data() + size(); }</a>
 <a name="121"><span class="lineNum">     121 </span>            : </a>
@@ -193,24 +193,24 @@
 <a name="131"><span class="lineNum">     131 </span>            :   void resize(const scipp::index new_size) { *this = element_array(new_size); }</a>
 <a name="132"><span class="lineNum">     132 </span>            : </a>
 <a name="133"><span class="lineNum">     133 </span>            :   /// Resize with default-initialized elements. Use with care.</a>
-<a name="134"><span class="lineNum">     134 </span><span class="lineCov">    2499832 :   void resize(const scipp::index new_size, const init_for_overwrite_t &amp;) {</span></a>
-<a name="135"><span class="lineNum">     135 </span><span class="lineCov">    2499832 :     if (new_size == 0) {</span></a>
-<a name="136"><span class="lineNum">     136 </span><span class="lineCov">      18886 :       m_data.reset();</span></a>
-<a name="137"><span class="lineNum">     137 </span><span class="lineCov">      18886 :       m_size = 0;</span></a>
-<a name="138"><span class="lineNum">     138 </span><span class="lineCov">    2480946 :     } else if (new_size != size()) {</span></a>
-<a name="139"><span class="lineNum">     139 </span><span class="lineCov">    2480946 :       m_data = make_unique_for_overwrite_array&lt;T&gt;(new_size);</span></a>
-<a name="140"><span class="lineNum">     140 </span><span class="lineCov">    2480946 :       m_size = new_size;</span></a>
+<a name="134"><span class="lineNum">     134 </span><span class="lineCov">    2443464 :   void resize(const scipp::index new_size, const init_for_overwrite_t &amp;) {</span></a>
+<a name="135"><span class="lineNum">     135 </span><span class="lineCov">    2443464 :     if (new_size == 0) {</span></a>
+<a name="136"><span class="lineNum">     136 </span><span class="lineCov">      18360 :       m_data.reset();</span></a>
+<a name="137"><span class="lineNum">     137 </span><span class="lineCov">      18360 :       m_size = 0;</span></a>
+<a name="138"><span class="lineNum">     138 </span><span class="lineCov">    2425104 :     } else if (new_size != size()) {</span></a>
+<a name="139"><span class="lineNum">     139 </span><span class="lineCov">    2425104 :       m_data = make_unique_for_overwrite_array&lt;T&gt;(new_size);</span></a>
+<a name="140"><span class="lineNum">     140 </span><span class="lineCov">    2425104 :       m_size = new_size;</span></a>
 <a name="141"><span class="lineNum">     141 </span>            :     }</a>
-<a name="142"><span class="lineNum">     142 </span><span class="lineCov">    2499832 :   }</span></a>
+<a name="142"><span class="lineNum">     142 </span><span class="lineCov">    2443464 :   }</span></a>
 <a name="143"><span class="lineNum">     143 </span>            : </a>
 <a name="144"><span class="lineNum">     144 </span>            : private:</a>
-<a name="145"><span class="lineNum">     145 </span><span class="lineCov">       3512 :   element_array from_other(const element_array &amp;other) {</span></a>
-<a name="146"><span class="lineNum">     146 </span><span class="lineCov">       3512 :     if (other.size() == -1) {</span></a>
+<a name="145"><span class="lineNum">     145 </span><span class="lineCov">       3502 :   element_array from_other(const element_array &amp;other) {</span></a>
+<a name="146"><span class="lineNum">     146 </span><span class="lineCov">       3502 :     if (other.size() == -1) {</span></a>
 <a name="147"><span class="lineNum">     147 </span><span class="lineNoCov">          0 :       return element_array();</span></a>
-<a name="148"><span class="lineNum">     148 </span><span class="lineCov">       3512 :     } else if (other.size() == 0) {</span></a>
+<a name="148"><span class="lineNum">     148 </span><span class="lineCov">       3502 :     } else if (other.size() == 0) {</span></a>
 <a name="149"><span class="lineNum">     149 </span><span class="lineCov">         40 :       return element_array(0);</span></a>
 <a name="150"><span class="lineNum">     150 </span>            :     } else {</a>
-<a name="151"><span class="lineNum">     151 </span><span class="lineCov">       3472 :       return element_array(other.begin(), other.end());</span></a>
+<a name="151"><span class="lineNum">     151 </span><span class="lineCov">       3462 :       return element_array(other.begin(), other.end());</span></a>
 <a name="152"><span class="lineNum">     152 </span>            :     }</a>
 <a name="153"><span class="lineNum">     153 </span>            :   }</a>
 <a name="154"><span class="lineNum">     154 </span>            :   scipp::index m_size{-1};</a>
