@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-09-29 01:46:05</td>
+            <td class="headerValue">2024-10-06 01:44:54</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">42</td>
@@ -108,9 +108,9 @@
 <a name="46"><span class="lineNum">      46 </span>            :                core::element::arg_list&lt;double, float&gt;,</a>
 <a name="47"><span class="lineNum">      47 </span>            :                transform_flags::expect_variance_arg&lt;0&gt;,</a>
 <a name="48"><span class="lineNum">      48 </span>            :                transform_flags::force_variance_broadcast,</a>
-<a name="49"><span class="lineNum">      49 </span><span class="lineCov">         42 :                [](const auto &amp;x) {</span></a>
+<a name="49"><span class="lineNum">      49 </span><span class="lineCov">        132 :                [](const auto &amp;x) {</span></a>
 <a name="50"><span class="lineNum">      50 </span>            :                  if constexpr (is_ValueAndVariance_v&lt;std::decay_t&lt;decltype(x)&gt;&gt;)</a>
-<a name="51"><span class="lineNum">      51 </span><span class="lineCov">         42 :                    return x.variance;</span></a>
+<a name="51"><span class="lineNum">      51 </span><span class="lineCov">        132 :                    return x.variance;</span></a>
 <a name="52"><span class="lineNum">      52 </span>            :                  else</a>
 <a name="53"><span class="lineNum">      53 </span><span class="lineNoCov">          0 :                    return x; // unreachable but required for instantiation</span></a>
 <a name="54"><span class="lineNum">      54 </span>            :                },</a>
@@ -121,14 +121,14 @@
 <a name="59"><span class="lineNum">      59 </span>            :                core::element::arg_list&lt;double, float&gt;,</a>
 <a name="60"><span class="lineNum">      60 </span>            :                transform_flags::expect_variance_arg&lt;0&gt;,</a>
 <a name="61"><span class="lineNum">      61 </span>            :                transform_flags::force_variance_broadcast,</a>
-<a name="62"><span class="lineNum">      62 </span><span class="lineCov">       6568 :                [](const auto &amp;x) {</span></a>
+<a name="62"><span class="lineNum">      62 </span><span class="lineCov">       6581 :                [](const auto &amp;x) {</span></a>
 <a name="63"><span class="lineNum">      63 </span>            :                  using std::sqrt;</a>
 <a name="64"><span class="lineNum">      64 </span>            :                  if constexpr (is_ValueAndVariance_v&lt;std::decay_t&lt;decltype(x)&gt;&gt;)</a>
-<a name="65"><span class="lineNum">      65 </span><span class="lineCov">       6568 :                    return sqrt(x.variance);</span></a>
+<a name="65"><span class="lineNum">      65 </span><span class="lineCov">       6581 :                    return sqrt(x.variance);</span></a>
 <a name="66"><span class="lineNum">      66 </span>            :                  else</a>
 <a name="67"><span class="lineNum">      67 </span><span class="lineNoCov">          0 :                    return sqrt(x); // unreachable but required for instantiation</span></a>
 <a name="68"><span class="lineNum">      68 </span>            :                },</a>
-<a name="69"><span class="lineNum">      69 </span><span class="lineCov">        131 :                [](const units::Unit &amp;u) { return u; }};</span></a>
+<a name="69"><span class="lineNum">      69 </span><span class="lineCov">        112 :                [](const units::Unit &amp;u) { return u; }};</span></a>
 <a name="70"><span class="lineNum">      70 </span>            : </a>
 <a name="71"><span class="lineNum">      71 </span>            : constexpr auto issorted_common = overloaded{</a>
 <a name="72"><span class="lineNum">      72 </span>            :     core::element::arg_list&lt;</a>
@@ -143,9 +143,9 @@
 <a name="81"><span class="lineNum">      81 </span>            :     }};</a>
 <a name="82"><span class="lineNum">      82 </span>            : </a>
 <a name="83"><span class="lineNum">      83 </span>            : constexpr auto issorted_nondescending = overloaded{</a>
-<a name="84"><span class="lineNum">      84 </span><span class="lineCov">     462192 :     issorted_common, [](bool &amp;out, const auto &amp;left, const auto &amp;right) {</span></a>
-<a name="85"><span class="lineNum">      85 </span><span class="lineCov">     462192 :       out = out &amp;&amp; (left &lt;= right);</span></a>
-<a name="86"><span class="lineNum">      86 </span><span class="lineCov">     462192 :     }};</span></a>
+<a name="84"><span class="lineNum">      84 </span><span class="lineCov">     462380 :     issorted_common, [](bool &amp;out, const auto &amp;left, const auto &amp;right) {</span></a>
+<a name="85"><span class="lineNum">      85 </span><span class="lineCov">     462380 :       out = out &amp;&amp; (left &lt;= right);</span></a>
+<a name="86"><span class="lineNum">      86 </span><span class="lineCov">     462380 :     }};</span></a>
 <a name="87"><span class="lineNum">      87 </span>            : </a>
 <a name="88"><span class="lineNum">      88 </span>            : constexpr auto issorted_nonascending = overloaded{</a>
 <a name="89"><span class="lineNum">      89 </span><span class="lineCov">       1603 :     issorted_common, [](bool &amp;out, const auto &amp;left, const auto &amp;right) {</span></a>
@@ -157,24 +157,24 @@
 <a name="95"><span class="lineNum">      95 </span>            :                         scipp::span&lt;const int64_t&gt;, scipp::span&lt;const int32_t&gt;,</a>
 <a name="96"><span class="lineNum">      96 </span>            :                         scipp::span&lt;const time_point&gt;&gt;,</a>
 <a name="97"><span class="lineNum">      97 </span>            :                transform_flags::expect_no_variance_arg&lt;0&gt;,</a>
-<a name="98"><span class="lineNum">      98 </span><span class="lineCov">       9776 :                [](const units::Unit &amp;) { return units::none; },</span></a>
-<a name="99"><span class="lineNum">      99 </span><span class="lineCov">       9801 :                [](const auto &amp;range) { return numeric::islinspace(range); }};</span></a>
+<a name="98"><span class="lineNum">      98 </span><span class="lineCov">       9818 :                [](const units::Unit &amp;) { return units::none; },</span></a>
+<a name="99"><span class="lineNum">      99 </span><span class="lineCov">       9843 :                [](const auto &amp;range) { return numeric::islinspace(range); }};</span></a>
 <a name="100"><span class="lineNum">     100 </span>            : </a>
 <a name="101"><span class="lineNum">     101 </span>            : constexpr auto isarange =</a>
 <a name="102"><span class="lineNum">     102 </span>            :     overloaded{arg_list&lt;scipp::span&lt;const int64_t&gt;, scipp::span&lt;const int32_t&gt;&gt;,</a>
 <a name="103"><span class="lineNum">     103 </span>            :                transform_flags::expect_no_variance_arg&lt;0&gt;,</a>
-<a name="104"><span class="lineNum">     104 </span><span class="lineCov">       4805 :                [](const units::Unit &amp;) { return units::none; },</span></a>
-<a name="105"><span class="lineNum">     105 </span><span class="lineCov">       4805 :                [](const auto &amp;range) { return numeric::isarange(range); }};</span></a>
+<a name="104"><span class="lineNum">     104 </span><span class="lineCov">       4813 :                [](const units::Unit &amp;) { return units::none; },</span></a>
+<a name="105"><span class="lineNum">     105 </span><span class="lineCov">       4813 :                [](const auto &amp;range) { return numeric::isarange(range); }};</span></a>
 <a name="106"><span class="lineNum">     106 </span>            : </a>
 <a name="107"><span class="lineNum">     107 </span>            : constexpr auto zip =</a>
 <a name="108"><span class="lineNum">     108 </span>            :     overloaded{arg_list&lt;int64_t&gt;, transform_flags::expect_no_variance_arg&lt;0&gt;,</a>
 <a name="109"><span class="lineNum">     109 </span>            :                transform_flags::expect_no_variance_arg&lt;1&gt;,</a>
-<a name="110"><span class="lineNum">     110 </span><span class="lineCov">     249126 :                [](const units::Unit &amp;first, const units::Unit &amp;second) {</span></a>
-<a name="111"><span class="lineNum">     111 </span><span class="lineCov">     249126 :                  expect::equals(first, second);</span></a>
-<a name="112"><span class="lineNum">     112 </span><span class="lineCov">     249126 :                  return first;</span></a>
+<a name="110"><span class="lineNum">     110 </span><span class="lineCov">     250801 :                [](const units::Unit &amp;first, const units::Unit &amp;second) {</span></a>
+<a name="111"><span class="lineNum">     111 </span><span class="lineCov">     250801 :                  expect::equals(first, second);</span></a>
+<a name="112"><span class="lineNum">     112 </span><span class="lineCov">     250801 :                  return first;</span></a>
 <a name="113"><span class="lineNum">     113 </span>            :                },</a>
-<a name="114"><span class="lineNum">     114 </span><span class="lineCov">   18916703 :                [](const auto first, const auto second) {</span></a>
-<a name="115"><span class="lineNum">     115 </span><span class="lineCov">   18916703 :                  return std::pair{first, second};</span></a>
+<a name="114"><span class="lineNum">     114 </span><span class="lineCov">   19239055 :                [](const auto first, const auto second) {</span></a>
+<a name="115"><span class="lineNum">     115 </span><span class="lineCov">   19239055 :                  return std::pair{first, second};</span></a>
 <a name="116"><span class="lineNum">     116 </span>            :                }};</a>
 <a name="117"><span class="lineNum">     117 </span>            : </a>
 <a name="118"><span class="lineNum">     118 </span>            : template &lt;int N&gt;</a>
@@ -199,14 +199,14 @@
 <a name="137"><span class="lineNum">     137 </span>            :                    index_pair, std::string, Eigen::Vector3d, Eigen::Matrix3d,</a>
 <a name="138"><span class="lineNum">     138 </span>            :                    Eigen::Affine3d, core::Quaternion, core::Translation&gt;,</a>
 <a name="139"><span class="lineNum">     139 </span>            :     transform_flags::force_variance_broadcast,</a>
-<a name="140"><span class="lineNum">     140 </span><span class="lineCov">      34242 :     [](const auto &amp;condition, const auto &amp;x, const auto &amp;y) {</span></a>
-<a name="141"><span class="lineNum">     141 </span><span class="lineCov">      34242 :       return condition ? x : y;</span></a>
+<a name="140"><span class="lineNum">     140 </span><span class="lineCov">     280786 :     [](const auto &amp;condition, const auto &amp;x, const auto &amp;y) {</span></a>
+<a name="141"><span class="lineNum">     141 </span><span class="lineCov">     280786 :       return condition ? x : y;</span></a>
 <a name="142"><span class="lineNum">     142 </span>            :     },</a>
-<a name="143"><span class="lineNum">     143 </span><span class="lineCov">       2023 :     [](const units::Unit &amp;condition, const units::Unit &amp;x,</span></a>
+<a name="143"><span class="lineNum">     143 </span><span class="lineCov">       3727 :     [](const units::Unit &amp;condition, const units::Unit &amp;x,</span></a>
 <a name="144"><span class="lineNum">     144 </span>            :        const units::Unit &amp;y) {</a>
-<a name="145"><span class="lineNum">     145 </span><span class="lineCov">       2023 :       expect::equals(units::none, condition);</span></a>
-<a name="146"><span class="lineNum">     146 </span><span class="lineCov">       2023 :       expect::equals(x, y);</span></a>
-<a name="147"><span class="lineNum">     147 </span><span class="lineCov">       2023 :       return x;</span></a>
+<a name="145"><span class="lineNum">     145 </span><span class="lineCov">       3727 :       expect::equals(units::none, condition);</span></a>
+<a name="146"><span class="lineNum">     146 </span><span class="lineCov">       3727 :       expect::equals(x, y);</span></a>
+<a name="147"><span class="lineNum">     147 </span><span class="lineCov">       3727 :       return x;</span></a>
 <a name="148"><span class="lineNum">     148 </span>            :     }};</a>
 <a name="149"><span class="lineNum">     149 </span>            : </a>
 <a name="150"><span class="lineNum">     150 </span>            : } // namespace scipp::core::element</a>

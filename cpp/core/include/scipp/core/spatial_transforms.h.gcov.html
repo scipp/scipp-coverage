@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-09-29 01:46:05</td>
+            <td class="headerValue">2024-10-06 01:44:54</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">17</td>
@@ -84,7 +84,7 @@
 <a name="22"><span class="lineNum">      22 </span>            : </a>
 <a name="23"><span class="lineNum">      23 </span>            : public:</a>
 <a name="24"><span class="lineNum">      24 </span>            :   EIGEN_MAKE_ALIGNED_OPERATOR_NEW</a>
-<a name="25"><span class="lineNum">      25 </span><span class="lineCov">    1308461 :   Quaternion() : m_quat(Eigen::Quaterniond::Identity()) {};</span></a>
+<a name="25"><span class="lineNum">      25 </span><span class="lineCov">    1318216 :   Quaternion() : m_quat(Eigen::Quaterniond::Identity()) {};</span></a>
 <a name="26"><span class="lineNum">      26 </span><span class="lineCov">          7 :   explicit Quaternion(const Eigen::Quaterniond &amp;x) : m_quat(x) {};</span></a>
 <a name="27"><span class="lineNum">      27 </span>            : </a>
 <a name="28"><span class="lineNum">      28 </span><span class="lineCov">         19 :   [[nodiscard]] const Eigen::Quaterniond &amp;quat() const { return m_quat; }</span></a>
@@ -123,7 +123,7 @@
 <a name="61"><span class="lineNum">      61 </span>            : </a>
 <a name="62"><span class="lineNum">      62 </span>            : public:</a>
 <a name="63"><span class="lineNum">      63 </span>            :   EIGEN_MAKE_ALIGNED_OPERATOR_NEW</a>
-<a name="64"><span class="lineNum">      64 </span><span class="lineCov">    1174586 :   Translation() : m_vec(Eigen::Vector3d(0, 0, 0)) {};</span></a>
+<a name="64"><span class="lineNum">      64 </span><span class="lineCov">    1183888 :   Translation() : m_vec(Eigen::Vector3d(0, 0, 0)) {};</span></a>
 <a name="65"><span class="lineNum">      65 </span>            :   // https://eigen.tuxfamily.org/dox/group__TopicPassingByValue.html</a>
 <a name="66"><span class="lineNum">      66 </span>            :   // NOLINTNEXTLINE</a>
 <a name="67"><span class="lineNum">      67 </span><span class="lineCov">          8 :   explicit Translation(const Eigen::Vector3d &amp;x) : m_vec(x) {};</span></a>

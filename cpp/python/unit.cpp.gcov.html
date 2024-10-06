@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-09-29 01:46:05</td>
+            <td class="headerValue">2024-10-06 01:44:54</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">11</td>
@@ -170,18 +170,18 @@
 <a name="108"><span class="lineNum">     108 </span><span class="lineCov">         28 :       unit);</span></a>
 <a name="109"><span class="lineNum">     109 </span>            : }</a>
 <a name="110"><span class="lineNum">     110 </span>            : </a>
-<a name="111"><span class="lineNum">     111 </span><span class="lineCov">      52509 : scipp::units::Unit unit_or_default(const ProtoUnit &amp;unit, const DType type) {</span></a>
-<a name="112"><span class="lineNum">     112 </span><span class="lineCov">      52509 :   return std::visit(</span></a>
-<a name="113"><span class="lineNum">     113 </span><span class="lineCov">     105015 :       overloaded{[type](DefaultUnit) {</span></a>
+<a name="111"><span class="lineNum">     111 </span><span class="lineCov">      52687 : scipp::units::Unit unit_or_default(const ProtoUnit &amp;unit, const DType type) {</span></a>
+<a name="112"><span class="lineNum">     112 </span><span class="lineCov">      52687 :   return std::visit(</span></a>
+<a name="113"><span class="lineNum">     113 </span><span class="lineCov">     105371 :       overloaded{[type](DefaultUnit) {</span></a>
 <a name="114"><span class="lineNum">     114 </span><span class="lineCov">       1704 :                    if (type == dtype&lt;void&gt;)</span></a>
 <a name="115"><span class="lineNum">     115 </span><span class="lineNoCov">          0 :                      throw except::UnitError(</span></a>
 <a name="116"><span class="lineNum">     116 </span><span class="lineNoCov">          0 :                          &quot;Default unit requested but dtype unknown.&quot;);</span></a>
 <a name="117"><span class="lineNum">     117 </span><span class="lineCov">       1704 :                    return variable::default_unit_for(type);</span></a>
 <a name="118"><span class="lineNum">     118 </span>            :                  },</a>
 <a name="119"><span class="lineNum">     119 </span><span class="lineCov">       1417 :                  [](const py::none &amp;) { return units::none; },</span></a>
-<a name="120"><span class="lineNum">     120 </span><span class="lineCov">      13973 :                  [](const std::string &amp;u) { return units::Unit(u); },</span></a>
-<a name="121"><span class="lineNum">     121 </span><span class="lineCov">      35415 :                  [](const units::Unit &amp;u) { return u; }},</span></a>
-<a name="122"><span class="lineNum">     122 </span><span class="lineCov">     105012 :       unit);</span></a>
+<a name="120"><span class="lineNum">     120 </span><span class="lineCov">      13939 :                  [](const std::string &amp;u) { return units::Unit(u); },</span></a>
+<a name="121"><span class="lineNum">     121 </span><span class="lineCov">      35627 :                  [](const units::Unit &amp;u) { return u; }},</span></a>
+<a name="122"><span class="lineNum">     122 </span><span class="lineCov">     105368 :       unit);</span></a>
 <a name="123"><span class="lineNum">     123 </span>            : }</a>
 </pre>
       </td>

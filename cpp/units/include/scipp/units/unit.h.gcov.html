@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-09-29 01:46:05</td>
+            <td class="headerValue">2024-10-06 01:44:54</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">8</td>
@@ -80,14 +80,14 @@
 <a name="18"><span class="lineNum">      18 </span>            : class SCIPP_UNITS_EXPORT Unit {</a>
 <a name="19"><span class="lineNum">      19 </span>            : public:</a>
 <a name="20"><span class="lineNum">      20 </span>            :   constexpr Unit() = default;</a>
-<a name="21"><span class="lineNum">      21 </span><span class="lineCov">     197535 :   constexpr explicit Unit(const llnl::units::precise_unit &amp;u) noexcept</span></a>
-<a name="22"><span class="lineNum">      22 </span><span class="lineCov">     197535 :       : m_unit(u) {}</span></a>
+<a name="21"><span class="lineNum">      21 </span><span class="lineCov">     198086 :   constexpr explicit Unit(const llnl::units::precise_unit &amp;u) noexcept</span></a>
+<a name="22"><span class="lineNum">      22 </span><span class="lineCov">     198086 :       : m_unit(u) {}</span></a>
 <a name="23"><span class="lineNum">      23 </span>            :   explicit Unit(const std::string &amp;unit);</a>
 <a name="24"><span class="lineNum">      24 </span>            : </a>
-<a name="25"><span class="lineNum">      25 </span><span class="lineCov">     341105 :   [[nodiscard]] constexpr bool has_value() const noexcept {</span></a>
-<a name="26"><span class="lineNum">      26 </span><span class="lineCov">     341105 :     return m_unit.has_value();</span></a>
+<a name="25"><span class="lineNum">      25 </span><span class="lineCov">     342278 :   [[nodiscard]] constexpr bool has_value() const noexcept {</span></a>
+<a name="26"><span class="lineNum">      26 </span><span class="lineCov">     342278 :     return m_unit.has_value();</span></a>
 <a name="27"><span class="lineNum">      27 </span>            :   }</a>
-<a name="28"><span class="lineNum">      28 </span><span class="lineCov">     707396 :   [[nodiscard]] constexpr auto underlying() const { return m_unit.value(); }</span></a>
+<a name="28"><span class="lineNum">      28 </span><span class="lineCov">     710020 :   [[nodiscard]] constexpr auto underlying() const { return m_unit.value(); }</span></a>
 <a name="29"><span class="lineNum">      29 </span>            : </a>
 <a name="30"><span class="lineNum">      30 </span>            :   [[nodiscard]] std::string name() const;</a>
 <a name="31"><span class="lineNum">      31 </span>            : </a>
@@ -186,8 +186,8 @@
 <a name="124"><span class="lineNum">     124 </span>            : </a>
 <a name="125"><span class="lineNum">     125 </span>            : namespace std {</a>
 <a name="126"><span class="lineNum">     126 </span>            : template &lt;&gt; struct hash&lt;scipp::units::Unit&gt; {</a>
-<a name="127"><span class="lineNum">     127 </span><span class="lineCov">      10786 :   std::size_t operator()(const scipp::units::Unit &amp;u) const {</span></a>
-<a name="128"><span class="lineNum">     128 </span><span class="lineCov">      10786 :     return hash&lt;llnl::units::precise_unit&gt;()(u.underlying());</span></a>
+<a name="127"><span class="lineNum">     127 </span><span class="lineCov">      10870 :   std::size_t operator()(const scipp::units::Unit &amp;u) const {</span></a>
+<a name="128"><span class="lineNum">     128 </span><span class="lineCov">      10870 :     return hash&lt;llnl::units::precise_unit&gt;()(u.underlying());</span></a>
 <a name="129"><span class="lineNum">     129 </span>            :   }</a>
 <a name="130"><span class="lineNum">     130 </span>            : };</a>
 <a name="131"><span class="lineNum">     131 </span>            : } // namespace std</a>
