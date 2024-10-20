@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-10-13 01:39:58</td>
+            <td class="headerValue">2024-10-20 01:41:21</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">42</td>
@@ -232,8 +232,8 @@
               <td class="coverFnHi">5</td>
             </tr>
     <tr>
-              <td class="coverFn"><a href="util.h.gcov.html#47">auto scipp::core::element::variances::{lambda(auto:1 const&amp;)#1}::operator()&lt;scipp::core::ValueAndVariance&lt;float&gt; &gt;(scipp::core::ValueAndVariance&lt;float&gt; const) const</a></td>
-              <td class="coverFnHi">8</td>
+              <td class="coverFn"><a href="util.h.gcov.html#47">auto scipp::core::element::variances::{lambda(auto:1 const&amp;)#1}::operator()&lt;scipp::core::ValueAndVariance&lt;double&gt; &gt;(scipp::core::ValueAndVariance&lt;double&gt; const) const</a></td>
+              <td class="coverFnHi">7</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="util.h.gcov.html#82">auto scipp::core::element::issorted_nondescending::{lambda(bool&amp;, auto:1 const&amp;, auto:2 const&amp;)#1}::operator()&lt;scipp::core::time_point, scipp::core::element::issorted_nondescending::{lambda(bool&amp;, auto:1 const&amp;, auto:2 const&amp;)#1}::operator()&gt;(scipp::core::element::issorted_nondescending, scipp::core::time_point const, scipp::core::element::issorted_nondescending::{lambda(bool&amp;, auto:1 const&amp;, auto:2 const&amp;)#1}::operator() const) const</a></td>
@@ -242,6 +242,10 @@
     <tr>
               <td class="coverFn"><a href="util.h.gcov.html#53">scipp::core::element::variances::{lambda(scipp::units::Unit const&amp;)#2}::operator()(scipp::units::Unit const) const</a></td>
               <td class="coverFnHi">13</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="util.h.gcov.html#47">auto scipp::core::element::variances::{lambda(auto:1 const&amp;)#1}::operator()&lt;scipp::core::ValueAndVariance&lt;float&gt; &gt;(scipp::core::ValueAndVariance&lt;float&gt; const) const</a></td>
+              <td class="coverFnHi">14</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="util.h.gcov.html#87">auto scipp::core::element::issorted_nonascending::{lambda(bool&amp;, auto:1 const&amp;, auto:2 const&amp;)#1}::operator()&lt;float, float&gt;(scipp::core::element::issorted_nonascending, float const, float const) const</a></td>
@@ -254,10 +258,6 @@
     <tr>
               <td class="coverFn"><a href="util.h.gcov.html#97">auto scipp::core::element::islinspace::{lambda(auto:1 const&amp;)#2}::operator()&lt;scipp::span&lt;float const, 18446744073709551615ul&gt; &gt;(scipp::span&lt;float const, 18446744073709551615ul&gt; const) const</a></td>
               <td class="coverFnHi">27</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="util.h.gcov.html#47">auto scipp::core::element::variances::{lambda(auto:1 const&amp;)#1}::operator()&lt;scipp::core::ValueAndVariance&lt;double&gt; &gt;(scipp::core::ValueAndVariance&lt;double&gt; const) const</a></td>
-              <td class="coverFnHi">31</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="util.h.gcov.html#138">auto scipp::core::element::where::{lambda(auto:1 const&amp;, auto:2 const&amp;, auto:3 const&amp;)#1}::operator()&lt;bool, float, float&gt;(bool const, float const, float const) const</a></td>
@@ -284,16 +284,16 @@
               <td class="coverFnHi">106</td>
             </tr>
     <tr>
+              <td class="coverFn"><a href="util.h.gcov.html#67">scipp::core::element::stddevs::{lambda(scipp::units::Unit const&amp;)#2}::operator()(scipp::units::Unit const) const</a></td>
+              <td class="coverFnHi">117</td>
+            </tr>
+    <tr>
               <td class="coverFn"><a href="util.h.gcov.html#28">void scipp::core::element::zero&lt;double&gt;(scipp::core::ValueAndVariance&lt;scipp::span&lt;double, 18446744073709551615ul&gt; &gt; const&amp;)</a></td>
               <td class="coverFnHi">124</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="util.h.gcov.html#82">auto scipp::core::element::issorted_nondescending::{lambda(bool&amp;, auto:1 const&amp;, auto:2 const&amp;)#1}::operator()&lt;float, float&gt;(scipp::core::element::issorted_nondescending, float const, float const) const</a></td>
               <td class="coverFnHi">125</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="util.h.gcov.html#67">scipp::core::element::stddevs::{lambda(scipp::units::Unit const&amp;)#2}::operator()(scipp::units::Unit const) const</a></td>
-              <td class="coverFnHi">140</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="util.h.gcov.html#138">auto scipp::core::element::where::{lambda(auto:1 const&amp;, auto:2 const&amp;, auto:3 const&amp;)#1}::operator()&lt;bool, bool, bool&gt;(bool const, bool const, bool const) const</a></td>
@@ -320,28 +320,32 @@
               <td class="coverFnHi">1481</td>
             </tr>
     <tr>
+              <td class="coverFn"><a href="util.h.gcov.html#60">auto scipp::core::element::stddevs::{lambda(auto:1 const&amp;)#1}::operator()&lt;scipp::core::ValueAndVariance&lt;double&gt; &gt;(scipp::core::ValueAndVariance&lt;double&gt; const) const</a></td>
+              <td class="coverFnHi">2255</td>
+            </tr>
+    <tr>
+              <td class="coverFn"><a href="util.h.gcov.html#141">scipp::core::element::where::{lambda(scipp::units::Unit const&amp;, scipp::units::Unit const, scipp::units::Unit const)#2}::operator()(scipp::units::Unit const, scipp::units::Unit const, scipp::units::Unit const) const</a></td>
+              <td class="coverFnHi">3415</td>
+            </tr>
+    <tr>
               <td class="coverFn"><a href="util.h.gcov.html#97">auto scipp::core::element::islinspace::{lambda(auto:1 const&amp;)#2}::operator()&lt;scipp::span&lt;long const, 18446744073709551615ul&gt; &gt;(scipp::span&lt;long const, 18446744073709551615ul&gt; const) const</a></td>
               <td class="coverFnHi">3848</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="util.h.gcov.html#60">auto scipp::core::element::stddevs::{lambda(auto:1 const&amp;)#1}::operator()&lt;scipp::core::ValueAndVariance&lt;float&gt; &gt;(scipp::core::ValueAndVariance&lt;float&gt; const) const</a></td>
-              <td class="coverFnHi">4220</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="util.h.gcov.html#141">scipp::core::element::where::{lambda(scipp::units::Unit const&amp;, scipp::units::Unit const, scipp::units::Unit const)#2}::operator()(scipp::units::Unit const, scipp::units::Unit const, scipp::units::Unit const) const</a></td>
-              <td class="coverFnHi">4525</td>
+              <td class="coverFnHi">4169</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="util.h.gcov.html#103">auto scipp::core::element::isarange::{lambda(auto:1 const&amp;)#2}::operator()&lt;scipp::span&lt;long const, 18446744073709551615ul&gt; &gt;(scipp::span&lt;long const, 18446744073709551615ul&gt; const) const</a></td>
-              <td class="coverFnHi">4811</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="util.h.gcov.html#102">scipp::core::element::isarange::{lambda(scipp::units::Unit const&amp;)#1}::operator()(scipp::units::Unit const) const</a></td>
               <td class="coverFnHi">4814</td>
             </tr>
     <tr>
+              <td class="coverFn"><a href="util.h.gcov.html#102">scipp::core::element::isarange::{lambda(scipp::units::Unit const&amp;)#1}::operator()(scipp::units::Unit const) const</a></td>
+              <td class="coverFnHi">4817</td>
+            </tr>
+    <tr>
               <td class="coverFn"><a href="util.h.gcov.html#97">auto scipp::core::element::islinspace::{lambda(auto:1 const&amp;)#2}::operator()&lt;scipp::span&lt;double const, 18446744073709551615ul&gt; &gt;(scipp::span&lt;double const, 18446744073709551615ul&gt; const) const</a></td>
-              <td class="coverFnHi">5944</td>
+              <td class="coverFnHi">5923</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="util.h.gcov.html#128">auto scipp::core::element::fill_zeros::{lambda(auto:1&amp;)#2}::operator()&lt;long&gt;(long) const</a></td>
@@ -349,15 +353,11 @@
             </tr>
     <tr>
               <td class="coverFn"><a href="util.h.gcov.html#96">scipp::core::element::islinspace::{lambda(scipp::units::Unit const&amp;)#1}::operator()(scipp::units::Unit const) const</a></td>
-              <td class="coverFnHi">9822</td>
-            </tr>
-    <tr>
-              <td class="coverFn"><a href="util.h.gcov.html#60">auto scipp::core::element::stddevs::{lambda(auto:1 const&amp;)#1}::operator()&lt;scipp::core::ValueAndVariance&lt;double&gt; &gt;(scipp::core::ValueAndVariance&lt;double&gt; const) const</a></td>
-              <td class="coverFnHi">17440</td>
+              <td class="coverFnHi">9801</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="util.h.gcov.html#82">auto scipp::core::element::issorted_nondescending::{lambda(bool&amp;, auto:1 const&amp;, auto:2 const&amp;)#1}::operator()&lt;long, long&gt;(scipp::core::element::issorted_nondescending, long const, long const) const</a></td>
-              <td class="coverFnHi">21705</td>
+              <td class="coverFnHi">21691</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="util.h.gcov.html#128">scipp::core::element::fill_zeros::{lambda(scipp::units::Unit&amp;)#1}::operator()(scipp::units::Unit) const</a></td>
@@ -373,19 +373,19 @@
             </tr>
     <tr>
               <td class="coverFn"><a href="util.h.gcov.html#138">auto scipp::core::element::where::{lambda(auto:1 const&amp;, auto:2 const&amp;, auto:3 const&amp;)#1}::operator()&lt;bool, long, long&gt;(bool const, long const, long const) const</a></td>
-              <td class="coverFnHi">179323</td>
+              <td class="coverFnHi">186293</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="util.h.gcov.html#108">scipp::core::element::zip::{lambda(scipp::units::Unit const&amp;, scipp::units::Unit const)#1}::operator()(scipp::units::Unit const, scipp::units::Unit const) const</a></td>
-              <td class="coverFnHi">251594</td>
+              <td class="coverFnHi">250590</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="util.h.gcov.html#82">auto scipp::core::element::issorted_nondescending::{lambda(bool&amp;, auto:1 const&amp;, auto:2 const&amp;)#1}::operator()&lt;double, double&gt;(scipp::core::element::issorted_nondescending, double const, double const) const</a></td>
-              <td class="coverFnHi">440420</td>
+              <td class="coverFnHi">440335</td>
             </tr>
     <tr>
               <td class="coverFn"><a href="util.h.gcov.html#112">auto scipp::core::element::zip::{lambda(auto:1, auto:2)#2}::operator()&lt;long, long&gt;(scipp::core::element::zip, long) const</a></td>
-              <td class="coverFnHi">19037838</td>
+              <td class="coverFnHi">19134259</td>
             </tr>
   </table>
   <br>

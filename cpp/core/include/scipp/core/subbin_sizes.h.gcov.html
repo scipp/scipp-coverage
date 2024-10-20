@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-10-13 01:39:58</td>
+            <td class="headerValue">2024-10-20 01:41:21</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">4</td>
@@ -79,10 +79,10 @@
 <a name="17"><span class="lineNum">      17 </span>            : class SCIPP_CORE_EXPORT SubbinSizes {</a>
 <a name="18"><span class="lineNum">      18 </span>            : public:</a>
 <a name="19"><span class="lineNum">      19 </span>            :   using container_type = std::vector&lt;scipp::index&gt;;</a>
-<a name="20"><span class="lineNum">      20 </span><span class="lineCov">    1304951 :   SubbinSizes() = default;</span></a>
+<a name="20"><span class="lineNum">      20 </span><span class="lineCov">    1299997 :   SubbinSizes() = default;</span></a>
 <a name="21"><span class="lineNum">      21 </span>            :   SubbinSizes(const scipp::index offset, container_type &amp;&amp;sizes);</a>
 <a name="22"><span class="lineNum">      22 </span><span class="lineCov">     537585 :   const auto &amp;offset() const noexcept { return m_offset; }</span></a>
-<a name="23"><span class="lineNum">      23 </span><span class="lineCov">   42698496 :   const auto &amp;sizes() const noexcept { return m_sizes; }</span></a>
+<a name="23"><span class="lineNum">      23 </span><span class="lineCov">   43237665 :   const auto &amp;sizes() const noexcept { return m_sizes; }</span></a>
 <a name="24"><span class="lineNum">      24 </span>            :   void operator=(const scipp::index value);</a>
 <a name="25"><span class="lineNum">      25 </span>            :   SubbinSizes &amp;operator+=(const SubbinSizes &amp;other);</a>
 <a name="26"><span class="lineNum">      26 </span>            :   SubbinSizes &amp;operator-=(const SubbinSizes &amp;other);</a>

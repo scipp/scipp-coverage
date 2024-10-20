@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-10-13 01:39:58</td>
+            <td class="headerValue">2024-10-20 01:41:21</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">16</td>
@@ -131,49 +131,49 @@
 <a name="69"><span class="lineNum">      69 </span>            : </a>
 <a name="70"><span class="lineNum">      70 </span>            : namespace scipp::expect {</a>
 <a name="71"><span class="lineNum">      71 </span>            : namespace {</a>
-<a name="72"><span class="lineNum">      72 </span><span class="lineCov">     720782 : template &lt;class A, class B&gt; void includes_impl(const A &amp;a, const B &amp;b) {</span></a>
-<a name="73"><span class="lineNum">      73 </span><span class="lineCov">     720782 :   if (!a.includes(b))</span></a>
+<a name="72"><span class="lineNum">      72 </span><span class="lineCov">     703312 : template &lt;class A, class B&gt; void includes_impl(const A &amp;a, const B &amp;b) {</span></a>
+<a name="73"><span class="lineNum">      73 </span><span class="lineCov">     703312 :   if (!a.includes(b))</span></a>
 <a name="74"><span class="lineNum">      74 </span><span class="lineCov">         19 :     throw except::DimensionError(&quot;Expected &quot; + to_string(a) + &quot; to include &quot; +</span></a>
 <a name="75"><span class="lineNum">      75 </span>            :                                  to_string(b) + &quot;.&quot;);</a>
-<a name="76"><span class="lineNum">      76 </span><span class="lineCov">     720763 : }</span></a>
+<a name="76"><span class="lineNum">      76 </span><span class="lineCov">     703293 : }</span></a>
 <a name="77"><span class="lineNum">      77 </span>            : } // namespace</a>
 <a name="78"><span class="lineNum">      78 </span>            : </a>
-<a name="79"><span class="lineNum">      79 </span><span class="lineCov">      64609 : void includes(const core::Sizes &amp;a, const core::Sizes &amp;b) {</span></a>
-<a name="80"><span class="lineNum">      80 </span><span class="lineCov">      64609 :   includes_impl(a, b);</span></a>
-<a name="81"><span class="lineNum">      81 </span><span class="lineCov">      64605 : }</span></a>
+<a name="79"><span class="lineNum">      79 </span><span class="lineCov">      61603 : void includes(const core::Sizes &amp;a, const core::Sizes &amp;b) {</span></a>
+<a name="80"><span class="lineNum">      80 </span><span class="lineCov">      61603 :   includes_impl(a, b);</span></a>
+<a name="81"><span class="lineNum">      81 </span><span class="lineCov">      61599 : }</span></a>
 <a name="82"><span class="lineNum">      82 </span>            : </a>
-<a name="83"><span class="lineNum">      83 </span><span class="lineCov">     656173 : void includes(const core::Dimensions &amp;a, const core::Dimensions &amp;b) {</span></a>
-<a name="84"><span class="lineNum">      84 </span><span class="lineCov">     656173 :   includes_impl(a, b);</span></a>
-<a name="85"><span class="lineNum">      85 </span><span class="lineCov">     656158 : }</span></a>
+<a name="83"><span class="lineNum">      83 </span><span class="lineCov">     641709 : void includes(const core::Dimensions &amp;a, const core::Dimensions &amp;b) {</span></a>
+<a name="84"><span class="lineNum">      84 </span><span class="lineCov">     641709 :   includes_impl(a, b);</span></a>
+<a name="85"><span class="lineNum">      85 </span><span class="lineCov">     641694 : }</span></a>
 <a name="86"><span class="lineNum">      86 </span>            : } // namespace scipp::expect</a>
 <a name="87"><span class="lineNum">      87 </span>            : </a>
 <a name="88"><span class="lineNum">      88 </span>            : namespace scipp::core::expect {</a>
-<a name="89"><span class="lineNum">      89 </span><span class="lineCov">      87831 : void ndim_is(const Sizes &amp;dims, const scipp::index expected) {</span></a>
+<a name="89"><span class="lineNum">      89 </span><span class="lineCov">      87765 : void ndim_is(const Sizes &amp;dims, const scipp::index expected) {</span></a>
 <a name="90"><span class="lineNum">      90 </span>            :   using std::to_string;</a>
-<a name="91"><span class="lineNum">      91 </span><span class="lineCov">      87831 :   if (dims.size() != expected) {</span></a>
+<a name="91"><span class="lineNum">      91 </span><span class="lineCov">      87765 :   if (dims.size() != expected) {</span></a>
 <a name="92"><span class="lineNum">      92 </span><span class="lineCov">         51 :     throw except::DimensionError(&quot;Expected &quot; + to_string(expected) +</span></a>
 <a name="93"><span class="lineNum">      93 </span><span class="lineCov">         68 :                                  &quot; dimensions, got &quot; + to_string(dims.size()));</span></a>
 <a name="94"><span class="lineNum">      94 </span>            :   }</a>
-<a name="95"><span class="lineNum">      95 </span><span class="lineCov">      87814 : }</span></a>
+<a name="95"><span class="lineNum">      95 </span><span class="lineCov">      87748 : }</span></a>
 <a name="96"><span class="lineNum">      96 </span>            : </a>
-<a name="97"><span class="lineNum">      97 </span><span class="lineCov">    1531306 : void validSlice(const Sizes &amp;dims, const Slice &amp;slice) {</span></a>
-<a name="98"><span class="lineNum">      98 </span><span class="lineCov">    1531306 :   if (slice == Slice{})</span></a>
+<a name="97"><span class="lineNum">      97 </span><span class="lineCov">    1529200 : void validSlice(const Sizes &amp;dims, const Slice &amp;slice) {</span></a>
+<a name="98"><span class="lineNum">      98 </span><span class="lineCov">    1529200 :   if (slice == Slice{})</span></a>
 <a name="99"><span class="lineNum">      99 </span><span class="lineCov">       7504 :     return;</span></a>
-<a name="100"><span class="lineNum">     100 </span><span class="lineCov">    1523802 :   const auto end = slice.end() &lt; 0 ? slice.begin() + 1 : slice.end();</span></a>
-<a name="101"><span class="lineNum">     101 </span><span class="lineCov">    1523802 :   if (!dims.contains(slice.dim()) || end &gt; dims[slice.dim()])</span></a>
+<a name="100"><span class="lineNum">     100 </span><span class="lineCov">    1521696 :   const auto end = slice.end() &lt; 0 ? slice.begin() + 1 : slice.end();</span></a>
+<a name="101"><span class="lineNum">     101 </span><span class="lineCov">    1521696 :   if (!dims.contains(slice.dim()) || end &gt; dims[slice.dim()])</span></a>
 <a name="102"><span class="lineNum">     102 </span><span class="lineCov">        312 :     throw except::SliceError(&quot;Expected &quot; + to_string(slice) + &quot; to be in &quot; +</span></a>
 <a name="103"><span class="lineNum">     103 </span><span class="lineCov">        416 :                              to_string(dims) + &quot;.&quot;);</span></a>
 <a name="104"><span class="lineNum">     104 </span>            : }</a>
 <a name="105"><span class="lineNum">     105 </span>            : </a>
-<a name="106"><span class="lineNum">     106 </span><span class="lineCov">    1627474 : void validDim(const Dim dim) {</span></a>
-<a name="107"><span class="lineNum">     107 </span><span class="lineCov">    1627474 :   if (dim == Dim::Invalid)</span></a>
+<a name="106"><span class="lineNum">     106 </span><span class="lineCov">    1542464 : void validDim(const Dim dim) {</span></a>
+<a name="107"><span class="lineNum">     107 </span><span class="lineCov">    1542464 :   if (dim == Dim::Invalid)</span></a>
 <a name="108"><span class="lineNum">     108 </span><span class="lineNoCov">          0 :     throw except::DimensionError(&quot;Dim::Invalid is not a valid dimension.&quot;);</span></a>
-<a name="109"><span class="lineNum">     109 </span><span class="lineCov">    1627474 : }</span></a>
+<a name="109"><span class="lineNum">     109 </span><span class="lineCov">    1542464 : }</span></a>
 <a name="110"><span class="lineNum">     110 </span>            : </a>
-<a name="111"><span class="lineNum">     111 </span><span class="lineCov">    2520803 : void validExtent(const scipp::index size) {</span></a>
-<a name="112"><span class="lineNum">     112 </span><span class="lineCov">    2520803 :   if (size &lt; 0)</span></a>
+<a name="111"><span class="lineNum">     111 </span><span class="lineCov">    2426746 : void validExtent(const scipp::index size) {</span></a>
+<a name="112"><span class="lineNum">     112 </span><span class="lineCov">    2426746 :   if (size &lt; 0)</span></a>
 <a name="113"><span class="lineNum">     113 </span><span class="lineNoCov">          0 :     throw except::DimensionError(&quot;Dimension size cannot be negative.&quot;);</span></a>
-<a name="114"><span class="lineNum">     114 </span><span class="lineCov">    2520803 : }</span></a>
+<a name="114"><span class="lineNum">     114 </span><span class="lineCov">    2426746 : }</span></a>
 <a name="115"><span class="lineNum">     115 </span>            : </a>
 <a name="116"><span class="lineNum">     116 </span>            : } // namespace scipp::core::expect</a>
 </pre>
