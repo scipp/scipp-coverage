@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-10-20 01:41:21</td>
+            <td class="headerValue">2024-10-27 01:47:14</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">8</td>
@@ -99,7 +99,7 @@
 <a name="37"><span class="lineNum">      37 </span>            :                                             const Variable &amp;ref) {</a>
 <a name="38"><span class="lineNum">      38 </span><span class="lineCov">        518 :   const auto expected = ref.unit() == units::none ? scipp::units::none</span></a>
 <a name="39"><span class="lineNum">      39 </span><span class="lineCov">        518 :                                                   : scipp::units::dimensionless;</span></a>
-<a name="40"><span class="lineNum">      40 </span><span class="lineCov">        524 :   core::expect::unit(rtol, expected, &quot; For rtol arg&quot;);</span></a>
+<a name="40"><span class="lineNum">      40 </span><span class="lineCov">        524 :   core::expect::equals(expected, rtol.unit(), &quot; For rtol arg&quot;);</span></a>
 <a name="41"><span class="lineNum">      41 </span><span class="lineCov">        515 : }</span></a>
 <a name="42"><span class="lineNum">      42 </span>            : } // namespace</a>
 <a name="43"><span class="lineNum">      43 </span>            : </a>

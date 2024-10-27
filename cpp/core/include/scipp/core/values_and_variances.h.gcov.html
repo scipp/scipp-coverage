@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-10-20 01:41:21</td>
+            <td class="headerValue">2024-10-27 01:47:14</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">13</td>
@@ -78,9 +78,9 @@
 <a name="16"><span class="lineNum">      16 </span>            : template &lt;class T&gt; struct ValuesAndVariances {</a>
 <a name="17"><span class="lineNum">      17 </span>            :   using value_type = typename T::value_type;</a>
 <a name="18"><span class="lineNum">      18 </span>            : </a>
-<a name="19"><span class="lineNum">      19 </span><span class="lineCov">      26899 :   ValuesAndVariances(T &amp;val, T &amp;var) : values(val), variances(var) {</span></a>
-<a name="20"><span class="lineNum">      20 </span><span class="lineCov">      26899 :     expect::sizeMatches(values, variances);</span></a>
-<a name="21"><span class="lineNum">      21 </span><span class="lineCov">      26899 :   }</span></a>
+<a name="19"><span class="lineNum">      19 </span><span class="lineCov">      26915 :   ValuesAndVariances(T &amp;val, T &amp;var) : values(val), variances(var) {</span></a>
+<a name="20"><span class="lineNum">      20 </span><span class="lineCov">      26915 :     expect::sizeMatches(values, variances);</span></a>
+<a name="21"><span class="lineNum">      21 </span><span class="lineCov">      26915 :   }</span></a>
 <a name="22"><span class="lineNum">      22 </span>            :   ValuesAndVariances &amp;operator=(const ValuesAndVariances&lt;const T&gt; &amp;other) {</a>
 <a name="23"><span class="lineNum">      23 </span>            :     values = other.values;</a>
 <a name="24"><span class="lineNum">      24 </span>            :     variances = other.variances;</a>
@@ -135,7 +135,7 @@
 <a name="73"><span class="lineNum">      73 </span>            :   auto end() noexcept { return std::pair(values.end(), variances.end()); }</a>
 <a name="74"><span class="lineNum">      74 </span>            :   auto end() const noexcept { return std::pair(values.end(), variances.end()); }</a>
 <a name="75"><span class="lineNum">      75 </span>            : </a>
-<a name="76"><span class="lineNum">      76 </span><span class="lineCov">      13087 :   constexpr auto size() const noexcept { return values.size(); }</span></a>
+<a name="76"><span class="lineNum">      76 </span><span class="lineCov">      13094 :   constexpr auto size() const noexcept { return values.size(); }</span></a>
 <a name="77"><span class="lineNum">      77 </span>            : };</a>
 <a name="78"><span class="lineNum">      78 </span>            : </a>
 <a name="79"><span class="lineNum">      79 </span>            : template &lt;class T&gt; struct is_ValuesAndVariances : std::false_type {};</a>

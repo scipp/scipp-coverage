@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-10-20 01:41:21</td>
+            <td class="headerValue">2024-10-27 01:47:14</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">10</td>
@@ -81,8 +81,8 @@
 <a name="19"><span class="lineNum">      19 </span>            : </a>
 <a name="20"><span class="lineNum">      20 </span>            : namespace scipp::variable {</a>
 <a name="21"><span class="lineNum">      21 </span>            : </a>
-<a name="22"><span class="lineNum">      22 </span><span class="lineCov">      38310 : Variable broadcast(const Variable &amp;var, const Dimensions &amp;dims) {</span></a>
-<a name="23"><span class="lineNum">      23 </span><span class="lineCov">      38310 :   return var.broadcast(dims);</span></a>
+<a name="22"><span class="lineNum">      22 </span><span class="lineCov">      38300 : Variable broadcast(const Variable &amp;var, const Dimensions &amp;dims) {</span></a>
+<a name="23"><span class="lineNum">      23 </span><span class="lineCov">      38300 :   return var.broadcast(dims);</span></a>
 <a name="24"><span class="lineNum">      24 </span>            : }</a>
 <a name="25"><span class="lineNum">      25 </span>            : </a>
 <a name="26"><span class="lineNum">      26 </span>            : namespace {</a>
@@ -161,48 +161,48 @@
 <a name="99"><span class="lineNum">      99 </span><span class="lineCov">        255 :   return view.fold(from_dim, to_dims);</span></a>
 <a name="100"><span class="lineNum">     100 </span>            : }</a>
 <a name="101"><span class="lineNum">     101 </span>            : </a>
-<a name="102"><span class="lineNum">     102 </span><span class="lineCov">      14371 : Variable flatten(const Variable &amp;view,</span></a>
+<a name="102"><span class="lineNum">     102 </span><span class="lineCov">      14424 : Variable flatten(const Variable &amp;view,</span></a>
 <a name="103"><span class="lineNum">     103 </span>            :                  const scipp::span&lt;const Dim&gt; &amp;from_labels, const Dim to_dim) {</a>
-<a name="104"><span class="lineNum">     104 </span><span class="lineCov">      14371 :   if (from_labels.empty()) {</span></a>
+<a name="104"><span class="lineNum">     104 </span><span class="lineCov">      14424 :   if (from_labels.empty()) {</span></a>
 <a name="105"><span class="lineNum">     105 </span><span class="lineCov">         31 :     auto out(view);</span></a>
 <a name="106"><span class="lineNum">     106 </span><span class="lineCov">         31 :     out.unchecked_dims().addInner(to_dim, 1);</span></a>
 <a name="107"><span class="lineNum">     107 </span><span class="lineCov">         31 :     out.unchecked_strides().push_back(1);</span></a>
 <a name="108"><span class="lineNum">     108 </span><span class="lineCov">         31 :     return out;</span></a>
 <a name="109"><span class="lineNum">     109 </span><span class="lineCov">         31 :   }</span></a>
-<a name="110"><span class="lineNum">     110 </span><span class="lineCov">      14340 :   const auto &amp;labels = view.dims().labels();</span></a>
-<a name="111"><span class="lineNum">     111 </span><span class="lineCov">      14340 :   auto it = std::search(labels.begin(), labels.end(), from_labels.begin(),</span></a>
+<a name="110"><span class="lineNum">     110 </span><span class="lineCov">      14393 :   const auto &amp;labels = view.dims().labels();</span></a>
+<a name="111"><span class="lineNum">     111 </span><span class="lineCov">      14393 :   auto it = std::search(labels.begin(), labels.end(), from_labels.begin(),</span></a>
 <a name="112"><span class="lineNum">     112 </span>            :                         from_labels.end());</a>
-<a name="113"><span class="lineNum">     113 </span><span class="lineCov">      14340 :   if (it == labels.end())</span></a>
+<a name="113"><span class="lineNum">     113 </span><span class="lineCov">      14393 :   if (it == labels.end())</span></a>
 <a name="114"><span class="lineNum">     114 </span><span class="lineCov">          3 :     throw except::DimensionError(&quot;Can only flatten a contiguous set of &quot;</span></a>
 <a name="115"><span class="lineNum">     115 </span><span class="lineCov">          6 :                                  &quot;dimensions in the correct order&quot;);</span></a>
-<a name="116"><span class="lineNum">     116 </span><span class="lineCov">      14337 :   scipp::index size = 1;</span></a>
-<a name="117"><span class="lineNum">     117 </span><span class="lineCov">      14337 :   auto to = std::distance(labels.begin(), it);</span></a>
-<a name="118"><span class="lineNum">     118 </span><span class="lineCov">      14337 :   auto out(view);</span></a>
-<a name="119"><span class="lineNum">     119 </span><span class="lineCov">      41042 :   for (const auto &amp;from : from_labels) {</span></a>
-<a name="120"><span class="lineNum">     120 </span><span class="lineCov">      30917 :     size *= out.dims().size(to);</span></a>
-<a name="121"><span class="lineNum">     121 </span><span class="lineCov">      30917 :     if (from == from_labels.back()) {</span></a>
-<a name="122"><span class="lineNum">     122 </span><span class="lineCov">      10125 :       out.unchecked_dims().resize(from, size);</span></a>
-<a name="123"><span class="lineNum">     123 </span><span class="lineCov">      10125 :       out.unchecked_dims().replace_key(from, to_dim);</span></a>
+<a name="116"><span class="lineNum">     116 </span><span class="lineCov">      14390 :   scipp::index size = 1;</span></a>
+<a name="117"><span class="lineNum">     117 </span><span class="lineCov">      14390 :   auto to = std::distance(labels.begin(), it);</span></a>
+<a name="118"><span class="lineNum">     118 </span><span class="lineCov">      14390 :   auto out(view);</span></a>
+<a name="119"><span class="lineNum">     119 </span><span class="lineCov">      41097 :   for (const auto &amp;from : from_labels) {</span></a>
+<a name="120"><span class="lineNum">     120 </span><span class="lineCov">      30919 :     size *= out.dims().size(to);</span></a>
+<a name="121"><span class="lineNum">     121 </span><span class="lineCov">      30919 :     if (from == from_labels.back()) {</span></a>
+<a name="122"><span class="lineNum">     122 </span><span class="lineCov">      10178 :       out.unchecked_dims().resize(from, size);</span></a>
+<a name="123"><span class="lineNum">     123 </span><span class="lineCov">      10178 :       out.unchecked_dims().replace_key(from, to_dim);</span></a>
 <a name="124"><span class="lineNum">     124 </span>            :     } else {</a>
-<a name="125"><span class="lineNum">     125 </span><span class="lineCov">      20792 :       if (out.strides()[to] != out.dims().size(to + 1) * out.strides()[to + 1])</span></a>
+<a name="125"><span class="lineNum">     125 </span><span class="lineCov">      20741 :       if (out.strides()[to] != out.dims().size(to + 1) * out.strides()[to + 1])</span></a>
 <a name="126"><span class="lineNum">     126 </span><span class="lineCov">       8424 :         return flatten(copy(view), from_labels, to_dim);</span></a>
-<a name="127"><span class="lineNum">     127 </span><span class="lineCov">      16580 :       out.unchecked_dims().erase(from);</span></a>
-<a name="128"><span class="lineNum">     128 </span><span class="lineCov">      16580 :       out.unchecked_strides().erase(to);</span></a>
+<a name="127"><span class="lineNum">     127 </span><span class="lineCov">      16529 :       out.unchecked_dims().erase(from);</span></a>
+<a name="128"><span class="lineNum">     128 </span><span class="lineCov">      16529 :       out.unchecked_strides().erase(to);</span></a>
 <a name="129"><span class="lineNum">     129 </span>            :     }</a>
 <a name="130"><span class="lineNum">     130 </span>            :   }</a>
-<a name="131"><span class="lineNum">     131 </span><span class="lineCov">      10125 :   return out;</span></a>
-<a name="132"><span class="lineNum">     132 </span><span class="lineCov">      14337 : }</span></a>
+<a name="131"><span class="lineNum">     131 </span><span class="lineCov">      10178 :   return out;</span></a>
+<a name="132"><span class="lineNum">     132 </span><span class="lineCov">      14390 : }</span></a>
 <a name="133"><span class="lineNum">     133 </span>            : </a>
-<a name="134"><span class="lineNum">     134 </span><span class="lineCov">       7754 : Variable transpose(const Variable &amp;var, const scipp::span&lt;const Dim&gt; dims) {</span></a>
-<a name="135"><span class="lineNum">     135 </span><span class="lineCov">       7754 :   return var.transpose(dims);</span></a>
+<a name="134"><span class="lineNum">     134 </span><span class="lineCov">       6529 : Variable transpose(const Variable &amp;var, const scipp::span&lt;const Dim&gt; dims) {</span></a>
+<a name="135"><span class="lineNum">     135 </span><span class="lineCov">       6529 :   return var.transpose(dims);</span></a>
 <a name="136"><span class="lineNum">     136 </span>            : }</a>
 <a name="137"><span class="lineNum">     137 </span>            : </a>
 <a name="138"><span class="lineNum">     138 </span>            : std::vector&lt;scipp::Dim&gt;</a>
 <a name="139"><span class="lineNum">     139 </span><span class="lineCov">       9963 : dims_for_squeezing(const core::Sizes &amp;data_dims,</span></a>
 <a name="140"><span class="lineNum">     140 </span>            :                    const std::optional&lt;scipp::span&lt;const Dim&gt;&gt; selected_dims) {</a>
 <a name="141"><span class="lineNum">     141 </span><span class="lineCov">       9963 :   if (selected_dims.has_value()) {</span></a>
-<a name="142"><span class="lineNum">     142 </span><span class="lineCov">      11241 :     for (const auto &amp;dim : *selected_dims) {</span></a>
-<a name="143"><span class="lineNum">     143 </span><span class="lineCov">       2753 :       if (const auto size = data_dims[dim]; size != 1)</span></a>
+<a name="142"><span class="lineNum">     142 </span><span class="lineCov">      11242 :     for (const auto &amp;dim : *selected_dims) {</span></a>
+<a name="143"><span class="lineNum">     143 </span><span class="lineCov">       2754 :       if (const auto size = data_dims[dim]; size != 1)</span></a>
 <a name="144"><span class="lineNum">     144 </span><span class="lineCov">         15 :         throw except::DimensionError(&quot;Cannot squeeze '&quot; + to_string(dim) +</span></a>
 <a name="145"><span class="lineNum">     145 </span><span class="lineCov">         20 :                                      &quot;' of length &quot; + std::to_string(size) +</span></a>
 <a name="146"><span class="lineNum">     146 </span><span class="lineCov">         10 :                                      &quot;, must be of length 1.&quot;);</span></a>
@@ -223,8 +223,8 @@
 <a name="161"><span class="lineNum">     161 </span><span class="lineCov">       9926 : Variable squeeze(const Variable &amp;var,</span></a>
 <a name="162"><span class="lineNum">     162 </span>            :                  const std::optional&lt;scipp::span&lt;const Dim&gt;&gt; dims) {</a>
 <a name="163"><span class="lineNum">     163 </span><span class="lineCov">       9926 :   auto squeezed = var;</span></a>
-<a name="164"><span class="lineNum">     164 </span><span class="lineCov">      12802 :   for (const auto &amp;dim : dims_for_squeezing(var.dims(), dims)) {</span></a>
-<a name="165"><span class="lineNum">     165 </span><span class="lineCov">       2876 :     squeezed = squeezed.slice({dim, 0});</span></a>
+<a name="164"><span class="lineNum">     164 </span><span class="lineCov">      12803 :   for (const auto &amp;dim : dims_for_squeezing(var.dims(), dims)) {</span></a>
+<a name="165"><span class="lineNum">     165 </span><span class="lineCov">       2877 :     squeezed = squeezed.slice({dim, 0});</span></a>
 <a name="166"><span class="lineNum">     166 </span><span class="lineCov">       9923 :   }</span></a>
 <a name="167"><span class="lineNum">     167 </span><span class="lineCov">       9923 :   return squeezed;</span></a>
 <a name="168"><span class="lineNum">     168 </span><span class="lineCov">          3 : }</span></a>
