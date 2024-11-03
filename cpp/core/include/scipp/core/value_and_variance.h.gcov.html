@@ -37,12 +37,12 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-10-27 01:47:14</td>
+            <td class="headerValue">2024-11-03 01:48:15</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">48</td>
+            <td class="headerCovTableEntry">46</td>
             <td class="headerCovTableEntry">316</td>
-            <td class="headerCovTableEntryLo">15.2 %</td>
+            <td class="headerCovTableEntryLo">14.6 %</td>
           </tr>
           <tr><td><img src="../../../../glass.png" width=3 height=3 alt=""></td></tr>
         </table>
@@ -86,9 +86,9 @@
 <a name="24"><span class="lineNum">      24 </span>            :   /// This constructor is essential to prevent warnings about narrowing the</a>
 <a name="25"><span class="lineNum">      25 </span>            :   /// types in initializer lists used below</a>
 <a name="26"><span class="lineNum">      26 </span>            :   template &lt;class T1, class T2&gt;</a>
-<a name="27"><span class="lineNum">      27 </span><span class="lineCov">    8030201 :   constexpr ValueAndVariance(T1 t1, T2 t2) noexcept : value(t1), variance(t2) {}</span></a>
-<a name="28"><span class="lineNum">      28 </span><span class="lineCov">       2118 :   constexpr ValueAndVariance(const double val) noexcept</span></a>
-<a name="29"><span class="lineNum">      29 </span><span class="lineCov">       2118 :       : value(val), variance(0.0) {}</span></a>
+<a name="27"><span class="lineNum">      27 </span><span class="lineCov">    8033500 :   constexpr ValueAndVariance(T1 t1, T2 t2) noexcept : value(t1), variance(t2) {}</span></a>
+<a name="28"><span class="lineNum">      28 </span><span class="lineCov">       2150 :   constexpr ValueAndVariance(const double val) noexcept</span></a>
+<a name="29"><span class="lineNum">      29 </span><span class="lineCov">       2150 :       : value(val), variance(0.0) {}</span></a>
 <a name="30"><span class="lineNum">      30 </span>            :   T value;</a>
 <a name="31"><span class="lineNum">      31 </span>            :   T variance;</a>
 <a name="32"><span class="lineNum">      32 </span>            : </a>
@@ -105,8 +105,8 @@
 <a name="43"><span class="lineNum">      43 </span><span class="lineNoCov">          0 :     return *this;</span></a>
 <a name="44"><span class="lineNum">      44 </span>            :   }</a>
 <a name="45"><span class="lineNum">      45 </span>            : </a>
-<a name="46"><span class="lineNum">      46 </span><span class="lineCov">      63691 :   template &lt;class T2&gt; constexpr auto &amp;operator+=(const T2 other) noexcept {</span></a>
-<a name="47"><span class="lineNum">      47 </span><span class="lineCov">      63691 :     return *this = *this + other;</span></a>
+<a name="46"><span class="lineNum">      46 </span><span class="lineCov">      63755 :   template &lt;class T2&gt; constexpr auto &amp;operator+=(const T2 other) noexcept {</span></a>
+<a name="47"><span class="lineNum">      47 </span><span class="lineCov">      63755 :     return *this = *this + other;</span></a>
 <a name="48"><span class="lineNum">      48 </span>            :   }</a>
 <a name="49"><span class="lineNum">      49 </span><span class="lineNoCov">          0 :   template &lt;class T2&gt; constexpr auto &amp;operator-=(const T2 other) noexcept {</span></a>
 <a name="50"><span class="lineNum">      50 </span><span class="lineNoCov">          0 :     return *this = *this - other;</span></a>
@@ -145,9 +145,9 @@
 <a name="83"><span class="lineNum">      83 </span><span class="lineNoCov">          0 :                           static_cast&lt;T&gt;(0.25 * (a.variance / a.value))};</span></a>
 <a name="84"><span class="lineNum">      84 </span>            : }</a>
 <a name="85"><span class="lineNum">      85 </span>            : </a>
-<a name="86"><span class="lineNum">      86 </span><span class="lineCov">       1697 : template &lt;class T&gt; constexpr auto abs(const ValueAndVariance&lt;T&gt; a) noexcept {</span></a>
+<a name="86"><span class="lineNum">      86 </span><span class="lineCov">       1699 : template &lt;class T&gt; constexpr auto abs(const ValueAndVariance&lt;T&gt; a) noexcept {</span></a>
 <a name="87"><span class="lineNum">      87 </span>            :   using std::abs;</a>
-<a name="88"><span class="lineNum">      88 </span><span class="lineCov">       1697 :   return ValueAndVariance{abs(a.value), a.variance};</span></a>
+<a name="88"><span class="lineNum">      88 </span><span class="lineCov">       1699 :   return ValueAndVariance{abs(a.value), a.variance};</span></a>
 <a name="89"><span class="lineNum">      89 </span>            : }</a>
 <a name="90"><span class="lineNum">      90 </span>            : </a>
 <a name="91"><span class="lineNum">      91 </span><span class="lineNoCov">          0 : template &lt;typename T&gt; constexpr auto exp(const ValueAndVariance&lt;T&gt; a) noexcept {</span></a>
@@ -200,9 +200,9 @@
 <a name="138"><span class="lineNum">     138 </span>            : }</a>
 <a name="139"><span class="lineNum">     139 </span>            : </a>
 <a name="140"><span class="lineNum">     140 </span>            : template &lt;class T1, class T2&gt;</a>
-<a name="141"><span class="lineNum">     141 </span><span class="lineCov">      63706 : constexpr auto operator+(const ValueAndVariance&lt;T1&gt; a,</span></a>
+<a name="141"><span class="lineNum">     141 </span><span class="lineCov">      63770 : constexpr auto operator+(const ValueAndVariance&lt;T1&gt; a,</span></a>
 <a name="142"><span class="lineNum">     142 </span>            :                          const ValueAndVariance&lt;T2&gt; b) noexcept {</a>
-<a name="143"><span class="lineNum">     143 </span><span class="lineCov">      63706 :   return ValueAndVariance{a.value + b.value, a.variance + b.variance};</span></a>
+<a name="143"><span class="lineNum">     143 </span><span class="lineCov">      63770 :   return ValueAndVariance{a.value + b.value, a.variance + b.variance};</span></a>
 <a name="144"><span class="lineNum">     144 </span>            : }</a>
 <a name="145"><span class="lineNum">     145 </span>            : template &lt;class T1, class T2&gt;</a>
 <a name="146"><span class="lineNum">     146 </span><span class="lineCov">          2 : constexpr auto operator-(const ValueAndVariance&lt;T1&gt; a,</span></a>
@@ -234,8 +234,8 @@
 <a name="172"><span class="lineNum">     172 </span><span class="lineCov">         17 :   return ValueAndVariance{a + b.value, b.variance};</span></a>
 <a name="173"><span class="lineNum">     173 </span>            : }</a>
 <a name="174"><span class="lineNum">     174 </span>            : template &lt;class T1, class T2&gt;</a>
-<a name="175"><span class="lineNum">     175 </span><span class="lineCov">       1657 : constexpr auto operator-(const ValueAndVariance&lt;T1&gt; a, const T2 b) noexcept {</span></a>
-<a name="176"><span class="lineNum">     176 </span><span class="lineCov">       1657 :   return ValueAndVariance{a.value - b, a.variance};</span></a>
+<a name="175"><span class="lineNum">     175 </span><span class="lineCov">       1659 : constexpr auto operator-(const ValueAndVariance&lt;T1&gt; a, const T2 b) noexcept {</span></a>
+<a name="176"><span class="lineNum">     176 </span><span class="lineCov">       1659 :   return ValueAndVariance{a.value - b, a.variance};</span></a>
 <a name="177"><span class="lineNum">     177 </span>            : }</a>
 <a name="178"><span class="lineNum">     178 </span>            : template &lt;class T1, class T2&gt;</a>
 <a name="179"><span class="lineNum">     179 </span><span class="lineNoCov">          0 : constexpr auto operator-(const T2 a, const ValueAndVariance&lt;T1&gt; b) noexcept {</span></a>
@@ -247,9 +247,9 @@
 <a name="185"><span class="lineNum">     185 </span><span class="lineCov">        359 :   return ValueAndVariance{a.value * b, a.variance * b * b};</span></a>
 <a name="186"><span class="lineNum">     186 </span>            : }</a>
 <a name="187"><span class="lineNum">     187 </span>            : template &lt;class T1, class T2&gt;</a>
-<a name="188"><span class="lineNum">     188 </span><span class="lineCov">        148 : constexpr auto operator*(const T1 a, const ValueAndVariance&lt;T2&gt; b) noexcept {</span></a>
+<a name="188"><span class="lineNum">     188 </span><span class="lineCov">        132 : constexpr auto operator*(const T1 a, const ValueAndVariance&lt;T2&gt; b) noexcept {</span></a>
 <a name="189"><span class="lineNum">     189 </span>            :   // Order of operations to prevent integer overflow of `a*a`.</a>
-<a name="190"><span class="lineNum">     190 </span><span class="lineCov">        148 :   return ValueAndVariance{a * b.value, b.variance * a * a};</span></a>
+<a name="190"><span class="lineNum">     190 </span><span class="lineCov">        132 :   return ValueAndVariance{a * b.value, b.variance * a * a};</span></a>
 <a name="191"><span class="lineNum">     191 </span>            : }</a>
 <a name="192"><span class="lineNum">     192 </span>            : template &lt;class T1, class T2&gt;</a>
 <a name="193"><span class="lineNum">     193 </span><span class="lineNoCov">          0 : constexpr auto operator/(const ValueAndVariance&lt;T1&gt; a, const T2 b) noexcept {</span></a>
@@ -320,8 +320,8 @@
 <a name="258"><span class="lineNum">     258 </span><span class="lineCov">          2 :   return a.value &lt;= b.value;</span></a>
 <a name="259"><span class="lineNum">     259 </span>            : }</a>
 <a name="260"><span class="lineNum">     260 </span>            : template &lt;class A, class B&gt;</a>
-<a name="261"><span class="lineNum">     261 </span><span class="lineCov">       1658 : constexpr auto operator&lt;=(const ValueAndVariance&lt;A&gt; a, const B b) noexcept {</span></a>
-<a name="262"><span class="lineNum">     262 </span><span class="lineCov">       1658 :   return a.value &lt;= b;</span></a>
+<a name="261"><span class="lineNum">     261 </span><span class="lineCov">       1660 : constexpr auto operator&lt;=(const ValueAndVariance&lt;A&gt; a, const B b) noexcept {</span></a>
+<a name="262"><span class="lineNum">     262 </span><span class="lineCov">       1660 :   return a.value &lt;= b;</span></a>
 <a name="263"><span class="lineNum">     263 </span>            : }</a>
 <a name="264"><span class="lineNum">     264 </span>            : template &lt;class A, class B&gt;</a>
 <a name="265"><span class="lineNum">     265 </span><span class="lineNoCov">          0 : constexpr auto operator&lt;=(const A a, const ValueAndVariance&lt;B&gt; b) noexcept {</span></a>

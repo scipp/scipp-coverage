@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-10-27 01:47:14</td>
+            <td class="headerValue">2024-11-03 01:48:15</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">23</td>
@@ -222,7 +222,7 @@
 <a name="160"><span class="lineNum">     160 </span><span class="lineCov">         36 :            [](const DefaultUnit &amp;) { return &quot;&lt;automatically deduced unit&gt;&quot;; });</span></a>
 <a name="161"><span class="lineNum">     161 </span><span class="lineCov">          3 :   py::class_&lt;units::Unit&gt;(m, &quot;Unit&quot;, &quot;A physical unit.&quot;)</span></a>
 <a name="162"><span class="lineNum">     162 </span><span class="lineCov">          3 :       .def(py::init&lt;const std::string &amp;&gt;())</span></a>
-<a name="163"><span class="lineNum">     163 </span><span class="lineCov">        750 :       .def(&quot;__str__&quot;, [](const units::Unit &amp;u) { return u.name(); })</span></a>
+<a name="163"><span class="lineNum">     163 </span><span class="lineCov">        666 :       .def(&quot;__str__&quot;, [](const units::Unit &amp;u) { return u.name(); })</span></a>
 <a name="164"><span class="lineNum">     164 </span><span class="lineCov">          3 :       .def(&quot;__repr__&quot;, repr)</span></a>
 <a name="165"><span class="lineNum">     165 </span><span class="lineCov">          3 :       .def(&quot;_repr_html_&quot;, repr_html)</span></a>
 <a name="166"><span class="lineNum">     166 </span><span class="lineCov">          3 :       .def(&quot;_repr_pretty_&quot;, repr_pretty)</span></a>
@@ -235,7 +235,7 @@
 <a name="173"><span class="lineNum">     173 </span>            :       // cppcheck-suppress duplicateExpression</a>
 <a name="174"><span class="lineNum">     174 </span><span class="lineCov">          3 :       .def(py::self / py::self)</span></a>
 <a name="175"><span class="lineNum">     175 </span><span class="lineCov">          3 :       .def(&quot;__pow__&quot;, [](const units::Unit &amp;self,</span></a>
-<a name="176"><span class="lineNum">     176 </span><span class="lineCov">        609 :                          const int64_t power) { return pow(self, power); })</span></a>
+<a name="176"><span class="lineNum">     176 </span><span class="lineCov">        568 :                          const int64_t power) { return pow(self, power); })</span></a>
 <a name="177"><span class="lineNum">     177 </span><span class="lineCov">          4 :       .def(&quot;__abs__&quot;, [](const units::Unit &amp;self) { return abs(self); })</span></a>
 <a name="178"><span class="lineNum">     178 </span><span class="lineCov">          3 :       .def(py::self == py::self)</span></a>
 <a name="179"><span class="lineNum">     179 </span><span class="lineCov">          3 :       .def(py::self != py::self)</span></a>
