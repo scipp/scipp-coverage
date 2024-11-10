@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-11-03 01:48:15</td>
+            <td class="headerValue">2024-11-10 01:45:58</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">4</td>
@@ -78,18 +78,18 @@
 <a name="16"><span class="lineNum">      16 </span>            : constexpr auto exclusive_scan = overloaded{</a>
 <a name="17"><span class="lineNum">      17 </span>            :     arg_list&lt;double, std::tuple&lt;double, float&gt;, int64_t, int32_t&gt;,</a>
 <a name="18"><span class="lineNum">      18 </span>            :     transform_flags::expect_no_variance_arg&lt;0&gt;,</a>
-<a name="19"><span class="lineNum">      19 </span><span class="lineCov">   11009607 :     transform_flags::expect_no_variance_arg&lt;1&gt;, [](auto &amp;sum, auto &amp;x) {</span></a>
-<a name="20"><span class="lineNum">      20 </span><span class="lineCov">   11009607 :       sum += x;</span></a>
-<a name="21"><span class="lineNum">      21 </span><span class="lineCov">   11009607 :       x = sum - x;</span></a>
-<a name="22"><span class="lineNum">      22 </span><span class="lineCov">   11009607 :     }};</span></a>
+<a name="19"><span class="lineNum">      19 </span><span class="lineCov">   11219318 :     transform_flags::expect_no_variance_arg&lt;1&gt;, [](auto &amp;sum, auto &amp;x) {</span></a>
+<a name="20"><span class="lineNum">      20 </span><span class="lineCov">   11219318 :       sum += x;</span></a>
+<a name="21"><span class="lineNum">      21 </span><span class="lineCov">   11219318 :       x = sum - x;</span></a>
+<a name="22"><span class="lineNum">      22 </span><span class="lineCov">   11219318 :     }};</span></a>
 <a name="23"><span class="lineNum">      23 </span>            : </a>
 <a name="24"><span class="lineNum">      24 </span>            : constexpr auto inclusive_scan = overloaded{</a>
 <a name="25"><span class="lineNum">      25 </span>            :     arg_list&lt;double, std::tuple&lt;double, float&gt;, int64_t, int32_t&gt;,</a>
 <a name="26"><span class="lineNum">      26 </span>            :     transform_flags::expect_no_variance_arg&lt;0&gt;,</a>
-<a name="27"><span class="lineNum">      27 </span><span class="lineCov">   15427020 :     transform_flags::expect_no_variance_arg&lt;1&gt;, [](auto &amp;sum, auto &amp;x) {</span></a>
-<a name="28"><span class="lineNum">      28 </span><span class="lineCov">   15427020 :       sum += x;</span></a>
-<a name="29"><span class="lineNum">      29 </span><span class="lineCov">   15427020 :       x = sum;</span></a>
-<a name="30"><span class="lineNum">      30 </span><span class="lineCov">   15427020 :     }};</span></a>
+<a name="27"><span class="lineNum">      27 </span><span class="lineCov">   15593758 :     transform_flags::expect_no_variance_arg&lt;1&gt;, [](auto &amp;sum, auto &amp;x) {</span></a>
+<a name="28"><span class="lineNum">      28 </span><span class="lineCov">   15593758 :       sum += x;</span></a>
+<a name="29"><span class="lineNum">      29 </span><span class="lineCov">   15593758 :       x = sum;</span></a>
+<a name="30"><span class="lineNum">      30 </span><span class="lineCov">   15593758 :     }};</span></a>
 <a name="31"><span class="lineNum">      31 </span>            : </a>
 <a name="32"><span class="lineNum">      32 </span>            : } // namespace scipp::core::element</a>
 </pre>

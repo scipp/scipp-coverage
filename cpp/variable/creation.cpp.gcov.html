@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-11-03 01:48:15</td>
+            <td class="headerValue">2024-11-10 01:45:58</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">8</td>
@@ -73,12 +73,12 @@
 <a name="11"><span class="lineNum">      11 </span>            : </a>
 <a name="12"><span class="lineNum">      12 </span>            : namespace scipp::variable {</a>
 <a name="13"><span class="lineNum">      13 </span>            : </a>
-<a name="14"><span class="lineNum">      14 </span><span class="lineCov">      45598 : Variable empty(const Dimensions &amp;dims, const units::Unit &amp;unit,</span></a>
+<a name="14"><span class="lineNum">      14 </span><span class="lineCov">      44700 : Variable empty(const Dimensions &amp;dims, const units::Unit &amp;unit,</span></a>
 <a name="15"><span class="lineNum">      15 </span>            :                const DType type, const bool with_variances,</a>
 <a name="16"><span class="lineNum">      16 </span>            :                const bool aligned) {</a>
-<a name="17"><span class="lineNum">      17 </span><span class="lineCov">      45598 :   auto var = variableFactory().create(type, dims, unit, with_variances);</span></a>
-<a name="18"><span class="lineNum">      18 </span><span class="lineCov">      45598 :   var.set_aligned(aligned);</span></a>
-<a name="19"><span class="lineNum">      19 </span><span class="lineCov">      45598 :   return var;</span></a>
+<a name="17"><span class="lineNum">      17 </span><span class="lineCov">      44700 :   auto var = variableFactory().create(type, dims, unit, with_variances);</span></a>
+<a name="18"><span class="lineNum">      18 </span><span class="lineCov">      44700 :   var.set_aligned(aligned);</span></a>
+<a name="19"><span class="lineNum">      19 </span><span class="lineCov">      44700 :   return var;</span></a>
 <a name="20"><span class="lineNum">      20 </span>            : }</a>
 <a name="21"><span class="lineNum">      21 </span>            : </a>
 <a name="22"><span class="lineNum">      22 </span><span class="lineCov">      12695 : Variable ones(const Dimensions &amp;dims, const units::Unit &amp;unit, const DType type,</span></a>
@@ -103,29 +103,29 @@
 <a name="41"><span class="lineNum">      41 </span>            : /// If specified, `shape` defines the shape of the output. If `prototype`</a>
 <a name="42"><span class="lineNum">      42 </span>            : /// contains binned data `shape` may not be specified, instead `sizes` defines</a>
 <a name="43"><span class="lineNum">      43 </span>            : /// the sizes of the desired bins.</a>
-<a name="44"><span class="lineNum">      44 </span><span class="lineCov">     292707 : Variable empty_like(const Variable &amp;prototype,</span></a>
+<a name="44"><span class="lineNum">      44 </span><span class="lineCov">     289814 : Variable empty_like(const Variable &amp;prototype,</span></a>
 <a name="45"><span class="lineNum">      45 </span>            :                     const std::optional&lt;Dimensions&gt; &amp;shape,</a>
 <a name="46"><span class="lineNum">      46 </span>            :                     const Variable &amp;sizes) {</a>
-<a name="47"><span class="lineNum">      47 </span><span class="lineCov">     292707 :   return variableFactory().empty_like(prototype, shape, sizes);</span></a>
+<a name="47"><span class="lineNum">      47 </span><span class="lineCov">     289814 :   return variableFactory().empty_like(prototype, shape, sizes);</span></a>
 <a name="48"><span class="lineNum">      48 </span>            : }</a>
 <a name="49"><span class="lineNum">      49 </span>            : </a>
 <a name="50"><span class="lineNum">      50 </span>            : /// Create a variable with the same parameters as `prototype` with</a>
 <a name="51"><span class="lineNum">      51 </span>            : /// values filled according to `fill`.</a>
-<a name="52"><span class="lineNum">      52 </span><span class="lineCov">      45415 : Variable special_like(const Variable &amp;prototype, const FillValue &amp;fill) {</span></a>
-<a name="53"><span class="lineNum">      53 </span><span class="lineCov">      45415 :   const char *name = &quot;special_like&quot;;</span></a>
-<a name="54"><span class="lineNum">      54 </span><span class="lineCov">      45415 :   if (fill == FillValue::Default)</span></a>
-<a name="55"><span class="lineNum">      55 </span><span class="lineCov">       1949 :     return Variable(prototype, prototype.dims());</span></a>
-<a name="56"><span class="lineNum">      56 </span><span class="lineCov">      43466 :   if (fill == FillValue::ZeroNotBool)</span></a>
-<a name="57"><span class="lineNum">      57 </span><span class="lineCov">      21651 :     return transform(prototype, core::element::zeros_not_bool_like, name);</span></a>
-<a name="58"><span class="lineNum">      58 </span><span class="lineCov">      21815 :   if (fill == FillValue::True)</span></a>
-<a name="59"><span class="lineNum">      59 </span><span class="lineCov">        478 :     return transform(prototype, core::element::values_like&lt;bool, true&gt;, name);</span></a>
-<a name="60"><span class="lineNum">      60 </span><span class="lineCov">      21337 :   if (fill == FillValue::False)</span></a>
+<a name="52"><span class="lineNum">      52 </span><span class="lineCov">      44517 : Variable special_like(const Variable &amp;prototype, const FillValue &amp;fill) {</span></a>
+<a name="53"><span class="lineNum">      53 </span><span class="lineCov">      44517 :   const char *name = &quot;special_like&quot;;</span></a>
+<a name="54"><span class="lineNum">      54 </span><span class="lineCov">      44517 :   if (fill == FillValue::Default)</span></a>
+<a name="55"><span class="lineNum">      55 </span><span class="lineCov">       1696 :     return Variable(prototype, prototype.dims());</span></a>
+<a name="56"><span class="lineNum">      56 </span><span class="lineCov">      42821 :   if (fill == FillValue::ZeroNotBool)</span></a>
+<a name="57"><span class="lineNum">      57 </span><span class="lineCov">      20937 :     return transform(prototype, core::element::zeros_not_bool_like, name);</span></a>
+<a name="58"><span class="lineNum">      58 </span><span class="lineCov">      21884 :   if (fill == FillValue::True)</span></a>
+<a name="59"><span class="lineNum">      59 </span><span class="lineCov">        489 :     return transform(prototype, core::element::values_like&lt;bool, true&gt;, name);</span></a>
+<a name="60"><span class="lineNum">      60 </span><span class="lineCov">      21395 :   if (fill == FillValue::False)</span></a>
 <a name="61"><span class="lineNum">      61 </span><span class="lineCov">        106 :     return transform(prototype, core::element::values_like&lt;bool, false&gt;, name);</span></a>
-<a name="62"><span class="lineNum">      62 </span><span class="lineCov">      21231 :   if (fill == FillValue::Max)</span></a>
-<a name="63"><span class="lineNum">      63 </span><span class="lineCov">      10602 :     return transform(prototype, core::element::numeric_limits_max_like, name);</span></a>
-<a name="64"><span class="lineNum">      64 </span><span class="lineCov">      10629 :   if (fill == FillValue::Lowest)</span></a>
+<a name="62"><span class="lineNum">      62 </span><span class="lineCov">      21289 :   if (fill == FillValue::Max)</span></a>
+<a name="63"><span class="lineNum">      63 </span><span class="lineCov">      10631 :     return transform(prototype, core::element::numeric_limits_max_like, name);</span></a>
+<a name="64"><span class="lineNum">      64 </span><span class="lineCov">      10658 :   if (fill == FillValue::Lowest)</span></a>
 <a name="65"><span class="lineNum">      65 </span>            :     return transform(prototype, core::element::numeric_limits_lowest_like,</a>
-<a name="66"><span class="lineNum">      66 </span><span class="lineCov">      10629 :                      name);</span></a>
+<a name="66"><span class="lineNum">      66 </span><span class="lineCov">      10658 :                      name);</span></a>
 <a name="67"><span class="lineNum">      67 </span><span class="lineNoCov">          0 :   throw std::runtime_error(&quot;Unsupported fill value.&quot;);</span></a>
 <a name="68"><span class="lineNum">      68 </span>            : }</a>
 <a name="69"><span class="lineNum">      69 </span>            : </a>
@@ -133,19 +133,19 @@
 <a name="71"><span class="lineNum">      71 </span>            : /// dimensions and values filled according to `fill`.</a>
 <a name="72"><span class="lineNum">      72 </span>            : /// If `prototype` is binned, `accum` is dense</a>
 <a name="73"><span class="lineNum">      73 </span>            : /// with the elem dtype of `prototype`.</a>
-<a name="74"><span class="lineNum">      74 </span><span class="lineCov">      45205 : Variable dense_special_like(const Variable &amp;prototype,</span></a>
+<a name="74"><span class="lineNum">      74 </span><span class="lineCov">      44307 : Variable dense_special_like(const Variable &amp;prototype,</span></a>
 <a name="75"><span class="lineNum">      75 </span>            :                             const Dimensions &amp;target_dims,</a>
 <a name="76"><span class="lineNum">      76 </span>            :                             const FillValue &amp;fill) {</a>
-<a name="77"><span class="lineNum">      77 </span><span class="lineCov">      45205 :   const auto type = variableFactory().elem_dtype(prototype);</span></a>
-<a name="78"><span class="lineNum">      78 </span><span class="lineCov">      45205 :   const auto unit = variableFactory().elem_unit(prototype);</span></a>
-<a name="79"><span class="lineNum">      79 </span><span class="lineCov">      45205 :   const auto has_variances = variableFactory().has_variances(prototype);</span></a>
-<a name="80"><span class="lineNum">      80 </span><span class="lineCov">      45205 :   const auto scalar_prototype = empty(Dimensions{}, unit, type, has_variances);</span></a>
-<a name="81"><span class="lineNum">      81 </span><span class="lineCov">     135615 :   return special_like(scalar_prototype.broadcast(target_dims), fill);</span></a>
-<a name="82"><span class="lineNum">      82 </span><span class="lineCov">      45205 : }</span></a>
+<a name="77"><span class="lineNum">      77 </span><span class="lineCov">      44307 :   const auto type = variableFactory().elem_dtype(prototype);</span></a>
+<a name="78"><span class="lineNum">      78 </span><span class="lineCov">      44307 :   const auto unit = variableFactory().elem_unit(prototype);</span></a>
+<a name="79"><span class="lineNum">      79 </span><span class="lineCov">      44307 :   const auto has_variances = variableFactory().has_variances(prototype);</span></a>
+<a name="80"><span class="lineNum">      80 </span><span class="lineCov">      44307 :   const auto scalar_prototype = empty(Dimensions{}, unit, type, has_variances);</span></a>
+<a name="81"><span class="lineNum">      81 </span><span class="lineCov">     132921 :   return special_like(scalar_prototype.broadcast(target_dims), fill);</span></a>
+<a name="82"><span class="lineNum">      82 </span><span class="lineCov">      44307 : }</span></a>
 <a name="83"><span class="lineNum">      83 </span>            : </a>
 <a name="84"><span class="lineNum">      84 </span>            : /// Create scalar variable containing 0 with same parameters as prototype.</a>
-<a name="85"><span class="lineNum">      85 </span><span class="lineCov">        233 : Variable zero_like(const Variable &amp;prototype) {</span></a>
-<a name="86"><span class="lineNum">      86 </span><span class="lineCov">        466 :   return {prototype, Dimensions{}};</span></a>
+<a name="85"><span class="lineNum">      85 </span><span class="lineCov">        243 : Variable zero_like(const Variable &amp;prototype) {</span></a>
+<a name="86"><span class="lineNum">      86 </span><span class="lineCov">        486 :   return {prototype, Dimensions{}};</span></a>
 <a name="87"><span class="lineNum">      87 </span>            : }</a>
 <a name="88"><span class="lineNum">      88 </span>            : </a>
 <a name="89"><span class="lineNum">      89 </span>            : } // namespace scipp::variable</a>

@@ -65,7 +65,7 @@
             <a id="nextFileLink" class="nav" href="z_16a5d53aa2c30981_dataset_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.6.1">coverage.py v7.6.1</a>,
-            created at 2024-11-03 01:51 +0000
+            created at 2024-11-10 01:49 +0000
         </p>
         <aside class="hidden">
             <button type="button" class="button_next_chunk" data-shortcut="j"></button>
@@ -335,7 +335,7 @@
     <p class="run"><span class="n"><a id="t253" href="#t253">253</a></span><span class="t">        <span class="key">return</span> <span class="str">f'DataGroup(sizes={self.sizes}, keys={list(self.keys())})'</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t254" href="#t254">254</a></span><span class="t">&nbsp;</span><span class="r"></span></p>
     <p class="mis show_mis"><span class="n"><a id="t255" href="#t255">255</a></span><span class="t">    <span class="op">@</span><span class="nam">property</span>&nbsp;</span><span class="r"></span></p>
-    <p class="mis show_mis"><span class="n"><a id="t256" href="#t256">256</a></span><span class="t">    <span class="key">def</span> <span class="nam">bins</span><span class="op">(</span><span class="nam">self</span><span class="op">)</span> <span class="op">-></span> <span class="nam">DataGroup</span><span class="op">[</span><span class="nam">Bins</span> <span class="op">|</span> <span class="key">None</span><span class="op">]</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
+    <p class="mis show_mis"><span class="n"><a id="t256" href="#t256">256</a></span><span class="t">    <span class="key">def</span> <span class="nam">bins</span><span class="op">(</span><span class="nam">self</span><span class="op">)</span> <span class="op">-></span> <span class="nam">DataGroup</span><span class="op">[</span><span class="nam">DataGroup</span><span class="op">[</span><span class="nam">Any</span><span class="op">]</span> <span class="op">|</span> <span class="nam">Bins</span><span class="op">[</span><span class="nam">Any</span><span class="op">]</span> <span class="op">|</span> <span class="key">None</span><span class="op">]</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t257" href="#t257">257</a></span><span class="t">        <span class="com"># TODO Returning a regular DataGroup here may be wrong, since the `bins`</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t258" href="#t258">258</a></span><span class="t">        <span class="com"># property provides a different set of attrs and methods.</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t259" href="#t259">259</a></span><span class="t">        <span class="key">return</span> <span class="nam">self</span><span class="op">.</span><span class="nam">apply</span><span class="op">(</span><span class="nam">operator</span><span class="op">.</span><span class="nam">attrgetter</span><span class="op">(</span><span class="str">'bins'</span><span class="op">)</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
@@ -389,7 +389,7 @@
     <p class="run"><span class="n"><a id="t307" href="#t307">307</a></span><span class="t">            <span class="key">if</span> <span class="nam">dim</span> <span class="key">is</span> <span class="key">None</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t308" href="#t308">308</a></span><span class="t">                <span class="key">return</span> <span class="nam">reduce_all</span><span class="op">(</span><span class="nam">v</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t309" href="#t309">309</a></span><span class="t">            <span class="key">if</span> <span class="nam">isinstance</span><span class="op">(</span><span class="nam">dim</span><span class="op">,</span> <span class="nam">str</span><span class="op">)</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
-    <p class="run"><span class="n"><a id="t310" href="#t310">310</a></span><span class="t">                <span class="nam">dims_to_reduce</span> <span class="op">=</span> <span class="nam">dim</span> <span class="key">if</span> <span class="nam">dim</span> <span class="key">in</span> <span class="nam">child_dims</span> <span class="key">else</span> <span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
+    <p class="run"><span class="n"><a id="t310" href="#t310">310</a></span><span class="t">                <span class="nam">dims_to_reduce</span><span class="op">:</span> <span class="nam">tuple</span><span class="op">[</span><span class="nam">str</span><span class="op">,</span> <span class="op">...</span><span class="op">]</span> <span class="op">|</span> <span class="nam">str</span> <span class="op">=</span> <span class="nam">dim</span> <span class="key">if</span> <span class="nam">dim</span> <span class="key">in</span> <span class="nam">child_dims</span> <span class="key">else</span> <span class="op">(</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="pln"><span class="n"><a id="t311" href="#t311">311</a></span><span class="t">            <span class="key">else</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t312" href="#t312">312</a></span><span class="t">                <span class="nam">dims_to_reduce</span> <span class="op">=</span> <span class="nam">tuple</span><span class="op">(</span><span class="nam">d</span> <span class="key">for</span> <span class="nam">d</span> <span class="key">in</span> <span class="nam">dim</span> <span class="key">if</span> <span class="nam">d</span> <span class="key">in</span> <span class="nam">child_dims</span><span class="op">)</span>&nbsp;</span><span class="r"></span></p>
     <p class="run"><span class="n"><a id="t313" href="#t313">313</a></span><span class="t">            <span class="key">if</span> <span class="nam">dims_to_reduce</span> <span class="op">==</span> <span class="op">(</span><span class="op">)</span> <span class="key">and</span> <span class="nam">binned</span><span class="op">:</span>&nbsp;</span><span class="r"></span></p>
@@ -858,7 +858,7 @@
             <a class="nav" href="z_16a5d53aa2c30981_dataset_py.html">&#xbb; next</a>
             &nbsp; &nbsp; &nbsp;
             <a class="nav" href="https://coverage.readthedocs.io/en/7.6.1">coverage.py v7.6.1</a>,
-            created at 2024-11-03 01:51 +0000
+            created at 2024-11-10 01:49 +0000
         </p>
     </div>
 </footer>

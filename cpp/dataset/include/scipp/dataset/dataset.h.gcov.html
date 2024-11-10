@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-11-03 01:48:15</td>
+            <td class="headerValue">2024-11-10 01:45:58</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">27</td>
@@ -80,9 +80,9 @@
 <a name="18"><span class="lineNum">      18 </span>            : /// Helper for creating iterators of Dataset.</a>
 <a name="19"><span class="lineNum">      19 </span>            : template &lt;class D&gt; struct with_coords {</a>
 <a name="20"><span class="lineNum">      20 </span>            :   const D *dataset;</a>
-<a name="21"><span class="lineNum">      21 </span><span class="lineCov">       7343 :   template &lt;class T&gt; auto operator()(T &amp;&amp;item) const {</span></a>
-<a name="22"><span class="lineNum">      22 </span><span class="lineCov">      14686 :     return item.second.view_with_coords(dataset-&gt;coords(), item.first,</span></a>
-<a name="23"><span class="lineNum">      23 </span><span class="lineCov">       7343 :                                         dataset-&gt;is_readonly());</span></a>
+<a name="21"><span class="lineNum">      21 </span><span class="lineCov">       7344 :   template &lt;class T&gt; auto operator()(T &amp;&amp;item) const {</span></a>
+<a name="22"><span class="lineNum">      22 </span><span class="lineCov">      14688 :     return item.second.view_with_coords(dataset-&gt;coords(), item.first,</span></a>
+<a name="23"><span class="lineNum">      23 </span><span class="lineCov">       7344 :                                         dataset-&gt;is_readonly());</span></a>
 <a name="24"><span class="lineNum">      24 </span>            :   }</a>
 <a name="25"><span class="lineNum">      25 </span>            : };</a>
 <a name="26"><span class="lineNum">      26 </span>            : template &lt;class D&gt; with_coords(const D *) -&gt; with_coords&lt;D&gt;;</a>
@@ -160,7 +160,7 @@
 <a name="98"><span class="lineNum">      98 </span>            :   /// This does not include coordinates or attributes, but only all named</a>
 <a name="99"><span class="lineNum">      99 </span>            :   /// entities (which can consist of various combinations of values, variances,</a>
 <a name="100"><span class="lineNum">     100 </span>            :   /// and events coordinates).</a>
-<a name="101"><span class="lineNum">     101 </span><span class="lineCov">       3457 :   index size() const noexcept { return scipp::size(m_data); }</span></a>
+<a name="101"><span class="lineNum">     101 </span><span class="lineCov">       3458 :   index size() const noexcept { return scipp::size(m_data); }</span></a>
 <a name="102"><span class="lineNum">     102 </span>            :   /// Return true if there are 0 data items in the dataset.</a>
 <a name="103"><span class="lineNum">     103 </span><span class="lineCov">         15 :   [[nodiscard]] bool empty() const noexcept { return size() == 0; }</span></a>
 <a name="104"><span class="lineNum">     104 </span>            :   /// Return the number of elements that space is currently allocated for.</a>
