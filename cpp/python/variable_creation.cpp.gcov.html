@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-11-10 01:45:58</td>
+            <td class="headerValue">2024-11-17 01:47:58</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">13</td>
@@ -123,15 +123,15 @@
 <a name="61"><span class="lineNum">      61 </span><span class="lineCov">          6 :       py::arg(&quot;dtype&quot;) = py::none(), py::arg(&quot;with_variances&quot;) = std::nullopt);</span></a>
 <a name="62"><span class="lineNum">      62 </span><span class="lineCov">          3 :   m.def(</span></a>
 <a name="63"><span class="lineNum">      63 </span>            :       &quot;ones&quot;,</a>
-<a name="64"><span class="lineNum">      64 </span><span class="lineCov">       1825 :       [](const std::vector&lt;std::string&gt; &amp;dims,</span></a>
+<a name="64"><span class="lineNum">      64 </span><span class="lineCov">       1826 :       [](const std::vector&lt;std::string&gt; &amp;dims,</span></a>
 <a name="65"><span class="lineNum">      65 </span>            :          const std::vector&lt;scipp::index&gt; &amp;shape, const ProtoUnit &amp;unit,</a>
 <a name="66"><span class="lineNum">      66 </span>            :          const py::object &amp;dtype, const bool with_variances) {</a>
-<a name="67"><span class="lineNum">      67 </span><span class="lineCov">       1825 :         const auto dtype_ = scipp_dtype(dtype);</span></a>
-<a name="68"><span class="lineNum">      68 </span><span class="lineCov">       1825 :         py::gil_scoped_release release;</span></a>
-<a name="69"><span class="lineNum">      69 </span><span class="lineCov">       1825 :         const auto unit_ = unit_or_default(unit, dtype_);</span></a>
-<a name="70"><span class="lineNum">      70 </span><span class="lineCov">       3651 :         return variable::ones(make_dims(dims, shape), unit_, dtype_,</span></a>
-<a name="71"><span class="lineNum">      71 </span><span class="lineCov">       5474 :                               with_variances);</span></a>
-<a name="72"><span class="lineNum">      72 </span><span class="lineCov">       1825 :       },</span></a>
+<a name="67"><span class="lineNum">      67 </span><span class="lineCov">       1826 :         const auto dtype_ = scipp_dtype(dtype);</span></a>
+<a name="68"><span class="lineNum">      68 </span><span class="lineCov">       1826 :         py::gil_scoped_release release;</span></a>
+<a name="69"><span class="lineNum">      69 </span><span class="lineCov">       1826 :         const auto unit_ = unit_or_default(unit, dtype_);</span></a>
+<a name="70"><span class="lineNum">      70 </span><span class="lineCov">       3653 :         return variable::ones(make_dims(dims, shape), unit_, dtype_,</span></a>
+<a name="71"><span class="lineNum">      71 </span><span class="lineCov">       5477 :                               with_variances);</span></a>
+<a name="72"><span class="lineNum">      72 </span><span class="lineCov">       1826 :       },</span></a>
 <a name="73"><span class="lineNum">      73 </span><span class="lineCov">          6 :       py::arg(&quot;dims&quot;), py::arg(&quot;shape&quot;), py::arg(&quot;unit&quot;) = DefaultUnit{},</span></a>
 <a name="74"><span class="lineNum">      74 </span><span class="lineCov">          6 :       py::arg(&quot;dtype&quot;) = py::none(), py::arg(&quot;with_variances&quot;) = std::nullopt);</span></a>
 <a name="75"><span class="lineNum">      75 </span><span class="lineCov">          3 : }</span></a>

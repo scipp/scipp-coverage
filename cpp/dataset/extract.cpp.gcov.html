@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-11-10 01:45:58</td>
+            <td class="headerValue">2024-11-17 01:47:58</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">21</td>
@@ -165,13 +165,13 @@
 <a name="103"><span class="lineNum">     103 </span>            : </a>
 <a name="104"><span class="lineNum">     104 </span><span class="lineCov">        388 :   auto values = condition.values&lt;bool&gt;().as_span();</span></a>
 <a name="105"><span class="lineNum">     105 </span><span class="lineCov">        388 :   std::vector&lt;scipp::index_pair&gt; indices;</span></a>
-<a name="106"><span class="lineNum">     106 </span><span class="lineCov">       2891 :   for (scipp::index i = 0; i &lt; scipp::size(values); ++i) {</span></a>
-<a name="107"><span class="lineNum">     107 </span><span class="lineCov">       2503 :     if (i &gt; 0 &amp;&amp; values[i - 1] == values[i])</span></a>
-<a name="108"><span class="lineNum">     108 </span><span class="lineCov">       1808 :       continue;    // not an edge</span></a>
-<a name="109"><span class="lineNum">     109 </span><span class="lineCov">        695 :     if (values[i]) // rising edge</span></a>
-<a name="110"><span class="lineNum">     110 </span><span class="lineCov">        416 :       indices.emplace_back(i, scipp::size(values));</span></a>
-<a name="111"><span class="lineNum">     111 </span><span class="lineCov">        279 :     else if (i != 0) // falling edge</span></a>
-<a name="112"><span class="lineNum">     112 </span><span class="lineCov">        147 :       indices.back().second = i;</span></a>
+<a name="106"><span class="lineNum">     106 </span><span class="lineCov">       3077 :   for (scipp::index i = 0; i &lt; scipp::size(values); ++i) {</span></a>
+<a name="107"><span class="lineNum">     107 </span><span class="lineCov">       2689 :     if (i &gt; 0 &amp;&amp; values[i - 1] == values[i])</span></a>
+<a name="108"><span class="lineNum">     108 </span><span class="lineCov">       1880 :       continue;    // not an edge</span></a>
+<a name="109"><span class="lineNum">     109 </span><span class="lineCov">        809 :     if (values[i]) // rising edge</span></a>
+<a name="110"><span class="lineNum">     110 </span><span class="lineCov">        458 :       indices.emplace_back(i, scipp::size(values));</span></a>
+<a name="111"><span class="lineNum">     111 </span><span class="lineCov">        351 :     else if (i != 0) // falling edge</span></a>
+<a name="112"><span class="lineNum">     112 </span><span class="lineCov">        243 :       indices.back().second = i;</span></a>
 <a name="113"><span class="lineNum">     113 </span>            :   }</a>
 <a name="114"><span class="lineNum">     114 </span><span class="lineCov">        388 :   return extract_ranges(makeVariable&lt;scipp::index_pair&gt;(Dims{condition.dim()},</span></a>
 <a name="115"><span class="lineNum">     115 </span><span class="lineCov">        776 :                                                         Shape{indices.size()},</span></a>

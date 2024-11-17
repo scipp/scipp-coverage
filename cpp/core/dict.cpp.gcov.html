@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-11-10 01:45:58</td>
+            <td class="headerValue">2024-11-17 01:47:58</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">2</td>
@@ -71,22 +71,22 @@
 <a name="9"><span class="lineNum">       9 </span>            : </a>
 <a name="10"><span class="lineNum">      10 </span>            : namespace scipp::core {</a>
 <a name="11"><span class="lineNum">      11 </span>            : template &lt;class It&gt;</a>
-<a name="12"><span class="lineNum">      12 </span><span class="lineCov">       4620 : std::string dict_keys_to_string(It it, const It end,</span></a>
+<a name="12"><span class="lineNum">      12 </span><span class="lineCov">       4623 : std::string dict_keys_to_string(It it, const It end,</span></a>
 <a name="13"><span class="lineNum">      13 </span>            :                                 const std::string_view &amp;dict_name) {</a>
-<a name="14"><span class="lineNum">      14 </span><span class="lineCov">       4620 :   std::ostringstream ss;</span></a>
-<a name="15"><span class="lineNum">      15 </span><span class="lineCov">       4620 :   ss &lt;&lt; &quot;&lt;&quot; &lt;&lt; dict_name &lt;&lt; &quot; {&quot;;</span></a>
-<a name="16"><span class="lineNum">      16 </span><span class="lineCov">       4620 :   bool first = true;</span></a>
-<a name="17"><span class="lineNum">      17 </span><span class="lineCov">      16862 :   for (; it != end; ++it) {</span></a>
-<a name="18"><span class="lineNum">      18 </span><span class="lineCov">      12242 :     if (!first) {</span></a>
-<a name="19"><span class="lineNum">      19 </span><span class="lineCov">       7644 :       ss &lt;&lt; &quot;, &quot;;</span></a>
+<a name="14"><span class="lineNum">      14 </span><span class="lineCov">       4623 :   std::ostringstream ss;</span></a>
+<a name="15"><span class="lineNum">      15 </span><span class="lineCov">       4623 :   ss &lt;&lt; &quot;&lt;&quot; &lt;&lt; dict_name &lt;&lt; &quot; {&quot;;</span></a>
+<a name="16"><span class="lineNum">      16 </span><span class="lineCov">       4623 :   bool first = true;</span></a>
+<a name="17"><span class="lineNum">      17 </span><span class="lineCov">      16871 :   for (; it != end; ++it) {</span></a>
+<a name="18"><span class="lineNum">      18 </span><span class="lineCov">      12248 :     if (!first) {</span></a>
+<a name="19"><span class="lineNum">      19 </span><span class="lineCov">       7647 :       ss &lt;&lt; &quot;, &quot;;</span></a>
 <a name="20"><span class="lineNum">      20 </span>            :     } else {</a>
-<a name="21"><span class="lineNum">      21 </span><span class="lineCov">       4598 :       first = false;</span></a>
+<a name="21"><span class="lineNum">      21 </span><span class="lineCov">       4601 :       first = false;</span></a>
 <a name="22"><span class="lineNum">      22 </span>            :     }</a>
-<a name="23"><span class="lineNum">      23 </span><span class="lineCov">      12242 :     ss &lt;&lt; *it;</span></a>
+<a name="23"><span class="lineNum">      23 </span><span class="lineCov">      12248 :     ss &lt;&lt; *it;</span></a>
 <a name="24"><span class="lineNum">      24 </span>            :   }</a>
-<a name="25"><span class="lineNum">      25 </span><span class="lineCov">       4620 :   ss &lt;&lt; &quot;}&gt;&quot;;</span></a>
-<a name="26"><span class="lineNum">      26 </span><span class="lineCov">       9240 :   return ss.str();</span></a>
-<a name="27"><span class="lineNum">      27 </span><span class="lineCov">       4620 : }</span></a>
+<a name="25"><span class="lineNum">      25 </span><span class="lineCov">       4623 :   ss &lt;&lt; &quot;}&gt;&quot;;</span></a>
+<a name="26"><span class="lineNum">      26 </span><span class="lineCov">       9246 :   return ss.str();</span></a>
+<a name="27"><span class="lineNum">      27 </span><span class="lineCov">       4623 : }</span></a>
 <a name="28"><span class="lineNum">      28 </span>            : </a>
 <a name="29"><span class="lineNum">      29 </span>            : // The value type does not matter here, so set it to something simple.</a>
 <a name="30"><span class="lineNum">      30 </span>            : using dim_dict_key_iterator = Dict&lt;Dim, int&gt;::const_key_iterator;</a>

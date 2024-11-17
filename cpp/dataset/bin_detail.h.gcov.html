@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-11-10 01:45:58</td>
+            <td class="headerValue">2024-11-17 01:47:58</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">1</td>
@@ -72,13 +72,13 @@
 <a name="10"><span class="lineNum">      10 </span>            : </a>
 <a name="11"><span class="lineNum">      11 </span>            : namespace scipp::dataset::bin_detail {</a>
 <a name="12"><span class="lineNum">      12 </span>            : </a>
-<a name="13"><span class="lineNum">      13 </span><span class="lineCov">      70192 : template &lt;class T&gt; Variable as_subspan_view(T &amp;&amp;binned) {</span></a>
-<a name="14"><span class="lineNum">      14 </span><span class="lineCov">      70192 :   auto &amp;&amp;[indices, dim, buffer] = binned.template constituents&lt;Variable&gt;();</span></a>
+<a name="13"><span class="lineNum">      13 </span><span class="lineCov">      70250 : template &lt;class T&gt; Variable as_subspan_view(T &amp;&amp;binned) {</span></a>
+<a name="14"><span class="lineNum">      14 </span><span class="lineCov">      70250 :   auto &amp;&amp;[indices, dim, buffer] = binned.template constituents&lt;Variable&gt;();</span></a>
 <a name="15"><span class="lineNum">      15 </span>            :   if constexpr (std::is_const_v&lt;std::remove_reference_t&lt;T&gt;&gt;)</a>
-<a name="16"><span class="lineNum">      16 </span><span class="lineCov">     140384 :     return subspan_view(std::as_const(buffer), dim, indices);</span></a>
+<a name="16"><span class="lineNum">      16 </span><span class="lineCov">     140500 :     return subspan_view(std::as_const(buffer), dim, indices);</span></a>
 <a name="17"><span class="lineNum">      17 </span>            :   else</a>
 <a name="18"><span class="lineNum">      18 </span>            :     return subspan_view(buffer, dim, indices);</a>
-<a name="19"><span class="lineNum">      19 </span><span class="lineCov">      70192 : }</span></a>
+<a name="19"><span class="lineNum">      19 </span><span class="lineCov">      70250 : }</span></a>
 <a name="20"><span class="lineNum">      20 </span>            : </a>
 <a name="21"><span class="lineNum">      21 </span>            : void map_to_bins(Variable &amp;out, const Variable &amp;var, const Variable &amp;offsets,</a>
 <a name="22"><span class="lineNum">      22 </span>            :                  const Variable &amp;indices);</a>

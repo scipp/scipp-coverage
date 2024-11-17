@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-11-10 01:45:58</td>
+            <td class="headerValue">2024-11-17 01:47:58</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">27</td>
@@ -147,20 +147,20 @@
 <a name="85"><span class="lineNum">      85 </span>            :     }};</a>
 <a name="86"><span class="lineNum">      86 </span>            : </a>
 <a name="87"><span class="lineNum">      87 </span>            : constexpr auto map_linspace =</a>
-<a name="88"><span class="lineNum">      88 </span><span class="lineCov">        292 :     overloaded{map, [](const auto &amp;coord, const auto &amp;edges,</span></a>
+<a name="88"><span class="lineNum">      88 </span><span class="lineCov">        294 :     overloaded{map, [](const auto &amp;coord, const auto &amp;edges,</span></a>
 <a name="89"><span class="lineNum">      89 </span>            :                        const auto &amp;weights, const auto &amp;fill) {</a>
-<a name="90"><span class="lineNum">      90 </span><span class="lineCov">        292 :                  const auto params = linear_edge_params(edges);</span></a>
-<a name="91"><span class="lineNum">      91 </span><span class="lineCov">        292 :                  const auto bin = get_bin&lt;scipp::index&gt;(coord, edges, params);</span></a>
-<a name="92"><span class="lineNum">      92 </span><span class="lineCov">        292 :                  return bin &lt; 0 ? fill : get(weights, bin);</span></a>
+<a name="90"><span class="lineNum">      90 </span><span class="lineCov">        294 :                  const auto params = linear_edge_params(edges);</span></a>
+<a name="91"><span class="lineNum">      91 </span><span class="lineCov">        294 :                  const auto bin = get_bin&lt;scipp::index&gt;(coord, edges, params);</span></a>
+<a name="92"><span class="lineNum">      92 </span><span class="lineCov">        294 :                  return bin &lt; 0 ? fill : get(weights, bin);</span></a>
 <a name="93"><span class="lineNum">      93 </span>            :                }};</a>
 <a name="94"><span class="lineNum">      94 </span>            : </a>
 <a name="95"><span class="lineNum">      95 </span>            : constexpr auto map_sorted_edges =</a>
-<a name="96"><span class="lineNum">      96 </span><span class="lineCov">         76 :     overloaded{map, [](const auto &amp;coord, const auto &amp;edges,</span></a>
+<a name="96"><span class="lineNum">      96 </span><span class="lineCov">         74 :     overloaded{map, [](const auto &amp;coord, const auto &amp;edges,</span></a>
 <a name="97"><span class="lineNum">      97 </span>            :                        const auto &amp;weights, const auto &amp;fill) {</a>
-<a name="98"><span class="lineNum">      98 </span><span class="lineCov">         76 :                  auto it = std::upper_bound(edges.begin(), edges.end(), coord);</span></a>
-<a name="99"><span class="lineNum">      99 </span><span class="lineCov">        149 :                  return (it == edges.end() || it == edges.begin())</span></a>
-<a name="100"><span class="lineNum">     100 </span><span class="lineCov">         76 :                             ? fill</span></a>
-<a name="101"><span class="lineNum">     101 </span><span class="lineCov">         76 :                             : get(weights, --it - edges.begin());</span></a>
+<a name="98"><span class="lineNum">      98 </span><span class="lineCov">         74 :                  auto it = std::upper_bound(edges.begin(), edges.end(), coord);</span></a>
+<a name="99"><span class="lineNum">      99 </span><span class="lineCov">        145 :                  return (it == edges.end() || it == edges.begin())</span></a>
+<a name="100"><span class="lineNum">     100 </span><span class="lineCov">         74 :                             ? fill</span></a>
+<a name="101"><span class="lineNum">     101 </span><span class="lineCov">         74 :                             : get(weights, --it - edges.begin());</span></a>
 <a name="102"><span class="lineNum">     102 </span>            :                }};</a>
 <a name="103"><span class="lineNum">     103 </span>            : </a>
 <a name="104"><span class="lineNum">     104 </span>            : constexpr auto lookup_previous =</a>
