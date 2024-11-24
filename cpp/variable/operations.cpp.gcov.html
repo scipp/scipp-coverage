@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-11-17 01:47:58</td>
+            <td class="headerValue">2024-11-24 01:48:31</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">4</td>
@@ -79,17 +79,17 @@
 <a name="17"><span class="lineNum">      17 </span>            : namespace scipp::variable {</a>
 <a name="18"><span class="lineNum">      18 </span>            : </a>
 <a name="19"><span class="lineNum">      19 </span>            : /// Return a deep copy of a Variable.</a>
-<a name="20"><span class="lineNum">      20 </span><span class="lineCov">     283818 : Variable copy(const Variable &amp;var) {</span></a>
-<a name="21"><span class="lineNum">      21 </span><span class="lineCov">     567636 :   Variable out(empty_like(var));</span></a>
-<a name="22"><span class="lineNum">      22 </span><span class="lineCov">     283818 :   out.set_aligned(var.is_aligned());</span></a>
-<a name="23"><span class="lineNum">      23 </span><span class="lineCov">     283818 :   out.data().copy(var, out);</span></a>
-<a name="24"><span class="lineNum">      24 </span><span class="lineCov">     283817 :   return out;</span></a>
+<a name="20"><span class="lineNum">      20 </span><span class="lineCov">     284047 : Variable copy(const Variable &amp;var) {</span></a>
+<a name="21"><span class="lineNum">      21 </span><span class="lineCov">     568094 :   Variable out(empty_like(var));</span></a>
+<a name="22"><span class="lineNum">      22 </span><span class="lineCov">     284047 :   out.set_aligned(var.is_aligned());</span></a>
+<a name="23"><span class="lineNum">      23 </span><span class="lineCov">     284047 :   out.data().copy(var, out);</span></a>
+<a name="24"><span class="lineNum">      24 </span><span class="lineCov">     284046 :   return out;</span></a>
 <a name="25"><span class="lineNum">      25 </span><span class="lineCov">          1 : }</span></a>
 <a name="26"><span class="lineNum">      26 </span>            : </a>
 <a name="27"><span class="lineNum">      27 </span>            : /// Copy variable to output variable.</a>
-<a name="28"><span class="lineNum">      28 </span><span class="lineCov">     122134 : Variable &amp;copy(const Variable &amp;var, Variable &amp;out) {</span></a>
-<a name="29"><span class="lineNum">      29 </span><span class="lineCov">     122134 :   var.data().copy(var, out);</span></a>
-<a name="30"><span class="lineNum">      30 </span><span class="lineCov">     122108 :   return out;</span></a>
+<a name="28"><span class="lineNum">      28 </span><span class="lineCov">     121812 : Variable &amp;copy(const Variable &amp;var, Variable &amp;out) {</span></a>
+<a name="29"><span class="lineNum">      29 </span><span class="lineCov">     121812 :   var.data().copy(var, out);</span></a>
+<a name="30"><span class="lineNum">      30 </span><span class="lineCov">     121786 :   return out;</span></a>
 <a name="31"><span class="lineNum">      31 </span>            : }</a>
 <a name="32"><span class="lineNum">      32 </span>            : </a>
 <a name="33"><span class="lineNum">      33 </span>            : /// Copy variable to output variable.</a>
