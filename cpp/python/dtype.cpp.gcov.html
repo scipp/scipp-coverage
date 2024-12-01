@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2024-11-24 01:48:31</td>
+            <td class="headerValue">2024-12-01 01:56:34</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">19</td>
@@ -94,8 +94,8 @@
 <a name="32"><span class="lineNum">      32 </span>            :   RawData = 'V',</a>
 <a name="33"><span class="lineNum">      33 </span>            : };</a>
 <a name="34"><span class="lineNum">      34 </span>            : </a>
-<a name="35"><span class="lineNum">      35 </span><span class="lineCov">     114985 : constexpr bool operator==(const char a, const DTypeKind b) {</span></a>
-<a name="36"><span class="lineNum">      36 </span><span class="lineCov">     114985 :   return a == static_cast&lt;char&gt;(b);</span></a>
+<a name="35"><span class="lineNum">      35 </span><span class="lineCov">     115355 : constexpr bool operator==(const char a, const DTypeKind b) {</span></a>
+<a name="36"><span class="lineNum">      36 </span><span class="lineCov">     115355 :   return a == static_cast&lt;char&gt;(b);</span></a>
 <a name="37"><span class="lineNum">      37 </span>            : }</a>
 <a name="38"><span class="lineNum">      38 </span>            : </a>
 <a name="39"><span class="lineNum">      39 </span>            : enum class DTypeSize : scipp::index {</a>
@@ -105,8 +105,8 @@
 <a name="43"><span class="lineNum">      43 </span>            :   Int32 = 4,</a>
 <a name="44"><span class="lineNum">      44 </span>            : };</a>
 <a name="45"><span class="lineNum">      45 </span>            : </a>
-<a name="46"><span class="lineNum">      46 </span><span class="lineCov">      43548 : constexpr bool operator==(const scipp::index a, const DTypeSize b) {</span></a>
-<a name="47"><span class="lineNum">      47 </span><span class="lineCov">      43548 :   return a == static_cast&lt;scipp::index&gt;(b);</span></a>
+<a name="46"><span class="lineNum">      46 </span><span class="lineCov">      43399 : constexpr bool operator==(const scipp::index a, const DTypeSize b) {</span></a>
+<a name="47"><span class="lineNum">      47 </span><span class="lineCov">      43399 :   return a == static_cast&lt;scipp::index&gt;(b);</span></a>
 <a name="48"><span class="lineNum">      48 </span>            : }</a>
 <a name="49"><span class="lineNum">      49 </span>            : } // namespace</a>
 <a name="50"><span class="lineNum">      50 </span>            : </a>
@@ -120,10 +120,10 @@
 <a name="58"><span class="lineNum">      58 </span><span class="lineCov">          3 : )&quot;);</span></a>
 <a name="59"><span class="lineNum">      59 </span><span class="lineCov">         32 :   PyDType.def(py::init([](const py::object &amp;x) { return scipp_dtype(x); }))</span></a>
 <a name="60"><span class="lineNum">      60 </span><span class="lineCov">          3 :       .def(&quot;__eq__&quot;,</span></a>
-<a name="61"><span class="lineNum">      61 </span><span class="lineCov">      32093 :            [](const DType &amp;self, const py::object &amp;other) {</span></a>
-<a name="62"><span class="lineNum">      62 </span><span class="lineCov">      32093 :              return self == scipp_dtype(other);</span></a>
+<a name="61"><span class="lineNum">      61 </span><span class="lineCov">      32172 :            [](const DType &amp;self, const py::object &amp;other) {</span></a>
+<a name="62"><span class="lineNum">      62 </span><span class="lineCov">      32172 :              return self == scipp_dtype(other);</span></a>
 <a name="63"><span class="lineNum">      63 </span>            :            })</a>
-<a name="64"><span class="lineNum">      64 </span><span class="lineCov">       1701 :       .def(&quot;__str__&quot;, [](const DType &amp;self) { return to_string(self); })</span></a>
+<a name="64"><span class="lineNum">      64 </span><span class="lineCov">       1787 :       .def(&quot;__str__&quot;, [](const DType &amp;self) { return to_string(self); })</span></a>
 <a name="65"><span class="lineNum">      65 </span><span class="lineCov">          3 :       .def(&quot;__repr__&quot;, [](const DType &amp;self) {</span></a>
 <a name="66"><span class="lineNum">      66 </span><span class="lineCov">         60 :         return &quot;DType('&quot; + to_string(self) + &quot;')&quot;;</span></a>
 <a name="67"><span class="lineNum">      67 </span>            :       });</a>
@@ -153,22 +153,22 @@
 <a name="91"><span class="lineNum">      91 </span><span class="lineCov">         63 :        })</span></a>
 <a name="92"><span class="lineNum">      92 </span><span class="lineCov">         57 :     PyDType.def_property_readonly_static(</span></a>
 <a name="93"><span class="lineNum">      93 </span><span class="lineCov">         57 :         core::dtypeNameRegistry().at(t).c_str(),</span></a>
-<a name="94"><span class="lineNum">      94 </span><span class="lineCov">      20584 :         [t](const py::object &amp;) { return t; });</span></a>
+<a name="94"><span class="lineNum">      94 </span><span class="lineCov">      20612 :         [t](const py::object &amp;) { return t; });</span></a>
 <a name="95"><span class="lineNum">      95 </span><span class="lineCov">          3 : }</span></a>
 <a name="96"><span class="lineNum">      96 </span>            : </a>
-<a name="97"><span class="lineNum">      97 </span><span class="lineCov">      81426 : DType dtype_of(const py::object &amp;x) {</span></a>
-<a name="98"><span class="lineNum">      98 </span><span class="lineCov">      81426 :   if (x.is_none()) {</span></a>
-<a name="99"><span class="lineNum">      99 </span><span class="lineCov">      38948 :     return dtype&lt;void&gt;;</span></a>
-<a name="100"><span class="lineNum">     100 </span><span class="lineCov">      42478 :   } else if (py::isinstance&lt;py::buffer&gt;(x)) {</span></a>
+<a name="97"><span class="lineNum">      97 </span><span class="lineCov">      81524 : DType dtype_of(const py::object &amp;x) {</span></a>
+<a name="98"><span class="lineNum">      98 </span><span class="lineCov">      81524 :   if (x.is_none()) {</span></a>
+<a name="99"><span class="lineNum">      99 </span><span class="lineCov">      38982 :     return dtype&lt;void&gt;;</span></a>
+<a name="100"><span class="lineNum">     100 </span><span class="lineCov">      42542 :   } else if (py::isinstance&lt;py::buffer&gt;(x)) {</span></a>
 <a name="101"><span class="lineNum">     101 </span>            :     // Cannot use hasattr(x, &quot;dtype&quot;) as that would catch Variables as well.</a>
-<a name="102"><span class="lineNum">     102 </span><span class="lineCov">      24570 :     return scipp_dtype(x.attr(&quot;dtype&quot;));</span></a>
-<a name="103"><span class="lineNum">     103 </span><span class="lineCov">      17908 :   } else if (py::isinstance&lt;py::bool_&gt;(x)) {</span></a>
+<a name="102"><span class="lineNum">     102 </span><span class="lineCov">      24608 :     return scipp_dtype(x.attr(&quot;dtype&quot;));</span></a>
+<a name="103"><span class="lineNum">     103 </span><span class="lineCov">      17934 :   } else if (py::isinstance&lt;py::bool_&gt;(x)) {</span></a>
 <a name="104"><span class="lineNum">     104 </span>            :     // bool needs to come before int because bools are instances of int.</a>
 <a name="105"><span class="lineNum">     105 </span><span class="lineCov">        256 :     return core::dtype&lt;bool&gt;;</span></a>
-<a name="106"><span class="lineNum">     106 </span><span class="lineCov">      17652 :   } else if (py::isinstance&lt;py::float_&gt;(x)) {</span></a>
+<a name="106"><span class="lineNum">     106 </span><span class="lineCov">      17678 :   } else if (py::isinstance&lt;py::float_&gt;(x)) {</span></a>
 <a name="107"><span class="lineNum">     107 </span><span class="lineCov">      12699 :     return core::dtype&lt;double&gt;;</span></a>
-<a name="108"><span class="lineNum">     108 </span><span class="lineCov">       4953 :   } else if (py::isinstance&lt;py::int_&gt;(x)) {</span></a>
-<a name="109"><span class="lineNum">     109 </span><span class="lineCov">       4697 :     return core::dtype&lt;int64_t&gt;;</span></a>
+<a name="108"><span class="lineNum">     108 </span><span class="lineCov">       4979 :   } else if (py::isinstance&lt;py::int_&gt;(x)) {</span></a>
+<a name="109"><span class="lineNum">     109 </span><span class="lineCov">       4723 :     return core::dtype&lt;int64_t&gt;;</span></a>
 <a name="110"><span class="lineNum">     110 </span><span class="lineCov">        256 :   } else if (py::isinstance&lt;py::str&gt;(x)) {</span></a>
 <a name="111"><span class="lineNum">     111 </span><span class="lineCov">        177 :     return core::dtype&lt;std::string&gt;;</span></a>
 <a name="112"><span class="lineNum">     112 </span><span class="lineCov">         79 :   } else if (py::isinstance&lt;variable::Variable&gt;(x)) {</span></a>
@@ -182,25 +182,25 @@
 <a name="120"><span class="lineNum">     120 </span>            :   }</a>
 <a name="121"><span class="lineNum">     121 </span>            : }</a>
 <a name="122"><span class="lineNum">     122 </span>            : </a>
-<a name="123"><span class="lineNum">     123 </span><span class="lineCov">      40517 : scipp::core::DType scipp_dtype(const py::dtype &amp;type) {</span></a>
-<a name="124"><span class="lineNum">     124 </span><span class="lineCov">      40517 :   if (type.kind() == DTypeKind::Float) {</span></a>
-<a name="125"><span class="lineNum">     125 </span><span class="lineCov">      13808 :     if (type.itemsize() == DTypeSize::Float64)</span></a>
-<a name="126"><span class="lineNum">     126 </span><span class="lineCov">      13373 :       return scipp::core::dtype&lt;double&gt;;</span></a>
-<a name="127"><span class="lineNum">     127 </span><span class="lineCov">        435 :     if (type.itemsize() == DTypeSize::Float32)</span></a>
-<a name="128"><span class="lineNum">     128 </span><span class="lineCov">        435 :       return scipp::core::dtype&lt;float&gt;;</span></a>
+<a name="123"><span class="lineNum">     123 </span><span class="lineCov">      40603 : scipp::core::DType scipp_dtype(const py::dtype &amp;type) {</span></a>
+<a name="124"><span class="lineNum">     124 </span><span class="lineCov">      40603 :   if (type.kind() == DTypeKind::Float) {</span></a>
+<a name="125"><span class="lineNum">     125 </span><span class="lineCov">      13853 :     if (type.itemsize() == DTypeSize::Float64)</span></a>
+<a name="126"><span class="lineNum">     126 </span><span class="lineCov">      13428 :       return scipp::core::dtype&lt;double&gt;;</span></a>
+<a name="127"><span class="lineNum">     127 </span><span class="lineCov">        425 :     if (type.itemsize() == DTypeSize::Float32)</span></a>
+<a name="128"><span class="lineNum">     128 </span><span class="lineCov">        425 :       return scipp::core::dtype&lt;float&gt;;</span></a>
 <a name="129"><span class="lineNum">     129 </span>            :   }</a>
-<a name="130"><span class="lineNum">     130 </span><span class="lineCov">      26709 :   if (type.kind() == DTypeKind::Int) {</span></a>
-<a name="131"><span class="lineNum">     131 </span><span class="lineCov">      23553 :     if (type.itemsize() == DTypeSize::Int64)</span></a>
-<a name="132"><span class="lineNum">     132 </span><span class="lineCov">      17801 :       return scipp::core::dtype&lt;std::int64_t&gt;;</span></a>
-<a name="133"><span class="lineNum">     133 </span><span class="lineCov">       5752 :     if (type.itemsize() == DTypeSize::Int32)</span></a>
-<a name="134"><span class="lineNum">     134 </span><span class="lineCov">       5752 :       return scipp::core::dtype&lt;std::int32_t&gt;;</span></a>
+<a name="130"><span class="lineNum">     130 </span><span class="lineCov">      26750 :   if (type.kind() == DTypeKind::Int) {</span></a>
+<a name="131"><span class="lineNum">     131 </span><span class="lineCov">      23473 :     if (type.itemsize() == DTypeSize::Int64)</span></a>
+<a name="132"><span class="lineNum">     132 </span><span class="lineCov">      17825 :       return scipp::core::dtype&lt;std::int64_t&gt;;</span></a>
+<a name="133"><span class="lineNum">     133 </span><span class="lineCov">       5648 :     if (type.itemsize() == DTypeSize::Int32)</span></a>
+<a name="134"><span class="lineNum">     134 </span><span class="lineCov">       5648 :       return scipp::core::dtype&lt;std::int32_t&gt;;</span></a>
 <a name="135"><span class="lineNum">     135 </span>            :   }</a>
-<a name="136"><span class="lineNum">     136 </span><span class="lineCov">       3156 :   if (type.kind() == DTypeKind::Bool)</span></a>
-<a name="137"><span class="lineNum">     137 </span><span class="lineCov">       1345 :     return scipp::core::dtype&lt;bool&gt;;</span></a>
-<a name="138"><span class="lineNum">     138 </span><span class="lineCov">       1811 :   if (type.kind() == DTypeKind::String)</span></a>
+<a name="136"><span class="lineNum">     136 </span><span class="lineCov">       3277 :   if (type.kind() == DTypeKind::Bool)</span></a>
+<a name="137"><span class="lineNum">     137 </span><span class="lineCov">       1448 :     return scipp::core::dtype&lt;bool&gt;;</span></a>
+<a name="138"><span class="lineNum">     138 </span><span class="lineCov">       1829 :   if (type.kind() == DTypeKind::String)</span></a>
 <a name="139"><span class="lineNum">     139 </span><span class="lineCov">        117 :     return scipp::core::dtype&lt;std::string&gt;;</span></a>
-<a name="140"><span class="lineNum">     140 </span><span class="lineCov">       1694 :   if (type.kind() == DTypeKind::Datetime) {</span></a>
-<a name="141"><span class="lineNum">     141 </span><span class="lineCov">       1691 :     return scipp::core::dtype&lt;scipp::core::time_point&gt;;</span></a>
+<a name="140"><span class="lineNum">     140 </span><span class="lineCov">       1712 :   if (type.kind() == DTypeKind::Datetime) {</span></a>
+<a name="141"><span class="lineNum">     141 </span><span class="lineCov">       1709 :     return scipp::core::dtype&lt;scipp::core::time_point&gt;;</span></a>
 <a name="142"><span class="lineNum">     142 </span>            :   }</a>
 <a name="143"><span class="lineNum">     143 </span><span class="lineCov">          3 :   if (type.kind() == DTypeKind::Object) {</span></a>
 <a name="144"><span class="lineNum">     144 </span><span class="lineCov">          3 :     return scipp::core::dtype&lt;scipp::python::PyObject&gt;;</span></a>
@@ -229,39 +229,39 @@
 <a name="167"><span class="lineNum">     167 </span>            :   }</a>
 <a name="168"><span class="lineNum">     168 </span>            : }</a>
 <a name="169"><span class="lineNum">     169 </span>            : </a>
-<a name="170"><span class="lineNum">     170 </span><span class="lineCov">     103977 : scipp::core::DType scipp_dtype(const py::object &amp;type) {</span></a>
+<a name="170"><span class="lineNum">     170 </span><span class="lineCov">     104157 : scipp::core::DType scipp_dtype(const py::object &amp;type) {</span></a>
 <a name="171"><span class="lineNum">     171 </span>            :   // Check None first, then native scipp Dtype, then numpy.dtype</a>
-<a name="172"><span class="lineNum">     172 </span><span class="lineCov">     103977 :   if (type.is_none())</span></a>
-<a name="173"><span class="lineNum">     173 </span><span class="lineCov">      35658 :     return dtype&lt;void&gt;;</span></a>
+<a name="172"><span class="lineNum">     172 </span><span class="lineCov">     104157 :   if (type.is_none())</span></a>
+<a name="173"><span class="lineNum">     173 </span><span class="lineCov">      35685 :     return dtype&lt;void&gt;;</span></a>
 <a name="174"><span class="lineNum">     174 </span>            :   try {</a>
-<a name="175"><span class="lineNum">     175 </span><span class="lineCov">      68319 :     return type.cast&lt;DType&gt;();</span></a>
-<a name="176"><span class="lineNum">     176 </span><span class="lineCov">      40532 :   } catch (const py::cast_error &amp;) {</span></a>
-<a name="177"><span class="lineNum">     177 </span><span class="lineCov">      41384 :     if (py::isinstance&lt;py::type&gt;(type) &amp;&amp;</span></a>
-<a name="178"><span class="lineNum">     178 </span><span class="lineCov">      41384 :         type.attr(&quot;__module__&quot;).cast&lt;std::string&gt;() == &quot;scipp._scipp.core&quot;) {</span></a>
+<a name="175"><span class="lineNum">     175 </span><span class="lineCov">      68472 :     return type.cast&lt;DType&gt;();</span></a>
+<a name="176"><span class="lineNum">     176 </span><span class="lineCov">      40618 :   } catch (const py::cast_error &amp;) {</span></a>
+<a name="177"><span class="lineNum">     177 </span><span class="lineCov">      41534 :     if (py::isinstance&lt;py::type&gt;(type) &amp;&amp;</span></a>
+<a name="178"><span class="lineNum">     178 </span><span class="lineCov">      41534 :         type.attr(&quot;__module__&quot;).cast&lt;std::string&gt;() == &quot;scipp._scipp.core&quot;) {</span></a>
 <a name="179"><span class="lineNum">     179 </span><span class="lineCov">          9 :       return dtype_from_scipp_class(type);</span></a>
 <a name="180"><span class="lineNum">     180 </span>            :     }</a>
 <a name="181"><span class="lineNum">     181 </span>            : </a>
-<a name="182"><span class="lineNum">     182 </span><span class="lineCov">      40523 :     auto np_dtype = py::dtype::from_args(type);</span></a>
-<a name="183"><span class="lineNum">     183 </span><span class="lineCov">      40517 :     if (np_dtype.kind() == DTypeKind::RawData) {</span></a>
+<a name="182"><span class="lineNum">     182 </span><span class="lineCov">      40609 :     auto np_dtype = py::dtype::from_args(type);</span></a>
+<a name="183"><span class="lineNum">     183 </span><span class="lineCov">      40603 :     if (np_dtype.kind() == DTypeKind::RawData) {</span></a>
 <a name="184"><span class="lineNum">     184 </span><span class="lineNoCov">          0 :       throw std::invalid_argument(</span></a>
 <a name="185"><span class="lineNum">     185 </span>            :           &quot;Unsupported numpy dtype: raw data. This can happen when you pass a &quot;</a>
 <a name="186"><span class="lineNum">     186 </span><span class="lineNoCov">          0 :           &quot;Python object instead of a class. Got dtype=`&quot; +</span></a>
 <a name="187"><span class="lineNum">     187 </span><span class="lineNoCov">          0 :           py::str(type).cast&lt;std::string&gt;() + '`');</span></a>
 <a name="188"><span class="lineNum">     188 </span>            :     }</a>
-<a name="189"><span class="lineNum">     189 </span><span class="lineCov">      40517 :     return scipp_dtype(np_dtype);</span></a>
-<a name="190"><span class="lineNum">     190 </span><span class="lineCov">      40532 :   }</span></a>
+<a name="189"><span class="lineNum">     189 </span><span class="lineCov">      40603 :     return scipp_dtype(np_dtype);</span></a>
+<a name="190"><span class="lineNum">     190 </span><span class="lineCov">      40618 :   }</span></a>
 <a name="191"><span class="lineNum">     191 </span>            : }</a>
 <a name="192"><span class="lineNum">     192 </span>            : </a>
 <a name="193"><span class="lineNum">     193 </span>            : namespace {</a>
-<a name="194"><span class="lineNum">     194 </span><span class="lineCov">      44941 : bool is_default(const ProtoUnit &amp;unit) {</span></a>
-<a name="195"><span class="lineNum">     195 </span><span class="lineCov">      44941 :   return std::holds_alternative&lt;DefaultUnit&gt;(unit);</span></a>
+<a name="194"><span class="lineNum">     194 </span><span class="lineCov">      45004 : bool is_default(const ProtoUnit &amp;unit) {</span></a>
+<a name="195"><span class="lineNum">     195 </span><span class="lineCov">      45004 :   return std::holds_alternative&lt;DefaultUnit&gt;(unit);</span></a>
 <a name="196"><span class="lineNum">     196 </span>            : }</a>
 <a name="197"><span class="lineNum">     197 </span>            : } // namespace</a>
 <a name="198"><span class="lineNum">     198 </span>            : </a>
 <a name="199"><span class="lineNum">     199 </span>            : std::tuple&lt;scipp::core::DType, std::optional&lt;scipp::units::Unit&gt;&gt;</a>
-<a name="200"><span class="lineNum">     200 </span><span class="lineCov">      44947 : cast_dtype_and_unit(const pybind11::object &amp;dtype, const ProtoUnit &amp;unit) {</span></a>
-<a name="201"><span class="lineNum">     201 </span><span class="lineCov">      44947 :   const auto scipp_dtype = ::scipp_dtype(dtype);</span></a>
-<a name="202"><span class="lineNum">     202 </span><span class="lineCov">      44941 :   if (scipp_dtype == core::dtype&lt;core::time_point&gt;) {</span></a>
+<a name="200"><span class="lineNum">     200 </span><span class="lineCov">      45010 : cast_dtype_and_unit(const pybind11::object &amp;dtype, const ProtoUnit &amp;unit) {</span></a>
+<a name="201"><span class="lineNum">     201 </span><span class="lineCov">      45010 :   const auto scipp_dtype = ::scipp_dtype(dtype);</span></a>
+<a name="202"><span class="lineNum">     202 </span><span class="lineCov">      45004 :   if (scipp_dtype == core::dtype&lt;core::time_point&gt;) {</span></a>
 <a name="203"><span class="lineNum">     203 </span><span class="lineCov">        192 :     units::Unit deduced_unit = parse_datetime_dtype(dtype);</span></a>
 <a name="204"><span class="lineNum">     204 </span><span class="lineCov">        192 :     if (!is_default(unit)) {</span></a>
 <a name="205"><span class="lineNum">     205 </span><span class="lineCov">        143 :       const auto unit_ = unit_or_default(unit, scipp_dtype);</span></a>
@@ -277,54 +277,54 @@
 <a name="215"><span class="lineNum">     215 </span>            :   } else {</a>
 <a name="216"><span class="lineNum">     216 </span>            :     // Concrete dtype not known at this point so we cannot determine the default</a>
 <a name="217"><span class="lineNum">     217 </span>            :     // unit here. Therefore nullopt is returned.</a>
-<a name="218"><span class="lineNum">     218 </span><span class="lineCov">      44749 :     return std::tuple{scipp_dtype, is_default(unit)</span></a>
-<a name="219"><span class="lineNum">     219 </span><span class="lineCov">      74539 :                                        ? std::optional&lt;scipp::units::Unit&gt;()</span></a>
-<a name="220"><span class="lineNum">     220 </span><span class="lineCov">      74539 :                                        : unit_or_default(unit)};</span></a>
+<a name="218"><span class="lineNum">     218 </span><span class="lineCov">      44812 :     return std::tuple{scipp_dtype, is_default(unit)</span></a>
+<a name="219"><span class="lineNum">     219 </span><span class="lineCov">      74629 :                                        ? std::optional&lt;scipp::units::Unit&gt;()</span></a>
+<a name="220"><span class="lineNum">     220 </span><span class="lineCov">      74629 :                                        : unit_or_default(unit)};</span></a>
 <a name="221"><span class="lineNum">     221 </span>            :   }</a>
 <a name="222"><span class="lineNum">     222 </span>            : }</a>
 <a name="223"><span class="lineNum">     223 </span>            : </a>
-<a name="224"><span class="lineNum">     224 </span><span class="lineCov">       4080 : void ensure_conversion_possible(const DType from, const DType to,</span></a>
+<a name="224"><span class="lineNum">     224 </span><span class="lineCov">       4098 : void ensure_conversion_possible(const DType from, const DType to,</span></a>
 <a name="225"><span class="lineNum">     225 </span>            :                                 const std::string &amp;data_name) {</a>
-<a name="226"><span class="lineNum">     226 </span><span class="lineCov">       5447 :   if (from == to || (core::is_fundamental(from) &amp;&amp; core::is_fundamental(to)) ||</span></a>
-<a name="227"><span class="lineNum">     227 </span><span class="lineCov">       5447 :       to == dtype&lt;python::PyObject&gt; ||</span></a>
+<a name="226"><span class="lineNum">     226 </span><span class="lineCov">       5483 :   if (from == to || (core::is_fundamental(from) &amp;&amp; core::is_fundamental(to)) ||</span></a>
+<a name="227"><span class="lineNum">     227 </span><span class="lineCov">       5483 :       to == dtype&lt;python::PyObject&gt; ||</span></a>
 <a name="228"><span class="lineNum">     228 </span><span class="lineCov">         61 :       (core::is_int(from) &amp;&amp; to == dtype&lt;core::time_point&gt;)) {</span></a>
-<a name="229"><span class="lineNum">     229 </span><span class="lineCov">       4065 :     return; // These are allowed.</span></a>
+<a name="229"><span class="lineNum">     229 </span><span class="lineCov">       4083 :     return; // These are allowed.</span></a>
 <a name="230"><span class="lineNum">     230 </span>            :   }</a>
 <a name="231"><span class="lineNum">     231 </span><span class="lineCov">         15 :   throw std::invalid_argument(python::format(&quot;Cannot convert &quot;, data_name,</span></a>
 <a name="232"><span class="lineNum">     232 </span><span class="lineCov">         30 :                                              &quot; from type &quot;, from, &quot; to &quot;, to));</span></a>
 <a name="233"><span class="lineNum">     233 </span>            : }</a>
 <a name="234"><span class="lineNum">     234 </span>            : </a>
-<a name="235"><span class="lineNum">     235 </span><span class="lineCov">      39717 : DType common_dtype(const py::object &amp;values, const py::object &amp;variances,</span></a>
+<a name="235"><span class="lineNum">     235 </span><span class="lineCov">      39762 : DType common_dtype(const py::object &amp;values, const py::object &amp;variances,</span></a>
 <a name="236"><span class="lineNum">     236 </span>            :                    const DType dtype, const DType default_dtype) {</a>
-<a name="237"><span class="lineNum">     237 </span><span class="lineCov">      39717 :   const DType values_dtype = dtype_of(values);</span></a>
-<a name="238"><span class="lineNum">     238 </span><span class="lineCov">      39717 :   const DType variances_dtype = dtype_of(variances);</span></a>
-<a name="239"><span class="lineNum">     239 </span><span class="lineCov">      39717 :   if (dtype == core::dtype&lt;void&gt;) {</span></a>
+<a name="237"><span class="lineNum">     237 </span><span class="lineCov">      39762 :   const DType values_dtype = dtype_of(values);</span></a>
+<a name="238"><span class="lineNum">     238 </span><span class="lineCov">      39762 :   const DType variances_dtype = dtype_of(variances);</span></a>
+<a name="239"><span class="lineNum">     239 </span><span class="lineCov">      39762 :   if (dtype == core::dtype&lt;void&gt;) {</span></a>
 <a name="240"><span class="lineNum">     240 </span>            :     // Get dtype solely from data.</a>
-<a name="241"><span class="lineNum">     241 </span><span class="lineCov">      35656 :     if (values_dtype == core::dtype&lt;void&gt;) {</span></a>
+<a name="241"><span class="lineNum">     241 </span><span class="lineCov">      35683 :     if (values_dtype == core::dtype&lt;void&gt;) {</span></a>
 <a name="242"><span class="lineNum">     242 </span><span class="lineCov">         20 :       if (variances_dtype == core::dtype&lt;void&gt;) {</span></a>
 <a name="243"><span class="lineNum">     243 </span><span class="lineNoCov">          0 :         return default_dtype;</span></a>
 <a name="244"><span class="lineNum">     244 </span>            :       }</a>
 <a name="245"><span class="lineNum">     245 </span><span class="lineCov">         20 :       return variances_dtype;</span></a>
 <a name="246"><span class="lineNum">     246 </span>            :     } else {</a>
-<a name="247"><span class="lineNum">     247 </span><span class="lineCov">      36386 :       if (variances_dtype != core::dtype&lt;void&gt; &amp;&amp;</span></a>
-<a name="248"><span class="lineNum">     248 </span><span class="lineCov">        750 :           values_dtype != variances_dtype) {</span></a>
+<a name="247"><span class="lineNum">     247 </span><span class="lineCov">      36424 :       if (variances_dtype != core::dtype&lt;void&gt; &amp;&amp;</span></a>
+<a name="248"><span class="lineNum">     248 </span><span class="lineCov">        761 :           values_dtype != variances_dtype) {</span></a>
 <a name="249"><span class="lineNum">     249 </span><span class="lineNoCov">          0 :         throw std::invalid_argument(python::format(</span></a>
 <a name="250"><span class="lineNum">     250 </span>            :             &quot;The dtypes of the 'values' (&quot;, values_dtype, &quot;) and 'variances' (&quot;,</a>
 <a name="251"><span class="lineNum">     251 </span>            :             variances_dtype,</a>
 <a name="252"><span class="lineNum">     252 </span>            :             &quot;) arguments do not match. You can specify a dtype explicitly to&quot;</a>
 <a name="253"><span class="lineNum">     253 </span><span class="lineNoCov">          0 :             &quot; trigger a conversion if applicable.&quot;));</span></a>
 <a name="254"><span class="lineNum">     254 </span>            :       }</a>
-<a name="255"><span class="lineNum">     255 </span><span class="lineCov">      35636 :       return values_dtype;</span></a>
+<a name="255"><span class="lineNum">     255 </span><span class="lineCov">      35663 :       return values_dtype;</span></a>
 <a name="256"><span class="lineNum">     256 </span>            :     }</a>
 <a name="257"><span class="lineNum">     257 </span>            :   } else { // dtype != core::dtype&lt;void&gt;</a>
 <a name="258"><span class="lineNum">     258 </span>            :     // Combine data and explicit dtype with potential conversion.</a>
-<a name="259"><span class="lineNum">     259 </span><span class="lineCov">       4061 :     if (values_dtype != core::dtype&lt;void&gt;) {</span></a>
-<a name="260"><span class="lineNum">     260 </span><span class="lineCov">       4091 :       ensure_conversion_possible(values_dtype, dtype, &quot;values&quot;);</span></a>
+<a name="259"><span class="lineNum">     259 </span><span class="lineCov">       4079 :     if (values_dtype != core::dtype&lt;void&gt;) {</span></a>
+<a name="260"><span class="lineNum">     260 </span><span class="lineCov">       4109 :       ensure_conversion_possible(values_dtype, dtype, &quot;values&quot;);</span></a>
 <a name="261"><span class="lineNum">     261 </span>            :     }</a>
-<a name="262"><span class="lineNum">     262 </span><span class="lineCov">       4046 :     if (variances_dtype != core::dtype&lt;void&gt;) {</span></a>
+<a name="262"><span class="lineNum">     262 </span><span class="lineCov">       4064 :     if (variances_dtype != core::dtype&lt;void&gt;) {</span></a>
 <a name="263"><span class="lineNum">     263 </span><span class="lineCov">         19 :       ensure_conversion_possible(variances_dtype, dtype, &quot;variances&quot;);</span></a>
 <a name="264"><span class="lineNum">     264 </span>            :     }</a>
-<a name="265"><span class="lineNum">     265 </span><span class="lineCov">       4046 :     return dtype;</span></a>
+<a name="265"><span class="lineNum">     265 </span><span class="lineCov">       4064 :     return dtype;</span></a>
 <a name="266"><span class="lineNum">     266 </span>            :   }</a>
 <a name="267"><span class="lineNum">     267 </span>            : }</a>
 <a name="268"><span class="lineNum">     268 </span>            : </a>
